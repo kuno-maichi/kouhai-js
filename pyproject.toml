@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "kouhai-js"
 dynamic = ["version"]
-description = "あざとい後輩女子にJavaScriptを教えて欲しいと言われたんだけど"
+description = "可愛い後輩女子に自分だけのプログラミング言語を作りたいとと言われたんだけど、彼女はプログラミング素人な件"
 readme = "README.md"
 authors = [
     {name = "Claude Code", email = "noreply@anthropic.com"}
