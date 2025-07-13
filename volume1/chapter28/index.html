@@ -22,7 +22,7 @@
     
     
       
-        <title>第28話 変わる「世界」と、変わらない「想い」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第28話：バージョン管理：歴史を刻む - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第28話 変わる「世界」と、変わらない「想い」
+              第28話：バージョン管理：歴史を刻む
             
           </span>
         </div>
@@ -1139,37 +1141,485 @@
   
 
 
-<h1 id="28">第28話 変わる「世界」と、変わらない「想い」<a class="headerlink" href="#28" title="Permanent link">&para;</a></h1>
-<p>プログラミング抜きの「デート」から数日。僕たちの関係は、目に見えないけれど、確かに変化していた。空き教室での勉強会でも、以前のようなぎこちなさはなく、より自然に、より親密に、会話が弾むようになった。</p>
-<p>「先輩、この前話してた、あのSF小説、私も読んでみました！」
-「おお、どうだった？」
-「すごく面白かったです！　特に、あの、宇宙船のAIが、だんだん人間みたいになっていくところが……」</p>
-<p>美久が、目を輝かせながら感想を話してくれる。僕が勧めた本を、彼女が読んでくれた。たったそれだけのことが、こんなにも嬉しいなんて。</p>
-<p>僕たちの言語は、クロージャまで実装できた。次に何をすべきか、具体的な目標はまだ見えていない。でも、焦りはなかった。美久とこうして過ごす時間が、僕にとって、何よりも大切なものになっていたからだ。</p>
-<p>「そういえば、先輩。この前、相沢さんが言ってた『末尾再帰の最適化』って、何なんですか？」</p>
-<p>美久が、ふと、そんなことを尋ねた。相沢の言葉を、彼女はちゃんと覚えていたのだ。</p>
-<p>「末尾再帰の最適化、か。それは、関数が自分自身を呼び出す『再帰』っていう処理を、もっと効率的に動かすための技術だ。特に、ループの代わりに再帰を使うような場合に、重要になる」</p>
-<p>僕は、再帰の基本的な概念を説明し、簡単な例を挙げてみせた。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 階乗を計算する関数 (例: 5! = 5 * 4 * 3 * 2 * 1 = 120)</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 自分自身を呼び出す</span>
-<span class="w">  </span><span class="p">}</span>
+<h1 id="28">第28話：バージョン管理：歴史を刻む<a class="headerlink" href="#28" title="Permanent link">&para;</a></h1>
+<p>金曜日の放課後。先週のセキュリティのレッスンから一週間。昨日は少し風邪気味だった優美だったが、今日は元気な顔で部屋にやってきた。</p>
+<p>「先輩、今日は何を教えてくれるんですか？」</p>
+<p>「体調は大丈夫か？」</p>
+<p>「はい！　もうすっかり良くなりました」</p>
+<p>優美の元気な声に、安心した。</p>
+<p>「今日は、バージョン管理について」</p>
+<p>「バージョン管理？」</p>
+<p>「プログラムの変更履歴を記録し、管理する技術だ」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、何度も書き直すことがあるよね？」</p>
+<p>「はい。最初の草稿から、だいぶ変わることもあります」</p>
+<p>「その時、前のバージョンを残しておきたくない？」</p>
+<p>「あります！　でも、ファイルがいっぱいになって困ることも……」</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説の管理（悪い例）</span>
+<span class="s2">&quot;恋愛小説_最初の案.txt&quot;</span>
+<span class="s2">&quot;恋愛小説_修正版.txt&quot;</span>
+<span class="s2">&quot;恋愛小説_修正版2.txt&quot;</span>
+<span class="s2">&quot;恋愛小説_最終版.txt&quot;</span>
+<span class="s2">&quot;恋愛小説_本当の最終版.txt&quot;</span>
+<span class="s2">&quot;恋愛小説_今度こそ最終版.txt&quot;</span>
+</code></pre></div>
+<p>「これ、まさに私がやってることです！」</p>
+<p>優美が笑いながら言った。</p>
+<p>◇◇◇◇</p>
+<p>「バージョン管理システムを使えば、もっとスマートに管理できる」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Gitのような仕組みで小説を管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">NovelVersionControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">title</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">main</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;main&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コミット：変更を記録</span>
+<span class="w">    </span><span class="nx">commit</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateCommitId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">author</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">parent</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">commits</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currentBranch</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">commit</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">commit</span><span class="p">.</span><span class="nx">id</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">commit</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ログ：履歴を確認</span>
+<span class="w">    </span><span class="nx">showLog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">の変更履歴：`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">commits</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">commit</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">commit</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb"> (</span><span class="si">${</span><span class="nx">commit</span><span class="p">.</span><span class="nx">author</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`  日時: </span><span class="si">${</span><span class="nx">commit</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 差分表示</span>
+<span class="w">    </span><span class="nx">diff</span><span class="p">(</span><span class="nx">version1</span><span class="p">,</span><span class="w"> </span><span class="nx">version2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">content1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getContentByVersion</span><span class="p">(</span><span class="nx">version1</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">content2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getContentByVersion</span><span class="p">(</span><span class="nx">version2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 簡易的な差分表示</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">content1</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">content2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">before</span><span class="o">:</span><span class="w"> </span><span class="nx">content1</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">after</span><span class="o">:</span><span class="w"> </span><span class="nx">content2</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">changed</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">changed</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateCommitId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getContentByVersion</span><span class="p">(</span><span class="nx">versionId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">commits</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">versionId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">commit</span><span class="p">.</span><span class="nx">content</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>「この<code>factorial</code>関数は、<code>n</code>が<code>0</code>になるまで、自分自身を呼び出し続ける。こういうのを『再帰』って言うんだ」
-「はは。そうだな。でも、ちゃんと終わる条件があるから、無限ループにはならない。で、この再帰を、もっと賢く動かすのが『末尾再帰の最適化』なんだ」</p>
-<p>僕は、末尾再帰の最適化が、僕たちの言語の評価器に、どのような変更をもたらすかを説明した。それは、技術的にはかなり高度な内容で、美久がすぐに理解できるようなものではない。</p>
-<p>でも、彼女は、真剣な表情で僕の話を聞いていた。分からないなりに、僕の世界を理解しようと、必死に食らいついてきてくれている。</p>
-<p>「……なんだか、すごく、奥が深いんですね」</p>
-<p>美久が、ぽつりと呟いた。</p>
-<p>「プログラミングって、知れば知るほど、新しい世界が広がっていくみたいで」
-「ああ。だから、面白いんだ」</p>
-<p>僕たちの「世界」は、プログラミングという共通の興味を通じて、どんどん広がっていく。そして、その「世界」の中で、僕と美久の関係もまた、ゆっくりと、しかし確実に、深まっていた。</p>
-<p>僕たちの言語は、まだ「末尾再帰の最適化」を実装していない。でも、僕たちの関係は、すでに「最適化」され、より効率的に、そして、より深く、互いの心を繋ぎ始めている。</p>
-<p>夕暮れの空き教室。ノートパソコンの画面に映るコードと、美久の真剣な横顔。その全てが、僕にとって、かけがえのない「宝物」になっていた。</p>
+<p>「なるほど！　変更の理由も記録できるんですね」</p>
+<p>「そう。『なぜ変更したのか』を記録しておくことで、後で振り返りやすくなる」</p>
+<p>◇◇◇◇</p>
+<p>「実際に使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 優美の小説をバージョン管理</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumiNovel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NovelVersionControl</span><span class="p">(</span><span class="s2">&quot;青春プログラミング物語&quot;</span><span class="p">)</span>
+
+<span class="c1">// 最初のバージョン</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">firstDraft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">高校生の優美は、プログラミングに出会った。</span>
+<span class="sb">先輩の雅史が教えてくれるレッスンは、とても楽しかった。</span>
+<span class="sb">`</span>
+
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">firstDraft</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;初稿完成&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+
+<span class="c1">// キャラクターの関係性を追加</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">secondDraft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">高校生の優美は、プログラミングに出会った。</span>
+<span class="sb">幼馴染の先輩、雅史が教えてくれるレッスンは、とても楽しかった。</span>
+<span class="sb">二人の距離は、少しずつ縮まっているように思えた。</span>
+<span class="sb">`</span>
+
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">secondDraft</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;キャラクターの関係性を追加&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+
+<span class="c1">// 感情の描写を強化</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">thirdDraft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">高校生の優美は、プログラミングに出会った。</span>
+<span class="sb">幼馴染の先輩、雅史が教えてくれるレッスンは、とても楽しかった。</span>
+<span class="sb">二人の距離は、少しずつ縮まっているように思えた。</span>
+<span class="sb">優美の胸の奥で、新しい感情が芽生え始めていた。</span>
+<span class="sb">`</span>
+
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">thirdDraft</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;感情描写を強化&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+
+<span class="c1">// 履歴を表示</span>
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">showLog</span><span class="p">()</span>
+</code></pre></div>
+<p>「私の小説の進化過程が記録されてる！」</p>
+<p>優美の目がキラキラと輝いている。</p>
+<p>◇◇◇◇</p>
+<p>「ブランチという機能もある」</p>
+<p>「ブランチ？」</p>
+<p>「並行して異なるバージョンを開発する機能だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ブランチ機能を追加</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">AdvancedVersionControl</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">NovelVersionControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">createBranch</span><span class="p">(</span><span class="nx">branchName</span><span class="p">,</span><span class="w"> </span><span class="nx">fromCommit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">branchName</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;ブランチは既に存在します&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">startPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromCommit</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">branchName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">startPoint</span><span class="p">]</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ブランチ &#39;</span><span class="si">${</span><span class="nx">branchName</span><span class="si">}</span><span class="sb">&#39; を作成しました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">switchBranch</span><span class="p">(</span><span class="nx">branchName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">branchName</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;存在しないブランチです&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">branchName</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">lastCommit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">branchName</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lastCommit</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ブランチ &#39;</span><span class="si">${</span><span class="nx">branchName</span><span class="si">}</span><span class="sb">&#39; に切り替えました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">merge</span><span class="p">(</span><span class="nx">sourceBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">targetBranch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡易的なマージ処理</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">sourceCommits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">sourceBranch</span><span class="p">]</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">targetCommits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">branches</span><span class="p">[</span><span class="nx">targetBranch</span><span class="p">]</span>
+
+<span class="w">        </span><span class="c1">// 最新のコミットをマージ</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">sourceContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getContentByVersion</span><span class="p">(</span><span class="nx">sourceCommits</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)[</span><span class="mf">0</span><span class="p">])</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">mergeCommit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span>
+<span class="w">            </span><span class="nx">sourceContent</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="sb">`Merge branch &#39;</span><span class="si">${</span><span class="nx">sourceBranch</span><span class="si">}</span><span class="sb">&#39; into </span><span class="si">${</span><span class="nx">targetBranch</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;system&quot;</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ブランチ &#39;</span><span class="si">${</span><span class="nx">sourceBranch</span><span class="si">}</span><span class="sb">&#39; を &#39;</span><span class="si">${</span><span class="nx">targetBranch</span><span class="si">}</span><span class="sb">&#39; にマージしました`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">mergeCommit</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「例えば、違う結末を試してみたい時に使える」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">advancedNovel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AdvancedVersionControl</span><span class="p">(</span><span class="s2">&quot;青春プログラミング物語&quot;</span><span class="p">)</span>
+
+<span class="c1">// メインストーリー</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s2">&quot;二人でプログラミング言語を作ることになった。&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;物語の開始&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+
+<span class="c1">// ハッピーエンド版のブランチ</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">createBranch</span><span class="p">(</span><span class="s2">&quot;happy-ending&quot;</span><span class="p">)</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">switchBranch</span><span class="p">(</span><span class="s2">&quot;happy-ending&quot;</span><span class="p">)</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;プログラミング言語が完成し、二人は気持ちを確かめ合った。&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;ハッピーエンド版&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;柳原優美&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">// ビターエンド版のブランチ  </span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">switchBranch</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">)</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">createBranch</span><span class="p">(</span><span class="s2">&quot;bittersweet-ending&quot;</span><span class="p">)</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">switchBranch</span><span class="p">(</span><span class="s2">&quot;bittersweet-ending&quot;</span><span class="p">)</span>
+<span class="nx">advancedNovel</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;プログラミング言語は完成したが、二人はそれぞれの道を歩むことになった。&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;ビタースイート版&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;柳原優美&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>「同じ物語の、違う可能性を試せるんですね」</p>
+<p>「そう。実験的な変更も、安心してできる」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、バージョン管理できたらいいのに」</p>
+<p>突然の言葉に、心臓が跳ねた。</p>
+<p>「どういう意味だ？」</p>
+<p>「幼馴染だった頃から、今まで。どんな風に変わってきたのか、記録できたら」</p>
+<p>優美の頬が薄く赤らんでいる。</p>
+<p>「それは……」</p>
+<p>僕も顔が熱くなってくる。</p>
+<p>◇◇◇◇</p>
+<p>「こんな感じかな」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 二人の関係のバージョン管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RelationshipVersionControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationshipHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;初期設定&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">recordMilestone</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">milestone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="nx">event</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="nx">emotions</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationshipHistory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">milestone</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">milestone</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">milestone</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">updateStatus</span><span class="p">(</span><span class="nx">newStatus</span><span class="p">,</span><span class="w"> </span><span class="nx">reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">previousStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newStatus</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">recordMilestone</span><span class="p">(</span>
+<span class="w">            </span><span class="s2">&quot;関係性の変化&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="sb">`</span><span class="si">${</span><span class="nx">previousStatus</span><span class="si">}</span><span class="sb"> → </span><span class="si">${</span><span class="nx">newStatus</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">reason</span><span class="o">:</span><span class="w"> </span><span class="nx">reason</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">showTimeline</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;二人の歩み：&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">milestone</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">relationshipHistory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">milestone</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">milestone</span><span class="p">.</span><span class="nx">event</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`  </span><span class="si">${</span><span class="nx">milestone</span><span class="p">.</span><span class="nx">description</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ourRelationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RelationshipVersionControl</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">recordMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;幼少期の出会い&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;ベランダ越しに初めて会話&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">雅史</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;興味&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">優美</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;好奇心&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="s2">&quot;幼馴染&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;近所同士で自然に仲良くなった&quot;</span><span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">recordMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;プログラミングレッスン開始&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;優美がプログラミングを習い始める&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">雅史</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;嬉しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">優美</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;期待&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">recordMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;夏祭りで手を繋ぐ&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;人混みで迷子にならないように&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">雅史</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ドキドキ&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">優美</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;温かい気持ち&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">updateStatus</span><span class="p">(</span><span class="s2">&quot;???&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;お互いの気持ちが複雑になってきた&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「最後のステータスが???になってる」</p>
+<p>優美が指摘した。</p>
+<p>「今の僕たちの関係は、まだ定義しきれないから」</p>
+<p>「そうですね……でも」</p>
+<p>「でも？」</p>
+<p>「次のバージョンでは、もっとはっきりした関係になるかもしれません」</p>
+<p>優美の言葉に、僕の心臓が大きく鼓動した。</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語にも、バージョン管理機能を組み込もう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のバージョン管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeVersionControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">versions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">bugFixes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addFeature</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">contributors</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;feature&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">feature</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">contributors</span><span class="o">:</span><span class="w"> </span><span class="nx">contributors</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">version</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">versions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">version</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`新機能 &#39;</span><span class="si">${</span><span class="nx">feature</span><span class="si">}</span><span class="sb">&#39; を追加しました`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`貢献者: </span><span class="si">${</span><span class="nx">contributors</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">fixBug</span><span class="p">(</span><span class="nx">bugDescription</span><span class="p">,</span><span class="w"> </span><span class="nx">fix</span><span class="p">,</span><span class="w"> </span><span class="nx">fixedBy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bugfix&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">bugDescription</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fix</span><span class="o">:</span><span class="w"> </span><span class="nx">fix</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fixedBy</span><span class="o">:</span><span class="w"> </span><span class="nx">fixedBy</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">bugFixes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">version</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">versions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">version</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`バグを修正しました: </span><span class="si">${</span><span class="nx">bugDescription</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">release</span><span class="p">(</span><span class="nx">versionNumber</span><span class="p">,</span><span class="w"> </span><span class="nx">releaseNotes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">release</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;release&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="nx">versionNumber</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">notes</span><span class="o">:</span><span class="w"> </span><span class="nx">releaseNotes</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">features</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">slice</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">bugFixes</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">bugFixes</span><span class="p">.</span><span class="nx">slice</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">versions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">release</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// リセット</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">bugFixes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Yume言語 v</span><span class="si">${</span><span class="nx">versionNumber</span><span class="si">}</span><span class="sb"> をリリースしました！`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">releaseNotes</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumeVCS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeVersionControl</span><span class="p">()</span>
+
+<span class="nx">yumeVCS</span><span class="p">.</span><span class="nx">addFeature</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;感情表現構文&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;プログラムで感情を表現できる構文&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nx">yumeVCS</span><span class="p">.</span><span class="nx">addFeature</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;物語構造サポート&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;小説の構造をコードで表現する機能&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nx">yumeVCS</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Yume言語の最初のリリース！二人の夢が形になりました。&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「私たちが作ったYume言語の歴史も、ちゃんと記録されるんですね」</p>
+<p>「将来、誰かがYume言語を使った時、僕たちがどんな思いで作ったかも伝わるかもしれない」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕は特別なバージョン管理システムを見せた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 思い出のバージョン管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MemoryVersionControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">saveMemory</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">participants</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">importance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">participants</span><span class="o">:</span><span class="w"> </span><span class="nx">participants</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">importance</span><span class="o">:</span><span class="w"> </span><span class="nx">importance</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1-10</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">memoryId</span><span class="p">,</span><span class="w"> </span><span class="nx">tag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">memoryId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">memory</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">tag</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">findMemoriesByTag</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">tag</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getMostImportantMemories</span><span class="p">(</span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">importance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">importance</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 二人の思い出を保存</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ourMemories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MemoryVersionControl</span><span class="p">()</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">summerFestival</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ourMemories</span><span class="p">.</span><span class="nx">saveMemory</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;夏祭りの夜&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;人混みで手を繋いだ特別な夜&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;ドキドキと幸せ&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">9</span>
+<span class="p">)</span>
+
+<span class="nx">ourMemories</span><span class="p">.</span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">summerFestival</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;特別な夜&quot;</span><span class="p">)</span>
+<span class="nx">ourMemories</span><span class="p">.</span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">summerFestival</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;手を繋いだ&quot;</span><span class="p">)</span>
+<span class="nx">ourMemories</span><span class="p">.</span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">summerFestival</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;夏&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">firstLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ourMemories</span><span class="p">.</span><span class="nx">saveMemory</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;初めてのプログラミングレッスン&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;優美がプログラミングを始めた記念すべき日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;期待と緊張&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">8</span>
+<span class="p">)</span>
+
+<span class="nx">ourMemories</span><span class="p">.</span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">firstLesson</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミング&quot;</span><span class="p">)</span>
+<span class="nx">ourMemories</span><span class="p">.</span><span class="nx">tagMemory</span><span class="p">(</span><span class="nx">firstLesson</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;始まり&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「私たちの大切な思い出も、ちゃんと保存されるんですね」</p>
+<p>「そう。いつまでも忘れたくない思い出だから」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返っていた。</p>
+<p>バージョン管理。変更の履歴を記録し、管理する技術。</p>
+<p>（優美との関係も、確実に変化している）</p>
+<p>窓の外を見ると、夕焼けが街を優しく染めていた。</p>
+<p>幼馴染から始まった僕たちの関係。それが今、どんなバージョンに向かっているのか。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 次のコミット予定</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nextCommit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;重要な気持ちを伝える&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">changes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;relationship_status: &#39;幼馴染&#39; → &#39;???&#39;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;courage_level: 50 → 100&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;honesty: true&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">reviewedBy</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// まだ優美の返事待ち</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>いつか、このコミットを実行する日が来る。その時まで、僕は優美と一緒に、僕たちの歴史を大切に積み重ねていこう。</p>
+<p>一つ一つの思い出を、丁寧にバージョン管理しながら。</p>
 
 
 
@@ -1247,6 +1697,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

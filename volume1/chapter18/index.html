@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,40 +1172,210 @@
   
 
 
-<h1 id="18">第18話 言葉にならない想い（コメント）<a class="headerlink" href="#18" title="Permanent link">&para;</a></h1>
-<p>あの、切ない沈黙から数日。僕たちの開発作業には、どこか、以前の熱気が少しだけ失われていた。まるで、終わりを意識してしまった<code>while</code>ループのように、僕たちの時間もまた、いつか終わりが来るという事実が、重くのしかかっている。</p>
-<p>そんな空気を、僕も感じていないわけではなかった。何か、話題を変えなければ。</p>
-<p>「なあ、美久」</p>
-<p>僕は、努めて明るい声で話しかけた。</p>
-<p>「プログラミングにはな、コンピュータは完全に無視するのに、人間にとっては、すごく、すごく大事なものがあるんだ。何だと思う？」
-「え……？　コンピュータは無視するのに、人間には大事……？」</p>
-<p>僕の唐突な問いかけに、美久は不思議そうに首を傾げた。</p>
-<p>「答えは、『コメント』だ」
-「コメント？」
-「ああ。プログラムのコードの中に書き残しておく、ただのメモ書きのことだ。コンピュータは、コメントを見つけると、そこには何も書かれていないかのように、綺麗に無視する。でも、人間にとっては、それが宝の山になることがあるんだ」</p>
-<p>僕は、なぜコメントが重要なのかを、三つの理由を挙げて説明した。
-　一つは、未来の自分へのメッセージ。数ヶ月も経てば、どうしてこんなコードを書いたかなんて、綺麗さっぱり忘れてしまうからだ。
-　二つ目は、チームで開発する時の、仲間へのメッセージ。他の人が、コードの意図をすぐに理解できるように。
-　そして三つ目は、自分の頭を整理するため。複雑な処理を書く前に、まず日本語で手順を書き出してみることで、思考がまとまりやすくなる。</p>
-<p>「じゃあ、私たちの言語にも、そのコメント機能をつけましょうよ！」</p>
-<p>美久が、少しだけ、いつもの元気を取り戻したように言った。でも、僕は、少しだけ寂しげに、首を横に振った。</p>
-<p>「……いや、それは、まだやめておこう」
-「どうしてですか？」
-「コメント機能を作るには、『パーサー』っていう、もっと本格的な仕組みが必要になるんだ。文字列を、一文字一文字、細かく解析していく、すごく複雑な処理だ。今の僕たちの言語は、まだ、そこまで難しいことは考えられないんだ」</p>
-<p>僕の言葉に、美久は「そっか……」と、少しだけ残念そうに呟いた。</p>
-<p>（私のこの気持ちも、コメントみたいに残せたらいいのに……）</p>
-<p>彼女は、心の中でそう思っていた。『この<code>if</code>文は、先輩に褒めてほしくて、頑張って考えました』とか。『この<code>while</code>ループは、先輩との時間が、少しでも長く続いてほしくて、書きました』とか。
-　そんな、プログラムの動作には全く関係ない、言葉にならない想い。</p>
-<p>「でもな」と、僕が続けた。「僕たちが今書いている、このJavaScriptのファイルに、普通にコメントを残すことはできる」</p>
-<p>僕は、おもむろに、僕たちの心臓部である<code>evaluate</code>関数の、一番上の行にカーソルを合わせた。そして、そこに、静かに一行の言葉を刻んだ。</p>
-<p><code>// 美久と一緒に作った、最初の評価器</code></p>
-<p>それは、プログラムの実行には、何の影響も与えない、ただの文字列。コンピュータにとっては、存在しないのと同じ一行。</p>
-<p>でも。</p>
-<p>その、何の変哲もないコメントを見た瞬間、美久の胸が、きゅっと、どうしようもなく熱くなった。
-　先輩も、同じ気持ちでいてくれたんだ。この時間を、大切に思ってくれていたんだ。
-　その一行は、どんな饒舌なコードよりも雄弁に、彼の、言葉にならない「想い」を、彼女に伝えてくれていた。</p>
-<p>「……はい」</p>
-<p>涙がこぼれてしまいそうで、彼女は、必死に天井を見上げながら、小さな、小さな声で返事をするのが、精一杯だった。</p>
+<h1 id="18">第18話：非同期処理：待つことの大切さ<a class="headerlink" href="#18" title="Permanent link">&para;</a></h1>
+<p>火曜日の放課後。私、柳原優美は先輩の部屋に向かいながら、胸の鼓動が少しずつ早くなるのを感じていた。昨日のレッスンで、先輩が小さな声でつぶやいた「恋愛も……」という言葉が、頭から離れない。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>いつも通りの挨拶。でも、心の中はいつも通りじゃない。</p>
+<p>「おう、優美。今日は非同期処理について学ぼう」</p>
+<p>「非同期処理？」</p>
+<p>「そう。『待つ』ということの大切さを学ぶ内容だ」</p>
+<p>先輩の言葉に、私の心臓がドキッとした。</p>
+<p>（待つこと……それって、まるで……）</p>
+<p>◇◇◇◇</p>
+<p>「優美、料理をする時、全部の工程を順番にやるか？」</p>
+<p>「え？　いいえ、お湯を沸かしている間に野菜を切ったりします」</p>
+<p>「それが非同期処理の考え方だ。何かを待っている間に、他のことを進める」</p>
+<p>先輩がコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 同期的な処理（順番に実行）</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;朝起きた&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;顔を洗った&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;朝ごはんを食べた&quot;</span><span class="p">)</span>
+
+<span class="c1">// 非同期的な処理の例</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;お湯を沸かし始めた&quot;</span><span class="p">)</span>
+
+<span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;3秒後：お湯が沸いた！&quot;</span><span class="p">)</span>
+<span class="p">},</span><span class="w"> </span><span class="mf">3000</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;その間に野菜を切る&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;その間に味付けの準備&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「実行してみて」</p>
+<p>実行すると、「お湯が沸いた！」が最後に表示された。</p>
+<p>「わあ！　本当に待っている間に他のことをしてる！」</p>
+<p>◇◇◇◇</p>
+<p>「でも、非同期処理には難しさもある」</p>
+<p>先輩が新しいコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説を書く非同期処理</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">writeChapter</span><span class="p">(</span><span class="nx">chapterNum</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">chapterNum</span><span class="si">}</span><span class="sb">章を書き始めた`</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 執筆には時間がかかる（ランダムな時間）</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">writingTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3000</span>
+
+<span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">chapterNum</span><span class="si">}</span><span class="sb">章が完成した！`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">callback</span><span class="p">()</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="nx">writingTime</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 3つの章を同時に書き始める</span>
+<span class="nx">writeChapter</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第1章の推敲開始&quot;</span><span class="p">))</span>
+<span class="nx">writeChapter</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第2章の推敲開始&quot;</span><span class="p">))</span>
+<span class="nx">writeChapter</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第3章の推敲開始&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>「これを実行すると……」</p>
+<p>章の完成順序がバラバラになった。</p>
+<p>「あ！　順番が入れ替わっちゃう！」</p>
+<p>「そう。非同期処理では、どれが先に終わるかわからない。だから、順序が大事な時は特別な配慮が必要なんだ」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、Promise（約束）という仕組みを使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Promiseを使った非同期処理</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="nx">chapterNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">chapterNum</span><span class="si">}</span><span class="sb">章を書き始めた`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">chapterNum</span><span class="si">}</span><span class="sb">章が完成した！`</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">resolve</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">chapterNum</span><span class="si">}</span><span class="sb">章の内容`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1">// 順番に実行する</span>
+<span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">content</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第1章を推敲中...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">content</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第2章を推敲中...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">content</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第3章を推敲中...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;小説が完成した！&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+</code></pre></div>
+<p>「Promise……約束、ですか」</p>
+<p>その言葉の響きに、私の心が揺れた。</p>
+<p>「そう。『必ず結果を返す』という約束。成功するか、失敗するか、どちらかの結果を必ず返してくれる」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「Promiseって、人間関係にも似てませんか？」</p>
+<p>私の言葉に、先輩が手を止めた。</p>
+<p>「どういうことだ？」</p>
+<p>「誰かに想いを伝える時も、すぐに答えが返ってくるわけじゃない。でも、いつか必ず、YesかNoか、答えをもらえる」</p>
+<p>先輩の頬が少し赤くなった。</p>
+<p>「確かに……そうだな」</p>
+<p>◇◇◇◇</p>
+<p>「それじゃあ、async/awaitという、もっと新しい書き方も見てみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// async/awaitを使った非同期処理</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">writeNovel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;小説執筆開始&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// awaitで順番に待つ</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第1章推敲完了&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第2章推敲完了&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">writeChapterPromise</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第3章推敲完了&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;小説完成！&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;執筆中にエラー：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 実行</span>
+<span class="nx">writeNovel</span><span class="p">()</span>
+</code></pre></div>
+<p>「awaitは『待つ』という意味。大切なことは、急がずに待つことなんだ」</p>
+<p>先輩の横顔を見つめながら、私は思った。</p>
+<p>（私も、先輩の気持ちを待ってもいいのかな）</p>
+<p>◇◇◇◇</p>
+<p>「実は、僕たちの関係も非同期処理みたいだな」</p>
+<p>先輩が突然、そんなことを言い出した。</p>
+<p>「え？」</p>
+<p>「優美がプログラミングを学んでいる間に、僕も優美から創作の見方を学んでる。お互いが並行して成長している」</p>
+<p>その言葉に、胸が温かくなる。</p>
+<p>「でも、いつかは同期する時が来るんでしょうか」</p>
+<p>「同期？」</p>
+<p>「お互いの想いが、一つになる時が」</p>
+<p>私の言葉に、先輩の動きが止まった。教室に流れる沈黙は、まるで非同期処理の待ち時間のよう。</p>
+<p>◇◇◇◇</p>
+<p>「優美」</p>
+<p>「はい」</p>
+<p>「プログラミングでは、非同期処理の結果を待つ時、タイムアウトを設定することがある」</p>
+<p>「タイムアウト？」</p>
+<p>「永遠に待ち続けるわけにはいかないから、制限時間を決めるんだ」</p>
+<p>先輩がコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// タイムアウト付きのPromise</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">waitWithTimeout</span><span class="p">(</span><span class="nx">promise</span><span class="p">,</span><span class="w"> </span><span class="nx">timeout</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span>
+<span class="w">        </span><span class="nx">promise</span><span class="p">,</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">reject</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;タイムアウト&quot;</span><span class="p">),</span><span class="w"> </span><span class="nx">timeout</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">slowPromise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;やっと完了&quot;</span><span class="p">),</span><span class="w"> </span><span class="mf">5000</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">waitWithTimeout</span><span class="p">(</span><span class="nx">slowPromise</span><span class="p">,</span><span class="w"> </span><span class="mf">3000</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;エラー：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">))</span>
+</code></pre></div>
+<p>「でも、人の想いにタイムアウトなんてないですよね」</p>
+<p>私の言葉に、先輩が優しく微笑んだ。</p>
+<p>「そうだな。大切なものほど、じっくり待つ価値がある」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、先輩が特別なコードを見せてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 想いを伝える非同期関数</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">expressFeeling</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">feeling</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="kr">from</span><span class="si">}</span><span class="sb">の想いを準備中...`</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 想いを言葉にするのには時間がかかる</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">2000</span><span class="p">))</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="kr">from</span><span class="si">}</span><span class="sb">から</span><span class="si">${</span><span class="nx">to</span><span class="si">}</span><span class="sb">へ：`</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`「</span><span class="si">${</span><span class="nx">feeling</span><span class="si">}</span><span class="sb">」`</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 返事を待つ</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">to</span><span class="si">}</span><span class="sb">の返事を待っています...`</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// 返事は相手のタイミング次第</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1">// いつか実行される日のために</span>
+<span class="c1">// expressFeeling(&quot;雅史&quot;, &quot;優美&quot;, &quot;ずっと一緒にいたい&quot;)</span>
+</code></pre></div>
+<p>コメントアウトされた最後の行を見て、私の目に涙が浮かんだ。</p>
+<p>「先輩……」</p>
+<p>「あ、いや、これはただのサンプルコードで……」</p>
+<p>慌てる先輩の姿が、愛おしくてたまらない。</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『非同期処理：待つことの美学』
+『Promise：必ず答えをくれる約束』
+『await：大切なものを待つ勇気』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩の想いも、私はずっと待てる』</p>
+<p>窓の外を見ると、夕焼けが街を優しく包んでいた。</p>
+<p>（非同期処理みたいに、私たちも今は別々の道を歩いているけど）</p>
+<p>でも、いつか必ず、二つの処理が一つに合流する時が来る。その日まで、私は先輩と一緒にプログラミングを学び続ける。</p>
+<p>Promiseは必ず結果を返す。先輩が最後に見せてくれたコードのように、いつか想いが形になる日を信じて。</p>
+<p>そんな甘い期待を胸に、私は小説の続きを書き始めた。非同期に進む二人の想いが、最後には美しく同期する物語を。</p>
 
 
 
@@ -1281,6 +1453,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

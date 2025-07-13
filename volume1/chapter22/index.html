@@ -22,7 +22,7 @@
     
     
       
-        <title>第22話 関数という名の「実行」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第22話：テスト駆動開発：信頼を積み重ねる - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第22話 関数という名の「実行」
+              第22話：テスト駆動開発：信頼を積み重ねる
             
           </span>
         </div>
@@ -1139,62 +1141,249 @@
   
 
 
-<h1 id="22">第22話 関数という名の「実行」<a class="headerlink" href="#22" title="Permanent link">&para;</a></h1>
-<p>「関数を定義するだけじゃ、まだ何も起こらない。次に必要なのは、その関数を『呼び出す』ことだ」</p>
-<p>僕は、エディタに<code>add</code>関数を呼び出す例を打ち込んだ。</p>
-<p><code>['add', 1, 2]</code></p>
-<p>「これは、『<code>add</code>という名前の関数に、<code>1</code>と<code>2</code>という値を与えて、実行してくれ』っていうお願いだ。見た目は、足し算の<code>['+', 1, 2]</code>と似てるだろ？」
-「はい！　でも、どうやって区別するんですか？」</p>
-<p>美久の質問に、僕は頷いた。</p>
-<p>「いい質問だ。僕たちの<code>evaluate</code>関数は、リストの最初の要素が、演算子なのか、それとも関数名なのかを判断する必要がある。もし、それが関数名だったら、その関数オブジェクトを取り出して、実行してやるんだ」</p>
-<p>僕は<code>evaluate</code>関数に、新しい処理を追加した。</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// リストの場合の処理（既存の四則演算やif、begin、defineの前に）</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">exp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exp</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// リストの最初の要素</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exp</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 残りの要素は引数</span>
+<h1 id="22">第22話：テスト駆動開発：信頼を積み重ねる<a class="headerlink" href="#22" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。私、柳原優美は少し緊張しながら先輩の部屋に向かった。土曜日の夏祭りのことが、まだ心の中でキラキラと輝いている。</p>
+<p>（手を繋いだ感触、まだ覚えてる……）</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>いつもの挨拶。でも、目が合った瞬間、お互いに少し照れてしまった。</p>
+<p>「おう、優美。その……土曜日は楽しかったな」</p>
+<p>「はい！　とても楽しかったです」</p>
+<p>お互いに顔を赤くしながら、でも嬉しそうに微笑み合う。</p>
+<p>「じゃあ、今日のレッスンを始めよう。今日はテスト駆動開発について」</p>
+<p>「テスト駆動開発？」</p>
+<p>「プログラムが正しく動くことを保証する方法だ」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、推敲はするよね？」</p>
+<p>「もちろんです。誤字脱字をチェックしたり、話の流れがおかしくないか確認したり」</p>
+<p>「それと同じことをプログラミングでもやるんだ。それがテスト」</p>
+<p>先輩がコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説の文字数をカウントする関数</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">countCharacters</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span>
+<span class="p">}</span>
 
-<span class="w">      </span><span class="c1">// 最初の要素が文字列（関数名）の場合</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">head</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">env</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span><span class="w"> </span><span class="c1">// 環境から関数オブジェクトを探す</span>
+<span class="c1">// テストを書く</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testCountCharacters</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// テストケース1：普通の文章</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">countCharacters</span><span class="p">(</span><span class="s2">&quot;こんにちは&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;5文字のはずが&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;文字&quot;</span><span class="p">)</span>
 
-<span class="w">        </span><span class="c1">// もし見つかったのが関数オブジェクトだったら</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">func</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">func</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;function&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="c1">// ここで関数を実行する</span>
-<span class="w">          </span><span class="c1">// 1. 新しい環境（世界）を作る</span>
-<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">funcEnv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Environment</span><span class="p">(</span><span class="nx">func</span><span class="p">.</span><span class="nx">env</span><span class="p">);</span><span class="w"> </span><span class="c1">// 関数の生まれた世界を親にする！</span>
+<span class="w">    </span><span class="c1">// テストケース2：空文字</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">countCharacters</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0文字のはずが&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;文字&quot;</span><span class="p">)</span>
 
-<span class="w">          </span><span class="c1">// 2. 引数を新しい環境に定義する</span>
-<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">func</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">funcEnv</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="nx">func</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// 引数の値を評価して定義</span>
-<span class="w">          </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// テストケース3：スペースも含む</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">countCharacters</span><span class="p">(</span><span class="s2">&quot;私は 優美&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;5文字のはずが&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;文字&quot;</span><span class="p">)</span>
 
-<span class="w">          </span><span class="c1">// 3. 関数の本体を新しい環境で評価する</span>
-<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">func</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">funcEnv</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;全てのテストが成功しました！&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// テストを実行</span>
+<span class="nx">testCountCharacters</span><span class="p">()</span>
+</code></pre></div>
+<p>「わあ！　自動でチェックしてくれるんですね！」</p>
+<p>◇◇◇◇</p>
+<p>「でも、TDD（テスト駆動開発）の本当の面白さは、テストを先に書くことなんだ」</p>
+<p>「テストを先に？」</p>
+<p>「そう。まず『こう動いて欲しい』というテストを書いて、それを満たすコードを後から書く」</p>
+<p>先輩が新しい例を見せてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ステップ1：まずテストを書く</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testLoveCalculator</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">LoveCalculator</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// 名前の相性を計算する</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">calculate</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;相性は80%以上のはず&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">calculate</span><span class="p">(</span><span class="s2">&quot;太郎&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;花子&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">result2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0-100の範囲のはず&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// ステップ2：テストが通るようにクラスを実装</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">LoveCalculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">calculate</span><span class="p">(</span><span class="nx">name1</span><span class="p">,</span><span class="w"> </span><span class="nx">name2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡単な実装（本当は複雑なアルゴリズム）</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="kr">char</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">name1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">hash</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="kr">char</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="c1">// ...既存の四則演算、if、begin、defineの処理が続く</span>
+
+<span class="w">        </span><span class="c1">// 特別な組み合わせ</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nx">name1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">name2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="p">(</span><span class="nx">name1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">name2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">95</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">101</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>「リストの最初の要素を<code>head</code>、残りを<code>args</code>として取り出す。そして、<code>head</code>が文字列だったら、それは関数名かもしれないから、まず『世界』の中からその名前を探しに行く」
-「もし、見つかったのが、前に作った『関数オブジェクト』だったら……」</p>
-<p>僕は、ここが一番の肝だと強調した。</p>
-<p>「関数を呼び出す時、まず、その関数が生まれた時の『世界（環境）』を親とする、新しい『子どもの世界』を作るんだ。そして、その新しい世界の中で、関数に与えられた引数（<code>args</code>）を、関数の引数名（<code>params</code>）に対応させて定義してやる」
-「なるほど……！　関数が生まれた時の世界を、ちゃんと覚えてるんですね！」</p>
-<p>美久が、はっとしたように声を上げた。彼女の瞳が、理解の光で輝いている。</p>
-<p>「その通りだ。そして、最後に、関数の本体（<code>body</code>）を、この新しい世界の中で実行する。これが、関数が『実行される』ということだ」</p>
-<p>僕は、<code>add</code>関数を定義し、呼び出すテストコードを実行した。</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Environment</span><span class="p">();</span>
-<span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;add&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;lambda&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">]]],</span><span class="w"> </span><span class="nx">env</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;add&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; 30</span>
+<p>「え？　私たちの名前が……」</p>
+<p>顔が熱くなった。</p>
+<p>「あ、いや、これはただのサンプルで……」</p>
+<p>先輩も慌てている。</p>
+<p>◇◇◇◇</p>
+<p>「で、でも、なんでテストを先に書くんですか？」</p>
+<p>話題を変えるように質問した。</p>
+<p>「ゴールを明確にするためだよ。小説で言えば、プロットを先に作るようなもの」</p>
+<p>「なるほど！　先に結末を決めておいて、そこに向かって書いていく感じですね」</p>
+<p>「その通り。それに、テストがあることで安心してコードを変更できる」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// リファクタリング前</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatChapter</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;第&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">number</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;章：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;\n\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">content</span>
+<span class="p">}</span>
+
+<span class="c1">// テストがあれば、安心してリファクタリングできる</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatChapter</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`第</span><span class="si">${</span><span class="nx">number</span><span class="si">}</span><span class="sb">章：</span><span class="si">${</span><span class="nx">title</span><span class="si">}</span>
+
+<span class="si">${</span><span class="nx">content</span><span class="si">}</span><span class="sb">`</span>
+<span class="p">}</span>
+
+<span class="c1">// テストで動作が変わってないことを確認</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testFormatChapter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">formatChapter</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;出会い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;二人は運命的に...&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;第1章：出会い\n\n二人は運命的に...&quot;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">expected</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;フォーマットが違います&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>画面に、期待通りの<code>30</code>という数字が表示された。</p>
-<p>「やった……！　動いた……！」</p>
-<p>美久が、小さく歓声を上げた。その顔は、達成感と喜びに満ちている。</p>
-<p>「これで、僕たちの言語は、自分自身で新しい『お願い』を作り、それを実行できるようになった。これは、プログラミング言語にとって、本当に大きな一歩なんだ」</p>
-<p>僕の言葉に、美久は力強く頷いた。</p>
-<p>「先輩！　これって、相沢さんをぎゃふんと言わせる、第一歩ですよね！」</p>
-<p>その言葉を聞いて、僕は思わず笑ってしまった。彼女のモチベーションが、相沢への対抗心だとしても、こうして一緒に、僕たちの「宝物」を磨き上げていけることが、何よりも嬉しかった。</p>
-<p>僕たちの言語は、また一つ、賢くなった。そして、僕たちの関係もまた、一歩、深く、確かなものへと進んだような気がした。</p>
+<p>◇◇◇◇</p>
+<p>「先輩、私も書いてみたいです」</p>
+<p>「いいよ。何かアイデアはある？」</p>
+<p>私は少し考えてから、キーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 感情分析のテストを先に書く</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testEmotionAnalyzer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionAnalyzer</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// ポジティブな文章</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="nx">analyze</span><span class="p">(</span><span class="s2">&quot;今日は先輩と手を繋いで、とても幸せでした&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result1</span><span class="p">.</span><span class="nx">happiness</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;幸福度が低すぎます&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result1</span><span class="p">.</span><span class="nx">love</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">70</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;愛情度が検出されていません&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// ネガティブな文章</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="nx">analyze</span><span class="p">(</span><span class="s2">&quot;プログラムがエラーで動かなくて悲しい&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result2</span><span class="p">.</span><span class="nx">sadness</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;悲しみが検出されていません&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 中立的な文章</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="nx">analyze</span><span class="p">(</span><span class="s2">&quot;今日は月曜日です&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">result3</span><span class="p">.</span><span class="nx">neutral</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;中立的ではありません&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// テストを満たす実装</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionAnalyzer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;幸せ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;嬉しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;楽しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;素敵&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;好き&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;愛&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;繋い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ドキドキ&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">sadness</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;悲しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;辛い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;エラー&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;失敗&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">neutral</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">analyze</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sadness</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">neutral</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// キーワードマッチング</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">keywords</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">keywords</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">keyword</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">keywords</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">keyword</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">emotions</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">30</span>
+<span class="w">                    </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">neutral</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 正規化</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">emotions</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">emotion</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">emotions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">emotions</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">emotions</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">emotions</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「素晴らしい！　テストから実装まで完璧だ」</p>
+<p>先輩に褒められて、心が温かくなった。</p>
+<p>◇◇◇◇</p>
+<p>「テスト駆動開発には、もう一つ大切なことがある」</p>
+<p>「なんですか？」</p>
+<p>「『信頼』を積み重ねることだ」</p>
+<p>先輩が真剣な表情で続けた。</p>
+<p>「一つ一つテストが通ることで、自分のコードへの信頼が生まれる。そして、その信頼があるから、大胆な挑戦もできるようになる」</p>
+<p>「人間関係みたいですね」</p>
+<p>つい口に出してしまった。</p>
+<p>「確かにそうだな。小さな約束を守り続けることで、大きな信頼が生まれる」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちのYume言語にも、テストを書きましょう」</p>
+<p>「いいアイデアだ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のテスト</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testYumeLanguage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">yume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeLanguage</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// 基本的な計算</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">yume</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;1 + 1&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;足し算が動作しません&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 変数</span>
+<span class="w">    </span><span class="nx">yume</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;let love = 100&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">yume</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;love&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;変数が動作しません&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 関数</span>
+<span class="w">    </span><span class="nx">yume</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;function heart() { return &#39;ドキドキ&#39; }&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">yume</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;heart()&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;ドキドキ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;関数が動作しません&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Yume言語の全テストが成功しました！&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これで、Yume言語を安心して改良できますね」</p>
+<p>「そうだな。一歩一歩、確実に前に進んでいける」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの終わりに、先輩が特別なコードを見せてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 二人の関係性のテスト</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testOurRelationship</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Relationship</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 初期状態</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">us</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;幼馴染&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;最初は幼馴染&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// イベントを追加</span>
+<span class="w">    </span><span class="nx">us</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;プログラミングを教える&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">us</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;一緒にYume言語を作る&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">us</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;夏祭りで手を繋ぐ&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 関係性が進展</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">us</span><span class="p">.</span><span class="nx">closeness</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;親密度が上がっているはず&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">us</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;？？？&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;関係性はまだ定義中&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// いつかのテスト（まだ失敗する）</span>
+<span class="w">    </span><span class="c1">// us.addEvent(&quot;告白する&quot;)</span>
+<span class="w">    </span><span class="c1">// console.assert(us.status === &quot;恋人&quot;, &quot;関係性が更新されるはず&quot;)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「最後のテスト、コメントアウトされてますね」</p>
+<p>「まだ……テストが通らないから」</p>
+<p>先輩の顔が赤くなった。</p>
+<p>「でも、いつかは」</p>
+<p>「いつかは？」</p>
+<p>「そのテストも、通る日が来るといいな」</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『テスト駆動開発：信頼を一つずつ積み重ねる』
+『先にゴールを決めて、そこに向かって進む』
+『テストは安心と挑戦の土台』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩との関係も、一つずつテストをクリアしていきたい』</p>
+<p>窓の外を見ると、夕焼けが街を優しく包んでいた。</p>
+<p>（いつか、最後のコメントアウトが外れる日が来ますように）</p>
+<p>そんな願いを込めて、私は自分の小説の続きを書き始めた。主人公たちが、少しずつ信頼を積み重ねて、最後には結ばれる物語を。</p>
 
 
 
@@ -1272,6 +1461,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

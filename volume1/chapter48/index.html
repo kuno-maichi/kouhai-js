@@ -22,7 +22,7 @@
     
     
       
-        <title>第48話 恋の「永続化」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第48話：分散システム：みんなで作る（優美視点） - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第48話 恋の「永続化」
+              第48話：分散システム：みんなで作る（優美視点）
             
           </span>
         </div>
@@ -1139,26 +1141,399 @@
   
 
 
-<h1 id="48">第48話 恋の「永続化」<a class="headerlink" href="#48" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋の未来」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、ずっと残しておきたいですね」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋の永続化」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを永遠にしたいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋の永続化」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="48">第48話：分散システム：みんなで作る（優美視点）<a class="headerlink" href="#48" title="Permanent link">&para;</a></h1>
+<p>告白から一週間。私たちは恋人として、新しい関係を楽しみながら、Yume言語の開発を続けていた。</p>
+<p>「優美、今日は分散システムについて学ぼう」</p>
+<p>雅史さんがいつものように優しく提案してくれる。恋人になってから、その優しさがより一層嬉しく感じられる。</p>
+<p>「分散システム？」</p>
+<p>「そう。複数のコンピュータが協力して動くシステムのことだよ」</p>
+<p>◇◇◇◇</p>
+<p>「小説でいうと、どんな感じですか？」</p>
+<p>私はいつものように、自分の得意分野に引き寄せて理解しようとした。</p>
+<p>「そうだね……合作小説みたいなものかな」</p>
+<p>雅史さんが考えながら答える。</p>
+<p>「複数の作家が、それぞれ別の章を書いて、一つの物語を作り上げる。それぞれが独立して作業しながら、全体として一つの作品になる」</p>
+<p>「なるほど！　私も友達と合作したことがあります」</p>
+<p>◇◇◇◇</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 分散システムの基本概念</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">DistributedSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">  </span><span class="c1">// 各ノード（コンピュータ）</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">coordinator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="w">  </span><span class="c1">// 調整役</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 共有状態</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ノードの追加</span>
+<span class="w">    </span><span class="nx">addNode</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">role</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ノード</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">が参加しました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// タスクの分配</span>
+<span class="w">    </span><span class="nx">distributeTask</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">availableNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">availableNodes</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">availableNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">)]</span>
+
+<span class="w">        </span><span class="nx">selectedNode</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`タスク「</span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」をノード</span><span class="si">${</span><span class="nx">selectedNode</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">に割り当てました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 同期処理</span>
+<span class="w">    </span><span class="nx">synchronize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;全ノードの状態を同期中...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">lastSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語の分散処理</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeDistributed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">DistributedSystem</span><span class="p">()</span>
+
+<span class="c1">// 開発者たちがノードとして参加</span>
+<span class="nx">yumeDistributed</span><span class="p">.</span><span class="nx">addNode</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;感情処理担当&quot;</span><span class="p">})</span>
+<span class="nx">yumeDistributed</span><span class="p">.</span><span class="nx">addNode</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;技術基盤担当&quot;</span><span class="p">})</span>
+<span class="nx">yumeDistributed</span><span class="p">.</span><span class="nx">addNode</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;友人A&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;テスト担当&quot;</span><span class="p">})</span>
+</code></pre></div>
+<p>「私たちも分散システムみたいですね」</p>
+<p>「どういうこと？」</p>
+<p>「雅史さんが技術を担当して、私が感情表現を担当して、協力してYume言語を作っている」</p>
+<p>◇◇◇◇</p>
+<p>「その通りだね。でも、分散システムには課題もある」</p>
+<p>雅史さんがホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 分散システムの課題</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">DistributedChallenges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">challenges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">consistency</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;一貫性の維持&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">availability</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;可用性の確保&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">partitionTolerance</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;分断耐性&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// CAP定理：3つ全ては同時に満たせない</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ネットワーク分断の発生</span>
+<span class="w">    </span><span class="nx">handleNetworkPartition</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;ネットワークが分断されました！&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 各ノードが独立して動作を続ける</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">isolatedNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">splitIntoPartitions</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">isolatedNodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">partition</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`分断されたグループ: </span><span class="si">${</span><span class="nx">partition</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">            </span><span class="c1">// それぞれが独自に処理を続ける</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 最終的な一貫性</span>
+<span class="w">    </span><span class="nx">eventualConsistency</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;最終的には全てのノードが同じ状態になります&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// 時間はかかるが、最終的には一致する</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 恋愛における分散システム？</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">LoveDistributedSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">hearts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nx">owner</span><span class="o">:</span><span class="w"> </span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">feelings</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()},</span>
+<span class="w">            </span><span class="p">{</span><span class="nx">owner</span><span class="o">:</span><span class="w"> </span><span class="nx">person2</span><span class="p">,</span><span class="w"> </span><span class="nx">feelings</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情の同期</span>
+<span class="w">    </span><span class="nx">synchronizeFeelings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;お互いの気持ちを確認中...&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 時にはすれ違いも起きる（ネットワーク分断）</span>
+<span class="w">        </span><span class="c1">// でも最終的には理解し合える（最終的一貫性）</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;愛は最強の同期プロトコル&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「すれ違いも、分散システムの一部なんですね」</p>
+<p>私は先週の出来事を思い出しながら言った。</p>
+<p>「そうだね。でも、ちゃんと同期を取れば大丈夫」</p>
+<p>雅史さんが優しく手を握ってくれた。温かい。</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語も、分散して開発できるようにしましょう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の分散開発システム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeCollaborativeSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">contributors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">pullRequests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mergeConflicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 新しい貢献者の参加</span>
+<span class="w">    </span><span class="nx">addContributor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">specialty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">contributors</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">specialty</span><span class="o">:</span><span class="w"> </span><span class="nx">specialty</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">contributions</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">joinedAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">さんが参加しました！`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`得意分野: </span><span class="si">${</span><span class="nx">specialty</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プルリクエストの作成</span>
+<span class="w">    </span><span class="nx">createPullRequest</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span><span class="w"> </span><span class="nx">changes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pullRequests</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">author</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">changes</span><span class="o">:</span><span class="w"> </span><span class="nx">changes</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">reviews</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">pullRequests</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pr</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`PR #</span><span class="si">${</span><span class="nx">pr</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">changes</span><span class="p">.</span><span class="nx">description</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コードレビュー</span>
+<span class="w">    </span><span class="nx">reviewCode</span><span class="p">(</span><span class="nx">prId</span><span class="p">,</span><span class="w"> </span><span class="nx">reviewer</span><span class="p">,</span><span class="w"> </span><span class="nx">feedback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pullRequests</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">prId</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">pr</span><span class="p">.</span><span class="nx">reviews</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">reviewer</span><span class="o">:</span><span class="w"> </span><span class="nx">reviewer</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">feedback</span><span class="o">:</span><span class="w"> </span><span class="nx">feedback</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 愛のあるレビュー</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">reviewer</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">feedback</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// マージ処理</span>
+<span class="w">    </span><span class="nx">merge</span><span class="p">(</span><span class="nx">prId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">pullRequests</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">prId</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// コンフリクトチェック</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasConflict</span><span class="p">(</span><span class="nx">pr</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;マージコンフリクトが発生しました&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;みんなで協力して解決しましょう！&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">pr</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;merged&quot;</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;正常にマージされました🎉&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">hasConflict</span><span class="p">(</span><span class="nx">pr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 感情の衝突をチェック（笑）</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.3</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 実際に使ってみる</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeCollab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeCollaborativeSystem</span><span class="p">()</span>
+
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">addContributor</span><span class="p">(</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;感情表現・ストーリーテリング&quot;</span><span class="p">)</span>
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">addContributor</span><span class="p">(</span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;技術基盤・アーキテクチャ&quot;</span><span class="p">)</span>
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">addContributor</span><span class="p">(</span><span class="s2">&quot;田中さん&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;UIデザイン&quot;</span><span class="p">)</span>
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">addContributor</span><span class="p">(</span><span class="s2">&quot;鈴木さん&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ドキュメント作成&quot;</span><span class="p">)</span>
+
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">createPullRequest</span><span class="p">(</span><span class="s2">&quot;田中さん&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;感情表現のビジュアル化機能を追加&quot;</span>
+<span class="p">})</span>
+
+<span class="nx">yumeCollab</span><span class="p">.</span><span class="nx">reviewCode</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;素敵なアイデアです！感情が色で表現されるのが面白い💖&quot;</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「みんなで作るって、楽しそうですね」</p>
+<p>「うん。一人じゃできないことも、みんなでなら実現できる」</p>
+<p>雅史さんの言葉に、深く頷いた。</p>
+<p>◇◇◇◇</p>
+<p>「でも、調整も大変そう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 分散システムの調整メカニズム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ConsensusProtocol</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">proposals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">votes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 提案の作成</span>
+<span class="w">    </span><span class="nx">propose</span><span class="p">(</span><span class="nx">proposer</span><span class="p">,</span><span class="w"> </span><span class="nx">idea</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">proposal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">proposer</span><span class="o">:</span><span class="w"> </span><span class="nx">proposer</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">idea</span><span class="o">:</span><span class="w"> </span><span class="nx">idea</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">supporters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">proposer</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;voting&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">proposals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">proposal</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">proposer</span><span class="si">}</span><span class="sb">の提案: </span><span class="si">${</span><span class="nx">idea</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">proposal</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 投票</span>
+<span class="w">    </span><span class="nx">vote</span><span class="p">(</span><span class="nx">voter</span><span class="p">,</span><span class="w"> </span><span class="nx">proposalId</span><span class="p">,</span><span class="w"> </span><span class="nx">support</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">proposal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">proposals</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">proposalId</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">support</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">proposal</span><span class="p">.</span><span class="nx">supporters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">voter</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">voter</span><span class="si">}</span><span class="sb">が賛成しました`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">voter</span><span class="si">}</span><span class="sb">が反対しました`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 過半数の支持で採用</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">proposal</span><span class="p">.</span><span class="nx">supporters</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getTotalVoters</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">proposal</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;提案が採用されました！&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getTotalVoters</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="c1">// 仮の数値</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語のコミュニティ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeCommunity</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コミュニティイベント</span>
+<span class="w">    </span><span class="nx">organizeEvent</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span><span class="w"> </span><span class="nx">organizer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">eventName</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">organizer</span><span class="o">:</span><span class="w"> </span><span class="nx">organizer</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">participants</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">topics</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`イベント「</span><span class="si">${</span><span class="nx">eventName</span><span class="si">}</span><span class="sb">」を開催します！`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 知識の共有</span>
+<span class="w">    </span><span class="nx">shareKnowledge</span><span class="p">(</span><span class="nx">member</span><span class="p">,</span><span class="w"> </span><span class="nx">knowledge</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">member</span><span class="si">}</span><span class="sb">さんの共有:`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`「</span><span class="si">${</span><span class="nx">knowledge</span><span class="si">}</span><span class="sb">」`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;みんなで学び合いましょう！&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「私、Yume言語のコミュニティマネージャーになりたいです」</p>
+<p>突然の私の申し出に、雅史さんが驚いた顔をした。</p>
+<p>「コミュニティマネージャー？」</p>
+<p>「はい。技術的なことは雅史さんの方が詳しいけど、人と人を繋げることなら、私にもできるかもって」</p>
+<p>小説を書いていて学んだことがある。作品は読者がいて初めて完成するということ。</p>
+<p>◇◇◇◇</p>
+<p>「それ、素晴らしいアイデアだ」</p>
+<p>雅史さんが嬉しそうに言った。</p>
+<p>「優美なら、きっと素敵なコミュニティを作れるよ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 優美のコミュニティビジョン</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumiCommunityVision</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">vision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;感情でつながるプログラミングコミュニティ&quot;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;初心者に優しい&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;失敗を恐れない&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;感情を大切にする&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;みんなで成長する&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ウェルカムメッセージ</span>
+<span class="w">    </span><span class="nx">welcomeNewMember</span><span class="p">(</span><span class="nx">memberName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">こんにちは、</span><span class="si">${</span><span class="nx">memberName</span><span class="si">}</span><span class="sb">さん！</span>
+<span class="sb">Yume言語コミュニティへようこそ💖</span>
+
+<span class="sb">ここは、プログラミングに感情を込められる</span>
+<span class="sb">世界で唯一の場所です。</span>
+
+<span class="sb">初心者の方も、経験者の方も、</span>
+<span class="sb">みんなで一緒に成長していきましょう。</span>
+
+<span class="sb">エラーは恐れないでください。</span>
+<span class="sb">それは成長のチャンスです。</span>
+
+<span class="sb">何か困ったことがあれば、</span>
+<span class="sb">いつでも聞いてくださいね。</span>
+
+<span class="sb">優美より</span>
+<span class="sb">        `</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 定期イベントの企画</span>
+<span class="w">    </span><span class="nx">planEvents</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;感情デバッグ大会&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;エラーメッセージに感情を込めて、楽しくデバッグ！&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Yumeもくもく会&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;みんなで集まって、静かに開発。でも感情は豊かに！&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;初心者歓迎会&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;新しい仲間を温かく迎える会。先輩が優しく教えます&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「雅史さん」</p>
+<p>「ん？」</p>
+<p>「私たち、いいチームですよね」</p>
+<p>恋人としても、開発パートナーとしても。</p>
+<p>「最高のチームだよ」</p>
+<p>雅史さんが優しく微笑んだ。</p>
+<p>◇◇◇◇</p>
+<p>夕方、私たちは将来のYume言語コミュニティについて話し合っていた。</p>
+<p>「いつか、世界中の人がYume言語を使ってくれたら」</p>
+<p>「きっと使ってくれるよ。優美の想いが込められた言語だから」</p>
+<p>「雅史さんの技術があってこそです」</p>
+<p>お互いを認め合える関係。これも一種の分散システムかもしれない。</p>
+<p>◇◇◇◇</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 私たちの未来予想図</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourFuture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">nearFuture</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">yumeLanguage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;バージョン1.0リリース&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">community</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100人のアクティブユーザー&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;もっと深い愛&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">midFuture</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">yumeLanguage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;教育機関での採用&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">community</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1000人の開発者&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;結婚...？💍&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nx">farFuture</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">yumeLanguage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;世界標準の感情プログラミング言語&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">community</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;グローバルコミュニティ&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;永遠に一緒&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;私たちの夢:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ourFuture</span><span class="p">)</span>
+</code></pre></div>
+<p>分散システム。それは、離れていても繋がっている仕組み。</p>
+<p>私と雅史さんも、時には別々の作業をしながら、心は常に繋がっている。</p>
+<p>Yume言語も、世界中の人々を感情で繋げる分散システムになるかもしれない。</p>
+<p>技術と愛。両方とも、人と人を繋げる素晴らしい力を持っている。</p>
+<p>みんなで作る未来。それが、私たちの選んだ道。</p>
 
 
 
@@ -1236,6 +1611,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

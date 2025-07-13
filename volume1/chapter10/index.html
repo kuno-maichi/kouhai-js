@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,50 +1172,245 @@
   
 
 
-<h1 id="10">第10話 解けたバグと、解けない心<a class="headerlink" href="#10" title="Permanent link">&para;</a></h1>
-<p>彼女が帰ってから、どれくらいの時間が経っただろうか。
-　僕は、まるで何かに取り憑かれたかのように、ひたすらキーボードを叩き続けていた。静まり返った教室に、カタカタという乾いた音だけが響く。</p>
-<p>そして、ついにその瞬間は訪れた。</p>
-<p>「……これか！」</p>
-<p>原因は、僕が書いた<code>Environment</code>クラスの、ごく初歩的な設計ミスだった。変数を定義する時、常に一番大元の環境に書き込むようになっていたせいで、値の「上書き」が正しく機能していなかったのだ。
-　数行のコードを修正し、改めてテストを実行する。</p>
-<p><code>evaluate(['define', 'x', 20], env);</code>
-<code>console.log(evaluate('x', env));</code></p>
-<p>今度こそ、画面にはっきりと<code>20</code>という数字が表示された。</p>
-<p>「よし……！」</p>
-<p>僕は、思わずガッツポーズをした。脳内に、じわりと達成感が広がっていく。この、難解なパズルが解けた瞬間の全能感こそ、プログラミングの醍醐味だ。
-　僕は、この喜びを分かち合おうと、隣の席に座っているはずの彼女に、勢いよく振り向いた。</p>
-<p>「やったぞ、美久！　やっぱり……」</p>
-<p>言いかけて、言葉が止まる。
-　そこに、彼女の姿はなかった。静まり返った教室で、僕の声だけが、虚しく響いて消えていく。</p>
-<p>（ああ、そうか。あいつ、用事があるって……）</p>
-<p>その時になって、僕は初めて、言いようのない空虚感に襲われた。いつもなら、隣で「すごいですね、先輩！」と、僕以上に喜んでくれる彼女がいない。たったそれだけのことが、解けたはずのパズルのピースを、またバラバラにしてしまったかのように、僕の心を落ち着かなくさせた。</p>
-<p>ふと、彼女が座っていた椅子に目をやる。そこに、大学ノートが一冊、ぽつんと置き忘れられているのが見えた。</p>
-<p>「……忘れ物か」</p>
-<p>僕は、何気なくそのノートを手に取り、ぱらりとページをめくった。
-　そこに書かれていたものを見て、僕は、息を呑んだ。</p>
-<p>ノートには、今までの僕の説明が、彼女なりの言葉で、ぎこちない文字で、必死に書き留められていた。</p>
-<p>『ぷろぐらみんぐげんご = こんぴゅーたへのおねがいのしかた』</p>
-<p><code>evaluate</code>のコードの横には、小さな文字で『ほんやくき！』と書かれ、その隣には、なぜか玉ねぎのへたくそなイラストが添えられている。</p>
-<p>ページをめくるたびに、胸が締め付けられた。彼女が、どれだけ必死に、僕のいる世界についてこようとしてくれていたか。その努力の跡が、痛いほどに伝わってくる。</p>
-<p>そして、最後のページ。</p>
-<p>そこには、<code>Environment</code>の<code>class</code>構文が、何度も書き直された跡と共に記されていた。その周りには、鉛筆で書かれたのであろう、か細い文字が、いくつも並んでいた。</p>
-<p>『むずかしい』
-　『わからない』
-　『どうして？』</p>
-<p>その文字を見た瞬間、僕は、まるで頭を鈍器で殴られたかのような、強い衝撃を受けた。</p>
-<p>彼女が、一人でこんな風に苦しんでいたなんて。SOSを出していたなんて。僕は、そのことに、全く気づいていなかった。</p>
-<p>『集中させてくれ』</p>
-<p>自分の放った、無神経な言葉が、脳内で再生される。バグを解くことに夢中で、僕は、すぐ隣にいた彼女の心を、壊してしまっていたんだ。</p>
-<p>「……馬鹿野郎、俺は……」</p>
-<p>自分自身への罵倒が、かすれた声になって漏れた。さっきまでの達成感なんて、跡形もなく消え去っていた。僕が本当に解かなければならなかった問題は、こんなコードの中じゃなかった。彼女の、あの小さなノートの中に、全部書いてあったじゃないか。</p>
-<p>居ても立ってもいられなかった。
-　僕は、彼女のノートを強く握りしめると、自分の鞄をひったくるように掴み、教室を飛び出した。</p>
-<p>窓の外は、もうとっぷりと日が暮れていた。街の明かりが、滲んで見える。</p>
-<p>彼女は、どこにいる？
-　もしかしたら、一人で泣いているんじゃないだろうか。</p>
-<p>謝らなければ。そして、今度こそ、ちゃんと伝えなければ。</p>
-<p>僕は、僕が本当に向き合うべき問題から、もう決して目を逸らさないと心に誓い、彼女の姿を探して、夜の街へと駆け出した。</p>
+<h1 id="10">第10話：配列：データの整理と、新たな発見<a class="headerlink" href="#10" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。雅史先輩とのプログラミングレッスンも今日で十日目だ。</p>
+<p>昨日は関数について学んで、先輩が作ってくれた「私たちの関係を表現する関数」にとても感動した。あの時の「俺たちの毎日は、この関数で表現できるんだ」という言葉が心に残っている。</p>
+<p>私、柳原優美は今日も先輩の部屋に向かった。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、お疲れ。今日も頑張ろうな」</p>
+<p>先輩の笑顔を見ていると、今日も新しいことを学べるワクワク感でいっぱいになる。</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「今日は配列について詳しく学ぼう。データを整理する方法だ」</p>
+<p>「配列？」</p>
+<p>「優美の小説でも、登場人物をリストアップしたり、アイテムを整理したりするだろ？」</p>
+<p>確かに！　私は頷いた。</p>
+<p>「あります！　キャラクター設定シートとか、物語の重要アイテムリストとか！」</p>
+<p>「そう。プログラミングでも、関連するデータをまとめて管理したい時に配列を使うんだ」</p>
+<p>先輩がキーボードに向かった。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;さくら&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;登場人物：&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;. &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">characters</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「実行してみて」</p>
+<p>画面に結果が表示された。</p>
+<div class="highlight"><pre><span></span><code>登場人物：
+1. 美咲
+2. 健太
+3. さくら
+4. 雅史
+5. 優美
+</code></pre></div>
+<p>「わあ！　ちゃんと番号付きのリストになってる！」</p>
+<p>「そう。配列は、複数のデータを順序立てて管理できるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「配列の良いところは、データを追加したり削除したりできることなんだ」</p>
+<p>「追加や削除？」</p>
+<p>「優美の小説でも、途中で新しいキャラクターが登場したり、いなくなったりするだろ？」</p>
+<p>先輩が説明してくれる。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">storyItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;魔法の杖&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;古い日記&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;謎の鍵&quot;</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;最初のアイテムリスト：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storyItems</span><span class="p">)</span>
+
+<span class="c1">// 新しいアイテムを追加</span>
+<span class="nx">storyItems</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;光る宝石&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;新しいアイテムが追加されました：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storyItems</span><span class="p">)</span>
+
+<span class="c1">// 最初のアイテムを削除</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">storyItems</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">removedItem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」が物語から消えました&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;現在のアイテムリスト：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storyItems</span><span class="p">)</span>
+</code></pre></div>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>最初のアイテムリスト：
+[&quot;魔法の杖&quot;, &quot;古い日記&quot;, &quot;謎の鍵&quot;]
+新しいアイテムが追加されました：
+[&quot;魔法の杖&quot;, &quot;古い日記&quot;, &quot;謎の鍵&quot;, &quot;光る宝石&quot;]
+「魔法の杖」が物語から消えました
+現在のアイテムリスト：
+[&quot;古い日記&quot;, &quot;謎の鍵&quot;, &quot;光る宝石&quot;]
+</code></pre></div>
+<p>「すごい！　まるで物語の展開そのものですね！」</p>
+<p>私は感動した。</p>
+<p>「配列を使えば、私の小説の設定管理がもっと簡単になりそう！」</p>
+<p>◇◇◇◇</p>
+<p>「今度は、優美が実際に配列を作ってみて」</p>
+<p>「私が？　えーと……」</p>
+<p>私は考えながらキーボードを打った。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">myFeelings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;友達として好き&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;尊敬してる&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;頼りにしてる&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;一緒にいると楽しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;大切な人&quot;</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;先輩への気持ちの変遷：&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">myFeelings</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;段階&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">myFeelings</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="c1">// 新しい気持ちを追加</span>
+<span class="nx">myFeelings</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;もしかして恋してる？&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;\n最新の気持ち：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myFeelings</span><span class="p">[</span><span class="nx">myFeelings</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">])</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>先輩への気持ちの変遷：
+段階1：友達として好き
+段階2：尊敬してる
+段階3：頼りにしてる
+段階4：一緒にいると楽しい
+段階5：大切な人
+
+最新の気持ち：
+もしかして恋してる？
+</code></pre></div>
+<p>画面を見て、私は真っ赤になった。</p>
+<p>「あの……これも、小説の主人公の心情の変化で……」</p>
+<p>「そうか」</p>
+<p>先輩が少し微笑んでいる。でも、その表情がなんだか嬉しそうに見えた。</p>
+<p>◇◇◇◇</p>
+<p>「配列は、特定の要素を検索することもできるんだ」</p>
+<p>「検索？」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">skills</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;プログラミング&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;小説執筆&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;料理&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;イラスト&quot;</span><span class="p">]</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">searchSkill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;小説執筆&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">skills</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">searchSkill</span><span class="p">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">searchSkill</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;番目にあります&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">searchSkill</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」は見つかりませんでした&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>「小説執筆」は2番目にあります
+</code></pre></div>
+<p>「わあ！　配列の中から特定のものを探せるんですね！」</p>
+<p>「そう。これは、優美の小説で特定のキャラクターや設定を探す時に便利だ」</p>
+<p>私は配列の可能性にワクワクしてきた。</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「配列って、私たちの思い出も整理できそうですね」</p>
+<p>「どういうことだ？」</p>
+<p>「これまでの10日間のレッスンを、配列にしてみませんか？」</p>
+<p>先輩が興味深そうに頷く。</p>
+<p>「いいアイデアだね。一緒に作ってみよう」</p>
+<p>私たちは協力してコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">ourMemories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;初めてプログラミングを教わった日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;エラーと格闘した日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;変数の概念を理解した日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Yume言語の約束をした日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;初めて共同作業をした日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;変数で心情を表現した日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;条件分岐で未来を考えた日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ループで日常の幸せを発見した日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;関数で効率化の喜びを知った日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;今日、配列でデータを整理している日&quot;</span>
+<span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;私たちの10日間の軌跡：&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">ourMemories</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Day &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">ourMemories</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;\n最も大切な思い出：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ourMemories</span><span class="p">[</span><span class="mf">3</span><span class="p">])</span><span class="w"> </span><span class="c1">// Yume言語の約束</span>
+</code></pre></div>
+<p>実行すると、私たちの思い出が順番に表示された。</p>
+<p>「わあ！　私たちの思い出が配列になりました！」</p>
+<p>「そうだな。こうして見ると、本当に色々なことを学んだな」</p>
+<p>先輩が感慨深げに言う。</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「この配列を見ていると、私たち本当に成長しましたね」</p>
+<p>「優美の成長が一番すごいよ。最初は全然わからなかったプログラミングが、今では自分でコードを書けるようになってる」</p>
+<p>先輩の褒め言葉に、胸が温かくなる。</p>
+<p>「でも、それは先輩が教えてくれたからです」</p>
+<p>「いや、優美の努力と才能だ」</p>
+<p>私たちは微笑み合った。</p>
+<p>「あの、先輩。この配列にもう一つ要素を追加したいんです」</p>
+<p>「どんな要素だ？」</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ourMemories</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;これからも一緒に学び続ける未来&quot;</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;新しい要素が追加されました：&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ourMemories</span><span class="p">[</span><span class="nx">ourMemories</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">])</span>
+</code></pre></div>
+<p>「これからも一緒に学び続ける未来」と表示された。</p>
+<p>「優美……」</p>
+<p>先輩が優しく微笑む。</p>
+<p>「俺も同じ気持ちだ。これからもずっと一緒に学んでいこう」</p>
+<p>◇◇◇◇</p>
+<p>「ところで、配列は二次元にすることもできるんだ」</p>
+<p>「二次元？」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">characterProfiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;明るい&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優しい&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;創作好き&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラマー&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;キャラクター詳細情報：&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">characterProfiles</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">characterProfiles</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">0</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">characterProfiles</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">1</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">characterProfiles</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">2</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳、&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">personality</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>キャラクター詳細情報：
+美咲：16歳、明るい
+健太：17歳、優しい
+優美：16歳、創作好き
+雅史：17歳、プログラマー
+</code></pre></div>
+<p>「すごい！　まるでキャラクター設定データベースみたい！」</p>
+<p>「そう。二次元配列を使えば、もっと複雑なデータも整理できるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「今日学んだ配列で、私の小説執筆がもっと効率的になりそうです」</p>
+<p>「どういう風に活用するんだ？」</p>
+<p>「登場人物リスト、重要アイテムリスト、話の展開リスト……全部配列で管理すれば、とても整理しやすくなります！」</p>
+<p>私は興奮している。</p>
+<p>「それに、新しいキャラクターが登場したら配列に追加して、退場したら削除すれば、常に最新の設定を維持できます！」</p>
+<p>「優美の発想力はいつも素晴らしいな」</p>
+<p>先輩が感心してくれる。</p>
+<p>「先輩のおかげで、プログラミングの考え方が身についてきました」</p>
+<p>「優美なら、きっとYume言語でも素晴らしいアイデアを出してくれるだろうな」</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わって、自分の部屋に戻る。</p>
+<p>今日は配列について学んだけど、一番印象に残ったのは、私たちの思い出を配列で整理できたことだった。</p>
+<p>（10日間で、こんなにたくさんのことを学んだんだな）</p>
+<p>振り返ってみると、最初は全然わからなかったプログラミングが、今では楽しくて仕方がない。</p>
+<p>机に向かって、今日のレッスンをノートにまとめる。</p>
+<p>『配列：複数のデータを順序立てて管理する』
+『追加・削除・検索が可能』
+『私たちの思い出も配列で整理できる』</p>
+<p>最後に、私は新しいページに書いた。</p>
+<p>『プログラミング学習の軌跡（配列version）』</p>
+<p>そして、これまでの10日間を配列のように番号付きで書き出していく。</p>
+<p>1. 初めてのプログラミング
+　2. エラーとの格闘
+　3. 変数の理解
+　4. Yume言語の約束
+　5. 共同作業の喜び
+　6. 心情の変数化
+　7. 条件分岐の発見
+　8. ループの魅力
+　9. 関数の効率性
+　10. 配列の整理術</p>
+<p>そして最後に、小さく書き加えた。</p>
+<p>『11. これからも続く、先輩との学びの日々』</p>
+<p>窓の外を見ると、夕日が沈んでいく。明日からも、この配列に新しい要素が追加されていくんだろう。</p>
+<p>（この思い出の配列が、どんどん大きくなっていきますように）</p>
+<p>そして、いつかこの配列の中に、私の本当の気持ちを伝えた日も追加されるのかもしれない。</p>
+<p>配列を学んだ今日、私は改めて実感した。</p>
+<p>先輩との日々は、整理すればするほど、その一つ一つがかけがえのない宝物だということを。</p>
 
 
 
@@ -1291,6 +1488,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1168,35 +1170,275 @@
   
 
 
-<h1 id="20">第20話 関数という名の「約束」<a class="headerlink" href="#20" title="Permanent link">&para;</a></h1>
-<p>相沢が嵐のように去った後、教室には、少しだけ気まずいような、それでいて、奇妙な連帯感のようなものが漂っていた。
-　その沈黙を破ったのは、美久だった。</p>
-<p>「……先輩」
-「ん？」
-「さっきの人が言ってた、『くろーじゃ』って、何なんですか？」</p>
-<p>その質問を、僕は待っていた。待っていたかのように、にやりと口の端を吊り上げた。</p>
-<p>「いいところに目をつけたな、美久。でもな、クロージャを理解するには、まず、その親玉である『関数』っていう概念を、僕たちの言語に実装しないといけない」
-「関数……」
-「ああ。今までで、一番大きな機能追加になる。そして、これができれば、僕たちの言語は、もう『おままごと』なんて、絶対に言わせないレベルになる」</p>
-<p>僕は、エディタに向き直り、彼女に宣言した。</p>
-<p>「関数っていうのは、一言で言えば、『一連の処理に名前をつけて、いつでも呼び出せるようにしておく仕組み』だ。僕たちが今まで作ってきた、<code>+</code>や<code>*</code>みたいな基本的な『お願い』を、今度は、僕たち自身の手で、自由に、いくつでも作れるようになるんだ」</p>
-<p>僕は、関数を定義するための、新しいキーワード<code>lambda</code>（ラムダ）を使った構文を、画面に打ち出した。</p>
-<p><code>['define', 'add', ['lambda', ['x', 'y'], ['+', 'x', 'y']]]</code></p>
-<p>「<code>lambda</code>は、『ここからが関数の定義だよ』っていう、特別な合図だ。それに続くのが、関数が受け取る値の名前、『引数』（ひきすう）。そして、最後のリストが、実際に行う処理。この一行で、『<code>add</code>という名前で、二つの数を受け取って、それを足し算する関数』を、僕たちは定義したことになる」</p>
-<p>そして、僕は、相沢が口にした「クロージャ」の概念の、ほんのさわりの部分だけを、彼女に伝えた。</p>
-<p>「関数はな、美久。ただの処理の塊じゃないんだ。もっと特別で……関数が作られた『瞬間』の『世界（環境）』を、まるごと写真に撮るみたいに、記憶してるんだ。そして、いつでも、その時の世界のことを思い出しながら、仕事をしてくれる。その、記憶を持った、賢い関数のことを、クロージャって言うんだ」</p>
-<p>美久は、まだ完全には理解できていないようだった。でも、「記憶を持った関数……」と、その不思議な言葉の響きを、自分の心の中で反芻しているようだった。</p>
-<p>「……なんだか、すごく、難しそうですね」
-「ああ。正直に言って、今までで一番の難関だ。今の僕たちの言語の仕組みを、根本から見直さないといけないかもしれない。でも……」</p>
-<p>僕は、彼女の目を、真っ直ぐに見つめて言った。</p>
-<p>「相沢のヤツに、おままごとだなんて言わせっぱなしじゃ、悔しいだろ？」</p>
-<p>その言葉は、魔法だったらしい。僕の言葉を聞いた瞬間、美久の瞳に、再び、あの強く、挑戦的な光が宿った。</p>
-<p>「……はい！」</p>
-<p>彼女は、椅子から立ち上がらんばかりの勢いで、力強く頷いた。</p>
-<p>「私、やります！　先輩と一緒に、その、くろーじゃ？を作って、あの人を、ぎゃふんと言わせてやりたいです！」</p>
-<p>その姿を見て、僕の心にも、熱い火が灯った。もう、僕たちの間に、迷いはなかった。相沢の挑発は、結果的に、僕たちの目標を、より高く、より明確なものへと、引き上げてくれたのだ。</p>
-<p>これから始まる、最大の挑戦。それは、僕たちの言語が、本物の翼を持つための、大きな、大きな一歩だ。</p>
-<p>第一部、終わり。そして、僕と彼女の、本当の物語の、始まり。</p>
+<h1 id="20">第20話：データベース：記憶を永続化する<a class="headerlink" href="#20" title="Permanent link">&para;</a></h1>
+<p>木曜日の放課後。先輩の部屋に向かう私の足取りは、日に日に軽くなっている。でも今日は、胸の奥に小さな不安も抱えていた。</p>
+<p>（昨日のAPI、私の気持ちを???にしちゃったけど……）</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、優美。今日はデータベースについて学ぼう」</p>
+<p>「データベース？」</p>
+<p>「プログラムの記憶を永続的に保存する仕組みだ」</p>
+<p>先輩の言葉に、私の心がざわついた。</p>
+<p>（記憶を……永続的に……）</p>
+<p>◇◇◇◇</p>
+<p>「優美は日記とか書くか？」</p>
+<p>「はい！　創作のアイデアとか、その日の出来事とか」</p>
+<p>「データベースは、プログラムにとっての日記帳みたいなものだ」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// メモリ上のデータ（プログラムを終了すると消える）</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">temporaryMemories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;今日は楽しかった&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;新しいことを学んだ&quot;</span>
+<span class="p">]</span>
+
+<span class="c1">// データベースに保存（永続的に残る）</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">DiaryDatabase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 実際はファイルやDBMSを使う</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">entries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">save</span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">entry</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">entry</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">entries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;日記を保存しました：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">record</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">record</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">findByEmotion</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">entries</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">findByDateRange</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span><span class="w"> </span><span class="nx">endDate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">entries</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">e</span><span class="p">.</span><span class="nx">createdAt</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">startDate</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">createdAt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">endDate</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「記憶を整理して、後から取り出せるようにするんですね」</p>
+<p>「そう。大切な思い出ほど、ちゃんと保存しておきたいだろ？」</p>
+<p>先輩の言葉が、私の胸に響いた。</p>
+<p>◇◇◇◇</p>
+<p>「実際に、優美との思い出データベースを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 思い出データベース</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MemoryDatabase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addMemory</span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">date</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">event</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">participants</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">participants</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">emotions</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">importance</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">importance</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">tags</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// タグの管理</span>
+<span class="w">        </span><span class="nx">record</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">tag</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">tag</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">tag</span><span class="p">).</span><span class="nx">push</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">record</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">searchByTag</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ids</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">id</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getMostImportantMemories</span><span class="p">(</span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">[...</span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">]</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">importance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">importance</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MemoryDatabase</span><span class="p">()</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7月1日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;初めてのプログラミングレッスン&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">participants</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史先輩&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">優美</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;緊張と期待&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">雅史</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;嬉しさと責任感&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">importance</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;始まり&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミング&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;出会い&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「わあ！　思い出に重要度まで付けられるんですね」</p>
+<p>「データベースなら、色んな角度から思い出を見つけられる」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「忘れたい記憶も、データベースには残るんですか？」</p>
+<p>私の質問に、先輩が少し考え込んだ。</p>
+<p>「技術的には削除もできる。でも……」</p>
+<p>「でも？」</p>
+<p>「失敗も、辛い記憶も、全部含めてその人の歴史だと思うんだ」</p>
+<p>先輩が優しく続けた。</p>
+<p>「昨日のエラー処理の話と同じだよ。失敗から学ぶことがある」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、関係性を表現するデータベースも作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 関係性データベース</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RelationshipDatabase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">people</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addPerson</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">people</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">info</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">traits</span><span class="o">:</span><span class="w"> </span><span class="nx">info</span><span class="p">.</span><span class="nx">traits</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addRelationship</span><span class="p">(</span><span class="nx">person1Id</span><span class="p">,</span><span class="w"> </span><span class="nx">person2Id</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="p">,</span><span class="w"> </span><span class="nx">strength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">relationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">person1</span><span class="o">:</span><span class="w"> </span><span class="nx">person1Id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">person2</span><span class="o">:</span><span class="w"> </span><span class="nx">person2Id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">type</span><span class="p">,</span><span class="w">  </span><span class="c1">// &quot;友達&quot;, &quot;家族&quot;, &quot;恋人&quot;, &quot;片思い&quot; など</span>
+<span class="w">            </span><span class="nx">strength</span><span class="o">:</span><span class="w"> </span><span class="nx">strength</span><span class="p">,</span><span class="w">  </span><span class="c1">// 1-10</span>
+<span class="w">            </span><span class="nx">history</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">relationship</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">relationship</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">updateRelationship</span><span class="p">(</span><span class="nx">relationshipId</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">rel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">relationshipId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">rel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">rel</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">                </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="nx">event</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">previousStrength</span><span class="o">:</span><span class="w"> </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span>
+<span class="w">            </span><span class="p">})</span>
+
+<span class="w">            </span><span class="c1">// イベントによって関係性の強さが変化</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;一緒に&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;喧嘩&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;告白&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">2</span>
+
+<span class="w">            </span><span class="c1">// 1-10の範囲に収める</span>
+<span class="w">            </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">rel</span><span class="p">.</span><span class="nx">strength</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">relDB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RelationshipDatabase</span><span class="p">()</span>
+
+<span class="nx">relDB</span><span class="p">.</span><span class="nx">addPerson</span><span class="p">(</span><span class="s2">&quot;yumi&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">traits</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;創作好き&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;素直&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;頑張り屋&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">})</span>
+<span class="nx">relDB</span><span class="p">.</span><span class="nx">addPerson</span><span class="p">(</span><span class="s2">&quot;masashi&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">traits</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;プログラマー&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;教え上手&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">})</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">ourRelation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">relDB</span><span class="p">.</span><span class="nx">addRelationship</span><span class="p">(</span><span class="s2">&quot;yumi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;masashi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;？？？&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+</code></pre></div>
+<p>「関係性のタイプが???になってる！」</p>
+<p>私が指摘すると、先輩が照れ笑いを浮かべた。</p>
+<p>「まだ定義されてない関係性もあるってことで」</p>
+<p>◇◇◇◇</p>
+<p>「先輩、私たちの関係性、データベースではどう定義すればいいんでしょう」</p>
+<p>思い切って聞いてみた。</p>
+<p>「それは……」</p>
+<p>先輩が言葉に詰まる。</p>
+<p>「友達？　先生と生徒？　それとも……」</p>
+<p>私は勇気を振り絞って続けた。</p>
+<p>「それとも、もっと特別な何か？」</p>
+<p>教室に流れる沈黙。でも、それは重たいものじゃなくて、何かが生まれそうな、期待に満ちた静寂だった。</p>
+<p>◇◇◇◇</p>
+<p>「優美」</p>
+<p>「はい」</p>
+<p>「データベースには、トランザクションっていう機能がある」</p>
+<p>先輩が突然、技術的な話を始めた。</p>
+<p>「トランザクション？」</p>
+<p>「複数の操作を、一つのまとまりとして扱う機能だ。全部成功するか、全部失敗するか」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// トランザクションの例</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">TransactionalMemoryDB</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">MemoryDatabase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">addMemoryWithConfession</span><span class="p">(</span><span class="nx">memory</span><span class="p">,</span><span class="w"> </span><span class="nx">confession</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// トランザクション開始</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;重要な記録を開始...&quot;</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 1. 思い出を保存</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">savedMemory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 2. 告白を記録</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">confessionRecord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">memoryId</span><span class="o">:</span><span class="w"> </span><span class="nx">savedMemory</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">confession</span><span class="p">.</span><span class="kr">from</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">confession</span><span class="p">.</span><span class="nx">to</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">confession</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  </span><span class="c1">// 返事待ち</span>
+<span class="w">                </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// 3. もし告白が受け入れられたら</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confession</span><span class="p">.</span><span class="nx">accepted</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">confessionRecord</span><span class="p">.</span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;受け入れられた&quot;</span>
+<span class="w">                </span><span class="nx">savedMemory</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;特別な日&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">savedMemory</span><span class="p">.</span><span class="nx">importance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// トランザクション成功</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;すべての記録が正常に保存されました&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">memory</span><span class="o">:</span><span class="w"> </span><span class="nx">savedMemory</span><span class="p">,</span><span class="w"> </span><span class="nx">confession</span><span class="o">:</span><span class="w"> </span><span class="nx">confessionRecord</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// トランザクション失敗 - すべてロールバック</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;記録に失敗しました。なかったことに...&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これって……」</p>
+<p>私は先輩の意図に気づいた。</p>
+<p>「告白も、トランザクションみたいなものだって言いたいんですか？」</p>
+<p>◇◇◇◇</p>
+<p>「そうかもしれない」</p>
+<p>先輩が真剣な表情で私を見つめた。</p>
+<p>「成功するか、失敗するか。でも、どちらにしても記録には残る」</p>
+<p>「先輩……」</p>
+<p>「優美、昨日のAPIの???、いつか埋めてくれるか？」</p>
+<p>私の胸が高鳴る。これは、先輩なりの……。</p>
+<p>「私も、先輩との思い出データベースに、特別なタグを付けたいです」</p>
+<p>「特別なタグ？」</p>
+<p>「『大切な人』っていうタグです」</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『データベース：大切な記憶を永遠に保存する場所』
+『トランザクション：全てか無か、でも勇気を出す価値がある』
+『関係性の定義：まだ???でも、いつか必ず』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩との全ての思い出を、私の心のデータベースに永久保存したい』</p>
+<p>窓の外を見ると、星が瞬いていた。</p>
+<p>（データベースは記憶を永続化する）</p>
+<p>なら、この気持ちも、この時間も、全部永遠に残していける。先輩と過ごす一瞬一瞬を、大切にデータベースに刻みながら。</p>
+<p>いつか、私たちの関係性のタイプが???じゃなくなる日まで。その日を夢見て、私は明日も先輩の部屋に向かう。大切な人との、かけがえのない時間を記録するために。</p>
 
 
 
@@ -1274,6 +1516,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

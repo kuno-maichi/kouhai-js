@@ -22,7 +22,7 @@
     
     
       
-        <title>第34話 恋の「デバッグ」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第34話：並行処理：複数のタスクを同時に - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第34話 恋の「デバッグ」
+              第34話：並行処理：複数のタスクを同時に
             
           </span>
         </div>
@@ -1139,26 +1141,556 @@
   
 
 
-<h1 id="34">第34話 恋の「デバッグ」<a class="headerlink" href="#34" title="Permanent link">&para;</a></h1>
-<p>僕たちの「永遠のループ」が始まってから、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、なんだかバグってるみたいです……」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のデバッグ」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを知りたいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のデバッグ」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="34">第34話：並行処理：複数のタスクを同時に<a class="headerlink" href="#34" title="Permanent link">&para;</a></h1>
+<p>木曜日の放課後。恋人同士になってから、プログラミングのレッスンも新しい段階に入った。今日は、優美から興味深い質問があった。</p>
+<p>「先輩、私たちって同時に色々なことをやってますよね」</p>
+<p>「どういう意味？」</p>
+<p>「例えば、私は小説を書きながら、プログラミングも勉強して、学校の勉強もして……」</p>
+<p>「ああ、並行処理のことか」</p>
+<p>僕は優美の着眼点に感心した。確かに、人間の活動も、プログラミングの並行処理に似ている。</p>
+<p>◇◇◇◇</p>
+<p>「プログラミングでも、複数のタスクを同時に実行できるんだ」</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 逐次処理（一つずつ実行）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">sequentialTasks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;朝食を作る - 開始&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 10秒かかるとする</span>
+<span class="w">    </span><span class="nx">cookBreakfast</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;朝食を作る - 完了&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;コーヒーを淹れる - 開始&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 5秒かかるとする</span>
+<span class="w">    </span><span class="nx">makeCoffee</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;コーヒーを淹れる - 完了&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;新聞を読む - 開始&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 3秒かかるとする</span>
+<span class="w">    </span><span class="nx">readNewspaper</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;新聞を読む - 完了&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 合計：18秒</span>
+<span class="p">}</span>
+
+<span class="c1">// 並行処理（同時に実行）</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">parallelTasks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;全てのタスクを開始&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Promise.allで同時実行</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">        </span><span class="nx">cookBreakfast</span><span class="p">(),</span>
+<span class="w">        </span><span class="nx">makeCoffee</span><span class="p">(),</span>
+<span class="w">        </span><span class="nx">readNewspaper</span><span class="p">()</span>
+<span class="w">    </span><span class="p">])</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;全てのタスク完了&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 合計：10秒（最長のタスクの時間）</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「わあ、時間が短縮されてる！」</p>
+<p>「そう。同時にできることは同時にやる。それが並行処理の基本だ」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「同時にやると、混乱しませんか？」</p>
+<p>優美の疑問はもっともだ。</p>
+<p>「いい質問だ。実際、並行処理には注意点がある」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 並行処理の問題例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sharedCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">incrementCounter</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 現在の値を読む</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sharedCounter</span>
+
+<span class="w">        </span><span class="c1">// 少し待つ（他の処理が割り込む可能性）</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+
+<span class="w">        </span><span class="c1">// 値を更新</span>
+<span class="w">        </span><span class="nx">sharedCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">current</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">sharedCounter</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 二つの処理が同時に実行</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">    </span><span class="nx">incrementCounter</span><span class="p">(</span><span class="s1">&#39;処理A&#39;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">incrementCounter</span><span class="p">(</span><span class="s1">&#39;処理B&#39;</span><span class="p">)</span>
+<span class="p">]).</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`最終値: </span><span class="si">${</span><span class="nx">sharedCounter</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 期待値: 2000</span>
+<span class="w">    </span><span class="c1">// 実際: 2000未満になることがある（競合状態）</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「あれ？　数が合わない？」</p>
+<p>「これが『競合状態』というものだ。複数の処理が同じデータにアクセスすると、予期しない結果になることがある」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、どうすればいいんですか？」</p>
+<p>「適切な制御が必要だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 並行処理の適切な制御</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">TaskManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">runningTasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">maxConcurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="c1">// 同時実行数の上限</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">addTask</span><span class="p">(</span><span class="nx">taskFunction</span><span class="p">,</span><span class="w"> </span><span class="nx">taskName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="kd">function</span><span class="o">:</span><span class="w"> </span><span class="nx">taskFunction</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">taskName</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pending&#39;</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">executeTasks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">runningTasks</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 実行可能なタスクがあれば開始</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">runningTasks</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxConcurrent</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">runTask</span><span class="p">(</span><span class="nx">task</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// 少し待つ</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">results</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">runTask</span><span class="p">(</span><span class="nx">task</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">runningTasks</span><span class="o">++</span>
+<span class="w">        </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;running&#39;</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`開始: </span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">task</span><span class="p">.</span><span class="kd">function</span><span class="p">()</span>
+<span class="w">            </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;success&#39;</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`完了: </span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;failed&#39;</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;failed&#39;</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`失敗: </span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">runningTasks</span><span class="o">--</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TaskManager</span><span class="p">()</span>
+
+<span class="c1">// タスクを追加</span>
+<span class="nx">manager</span><span class="p">.</span><span class="nx">addTask</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">2000</span><span class="p">))</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;朝食完成&#39;</span>
+<span class="p">},</span><span class="w"> </span><span class="s1">&#39;朝食を作る&#39;</span><span class="p">)</span>
+
+<span class="nx">manager</span><span class="p">.</span><span class="nx">addTask</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">))</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;コーヒー完成&#39;</span>
+<span class="p">},</span><span class="w"> </span><span class="s1">&#39;コーヒーを淹れる&#39;</span><span class="p">)</span>
+
+<span class="nx">manager</span><span class="p">.</span><span class="nx">addTask</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">500</span><span class="p">))</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;新聞読了&#39;</span>
+<span class="p">},</span><span class="w"> </span><span class="s1">&#39;新聞を読む&#39;</span><span class="p">)</span>
+
+<span class="c1">// 実行</span>
+<span class="nx">manager</span><span class="p">.</span><span class="nx">executeTasks</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">results</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;全タスク完了:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「同時実行数を制限することで、混乱を防ぐんですね」</p>
+<p>「そう。人間も同じだ。あまりに多くのことを同時にやろうとすると、かえって効率が悪くなる」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、並行処理みたいですね」</p>
+<p>優美が少し照れながら言った。</p>
+<p>「どういうこと？」</p>
+<p>「勉強も、プログラミングも、恋愛も、全部同時進行で」</p>
+<p>その言葉に、僕も笑ってしまった。</p>
+<p>「確かに。でも、ちゃんと管理できてるよ」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語にも、並行処理機能を追加しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の並行処理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeConcurrency</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">locks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ワーカーを作成</span>
+<span class="w">    </span><span class="nx">createWorker</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">taskFunction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">task</span><span class="o">:</span><span class="w"> </span><span class="nx">taskFunction</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;idle&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">workers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">worker</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">worker</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージパッシング</span>
+<span class="w">    </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">fromWorker</span><span class="p">,</span><span class="w"> </span><span class="nx">toWorker</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">fromWorker</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">toWorker</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 共有メモリへの安全なアクセス</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">accessSharedMemory</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ロックを取得</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">locks</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">locks</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 操作を実行</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">operation</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ロックを解放</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">locks</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 並行実行</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">promises</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">workers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">worker</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">runWorker</span><span class="p">(</span><span class="nx">worker</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">promises</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">runWorker</span><span class="p">(</span><span class="nx">worker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">worker</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;running&#39;</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ワーカー </span><span class="si">${</span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> 開始`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sendMessage</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">receiveMessage</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">messages</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">sharedMemory</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">get</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">accessSharedMemory</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">set</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">accessSharedMemory</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">))</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">worker</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ワーカー </span><span class="si">${</span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> 完了`</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">worker</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;failed&#39;</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`ワーカー </span><span class="si">${</span><span class="nx">worker</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> エラー:`</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例：小説と感情の並行処理</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeConcurrency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeConcurrency</span><span class="p">()</span>
+
+<span class="c1">// 小説執筆ワーカー</span>
+<span class="nx">yumeConcurrency</span><span class="p">.</span><span class="nx">createWorker</span><span class="p">(</span><span class="s1">&#39;小説家&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">chapters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: 第</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">章を執筆中...`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情データを取得</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;current_emotion&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">chapters</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">number</span><span class="o">:</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="sb">`第</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">章：</span><span class="si">${</span><span class="nx">emotion</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;穏やか&#39;</span><span class="si">}</span><span class="sb">な気持ちで書かれた物語`</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 執筆の進捗を共有</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;writing_progress&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情分析ワーカーにメッセージ</span>
+<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;感情分析&#39;</span><span class="p">,</span><span class="w"> </span><span class="sb">`第</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">章完成`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">chapters</span>
+<span class="p">})</span>
+
+<span class="c1">// 感情分析ワーカー</span>
+<span class="nx">yumeConcurrency</span><span class="p">.</span><span class="nx">createWorker</span><span class="p">(</span><span class="s1">&#39;感情分析&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;期待&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;愛情&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;感動&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">emotionIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// メッセージをチェック</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">receiveMessage</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">messages</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: メッセージ受信`</span><span class="p">,</span><span class="w"> </span><span class="nx">messages</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 次の感情に更新</span>
+<span class="w">            </span><span class="nx">emotionIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">emotionIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;current_emotion&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">emotions</span><span class="p">[</span><span class="nx">emotionIndex</span><span class="p">])</span>
+
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: 感情を「</span><span class="si">${</span><span class="nx">emotions</span><span class="p">[</span><span class="nx">emotionIndex</span><span class="p">]</span><span class="si">}</span><span class="sb">」に更新`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 執筆の進捗を確認</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">sharedMemory</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;writing_progress&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">progress</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="w"> </span><span class="c1">// 執筆完了</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">500</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;感情分析完了&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// 実行</span>
+<span class="nx">yumeConcurrency</span><span class="p">.</span><span class="nx">execute</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">results</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;並行処理完了:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「すごい！　小説を書きながら、感情も分析してる」</p>
+<p>「これが並行処理の力だ。複数の処理が協調して動く」</p>
+<p>「私の頭の中みたい」</p>
+<p>優美の言葉に、僕は興味を持った。</p>
+<p>「優美の頭の中？」</p>
+<p>「小説を書いてる時、色んなことを同時に考えてるんです。ストーリーの展開、キャラクターの感情、読者の反応……」</p>
+<p>「なるほど。それも並行処理だな」</p>
+<p>◇◇◇◇</p>
+<p>「実際の並行処理の例を見てみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 実践的な並行処理：Webスクレイピング</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">WebScraper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">maxConcurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">maxConcurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">maxConcurrent</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">scrapeUrls</span><span class="p">(</span><span class="nx">urls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// URLをキューに追加</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">urls</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">url</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pending&#39;</span><span class="w"> </span><span class="p">}))</span>
+
+<span class="w">        </span><span class="c1">// 並行処理を開始</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">maxConcurrent</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">workers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">worker</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 全ワーカーの完了を待つ</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">workers</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">results</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">worker</span><span class="p">(</span><span class="nx">workerId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ワーカー</span><span class="si">${</span><span class="nx">workerId</span><span class="si">}</span><span class="sb"> 開始`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">running</span><span class="o">++</span>
+<span class="w">            </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;processing&#39;</span>
+
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ワーカー</span><span class="si">${</span><span class="nx">workerId</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">url</span><span class="si">}</span><span class="sb"> を処理中`</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// 実際のスクレイピング処理（シミュレーション）</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fetchPage</span><span class="p">(</span><span class="nx">task</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+
+<span class="w">                </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">task</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">workerId</span><span class="o">:</span><span class="w"> </span><span class="nx">workerId</span>
+<span class="w">                </span><span class="p">})</span>
+
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">task</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;failed&#39;</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">task</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">workerId</span><span class="o">:</span><span class="w"> </span><span class="nx">workerId</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">running</span><span class="o">--</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ワーカー</span><span class="si">${</span><span class="nx">workerId</span><span class="si">}</span><span class="sb"> 完了`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">fetchPage</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ネットワーク遅延のシミュレーション</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">500</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">delay</span><span class="p">))</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="sb">`ページタイトル: </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="sb">`コンテンツ（</span><span class="si">${</span><span class="nx">delay</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="si">}</span><span class="sb">ms で取得）`</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fetchedAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">scraper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebScraper</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;https://example1.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;https://example2.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;https://example3.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;https://example4.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;https://example5.com&#39;</span>
+<span class="p">]</span>
+
+<span class="nx">scraper</span><span class="p">.</span><span class="nx">scrapeUrls</span><span class="p">(</span><span class="nx">urls</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">results</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;スクレイピング完了:&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">results</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`- </span><span class="si">${</span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;成功&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;失敗&#39;</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「複数のWebページを同時に取得してるんですね」</p>
+<p>「そう。一つずつ取得するより、ずっと効率的だ」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕は優美に特別なプログラムを見せた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 私たちの並行処理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">OurParallelLife</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">masashi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;プログラミング&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;勉強&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優美との時間&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">yumi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">tasks</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;小説執筆&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;勉強&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;雅史との時間&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedMoments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">liveTogether</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">masashiLife</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">masashiRoutine</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">yumiLife</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">yumiRoutine</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 二人の生活を並行実行</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">masashiLife</span><span class="p">,</span><span class="w"> </span><span class="nx">yumiLife</span><span class="p">])</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">sharedMoments</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedMoments</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalLove</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">love</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">love</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;並行処理でも、心は一つ&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">masashiRoutine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">task</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">task</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;優美との時間&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">shareMoment</span><span class="p">(</span><span class="s1">&#39;プログラミングを教える&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`雅史: </span><span class="si">${</span><span class="nx">task</span><span class="si">}</span><span class="sb">中`</span><span class="p">)</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">yumiRoutine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">task</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">task</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;雅史との時間&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">shareMoment</span><span class="p">(</span><span class="s1">&#39;一緒に学ぶ&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`優美: </span><span class="si">${</span><span class="nx">task</span><span class="si">}</span><span class="sb">中`</span><span class="p">)</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">shareMoment</span><span class="p">(</span><span class="nx">activity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedMoments</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">activity</span><span class="o">:</span><span class="w"> </span><span class="nx">activity</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;∞&#39;</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 愛が深まる</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">love</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">love</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`💕 共有時間: </span><span class="si">${</span><span class="nx">activity</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 実行</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourLife</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">OurParallelLife</span><span class="p">()</span>
+<span class="nx">ourLife</span><span class="p">.</span><span class="nx">liveTogether</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;私たちの並行処理:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「これって……」</p>
+<p>「僕たちの日常も、並行処理なんだ」</p>
+<p>優美の頬が赤く染まった。</p>
+<p>「でも、大切な瞬間は必ず共有してる」</p>
+<p>「そう。それが同期ポイントだ」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返っていた。</p>
+<p>並行処理。複数のタスクを同時に実行する技術。</p>
+<p>（優美との関係も、色んなことが同時進行している）</p>
+<p>窓の外を見ると、秋の夜空に星が瞬いていた。</p>
+<p>プログラミングも、勉強も、恋愛も。全てが並行して進んでいく。でも、本当に大切な瞬間は、必ず二人で共有している。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;並行処理&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">keyPoints</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;同時実行&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;競合状態&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;同期&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">benefits</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;効率的なリソース活用&#39;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;人生も並行処理&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">balance</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;複数のタスクと大切な瞬間&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;いつも同期している&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日も、優美と一緒に、たくさんのことを並行して進めていこう。そして、大切な瞬間は必ず一緒に過ごそう。</p>
 
 
 
@@ -1236,6 +1768,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

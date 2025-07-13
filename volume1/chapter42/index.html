@@ -22,7 +22,7 @@
     
     
       
-        <title>第42話 恋の「バグ報告」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第42話：型システム：安全性と契約 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第42話 恋の「バグ報告」
+              第42話：型システム：安全性と契約
             
           </span>
         </div>
@@ -1139,26 +1141,611 @@
   
 
 
-<h1 id="42">第42話 恋の「バグ報告」<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のデプロイ」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、なんだか変な動きをします……」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のバグ報告」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々な問題を解決したいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のバグ報告」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="42">第42話：型システム：安全性と契約<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
+<p>金曜日の放課後。Yume言語の基本機能はほぼ完成し、僕たちは最後の重要な機能に取り組んでいた。</p>
+<p>「優美、今日は型システムについて学ぼう」</p>
+<p>僕が提案すると、優美の目に興味深げな光が宿った。</p>
+<p>「型システム？なんだか堅そうな名前ですね」</p>
+<p>「堅いけど、とても大切なものなんだ。プログラムの安全性を保つ仕組みだから」</p>
+<p>◇◇◇◇</p>
+<p>「まず、型って何かから説明しよう」</p>
+<p>ホワイトボードに図を描きながら、基本的な概念を説明し始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 基本的な型の概念</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Type</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">operations</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">size</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">operations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">operations</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 型の互換性チェック</span>
+<span class="w">    </span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">other</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">        </span><span class="c1">// サブタイプ関係をチェック</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">isSubtypeOf</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// サブタイプ判定</span>
+<span class="w">    </span><span class="nx">isSubtypeOf</span><span class="p">(</span><span class="nx">supertype</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡易的なサブタイプ判定</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">supertype</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Any&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Nothing&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">        </span><span class="c1">// 数値型の階層</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Int&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">supertype</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Number&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Float&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">supertype</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Number&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 操作が可能かチェック</span>
+<span class="w">    </span><span class="nx">canPerform</span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">operations</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 基本型の定義</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">IntType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Int&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;%&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;==&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">FloatType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Float&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;==&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">StringType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;String&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;==&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;length&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;substring&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">BoolType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Bool&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;&amp;&amp;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;||&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;==&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">AnyType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Any&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+</code></pre></div>
+<p>「型って、データの種類と、そのデータに対してできる操作を定義するものなんですね」</p>
+<p>「その通り。小説で言えば、登場人物の『役割』みたいなものかな」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語では、感情も型として扱ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の感情型システム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionType</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Type</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">intensity</span><span class="p">,</span><span class="w"> </span><span class="nx">mixable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="sb">`Emotion&lt;</span><span class="si">${</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">&gt;`</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;intensify&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mix&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;express&#39;</span><span class="p">])</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">emotion</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">intensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">intensity</span><span class="w">  </span><span class="c1">// 0.0 - 1.0</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mixable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mixable</span><span class="w">      </span><span class="c1">// 混ぜ合わせ可能な感情リスト</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情の混合</span>
+<span class="w">    </span><span class="nx">mix</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">canMixWith</span><span class="p">(</span><span class="nx">other</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">TypeError</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">と</span><span class="si">${</span><span class="nx">other</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">は混ぜ合わせできません`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">newIntensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">intensity</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">other</span><span class="p">.</span><span class="nx">intensity</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">mixedEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">determineMixedEmotion</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span>
+<span class="w">            </span><span class="nx">mixedEmotion</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">newIntensity</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">mixable</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">other</span><span class="p">.</span><span class="nx">mixable</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">e</span><span class="p">))</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">canMixWith</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">mixable</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">other</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">determineMixedEmotion</span><span class="p">(</span><span class="nx">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">combinations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;喜び+愛&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;幸福&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;悲しみ+愛&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;切ない愛&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;期待+不安&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;緊張&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;怒り+悲しみ&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;絶望&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">+</span><span class="si">${</span><span class="nx">other</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">key2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">other</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">+</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">`</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">combinations</span><span class="p">[</span><span class="nx">key1</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">combinations</span><span class="p">[</span><span class="nx">key2</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="sb">`複雑な</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 基本感情型の定義</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">JoyType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;期待&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;驚き&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">LoveType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;悲しみ&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;不安&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">SadnessType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span><span class="s1">&#39;悲しみ&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;怒り&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;孤独&#39;</span><span class="p">])</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ExpectationType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span><span class="s1">&#39;期待&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;不安&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;興奮&#39;</span><span class="p">])</span>
+
+<span class="c1">// 使用例</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;感情型システムのテスト:&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mixedEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">JoyType</span><span class="p">.</span><span class="nx">mix</span><span class="p">(</span><span class="nx">LoveType</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">JoyType</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb"> + </span><span class="si">${</span><span class="nx">LoveType</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">mixedEmotion</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</code></pre></div>
+<p>「感情にも型があるなんて面白いです！」</p>
+<p>「プログラミングは、現実世界のあらゆるものを型として表現できるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「次は、型チェッカーを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の型チェッカー</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeTypeChecker</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeEnvironment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">warnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プログラム全体の型チェック</span>
+<span class="w">    </span><span class="nx">checkProgram</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">warnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkNode</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ノードの型チェック</span>
+<span class="w">    </span><span class="nx">checkNode</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;EMOTION_DECLARATION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkEmotionDeclaration</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;VARIABLE_DECLARATION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkVariableDeclaration</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;BINARY_OPERATION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkBinaryOperation</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FUNCTION_CALL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkFunctionCall</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IF_STATEMENT&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkIfStatement</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">AnyType</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情宣言の型チェック</span>
+<span class="w">    </span><span class="nx">checkEmotionDeclaration</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getEmotionType</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">valueType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情と値の型の整合性をチェック</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isEmotionallyCompatible</span><span class="p">(</span><span class="nx">emotionType</span><span class="p">,</span><span class="w"> </span><span class="nx">valueType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">addWarning</span><span class="p">(</span>
+<span class="w">                </span><span class="sb">`感情「</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">」と値の型「</span><span class="si">${</span><span class="nx">valueType</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」の組み合わせが不自然です`</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeEnvironment</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">identifier</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">valueType</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotionType</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">immutable</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">immutable</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">valueType</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 二項演算の型チェック</span>
+<span class="w">    </span><span class="nx">checkBinaryOperation</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">leftType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">rightType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checkNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 演算の妥当性をチェック</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">canOperate</span><span class="p">(</span><span class="nx">leftType</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">operator</span><span class="p">,</span><span class="w"> </span><span class="nx">rightType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">addError</span><span class="p">(</span>
+<span class="w">                </span><span class="sb">`型「</span><span class="si">${</span><span class="nx">leftType</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」と「</span><span class="si">${</span><span class="nx">rightType</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」に対して演算子「</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">operator</span><span class="si">}</span><span class="sb">」は使用できません`</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">AnyType</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">inferResultType</span><span class="p">(</span><span class="nx">leftType</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">operator</span><span class="p">,</span><span class="w"> </span><span class="nx">rightType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情的互換性のチェック</span>
+<span class="w">    </span><span class="nx">isEmotionallyCompatible</span><span class="p">(</span><span class="nx">emotionType</span><span class="p">,</span><span class="w"> </span><span class="nx">valueType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">compatibilityRules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;愛&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;String&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Emotion&lt;愛&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Person&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="s1">&#39;喜び&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Number&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bool&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Achievement&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="s1">&#39;悲しみ&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;String&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Memory&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Loss&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="s1">&#39;期待&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Future&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Promise&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Goal&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">compatibleTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compatibilityRules</span><span class="p">[</span><span class="nx">emotionType</span><span class="p">.</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">compatibleTypes</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">compatible</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">valueType</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">compatible</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 操作可能性のチェック</span>
+<span class="w">    </span><span class="nx">canOperate</span><span class="p">(</span><span class="nx">leftType</span><span class="p">,</span><span class="w"> </span><span class="nx">operator</span><span class="p">,</span><span class="w"> </span><span class="nx">rightType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 両方の型が演算子をサポートしているかチェック</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">leftType</span><span class="p">.</span><span class="nx">canPerform</span><span class="p">(</span><span class="nx">operator</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">rightType</span><span class="p">.</span><span class="nx">canPerform</span><span class="p">(</span><span class="nx">operator</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 型の互換性をチェック</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">leftType</span><span class="p">.</span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="nx">rightType</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>
+<span class="w">               </span><span class="nx">rightType</span><span class="p">.</span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="nx">leftType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 結果型の推論</span>
+<span class="w">    </span><span class="nx">inferResultType</span><span class="p">(</span><span class="nx">leftType</span><span class="p">,</span><span class="w"> </span><span class="nx">operator</span><span class="p">,</span><span class="w"> </span><span class="nx">rightType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 算術演算</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">([</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;%&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">operator</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">leftType</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Int&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">rightType</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Int&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">IntType</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">leftType</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">rightType</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">FloatType</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 比較演算</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">([</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;=&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&gt;=&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;==&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;!=&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">operator</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">BoolType</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 文字列結合</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">operator</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
+<span class="w">            </span><span class="p">(</span><span class="nx">leftType</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;String&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">rightType</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;String&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">StringType</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">AnyType</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// エラーの追加</span>
+<span class="w">    </span><span class="nx">addError</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">location</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="nx">location</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 警告の追加</span>
+<span class="w">    </span><span class="nx">addWarning</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">location</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;warning&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="nx">location</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情型の取得</span>
+<span class="w">    </span><span class="nx">getEmotionType</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;愛を込めて&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">LoveType</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;喜びと共に&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">JoyType</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;悲しみながら&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">SadnessType</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;期待を持って&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">ExpectationType</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">emotionTypes</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">(</span><span class="s1">&#39;不明&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「実際に型チェックを動かしてみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の型チェック例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">typeChecker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeTypeChecker</span><span class="p">()</span>
+
+<span class="c1">// テストプログラム</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">testProgram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;PROGRAM&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">statements</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;EMOTION_DECLARATION&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;愛を込めて&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">identifier</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;メッセージ&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;STRING_LITERAL&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;優美への愛&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">line</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;EMOTION_DECLARATION&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;喜びと共に&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">identifier</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;カウント&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;NUMBER_LITERAL&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">42</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">line</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BINARY_OPERATION&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;IDENTIFIER&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;メッセージ&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;IDENTIFIER&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;カウント&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">line</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== Yume言語型チェック ===&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">checkProgram</span><span class="p">(</span><span class="nx">testProgram</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;型チェック結果:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;エラー数:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;警告数:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\nエラー:&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`- </span><span class="si">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb"> (行 </span><span class="si">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">line</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n警告:&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">warnings</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">warning</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`- </span><span class="si">${</span><span class="nx">warning</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb"> (行 </span><span class="si">${</span><span class="nx">warning</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">line</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「型チェッカーがエラーを見つけてくれるんですね」</p>
+<p>「そう。コンパイル時にバグを見つけることで、実行時のエラーを防げる」</p>
+<p>◇◇◇◇</p>
+<p>「先輩、型安全性って、私たちの関係にも当てはまりますか？」</p>
+<p>優美の突然の質問に、僕は少し驚いた。</p>
+<p>「どういう意味？」</p>
+<p>「私たちが恋人同士になったのも、ある意味『型の変換』ですよね。幼馴染型から恋人型に」</p>
+<p>優美の比喩に、僕は思わず笑ってしまった。</p>
+<p>「確かに。でも、その変換は型安全だったと思う」</p>
+<p>「どうしてですか？」</p>
+<p>「だって、基底にある『信頼』や『愛情』の型は変わっていないから」</p>
+<p>◇◇◇◇</p>
+<p>「もう少し高度な型システムを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 高度な型システム：ジェネリクス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">GenericType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">typeParameters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeParameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">typeParameters</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 型パラメータを具体型で置換</span>
+<span class="w">    </span><span class="nx">instantiate</span><span class="p">(</span><span class="nx">concreteTypes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">substitution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeParameters</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">param</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">concreteTypes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">substitution</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">param</span><span class="p">,</span><span class="w"> </span><span class="nx">concreteTypes</span><span class="p">[</span><span class="nx">index</span><span class="p">])</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">substitute</span><span class="p">(</span><span class="nx">substitution</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">substitute</span><span class="p">(</span><span class="nx">substitution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 型パラメータを具体型で置換する処理</span>
+<span class="w">        </span><span class="c1">// 簡略化</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">substitution</span><span class="p">.</span><span class="nx">values</span><span class="p">()).</span><span class="nx">map</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="o">-</span><span class="mf">1</span><span class="p">,</span>
+<span class="w">            </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// リスト型の定義</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ListType</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">GenericType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">elementType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="s1">&#39;List&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">elementType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">elementType</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// リスト操作の型チェック</span>
+<span class="w">    </span><span class="nx">checkOperation</span><span class="p">(</span><span class="nx">operation</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;append&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">elementType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">TypeError</span><span class="p">(</span><span class="sb">`List&lt;</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">elementType</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">&gt;に</span><span class="si">${</span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">name</span><span class="si">}</span><span class="sb">型は追加できません`</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;get&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">args</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="nx">IntType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;リストのインデックスは整数である必要があります&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">elementType</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;length&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">IntType</span>
+
+<span class="w">            </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`未知の操作: </span><span class="si">${</span><span class="nx">operation</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 関数型の定義</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">FunctionType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">parameterTypes</span><span class="p">,</span><span class="w"> </span><span class="nx">returnType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parameterTypes</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">returnType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">returnType</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Function&lt;</span><span class="si">${</span><span class="nx">parameterTypes</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="nx">returnType</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">&gt;`</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 関数呼び出しの型チェック</span>
+<span class="w">    </span><span class="nx">checkCall</span><span class="p">(</span><span class="nx">argumentTypes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">argumentTypes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">TypeError</span><span class="p">(</span><span class="sb">`引数の数が一致しません。期待: </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">, 実際: </span><span class="si">${</span><span class="nx">argumentTypes</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">argumentTypes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">argumentTypes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">isCompatibleWith</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">TypeError</span><span class="p">(</span><span class="sb">`引数</span><span class="si">${</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="si">}</span><span class="sb">の型が一致しません。期待: </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="si">}</span><span class="sb">, 実際: </span><span class="si">${</span><span class="nx">argumentTypes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">returnType</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stringListType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ListType</span><span class="p">(</span><span class="nx">StringType</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">addFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FunctionType</span><span class="p">([</span><span class="nx">IntType</span><span class="p">,</span><span class="w"> </span><span class="nx">IntType</span><span class="p">],</span><span class="w"> </span><span class="nx">IntType</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n=== 高度な型システム ===&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;文字列リスト型:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">stringListType</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">resultType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stringListType</span><span class="p">.</span><span class="nx">checkOperation</span><span class="p">(</span><span class="s1">&#39;append&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">StringType</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;文字列追加: 成功&#39;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;エラー:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">callResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">addFunction</span><span class="p">.</span><span class="nx">checkCall</span><span class="p">([</span><span class="nx">IntType</span><span class="p">,</span><span class="w"> </span><span class="nx">IntType</span><span class="p">])</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;関数呼び出し結果型:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">callResult</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;エラー:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「型システムって、契約みたいなものですね」</p>
+<p>優美が感心したように言った。</p>
+<p>「その通り。型は、プログラムの各部分が守るべき約束を明確にする」</p>
+<p>「私たちの関係にも、そういう『契約』があるんでしょうか？」</p>
+<p>優美の質問に、僕は少し考えてから答えた。</p>
+<p>「あるとすれば、『お互いを大切にする』という契約かな」</p>
+<p>「それは型安全な契約ですね」</p>
+<p>優美が微笑んだ。</p>
+<p>◇◇◇◇</p>
+<p>「最後に、Yume言語の型システムを統合してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の完全な型システム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeTypeSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeChecker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeTypeChecker</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeInference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TypeInferenceEngine</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">constraints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ConstraintSolver</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プログラムの完全な型チェック</span>
+<span class="w">    </span><span class="nx">analyze</span><span class="p">(</span><span class="nx">program</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 1. 型推論</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">inferredTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">typeInference</span><span class="p">.</span><span class="nx">infer</span><span class="p">(</span><span class="nx">program</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 2. 制約解決</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">resolvedTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">constraints</span><span class="p">.</span><span class="nx">solve</span><span class="p">(</span><span class="nx">inferredTypes</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 3. 型チェック</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">typeChecker</span><span class="p">.</span><span class="nx">checkProgramWithTypes</span><span class="p">(</span><span class="nx">program</span><span class="p">,</span><span class="w"> </span><span class="nx">resolvedTypes</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">types</span><span class="o">:</span><span class="w"> </span><span class="nx">resolvedTypes</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">errors</span><span class="o">:</span><span class="w"> </span><span class="nx">checkResult</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">warnings</span><span class="o">:</span><span class="w"> </span><span class="nx">checkResult</span><span class="p">.</span><span class="nx">warnings</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">typeAnnotations</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateTypeAnnotations</span><span class="p">(</span><span class="nx">resolvedTypes</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 型注釈の生成</span>
+<span class="w">    </span><span class="nx">generateTypeAnnotations</span><span class="p">(</span><span class="nx">types</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">annotations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">types</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">type</span><span class="p">,</span><span class="w"> </span><span class="nx">location</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">annotations</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">displayType</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">formatTypeForDisplay</span><span class="p">(</span><span class="nx">type</span><span class="p">),</span>
+<span class="w">                </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateTypeTooltip</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">annotations</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">formatTypeForDisplay</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">type</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">EmotionType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="sb">`感情&lt;</span><span class="si">${</span><span class="nx">type</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">&gt;`</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">type</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">ListType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="sb">`リスト&lt;</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">formatTypeForDisplay</span><span class="p">(</span><span class="nx">type</span><span class="p">.</span><span class="nx">elementType</span><span class="p">)</span><span class="si">}</span><span class="sb">&gt;`</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">type</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">FunctionType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">type</span><span class="p">.</span><span class="nx">parameterTypes</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">formatTypeForDisplay</span><span class="p">(</span><span class="nx">t</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">formatTypeForDisplay</span><span class="p">(</span><span class="nx">type</span><span class="p">.</span><span class="nx">returnType</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="sb">`関数&lt;</span><span class="si">${</span><span class="nx">params</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="nx">ret</span><span class="si">}</span><span class="sb">&gt;`</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">type</span><span class="p">.</span><span class="nx">name</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 型推論エンジン</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">TypeInferenceEngine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">infer</span><span class="p">(</span><span class="nx">program</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡略化された型推論</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">inferredTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">inferNode</span><span class="p">(</span><span class="nx">program</span><span class="p">,</span><span class="w"> </span><span class="nx">inferredTypes</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">inferredTypes</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">inferNode</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">types</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;STRING_LITERAL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="nx">types</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="nx">StringType</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;NUMBER_LITERAL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">value</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">types</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="nx">IntType</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">types</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="nx">FloatType</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;BOOLEAN_LITERAL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="nx">types</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span><span class="w"> </span><span class="nx">BoolType</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 子ノードの処理</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">inferNode</span><span class="p">(</span><span class="nx">child</span><span class="p">,</span><span class="w"> </span><span class="nx">types</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 制約解決器</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ConstraintSolver</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">solve</span><span class="p">(</span><span class="nx">constraints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 制約解決のロジック</span>
+<span class="w">        </span><span class="c1">// 簡略化</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">constraints</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕たちは今日学んだことを振り返っていた。</p>
+<p>「型システムって、プログラムに安全性をもたらすんですね」</p>
+<p>「そう。でも一番大切なのは、型システムがプログラマーの意図を明確にしてくれることだ」</p>
+<p>窓の外では、秋の夕日が静かに沈んでいく。</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係の『型』は、どう定義されるんでしょう？」</p>
+<p>優美の質問に、僕は少し照れながら答えた。</p>
+<p>「<code>Couple&lt;雅史, 優美&gt;</code>かな。型パラメータは僕たち二人」</p>
+<p>「それは型安全な定義ですね」</p>
+<p>優美が嬉しそうに笑った。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concepts</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;型システム&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;型チェック&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;型推論&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">implementations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;感情型&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ジェネリクス&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;制約解決&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">applications</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;安全性の保証&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;意図の明確化&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;エラーの早期発見&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;型は契約&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Couple&lt;雅史, 優美&gt;&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">promise</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;お互いを大切にする契約&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>型システム。それは、プログラムの安全性を保つだけでなく、プログラマーの意図を明確にし、コードに秩序をもたらす重要な仕組み。</p>
+<p>そして、僕たちの関係も、ある意味で型安全だ。長年培ってきた信頼という基盤の上に、新しい愛情という型を安全に構築できたのだから。</p>
+<p>明日も、優美と一緒に、型安全で美しいコードを書いていこう。</p>
 
 
 
@@ -1236,6 +1823,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

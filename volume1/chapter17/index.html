@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,53 +1172,204 @@
   
 
 
-<h1 id="17">第17話 終わらないループと、終わってほしくない時間<a class="headerlink" href="#17" title="Permanent link">&para;</a></h1>
-<p>頭を撫でられた、あの事件から数日。僕と美久の間には、まだ少しだけ、甘酸っぱいような、ぎこちない空気が漂っていた。
-　僕は、その照れ臭さを振り払うように、少しだけ早口で、新しいテーマを切り出した。</p>
-<p>「きょ、今日は、プログラミングの真髄とも言える機能、『繰り返し』を実装するぞ！」
-「繰り返し、ですか？」
-「ああ。<code>while</code>ループだ。『ある条件が満たされている間、ずっと同じ処理を繰り返す』。これができると、人間がやったら何時間もかかるような作業を、コンピュータに一瞬でやらせることができるようになるんだ」</p>
-<p>僕は、新しい構文<code>['while', condition, body]</code>をエディタに書き出した。</p>
-<p>「<code>condition</code>が<code>true</code>である限り、<code>body</code>の処理を、何度も、何度も、実行し続ける。そういう『お願い』だ」</p>
-<p>実装は、<code>if</code>文の応用だった。<code>evaluate</code>関数に<code>while</code>の分岐を追加し、条件式を評価し、その結果が<code>true</code>なら<code>body</code>を評価する。そして、<code>if</code>文と違うのは、<code>body</code>を評価し終わったら、また最初に戻って、もう一度、条件式を評価するところだ。</p>
-<p>「例えば、こんなコードだ」</p>
-<p>僕は、デモ用のコードを書いてみせた。</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;begin&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;while&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="s1">&#39;begin&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="p">[</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]],</span>
-<span class="w">      </span><span class="c1">// console.log(x) のような表示機能はまだない</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="c1">// 最終的なxの値を返す</span>
-<span class="p">]</span>
+<h1 id="17">第17話：エラー処理と例外：失敗から学ぶこと<a class="headerlink" href="#17" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。週末を挟んで、雅史先輩とのプログラミングレッスンは今日で17日目。先輩の部屋に向かう足取りが、最近は自然と軽くなっている。</p>
+<p>でも、今日は少し違った。</p>
+<p>「お疲れ様です、先輩」</p>
+<p>いつもより控えめな挨拶。それには理由があった。</p>
+<p>「おう、優美。どうした？　元気ないな」</p>
+<p>先輩はすぐに気づいてくれた。</p>
+<p>「実は……週末に一人でプログラムを書いてみたんですけど、エラーばっかりで全然動かなくて」</p>
+<p>私は正直に告白した。</p>
+<p>「そうか。じゃあ、今日はちょうどいいタイミングだな」</p>
+<p>「え？」</p>
+<p>「今日はエラー処理と例外について学ぶ予定だったんだ」</p>
+<p>◇◇◇◇</p>
+<p>先輩がホワイトボードに大きく書いた。</p>
+<p>『エラーは敵じゃない。最高の先生だ』</p>
+<p>「優美、エラーが出た時、どう感じた？」</p>
+<p>「正直、すごくイライラしました。何が悪いのかわからなくて」</p>
+<p>私の言葉に、先輩は優しく微笑んだ。</p>
+<p>「その気持ち、よくわかる。でも、エラーは実は僕たちの味方なんだ」</p>
+<p>「味方……ですか？」</p>
+<p>「うん。エラーメッセージは『ここが間違ってるよ』って教えてくれる親切な案内人みたいなものだ」</p>
+<p>先輩がコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// エラーが発生するコード</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w">  </span><span class="c1">// Infinity</span>
+
+<span class="c1">// 配列の範囲外アクセス</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mf">10</span><span class="p">])</span><span class="w">  </span><span class="c1">// undefined</span>
+
+<span class="c1">// 存在しない関数を呼ぶ</span>
+<span class="c1">// myFunction()  // エラー：myFunction is not defined</span>
 </code></pre></div>
-<p>「このコードを実行すると、<code>x</code>の値が0から1、2、3、4と変化していって、最終的に<code>5</code>が返ってくる。一瞬で、5回の足し算をやってのけるんだ」
-「すごい……！　自動で計算してくれるんですね！」</p>
-<p>美久が感心したように声を上げる。僕は、少しだけ意地悪な笑みを浮かべて、次のコードを見せた。</p>
-<p><code>['while', true, ['define', 'x', ['+', 'x', 1]]]</code></p>
-<p>「じゃあ、これはどうなると思う？」
-「え？　<code>true</code>ってことは……条件が、ずっと<code>true</code>……？　あ……！」</p>
-<p>美久が気づいた瞬間、僕はプログラムを実行した。案の定、プログラムは応答しなくなり、ブラウザのタブがフリーズする。僕は慌ててタブを閉じた。</p>
-<p>「こ、こわい……！　暴走しちゃった……」
-「そう。これが『無限ループ』だ。だから、<code>while</code>ループを使う時は、いつか必ずループが『終わる』ように、ちゃんと設計してあげないといけないんだ」</p>
-<p>僕がその危険性と重要性を説いている間、美久は、どこか遠くを見つめていた。</p>
-<p>（終わらないループ……）</p>
-<p>彼女の頭の中は、別のことでいっぱいだった。</p>
-<p>（先輩とこうして過ごす、この時間。この時間が、もし、<code>while (true)</code>だったら、いいのに……）</p>
-<p>この、楽しくて、少しだけ胸が苦しくなる、放課後の開発作業。でも、これには、必ず「終わり」が来る。言語が、完成した時に。
-　その事実に、彼女は、今更ながら気づいてしまったのだ。</p>
-<p>「……先輩」</p>
-<p>ぽつり、と彼女が呟いた。その声は、いつもの快活さが嘘のように、少しだけ、か細かった。</p>
-<p>「この言語が、もし、完成したら……。この、放課後の勉強会も、終わっちゃう、んですよね？」</p>
-<p>その質問は、僕の完全に意表を突くものだった。
-　終わり？　考えたこともなかった。美久とこうして過ごす時間が、僕にとっても、いつの間にか、かけがえのない、大切な日常になっていたから。</p>
-<p>僕は、うまく言葉を返すことができなかった。</p>
-<p>「……それは、まあ……そう、だな」</p>
-<p>肯定するのが、精一杯だった。
-　教室に、少しだけ切ない沈黙が流れる。「終わり」を意識させる<code>while</code>ループが、皮肉にも、僕たち二人に、この特別な時間の「終わり」を、はっきりと意識させてしまった。</p>
-<p>僕たちのこの心地よいループは、一体、どんな「条件」を満たした時に、終わりを迎えてしまうのだろうか。そんな、新たな不安と感傷の気配が、夕暮れの教室に、静かに漂い始めていた。</p>
+<p>「JavaScriptは寛容な言語だから、エラーにならないケースも多いけど、実際のプログラミングではもっと厳密にエラーを扱う必要がある」</p>
+<p>◇◇◇◇</p>
+<p>「それで、エラー処理の基本がtry-catch構文だ」</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// エラーが起きそうな処理</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">&quot;これはJSONじゃない&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// エラーが起きた時の処理</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;エラーが発生しました：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;プログラムは続行します&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「わあ！　エラーが起きても、プログラムが止まらない！」</p>
+<p>「そう。これが例外処理の基本。小説で例えるなら……」</p>
+<p>先輩が少し考えてから続けた。</p>
+<p>「主人公が困難に直面した時、物語が終わるんじゃなくて、その困難をどう乗り越えるかを描くのと同じだ」</p>
+<p>「なるほど！　エラーも物語の一部なんですね」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、優美が週末に書いたコード、見せてもらえる？」</p>
+<p>私は恥ずかしながら、USBメモリからコードを取り出した。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 優美の週末コード</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">createStory</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">characters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">story</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">mainCharacter</span><span class="o">:</span><span class="w"> </span><span class="nx">characters</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">sideCharacters</span><span class="o">:</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">story</span>
+<span class="p">}</span>
+
+<span class="c1">// これでエラーが出た</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">myStory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createStory</span><span class="p">(</span><span class="s2">&quot;恋のプログラム&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myStory</span><span class="p">.</span><span class="nx">mainCharacter</span><span class="p">)</span>
+</code></pre></div>
+<p>「あ、なるほど。配列が空の時のことを考えてなかったんだね」</p>
+<p>先輩は優しく指摘してくれた。</p>
+<p>「はい……。charactersが必ずあると思い込んでました」</p>
+<p>◇◇◇◇</p>
+<p>「でも、これはよくあることだよ。一緒に改善してみよう」</p>
+<p>先輩と私は並んで座り、コードを書き直し始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createStory</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">characters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 入力チェック</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;タイトルは必須です&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">characters</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;登場人物が一人もいません&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">story</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">mainCharacter</span><span class="o">:</span><span class="w"> </span><span class="nx">characters</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sideCharacters</span><span class="o">:</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;名前のないキャラクターがいます&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">story</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;ストーリー作成中にエラー：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// デフォルト値を返す</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">mainCharacter</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;名無しの主人公&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sideCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「すごい！　どんな入力が来ても、ちゃんと動くようになった！」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「エラーって、プログラミングだけじゃなくて、人生にもありますよね」</p>
+<p>私の言葉に、先輩が少し驚いたような顔をした。</p>
+<p>「確かにそうだな」</p>
+<p>「私、小説を書いてても、うまくいかない時がたくさんあって。でも、それも全部、次の作品のための勉強なんだって、今わかりました」</p>
+<p>先輩の目が優しく細められた。</p>
+<p>「優美は本当に、物事の本質を掴むのが上手いな」</p>
+<p>◇◇◇◇</p>
+<p>「実は、僕も最初はエラーが大嫌いだった」</p>
+<p>先輩が懐かしそうに話し始めた。</p>
+<p>「プログラミングを始めたばかりの頃、エラーが出るたびに自分がダメだと思ってた」</p>
+<p>「先輩でも？」</p>
+<p>「うん。でも、ある時気づいたんだ。エラーは『成長のチャンス』だって」</p>
+<p>先輩の横顔を見つめながら、私は思った。</p>
+<p>（先輩も、たくさん失敗して、今の先輩になったんだ）</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「私、Yume言語を作る時も、きっとたくさんエラーに出会うと思います」</p>
+<p>「そうだね」</p>
+<p>「でも、今日学んだことで、それが怖くなくなりました」</p>
+<p>私の言葉に、先輩の表情が和らいだ。</p>
+<p>「それどころか、楽しみになってきました。エラーに出会うたびに、Yume言語がもっと良くなっていくんですから」</p>
+<p>「その考え方、素晴らしいよ」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、先輩が特別な関数を見せてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// カスタムエラークラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">StoryError</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="ne">Error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">chapter</span><span class="p">,</span><span class="w"> </span><span class="nx">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;StoryError&quot;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">chapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">chapter</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">line</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validatePlot</span><span class="p">(</span><span class="nx">plot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">plot</span><span class="p">.</span><span class="nx">beginning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StoryError</span><span class="p">(</span><span class="s2">&quot;物語の始まりがありません&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">plot</span><span class="p">.</span><span class="nx">climax</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StoryError</span><span class="p">(</span><span class="s2">&quot;クライマックスがありません&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                           </span><span class="nx">plot</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                           </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">plot</span><span class="p">.</span><span class="nx">ending</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StoryError</span><span class="p">(</span><span class="s2">&quot;結末がありません&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                           </span><span class="nx">plot</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                           </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「わあ！　小説専用のエラーだ！」</p>
+<p>「優美の世界に合わせて作ってみた」</p>
+<p>先輩のその優しさに、胸が熱くなる。</p>
+<p>◇◇◇◇</p>
+<p>「今日学んだことをまとめると」</p>
+<p>先輩がホワイトボードに書いた。</p>
+<ol>
+<li>エラーは学習のチャンス</li>
+<li>try-catchで優雅に対処</li>
+<li>適切なエラーメッセージで次の人を助ける</li>
+<li>失敗を恐れない</li>
+</ol>
+<p>「特に最後が大事だ」</p>
+<p>「失敗を恐れない、ですね」</p>
+<p>「うん。プログラミングも、小説も、恋愛も……」</p>
+<p>先輩が最後に小さな声で付け加えた言葉に、私の心臓がドキッとした。</p>
+<p>「先輩？」</p>
+<p>「い、いや、なんでもない」</p>
+<p>顔を赤くする先輩を見て、私も照れてしまった。</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『エラー処理：失敗を成功への階段に変える技術』
+『例外は物語の転換点』
+『try-catchは、人生にも必要』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩への気持ちも、エラーを恐れずに伝えたい』</p>
+<p>窓の外を見ると、夕焼けが街を優しく照らしていた。</p>
+<p>（いつか、私の気持ちを伝える時も、きっとエラーが出るかもしれない）</p>
+<p>でも、今日学んだことで、それも怖くない。もしうまくいかなくても、それは次への一歩。もし受け入れてもらえたら……。</p>
+<p>甘い想像に頬を赤らめながら、私は新しい小説のプロットを書き始めた。主人公が、失敗を恐れずに、大切な人に想いを伝える物語を。</p>
+<p>エラーは成長の証。その言葉を胸に、私はまた一歩、先輩との夢に近づいた気がした。</p>
 
 
 
@@ -1294,6 +1447,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

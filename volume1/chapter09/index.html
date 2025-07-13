@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,34 +1172,215 @@
   
 
 
-<h1 id="9">第9話 私だけが、そこにいない<a class="headerlink" href="#9" title="Permanent link">&para;</a></h1>
-<p>ぱたん、と静かにドアを閉める。
-　その音で、先輩がこちらを振り向くことは、きっとないだろう。分かっていた。分かっていたけど、胸の奥が、きゅうっと締め付けられるように痛んだ。</p>
-<p>（私、どうしてあんなこと、言っちゃったんだろう）</p>
-<p>用事があるなんて、嘘。本当は、ただ、あの場所にいるのが、耐えられなくなっただけ。
-　逃げるように校舎を出て、いつもよりずっと重く感じる鞄を肩にかけ、とぼとぼと帰り道を歩く。夕方の気配を帯びた風が、火照った私の頬を冷たく撫でていった。</p>
-<p>先輩の隣には、もう私のいる場所はなかった。</p>
-<p>バグを見つけた時の、彼の瞳。見たこともないくらい真剣で、鋭くて、きらきらしていて……そして、その瞳には、もう私は映っていなかった。彼の頭の中は、私には理解できない問題でいっぱいで、私はただ、その隣で邪魔にならないように、息を潜めていることしかできなかった。</p>
-<p>いつの間にか、私たちは「共同開発者」じゃなくなっていた。ううん、最初から、そう思っていたのは、私だけだったのかもしれない。</p>
-<p>そもそも、どうして私が「プログラミング言語を作りたい」なんて、突拍子もないことを言い出したのか。</p>
-<p>きっかけは、ほんの些細なことだった。少し前に、先輩の友達が話しているのを、偶然聞いてしまったのだ。
-「嵐山、やっぱすげーよな。高校生で国際会議に論文通すとか、俺たちとは見てる世界が違いすぎるって」
-　その言葉が、ちくりと私の胸に刺さった。</p>
-<p>先輩がすごい人だってことは、ずっと前から知っていた。でも、その言葉は、私と先輩との間に、どうしようもなく分厚い壁があることを、改めて突きつけてくるようだった。</p>
-<p>どんどん、遠くへ行ってしまう。
-　その背中を、ただ見ているだけなのが、嫌だった。寂しかった。同じ世界には行けないかもしれないけど、せめて、彼の見ている世界を、ほんの少しでもいいから理解したかった。彼の隣にいるための、ちゃんとした「口実」が欲しかった。</p>
-<p>だから、お願いしたんだ。私なりに、精一杯の勇気を出して。</p>
-<p>最初は、本当に楽しかった。先輩が、私のために、一生懸命、言葉を選んでくれるのが、嬉しくて、くすぐったくて。<code>['+', 1, 2]</code>が<code>3</code>になった時は、本当に魔法みたいだと思った。
-　でも、<code>Environment</code>が出てきたあたりから、だんだん、分からなくなってきた。分かったフリをして頷くのが、どんどん辛くなっていった。</p>
-<p>（私にできること、ありますか……？）</p>
-<p>なんで、あんな馬鹿なことを聞いてしまったんだろう。できることなんて、何一つないくせに。彼の集中を、邪魔してしまっただけじゃないか。</p>
-<p>気づけば、いつもの河川敷まで来ていた。川辺のベンチに、ぺたんと力なく座り込む。夕日が川面をオレンジ色に染めていて、あまりに綺麗で、なんだか、泣きたくなった。
-　ぽつり、と何かが手の甲に落ちる。見れば、それは自分の涙だった。一度溢れ出してしまったら、もう、止めることはできなかった。</p>
-<p>「私……どうすれば、よかったんだろう……」</p>
-<p>先輩の隣にいたい。でも、隣にいればいるほど、自分が惨めになって、苦しくなる。</p>
-<p>（もう、やめようかな……）</p>
-<p>プログラミング言語作りも。先輩の隣にいることも。それが、きっと、先輩のためで、そして、私のためなんだ。</p>
-<p>そんな弱気な考えが、夕焼けに滲んだ視界と一緒に、私の心を支配していく。どうすればいいかなんて分からないまま、ただ、時間だけが、静かに過ぎていった。</p>
+<h1 id="9">第9話：関数：処理のまとまりと、効率化の喜び<a class="headerlink" href="#9" title="Permanent link">&para;</a></h1>
+<p>日曜日の午後。優美とのプログラミングレッスンも今日で九日目だ。</p>
+<p>昨日は優美がループについて学んで、「私たちの毎日もループみたい」と言った時の表情が忘れられない。あの時の優美の言葉は、僕の心に深く響いた。</p>
+<p>今日も優美が僕の部屋にやってきた。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、お疲れ。今日も頑張ろうな」</p>
+<p>優美の笑顔を見ると、今日も楽しい時間になりそうだ。</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「今日は関数について学ぼう。処理をまとめて、効率的に使い回す方法だ」</p>
+<p>「関数？」</p>
+<p>「優美の小説でも、よく使う表現ってあるだろ？『彼は微笑んだ』とか『風が頬を撫でた』とか」</p>
+<p>優美が頷く。</p>
+<p>「あります！　同じような表現を何度も書きますね」</p>
+<p>「それを毎回一から書くのは面倒だよな。プログラミングでも同じで、よく使う処理をまとめておいて、必要な時に呼び出せるようにするんだ」</p>
+<p>僕はキーボードに向かった。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;こんにちは、&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;さん！&quot;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;太郎&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>「実行してみて」</p>
+<p>画面に結果が表示された。</p>
+<div class="highlight"><pre><span></span><code>こんにちは、優美さん！
+こんにちは、雅史さん！
+こんにちは、太郎さん！
+</code></pre></div>
+<p>「すごい！　名前を変えるだけで、違う挨拶ができるんですね！」</p>
+<p>◇◇◇◇</p>
+<p>「関数っていうのは、処理の『レシピ』みたいなものなんだ」</p>
+<p>「レシピ？」</p>
+<p>「そう。料理のレシピと同じで、材料を入れると、決まった手順で調理して、完成品を返してくれる」</p>
+<p>優美の目が輝いた。</p>
+<p>「材料が『引数』で、完成品が『戻り値』ってことですか？」</p>
+<p>「その通り！　優美の理解が早いな」</p>
+<p>優美が嬉しそうに微笑む。</p>
+<p>「じゃあ、優美の小説の例で関数を作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createCharacter</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">,</span><span class="w"> </span><span class="nx">personality</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳の&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">personality</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;な人です&quot;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">createCharacter</span><span class="p">(</span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;明るい&quot;</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">createCharacter</span><span class="p">(</span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優しい&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>美咲は16歳の明るい人です
+健太は17歳の優しい人です
+</code></pre></div>
+<p>「わあ！　キャラクター作成が簡単になりました！」</p>
+<p>「そう。一度関数を作っておけば、何度でも使い回せるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「今度は、優美が関数を作ってみて」</p>
+<p>「私が？　えーと……」</p>
+<p>優美は考えながらキーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">expressLove</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="nx">feeling</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;への気持ち：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feeling</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">expressLove</span><span class="p">(</span><span class="s2">&quot;先輩&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;とても大切な人&quot;</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">expressLove</span><span class="p">(</span><span class="s2">&quot;家族&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;愛してる&quot;</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">expressLove</span><span class="p">(</span><span class="s2">&quot;友達&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;大好き&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>先輩への気持ち：とても大切な人
+家族への気持ち：愛してる
+友達への気持ち：大好き
+</code></pre></div>
+<p>優美がまた顔を赤くしている。</p>
+<p>「これも……キャラクターの心情表現？」</p>
+<p>「そ、そうです！　主人公の感情を表現する関数です！」</p>
+<p>でも、『先輩への気持ち：とても大切な人』という表示を見て、僕の心が温かくなった。</p>
+<p>◇◇◇◇</p>
+<p>「関数の良いところは、同じ処理を何度も書かなくて済むことなんだ」</p>
+<p>「効率的ですね！」</p>
+<p>「そう。それに、もし処理を変更したい時も、関数の中身だけ変えれば、その関数を使っている全ての場所に反映される」</p>
+<p>僕は例を示した。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">dailyRoutine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;朝起きる&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;学校に行く&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;プログラミングを学ぶ&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;楽しい時間を過ごす&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;満足して眠る&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">dailyRoutine</span><span class="p">()</span>
+</code></pre></div>
+<p>「これを実行すると……」</p>
+<div class="highlight"><pre><span></span><code>朝起きる
+学校に行く
+プログラミングを学ぶ
+楽しい時間を過ごす
+満足して眠る
+</code></pre></div>
+<p>「私たちの日常みたいですね！」</p>
+<p>優美が笑いながら言った。</p>
+<p>「そう。もし日常を変えたくなったら、関数の中身を変えるだけでいい」</p>
+<p>「それって、小説の『お決まりのシーン』を関数にするのと同じですね」</p>
+<p>優美の発想が面白い。</p>
+<p>「例えば？」</p>
+<p>「恋愛小説でよくある『ドキドキシーン』とか『告白シーン』とか！」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、優美のアイデアで『ドキドキシーン』を関数にしてみよう」</p>
+<p>「はい！」</p>
+<p>僕たちは一緒にコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">dokidokiScene</span><span class="p">(</span><span class="nx">character1</span><span class="p">,</span><span class="w"> </span><span class="nx">character2</span><span class="p">,</span><span class="w"> </span><span class="nx">situation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">character1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">character2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;と&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">situation</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">character1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の心臓がドキドキした&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">character1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の顔が赤くなった&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;二人の間に甘い空気が流れた&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">dokidokiScene</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;先輩&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;一緒にプログラミングをしていて&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>優美は先輩と一緒にプログラミングをしていて
+優美の心臓がドキドキした
+優美の顔が赤くなった
+二人の間に甘い空気が流れた
+</code></pre></div>
+<p>結果を見て、優美がまた真っ赤になった。</p>
+<p>「あの……これも創作の例ですからね！」</p>
+<p>「わかってるよ」</p>
+<p>でも、僕も少し照れてしまった。確かに、今の僕たちの状況そのものだ。</p>
+<p>◇◇◇◇</p>
+<p>「関数は、戻り値を返すこともできるんだ」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">calculateHappiness</span><span class="p">(</span><span class="nx">withWho</span><span class="p">,</span><span class="w"> </span><span class="nx">activity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">withWho</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">activity</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;プログラミング&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">withWho</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">90</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">50</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">happiness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculateHappiness</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミング&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;幸せ度：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">happiness</span><span class="p">)</span>
+</code></pre></div>
+<p>実行すると、「幸せ度：100」と表示された。</p>
+<p>「先輩……」</p>
+<p>優美が感動したような顔をしている。</p>
+<p>「俺にとって、優美と一緒にプログラミングをする時間は、本当に最高なんだ」</p>
+<p>つい本音が出てしまった。</p>
+<p>「私も同じ気持ちです！」</p>
+<p>優美が嬉しそうに答える。</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「関数って、私の小説執筆にも活かせそうです」</p>
+<p>「どういう風に？」</p>
+<p>「よく使う描写パターンを『関数』として整理しておいて、必要な時に呼び出すんです」</p>
+<p>優美の発想に感心する。</p>
+<p>「それは面白いアイデアだな」</p>
+<p>「『夕焼けシーン』『雨の日の心情』『ドキドキの瞬間』……色々な関数を作っておけば、小説を書くのがもっと効率的になりそう！」</p>
+<p>優美が興奮している。</p>
+<p>「優美の創作活動が、どんどん進化していくな」</p>
+<p>「先輩のおかげです！　プログラミングを学んで、考え方が整理されました」</p>
+<p>優美の成長を見ていると、僕も嬉しくなる。</p>
+<p>◇◇◇◇</p>
+<p>「最後に、二人で特別な関数を作ってみよう」</p>
+<p>「特別な関数？」</p>
+<p>「俺たちの関係を表現する関数だ」</p>
+<p>僕は新しいコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">ourRelationship</span><span class="p">(</span><span class="nx">day</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">baseHappiness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">70</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">learningBonus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">togetherBonus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">day</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;プログラミング学習&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">baseHappiness</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">learningBonus</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">day</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;二人で過ごす&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">baseHappiness</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">togetherBonus</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;今日の幸せ度：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">baseHappiness</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ourRelationship</span><span class="p">(</span><span class="s2">&quot;プログラミング学習、二人で過ごす&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>実行すると、「今日の幸せ度：120」と表示された。</p>
+<p>「わあ！　私たちの日常が関数になりました！」</p>
+<p>「そう。俺たちの毎日は、この関数で表現できるんだ」</p>
+<p>優美が感動している。</p>
+<p>「明日も、この関数を実行したいですね」</p>
+<p>「もちろんだ。毎日実行し続けよう」</p>
+<p>僕たちは微笑み合った。</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わって、優美が帰る時間になった。</p>
+<p>「今日も楽しかったです」</p>
+<p>「俺もだよ。関数、理解できたか？」</p>
+<p>「はい！　処理をまとめて使い回すって、とても便利ですね」</p>
+<p>「優美なら、きっと小説執筆にも上手く活かせると思う」</p>
+<p>優美が嬉しそうに微笑む。</p>
+<p>「明日も教えてください」</p>
+<p>「もちろんだ。次は配列について詳しく学ぼう」</p>
+<p>「楽しみです！」</p>
+<p>優美が手を振って帰っていく。</p>
+<p>一人になった部屋で、僕は今日のことを振り返った。</p>
+<p>（関数って、俺たちの関係にも似てるな）</p>
+<p>毎日同じような『処理』を繰り返すけど、少しずつ『引数』が変わって、結果も変わっていく。</p>
+<p>優美との時間は、僕にとって最高の『関数』だ。どんな『引数』を渡しても、必ず幸せな『戻り値』が返ってくる。</p>
+<p>（明日はどんな『引数』で、どんな『戻り値』が得られるだろう）</p>
+<p>そんなことを考えながら、僕は明日への期待を膨らませた。</p>
+<p>関数を学んだ今日、僕は改めて実感した。</p>
+<p>優美との関係は、僕の人生で最も重要な『関数』。何度呼び出しても、いつも最高の結果を返してくれる、特別な存在なのだと。</p>
 
 
 
@@ -1275,6 +1458,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

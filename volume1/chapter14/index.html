@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,44 +1172,217 @@
   
 
 
-<h1 id="14">第14話 クラスメイトが見た「世界の変化」<a class="headerlink" href="#14" title="Permanent link">&para;</a></h1>
-<p>昼休み。僕は、いつものように自分の席で、分厚い専門書を広げていた。『計算機プログラムの構造と解釈』。僕にとってはバイブルのような本だが、クラスの皆にとっては、ただの難解な古文書にしか見えないだろう。</p>
-<p>「よお、嵐山。またそんな難しい本読んでんのか」</p>
-<p>不意に、隣の席の健太が話しかけてきた。彼は、僕とは正反対の、いわゆる陽キャグループの中心にいる男だ。</p>
-<p>「まあな」
-「てかさ、お前、最近、一年生の河内さんとめちゃくちゃ仲良いよな。ひょっとして、付き合ってんの？」</p>
-<p>ニヤニヤと、からかうような視線。僕は、思わずむせてしまった。</p>
-<p>「なっ……！　いや、そういうのじゃ、なくて……！」
-「あやしいー。まあ、あんな可愛い後輩に懐かれて、羨ましいこった」</p>
-<p>健太はそう言って笑うと、すぐに友達の輪に戻っていった。僕は、どきどきと早鐘を打つ心臓を抑えながら、ため息をついた。</p>
-<p>（そういう風に、見えてるのか……）</p>
-<p>でも、と僕は思う。不思議と、健太との今の会話に、以前感じていたような「疎外感」はなかった。むしろ、彼の軽口を、少しだけ心地よく感じてさえいる。
-　美久と話すようになってから、何かが変わったのかもしれない。彼女が楽しそうに話す、僕が全く知らなかった流行りの音楽や、人気のドラマの話。以前なら、どう相槌を打てばいいか分からなかったはずなのに、最近は、「へえ、それはどういうところが面白いんだ？」と、自然に興味が湧いてくるようになっていた。</p>
-<p>僕の世界が、ほんの少しだけ、広がったような気がした。</p>
+<h1 id="14">第14話：継承：共通点と個性の表現<a class="headerlink" href="#14" title="Permanent link">&para;</a></h1>
+<p>金曜日の放課後。先輩とのプログラミングレッスンは今日で14日目。昨日はクラスとインスタンスについて詳しく学んで、私が作った「Relationship」クラスに先輩が少し照れてくれたのが嬉しかった。</p>
+<p>私、柳原優美は今日も期待を胸に先輩の部屋に向かった。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、優美。今日は継承について学ぼう」</p>
+<p>「継承？」</p>
+<p>「うん。昨日学んだクラスを拡張する方法だ」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
 <p>◇◇◇◇</p>
-<p>その頃、美久は美久で、中庭のベンチで友人の沙耶とお弁当を広げていた。</p>
-<p>「ねえ、美久。最近、嵐山先輩とずっと一緒じゃない？　ぶっちゃけ、どうなのよ。進展は？」</p>
-<p>沙耶の直球な質問に、美久は「もう、沙耶ったら……」と、箸を止め、少し複雑な表情で頬杖をついた。</p>
-<p>「すごく、楽しいんだけどね……」
-「なによー、その煮え切らない返事。惚気？」
-「ううん、そうじゃなくて……」</p>
-<p>美久は、最近の隆弘の変化について、ぽつりぽつりと話し始めた。以前は、プログラミングの話になると、周りが見えなくなるくらい没頭してしまう、少し（かなり）変わった先輩だったこと。でも最近は、学校のこととか、私の好きなアイドルのこととか、色々質問してくれるようになったこと。それが、すごく、すごく嬉しいこと。</p>
-<p>「……嬉しい、んだけどね」</p>
-<p>美久は、言葉を続ける。</p>
-<p>「最近、なんだか、すごく欲張りになってる自分がいるの。ただ、隣にいて、一緒にパソコンの画面を覗いてるだけじゃ、なんだか物足りなくなってきちゃって……」</p>
-<p>そう。彼の隣は、世界で一番、居心地のいい場所だ。でも、同時に、一番もどかしい場所にもなりつつあった。「共同開発者」という、最高の口実。でも、その口実が、時々、もどかしい壁に感じてしまう。</p>
-<p>「なーんだ、やっぱり惚気じゃん」</p>
-<p>沙耶が、呆れたように笑った。</p>
-<p>「じゃあさ、今度の週末、どっか遊びに誘ってみれば？　プログラミング、以外でさ」
-「ええーっ！？　む、むむ、無理だよ、そんなの！」</p>
-<p>美久は、顔を真っ赤にしてぶんぶんと首を横に振った。でも、沙耶のその言葉は、彼女の心に、小さな、だけど確かな波紋を広げていた。</p>
+<p>「優美の小説で例えるなら、『人間』という基本的な設定があって、そこから『魔法使い』とか『戦士』とか、色々な職業のキャラクターを派生させるだろ？」</p>
+<p>「はい！　基本設定を土台にして、それぞれの特徴を追加していきます」</p>
+<p>「それがまさに継承の考え方なんだ」</p>
+<p>先輩がコードを書いてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 基本となるクラス（親クラス）</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">,</span><span class="w"> </span><span class="nx">gender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">age</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gender</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">introduce</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;私の名前は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;、&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳の&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gender</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;です&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">walk</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は歩いた&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Characterクラスを継承した魔法使いクラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Wizard</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">,</span><span class="w"> </span><span class="nx">gender</span><span class="p">,</span><span class="w"> </span><span class="nx">magicType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">,</span><span class="w"> </span><span class="nx">gender</span><span class="p">)</span><span class="w">  </span><span class="c1">// 親クラスのコンストラクタを呼ぶ</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">magicType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">magicType</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">castSpell</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">magicType</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の魔法を唱えた！&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mp</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 親クラスのメソッドを上書き（オーバーライド）</span>
+<span class="w">    </span><span class="nx">introduce</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="nx">introduce</span><span class="p">()</span><span class="w">  </span><span class="c1">// 親クラスのintroduceを呼ぶ</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;私は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">magicType</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の魔法が使えます&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「わあ！　本当に小説のキャラクター設定みたい！」</p>
 <p>◇◇◇◇</p>
-<p>そして、放課後。
-　いつもの空き教室で顔を合わせた僕と美久は、お互いに、どこかぎこちなかった。</p>
-<p>「じゃあ、始めようか」
-「は、はい……！」</p>
-<p>昼間の、友人たちとの会話が、頭の片隅にこびりついている。僕たちの関係は、もう、ただの「先輩と後輩」でも、ただの「共同開発者」でも、いられなくなりつつあるのかもしれない。</p>
-<p>そんな、甘酸っぱくて、少しだけ厄介な変化の予兆が、教室の空気を満たしていた。</p>
+<p>「実際に使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 通常のキャラクター</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">normalChar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Character</span><span class="p">(</span><span class="s2">&quot;村人A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;男性&quot;</span><span class="p">)</span>
+<span class="nx">normalChar</span><span class="p">.</span><span class="nx">introduce</span><span class="p">()</span>
+<span class="nx">normalChar</span><span class="p">.</span><span class="nx">walk</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1">// 魔法使いキャラクター</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">wizard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Wizard</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;女性&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;創造&quot;</span><span class="p">)</span>
+<span class="nx">wizard</span><span class="p">.</span><span class="nx">introduce</span><span class="p">()</span>
+<span class="nx">wizard</span><span class="p">.</span><span class="nx">walk</span><span class="p">()</span>
+<span class="nx">wizard</span><span class="p">.</span><span class="nx">castSpell</span><span class="p">()</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>私の名前は村人A、25歳の男性です
+村人Aは歩いた
+---
+私の名前は優美、16歳の女性です
+私は創造の魔法が使えます
+優美は歩いた
+優美は創造の魔法を唱えた！
+</code></pre></div>
+<p>「すごい！　魔法使いは基本的な機能も持ちつつ、独自の能力も持ってる！」</p>
+<p>「そう。これが継承の良いところだ。共通の機能は親クラスに定義して、子クラスでは独自の機能だけを追加すればいい」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「私も継承を使ってクラスを作ってみたいです」</p>
+<p>「いいよ。どんなアイデアがあるんだ？」</p>
+<p>私は考えながらキーボードを打った。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 基本となる物語クラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Story</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">title</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">author</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">plot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addCharacter</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;登場人物「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」を追加しました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">showSummary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;】&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;作者：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;登場人物：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;、&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Storyを継承した恋愛小説クラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RomanceNovel</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Story</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mainCouple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">loveLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">setMainCouple</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mainCouple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">]</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;と&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">person2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;をメインカップルに設定しました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">developRelationship</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">loveLevel</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【イベント】&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;恋愛度が&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">loveLevel</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;になりました！&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 親クラスのメソッドを拡張</span>
+<span class="w">    </span><span class="nx">showSummary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="nx">showSummary</span><span class="p">()</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">mainCouple</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;メインカップル：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">mainCouple</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot; × &quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;現在の恋愛度：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">loveLevel</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「物語の基本クラスから、恋愛小説専用のクラスを作ってみました！」</p>
+<p>◇◇◇◇</p>
+<p>「面白いアイデアだね。使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">myNovel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RomanceNovel</span><span class="p">(</span><span class="s2">&quot;プログラミングで繋がる心&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">addCharacter</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">addCharacter</span><span class="p">(</span><span class="s2">&quot;雅史先輩&quot;</span><span class="p">)</span>
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">setMainCouple</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史先輩&quot;</span><span class="p">)</span>
+
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">developRelationship</span><span class="p">(</span><span class="s2">&quot;一緒にエラーを解決した&quot;</span><span class="p">)</span>
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">developRelationship</span><span class="p">(</span><span class="s2">&quot;Yume言語の約束をした&quot;</span><span class="p">)</span>
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">developRelationship</span><span class="p">(</span><span class="s2">&quot;雨の日に一緒に過ごした&quot;</span><span class="p">)</span>
+
+<span class="nx">myNovel</span><span class="p">.</span><span class="nx">showSummary</span><span class="p">()</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>登場人物「優美」を追加しました
+登場人物「雅史先輩」を追加しました
+優美と雅史先輩をメインカップルに設定しました
+【イベント】一緒にエラーを解決した
+恋愛度が10になりました！
+【イベント】Yume言語の約束をした
+恋愛度が20になりました！
+【イベント】雨の日に一緒に過ごした
+恋愛度が30になりました！
+【プログラミングで繋がる心】
+作者：柳原優美
+登場人物：優美、雅史先輩
+メインカップル：優美 × 雅史先輩
+現在の恋愛度：30
+</code></pre></div>
+<p>「わあ！　本当に小説の構成管理システムみたい！」</p>
+<p>実行結果を見て、また顔が熱くなってしまった。</p>
+<p>◇◇◇◇</p>
+<p>「継承を使えば、基本的な機能を共有しながら、それぞれの特徴を持たせることができるんだ」</p>
+<p>「プログラミングって、本当に創作活動に似てますね」</p>
+<p>「優美の視点は本当に面白いよ。普通の人は技術的な側面ばかり見てしまうけど」</p>
+<p>先輩の褒め言葉が嬉しい。</p>
+<p>「でも、先輩のおかげです。私の世界に合わせて説明してくれるから」</p>
+<p>「俺も優美の発想から学ぶことが多いよ」</p>
+<p>◇◇◇◇</p>
+<p>「ところで、継承には『多重継承』の問題というのがあってね」</p>
+<p>「多重継承？」</p>
+<p>「複数の親クラスから継承することなんだけど、JavaScriptでは直接的にはサポートされていないんだ」</p>
+<p>先輩が図を描いて説明してくれた。</p>
+<p>「例えば、『プログラマー』と『作家』の両方の特徴を持つキャラクターを作りたい場合とか」</p>
+<p>「あ！　それって私みたいな？」</p>
+<p>つい口が滑ってしまった。</p>
+<p>「確かに優美は両方の才能を持ってるな」</p>
+<p>先輩が優しく微笑む。</p>
+<p>「そういう場合は、ミックスインという技術を使ったりするんだけど、今日は基本的な継承だけにしておこう」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「継承って、人間関係にも似てませんか？」</p>
+<p>「どういう意味だ？」</p>
+<p>「親から子へ、先輩から後輩へ、何かが受け継がれていく感じが」</p>
+<p>私の言葉に、先輩が少し考え込んだ。</p>
+<p>「確かにそうだな。俺が優美に教えているプログラミングも、一種の継承かもしれない」</p>
+<p>「でも、私は先輩から受け継いだものに、自分なりの工夫を加えていきたいです」</p>
+<p>「それがまさに継承の本質だよ。受け継いだものを土台に、新しいものを生み出していく」</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わって、自分の部屋に戻る。</p>
+<p>今日は継承について学んだけど、一番印象的だったのは、先輩と私の関係も一種の継承だということだった。</p>
+<p>（先輩から受け継いだプログラミングの知識に、私の創作の視点を加えて……）</p>
+<p>それがYume言語になっていくんだろう。</p>
+<p>机に向かって、今日のレッスンをノートにまとめる。</p>
+<p>『継承：既存のクラスを拡張して新しいクラスを作る』
+『共通機能は親クラスに、独自機能は子クラスに』
+『受け継いだものに、自分らしさを加える』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩との関係も、きっと進化していく』</p>
+<p>幼馴染から始まって、先生と生徒になって、そしていつかは……。</p>
+<p>窓の外を見ると、夕焼けが美しく空を染めていた。</p>
+<p>継承を学んだ今日、私は改めて感じた。</p>
+<p>プログラミングは、ただのコードじゃない。それは、人と人との繋がりや、想いの受け継がれ方を表現する、美しい芸術なのだと。</p>
+<p>明日はどんな魔法を教えてもらえるだろう。そんな期待を胸に、私は小説の続きを書き始めた。主人公の女の子が、男の子から受け継いだ知識に、自分なりの色を加えていく場面を。</p>
 
 
 
@@ -1285,6 +1460,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

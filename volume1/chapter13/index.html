@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,50 +1172,199 @@
   
 
 
-<h1 id="13">第13話 ブロックと、二人だけの「世界」<a class="headerlink" href="#13" title="Permanent link">&para;</a></h1>
-<p>「スコープって、なんだか秘密基地みたいですね」</p>
-<p>バグが直った安堵感からか、美久がぽつりとそんなことを言った。机に肘をつき、楽しそうに足をぶらぶらさせている。</p>
-<p>「その場所だけで使える、特別な合言葉がある、みたいな」
-「秘密基地、か。……いい例えだな」</p>
-<p>僕は、彼女のそのユニークな発想に感心した。そして、その言葉から、新しいアイデアが閃いた。</p>
-<p>「じゃあ、その『秘密基地』を、僕たちの言語で、いつでも自由に作れるようにしてみないか？」
-「え、できるんですか？」
-「ああ。<code>begin</code>っていう、新しい『お願い』を追加するんだ」</p>
-<p>僕は、新しい構文の例をエディタに書いてみせた。</p>
-<p><code>['begin', ['define', 'x', 10], ['+', 'x', 5]]</code></p>
-<p>「<code>begin</code>は、『ここからここまでが、一つのまとまりだよ』ってコンピュータに教えてあげる合図だ。そして、この<code>begin</code>の中で作られた変数は、その中でしか使えない、まさに『秘密の合言葉』になる」
-「おお……！　面白そう！」</p>
-<p>美久が、ぱっと顔を輝かせた。その好奇心に満ちた表情を見ると、僕まで嬉しくなってくる。</p>
-<p>「方針はこうだ。<code>evaluate</code>関数が<code>begin</code>を見つけたら、まず、今の『世界』を親とする、新しい『子どもの世界』を作ってあげる。そして、<code>begin</code>の中の処理は、全部その新しい世界の中で実行するんだ」</p>
-<p>僕は、<code>evaluate</code>関数に<code>begin</code>のルールを書き足そうとして、ふと手を止めた。</p>
-<p>「……ここの処理は、少し長くなりそうだな。こういう時は、処理を別の小さな関数に切り出すのが、良い習慣なんだ。コードを整理整頓する、って感じかな」</p>
-<p>そう言って、僕は<code>evaluateBlock</code>という、新しい関数の定義を書き始めた。そして、その実装を、僕たちは二人で進めていった。まさに、ペアプログラミングだ。</p>
-<p>「まず、新しい『子どもの世界』を作るから……<code>const blockEnv = new Environment(env);</code>でいいんですよね？」と美久が言う。
-「その通り。じゃあ、次はこの<code>blockEnv</code>を使って、<code>begin</code>の中の式を、上から順番に評価していく」
-「最後の式の答えが、ブロック全体の答えになる……。じゃあ、ループで回して、最後の結果だけを<code>return</code>すればいいんですね？」
-「完璧だ、美久」</p>
-<p>僕が相槌を打つより先に、彼女が答えに辿り着く。彼女の成長の速さには、本当に驚かされる。僕たちは、もう教える、教えられるの関係じゃない。対等な、開発パートナーだ。</p>
-<p>そして、完成した<code>evaluateBlock</code>を使って、テストを実行する。</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;begin&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">],</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">],</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
-<span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; 30</span>
-</code></pre></div>
-<p>画面に<code>30</code>と表示されるのを確認し、僕たちは顔を見合わせて頷いた。そして、本命のテスト。</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;begin&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="p">]</span>
-<span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span>
+<h1 id="13">第13話：クラスとインスタンス：設計図と実体<a class="headerlink" href="#13" title="Permanent link">&para;</a></h1>
+<p>木曜日の放課後。優美とのプログラミングレッスンも今日で13日目だ。昨日はオブジェクト指向について学んで、優美が創作活動とプログラミングの共通点を見出していく姿が印象的だった。</p>
+<p>今日はその続きで、クラスとインスタンスについてもう少し詳しく教える予定だ。</p>
+<p>「今日はクラスとインスタンスの関係をもっと深く学ぼう」</p>
+<p>「はい！　昨日学んだことをもっと詳しく知りたいです」</p>
+<p>優美の目が期待で輝いている。</p>
+<p>「昨日は基本的な概念を学んだけど、今日はもっと実践的な使い方を見ていこう」</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<p>◇◇◇◇</p>
+<p>「クラスは『設計図』で、インスタンスは『実体』だって話したよな」</p>
+<p>「はい。キャラクター設定がクラスで、実際のキャラクターがインスタンスでしたね」</p>
+<p>「そう。今日は、そのクラスにもっと複雑な機能を持たせてみよう」</p>
+<p>僕はコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Novel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">,</span><span class="w"> </span><span class="nx">genre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">title</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">author</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">genre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">genre</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">createdAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; Error!</span>
+<span class="w">    </span><span class="nx">addChapter</span><span class="p">(</span><span class="nx">chapterTitle</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">number</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">chapterTitle</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">wordCount</span><span class="o">:</span><span class="w"> </span><span class="nx">content</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chapter</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chapter</span><span class="p">.</span><span class="nx">number</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;章「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chapterTitle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」を追加しました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getTotalWordCount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">chapter</span><span class="p">.</span><span class="nx">wordCount</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">total</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">showInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【作品情報】&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;タイトル：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;著者：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;ジャンル：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">genre</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;章数：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;総文字数：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getTotalWordCount</span><span class="p">())</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p><code>begin</code>の外で<code>message</code>を使おうとすると、画面にはっきりと「Undefined variable: message（そんな変数、知らないよ）」というエラーが表示された。</p>
-<p>「おお……！　すごい！　本当に、秘密基地になってる！」</p>
-<p>美久が、子どものようにはしゃいでいる。その純粋な喜びに、僕の心も温かくなる。</p>
-<p>「これで、僕たちの言語に、また一つ、大切な概念が加わったな」
-「はい！」</p>
-<p>美久が、満面の笑みで僕を見た。僕たちは、一つのPC画面を一緒に覗き込みながら、自然と次のアイデアについて話し始めていた。</p>
-<p>僕たちが作っているのは、もう単なるプログラムじゃない。僕と彼女の、二人だけの言葉で、二人だけのルールで動く、特別な「世界」そのものなんだ。そんな確信が、僕の胸を満たしていた。</p>
+<p>「これは小説を管理するクラスだ」</p>
+<p>「わあ！　私の創作活動そのものですね！」</p>
+<p>◇◇◇◇</p>
+<p>「実際に使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 優美の新作小説</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumiNovel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Novel</span><span class="p">(</span><span class="s2">&quot;プログラミングと恋の方程式&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;恋愛&quot;</span><span class="p">)</span>
+
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">addChapter</span><span class="p">(</span><span class="s2">&quot;運命の出会い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;主人公の女の子がプログラミングに興味を持ち...&quot;</span><span class="p">)</span>
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">addChapter</span><span class="p">(</span><span class="s2">&quot;初めてのエラー&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;エラーに悩む主人公を優しく教える男の子...&quot;</span><span class="p">)</span>
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">addChapter</span><span class="p">(</span><span class="s2">&quot;心のデバッグ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミングを通じて、お互いの気持ちが...&quot;</span><span class="p">)</span>
+
+<span class="nx">yumiNovel</span><span class="p">.</span><span class="nx">showInfo</span><span class="p">()</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>第1章「運命の出会い」を追加しました
+第2章「初めてのエラー」を追加しました
+第3章「心のデバッグ」を追加しました
+【作品情報】
+タイトル：プログラミングと恋の方程式
+著者：柳原優美
+ジャンル：恋愛
+章数：3
+総文字数：96
+</code></pre></div>
+<p>「すごい！　本当に小説管理システムみたい！」</p>
+<p>優美が興奮している。</p>
+<p>「クラスを使えば、こうやって複雑なデータも整理して管理できるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「複数の小説を管理したい場合はどうすればいいんですか？」</p>
+<p>「いい質問だね。複数のインスタンスを作って、配列で管理すればいい」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 作品リスト</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">novels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="c1">// 優美の作品を追加</span>
+<span class="nx">novels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Novel</span><span class="p">(</span><span class="s2">&quot;プログラミングと恋の方程式&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;恋愛&quot;</span><span class="p">))</span>
+<span class="nx">novels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Novel</span><span class="p">(</span><span class="s2">&quot;コードに込めた想い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;恋愛&quot;</span><span class="p">))</span>
+<span class="nx">novels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Novel</span><span class="p">(</span><span class="s2">&quot;デバッグできない恋心&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;恋愛&quot;</span><span class="p">))</span>
+
+<span class="c1">// 全作品の情報を表示</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【優美の作品一覧】&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">novel</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">novels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;・&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">novel</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;（&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">novel</span><span class="p">.</span><span class="nx">genre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;）&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「こうすれば、たくさんの作品を管理できる」</p>
+<p>「わあ！　これなら私の作品管理が楽になりそう！」</p>
+<p>◇◇◇◇</p>
+<p>「それじゃあ、今度は優美がクラスを作ってみて」</p>
+<p>「私が？　えーと……」</p>
+<p>優美は考え込んでから、キーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Relationship</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">person1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">person1</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">person2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">person2</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addMemory</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">,</span><span class="w"> </span><span class="nx">feeling</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="nx">date</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="nx">event</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">feeling</span><span class="o">:</span><span class="w"> </span><span class="nx">feeling</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の思い出を追加：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">showTimeline</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">person1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;と&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">person2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;の思い出】&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">memory</span><span class="p">.</span><span class="nx">date</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">event</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;  気持ち：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">memory</span><span class="p">.</span><span class="nx">feeling</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「人間関係を記録するクラスを作ってみました」</p>
+<p>◇◇◇◇</p>
+<p>「面白いアイデアだね。実際に使ってみよう」</p>
+<p>優美が続けてコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">ourRelationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Relationship</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史先輩&quot;</span><span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">(</span><span class="s2">&quot;7月1日&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;初めてプログラミングを教わった&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;緊張したけど楽しかった&quot;</span><span class="p">)</span>
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">(</span><span class="s2">&quot;7月5日&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;エラーを一緒に解決した&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;先輩の優しさに触れた&quot;</span><span class="p">)</span>
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">(</span><span class="s2">&quot;7月10日&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Yume言語の約束をした&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;夢に向かって一緒に頑張ろうと思った&quot;</span><span class="p">)</span>
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">addMemory</span><span class="p">(</span><span class="s2">&quot;今日&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;クラスとインスタンスを学んだ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;もっと先輩と一緒にいたい&quot;</span><span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">showTimeline</span><span class="p">()</span>
+</code></pre></div>
+<p>実行結果を見て、僕は少し照れてしまった。</p>
+<p>「これも……小説の設定？」</p>
+<p>「そ、そうです！　主人公たちの関係性の変化を記録するんです！」</p>
+<p>優美が顔を赤くしながら言う。</p>
+<p>◇◇◇◇</p>
+<p>「でも、優美のアイデアは本当に面白いよ」</p>
+<p>「本当ですか？」</p>
+<p>「ああ。プログラミングを感情的な側面から捉えるなんて、普通は思いつかない」</p>
+<p>優美が嬉しそうに微笑む。</p>
+<p>「先輩のおかげで、プログラミングがどんどん楽しくなります」</p>
+<p>「それは優美の才能だよ」</p>
+<p>◇◇◇◇</p>
+<p>「ところで、クラスには『静的メソッド』っていうのもあるんだ」</p>
+<p>「静的メソッド？」</p>
+<p>「インスタンスを作らなくても使えるメソッドだ」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">MathHelper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">calculateDistance</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span><span class="w"> </span><span class="nx">y1</span><span class="p">,</span><span class="w"> </span><span class="nx">x2</span><span class="p">,</span><span class="w"> </span><span class="nx">y2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">x1</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">y1</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dy</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">degreesToRadians</span><span class="p">(</span><span class="nx">degrees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">degrees</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// インスタンスを作らずに直接使える</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MathHelper</span><span class="p">.</span><span class="nx">calculateDistance</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;距離：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">distance</span><span class="p">)</span>
+</code></pre></div>
+<p>「便利ですね！　ユーティリティ関数みたい」</p>
+<p>「その通り。よく使う計算とかをまとめておくのに便利なんだ」</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わりに近づいてきた。</p>
+<p>「今日もたくさん学べました」</p>
+<p>「優美の理解力は本当にすごいよ」</p>
+<p>「それは先輩が丁寧に教えてくれるからです」</p>
+<p>優美の言葉に、胸が温かくなる。</p>
+<p>「明日は継承について学ぼう。既存のクラスを拡張する方法だ」</p>
+<p>「楽しみです！」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返った。</p>
+<p>優美が作った「Relationship」クラス。あれは本当に小説の設定なのか、それとも……。</p>
+<p>（優美の気持ちが、少しずつコードに現れてきている気がする）</p>
+<p>プログラミングは、時に人の心を映し出す鏡になる。優美の書くコードには、彼女の優しさや創造性、そして僕への想いが込められているような気がした。</p>
+<p>（俺も、優美のことを……）</p>
+<p>窓の外を見ると、夕焼けが街を赤く染めていた。</p>
+<p>クラスとインスタンスを学んだ今日、僕は改めて思った。</p>
+<p>優美と僕の関係も、日々新しいインスタンスを生成しているようなものだ。同じ「幼馴染」というクラスから始まって、今は「先生と生徒」、そしていつかは……。</p>
+<p>そんな期待を胸に、僕は明日の教材の準備を始めた。</p>
 
 
 
@@ -1291,6 +1442,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,50 +1172,201 @@
   
 
 
-<h1 id="8">第8話 見えないバグと、言えない言葉<a class="headerlink" href="#8" title="Permanent link">&para;</a></h1>
-<p>「よし、じゃあ早速試してみようか」</p>
-<p>変数という、強力な記憶装置を手に入れた僕たちの言語。僕は少し興奮した気持ちを抑えながら、テストケースを打ち込んでいった。</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Environment</span><span class="p">();</span>
-<span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; 15</span>
-
-<span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;define&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]],</span><span class="w"> </span><span class="nx">env</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">evaluate</span><span class="p">([</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span><span class="w"> </span><span class="nx">env</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; 5</span>
+<h1 id="8">第8話：ループ処理：繰り返しの先に広がる世界<a class="headerlink" href="#8" title="Permanent link">&para;</a></h1>
+<p>土曜日の午後。雅史先輩とのプログラミングレッスンも今日で八日目だ。</p>
+<p>昨日は条件分岐について学んで、先輩が作ってくれたコードに胸がドキドキした。『どんな優美でも好き』という結果が表示された時の、先輩の優しい笑顔が忘れられない。</p>
+<p>私、柳原優美は今日も先輩の部屋に向かった。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、お疲れ。今日も頑張ろうな」</p>
+<p>先輩の笑顔を見ていると、毎日がこんなに楽しくて良いのかな、と思ってしまう。</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「今日はループ処理について学ぼう。『繰り返し』っていう処理だ」</p>
+<p>「繰り返し？」</p>
+<p>「優美も小説を書くとき、似たような表現を何度も使うことってあるだろ？」</p>
+<p>先輩の質問に頷く。</p>
+<p>「あります！　『彼女は微笑んだ』とか『心臓がドキドキした』とか」</p>
+<p>「そう。プログラミングでも、同じ処理を何度も繰り返したいことがよくあるんだ」</p>
+<p>先輩がキーボードに向かった。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;こんにちは、優美！&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>画面には、僕の期待通りの数字が次々と表示される。<code>x</code>に<code>10</code>を記憶させ、それを使って<code>y</code>を計算する。完璧な動作だ。</p>
-<p>「おお……！　ちゃんと覚えてる……！」</p>
-<p>隣で見ていた美久も、感心したように声を上げた。でも、その笑顔は、先週までの彼女と比べて、どこか少しだけぎこちなく見えた。</p>
-<p>「じゃあ、次は少し意地悪なテストだ」</p>
-<p>僕は、にやりと笑いながら、新しいコードを打ち込んだ。</p>
-<p><code>evaluate(['define', 'x', 20], env);</code>
-<code>console.log(evaluate('x', env));</code></p>
-<p>一度定義した変数<code>x</code>を、新しい値で上書きする。いわゆる「再定義」だ。当然、画面には<code>20</code>と表示されるはずだった。
-　しかし。</p>
-<p><code>10</code></p>
-<p>「……あれ？」</p>
-<p>表示されたのは、古い値のままの<code>10</code>だった。僕たちの作った<code>define</code>は、新しい値で上書きできず、最初に入れられた値を頑なに守り続けてしまっている。</p>
-<p>「おかしいな……。なんでだ？」</p>
-<p>僕は眉をひそめ、完全に自分の世界に入り込んでしまった。ぶつぶつと独り言を呟きながら、コンソールに大量のデバッグ情報を出力し、コードのあちこちを睨みつける。頭の中は、この予期せぬバグの原因究明で、完全に占拠されてしまっていた。</p>
-<p>隣に、美久がいることも忘れて。</p>
-<p>彼女は、そんな僕の姿を、ただ黙って見つめているだけだった。僕の口から漏れる「スコープが汚染されてるのか？」「いや、参照のタイミングか？」なんていう言葉は、きっと今の彼女には、意味不明な呪文のようにしか聞こえないだろう。
-　手伝おうにも、何をすればいいのか分からない。「共同開発者」のはずが、いつの間にか、僕は彼女をただの「見学者」にしてしまっていた。</p>
-<p>「あの、先輩……」</p>
-<p>どれくらい時間が経っただろうか。美久が、おそるおそる、か細い声で僕に話しかけた。</p>
-<p>「何か、私にできること、ありますか……？」</p>
-<p>その声に含まれた、不安と遠慮の色に、僕は気づくべきだった。でも、バグのことで頭がいっぱいだった僕は、最悪の返事をしてしまう。</p>
-<p>「ああ、ごめん。今ちょっと、集中させてくれ。もうすぐ原因、分かると思うから」</p>
-<p>彼女の方を見ることさえせずに。悪気なんて、全くなかった。ただ、純粋に、問題解決に没頭していただけなんだ。でも、その言葉が、彼女の心をどれだけ深く傷つけたか、この時の僕には、想像もできなかった。</p>
-<p>「……そう、ですか」</p>
-<p>美久の声から、感情が消えた。</p>
-<p>「すみません、先輩。今日、ちょっと用事があるの、思い出しました。なので……お先に、失礼します」</p>
-<p>静かに立ち上がった彼女の言葉に、僕はまだ、画面に視線を釘付けにしたまま、生返事を返した。</p>
-<p>「ん？　ああ、そうか。わかった。お疲れ」</p>
-<p>ぱたん、と静かに教室のドアが閉まる音で、僕はようやく顔を上げた。そこに、彼女の姿はもうなかった。</p>
-<p>（あれ？　帰ったのか）</p>
-<p>一瞬、そう思っただけですぐに意識はコードの海へと戻っていく。一人になった教室に、僕のキーボードを叩く音だけが、虚しく響き渡っていた。</p>
-<p>僕たちの言語に生まれた、小さなバグ。
-　そして、僕たちの間に生まれた、目には見えない、もっと深刻なバグ。</p>
-<p>その存在に、僕はまだ、気づいてすらいなかった。</p>
+<p>「実行してみて」</p>
+<p>私がエンターキーを押すと、画面に同じメッセージが5回表示された。</p>
+<div class="highlight"><pre><span></span><code>こんにちは、優美！
+こんにちは、優美！
+こんにちは、優美！
+こんにちは、優美！
+こんにちは、優美！
+</code></pre></div>
+<p>「わあ！　同じことを5回も！」</p>
+<p>「これがforループっていうやつだ。指定した回数だけ、同じ処理を繰り返すことができる」</p>
+<p>◇◇◇◇</p>
+<p>「でも、なんで同じことを繰り返す必要があるんですか？」</p>
+<p>「いい質問だね。たとえば、優美の小説で登場人物が複数いるとき、みんなに挨拶をさせたい場合はどうする？」</p>
+<p>先輩が新しいコードを書いてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;さくら&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">]</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characters</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：おはようございます！&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これを実行すると……」</p>
+<div class="highlight"><pre><span></span><code>美咲：おはようございます！
+健太：おはようございます！
+さくら：おはようございます！
+雅史：おはようございます！
+優美：おはようございます！
+</code></pre></div>
+<p>「すごい！　みんなが順番に挨拶してる！」</p>
+<p>私は手を叩いて喜んだ。</p>
+<p>「私たちの名前も入ってますね」</p>
+<p>「偶然だよ、偶然」</p>
+<p>先輩が少し照れくさそうに言う。でも、嬉しい。</p>
+<p>「これって、小説の登場人物紹介にも使えそうですね！」</p>
+<p>「そうそう。一人ずつ手作業で書くより、ずっと効率的だろ？」</p>
+<p>なるほど。繰り返しの力ってすごい。</p>
+<p>◇◇◇◇</p>
+<p>「今度は、優美が何かループを作ってみて」</p>
+<p>「私が？　えーと……」</p>
+<p>私は考えながらキーボードを打った。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">feelings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;友達として好き&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;頼れる先輩として好き&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;とても大切な人として好き&quot;</span><span class="p">]</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">feelings</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;私の気持ち：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feelings</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>私の気持ち：友達として好き
+私の気持ち：頼れる先輩として好き
+私の気持ち：とても大切な人として好き
+</code></pre></div>
+<p>また本音を書いてしまった。顔が真っ赤になる。</p>
+<p>「これも……キャラクターの心情の変化？」</p>
+<p>先輩が少し意味深に聞いてくる。</p>
+<p>「そ、そうです！　主人公の感情の変遷を表現してみました！」</p>
+<p>でも、先輩の表情が少し嬉しそうに見えた。</p>
+<p>◇◇◇◇</p>
+<p>「あのね、先輩」</p>
+<p>「ん？」</p>
+<p>「ループって、私たちの毎日にもありますよね」</p>
+<p>「どういう意味だ？」</p>
+<p>「毎日学校に行って、毎日プログラミングを教えてもらって……」</p>
+<p>私の言葉に、先輩が考え込んだ。</p>
+<p>「確かにそうだな。俺たちの生活も、ある意味ループの繰り返しかもしれない」</p>
+<p>「でも、同じ繰り返しでも、毎日が違って感じるんです」</p>
+<p>「どう違うんだ？」</p>
+<p>「毎日、先輩と一緒にいると、新しい発見があるから」</p>
+<p>素直に言葉が出てきてしまう。</p>
+<p>「昨日は条件分岐を教えてもらって、今日はループ。同じ『教えてもらう』でも、毎回違って楽しいんです」</p>
+<p>先輩の表情が柔らかくなった。</p>
+<p>「俺も、優美と一緒だと毎日が新鮮だよ」</p>
+<p>「本当ですか？」</p>
+<p>「ああ。同じプログラミングを教えるんでも、優美の反応を見るのが楽しくて」</p>
+<p>私の胸がドキドキする。</p>
+<p>◇◇◇◇</p>
+<p>「ループには他の種類もあるんだ」</p>
+<p>先輩が説明を続けた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;カウント：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">count</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">count</span><span class="o">++</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これはwhileループ。条件が満たされている間、ずっと繰り返すんだ」</p>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>カウント：0
+カウント：1
+カウント：2
+</code></pre></div>
+<p>「forループと似てるけど、ちょっと違うんですね」</p>
+<p>「そう。whileの方が柔軟で、いろんな条件で繰り返しを制御できる」</p>
+<p>「たとえば？」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">happiness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">happiness</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;先輩と一緒にいると幸せ度：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">happiness</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">happiness</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;最高の幸せ！&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「これを実行すると……」</p>
+<p>画面に幸せ度が10ずつ上がっていく様子が表示され、最後に「最高の幸せ！」と出た。</p>
+<p>「わあ！　幸せがどんどん増えていく！」</p>
+<p>私は興奮している。</p>
+<p>「これは私の本当の気持ちです」</p>
+<p>つい本音が出てしまった。</p>
+<p>「優美……」</p>
+<p>先輩が私を見つめる。その視線がとても優しくて、胸がキューっと痛くなる。</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「プログラミングを学び始めてから、毎日がとても充実してるんです」</p>
+<p>「そうか」</p>
+<p>「でも、それはプログラミングそのものが楽しいからじゃなくて……」</p>
+<p>言いかけて、恥ずかしくなって止まってしまう。</p>
+<p>「なんだ？」</p>
+<p>「先輩と一緒だからです」</p>
+<p>思い切って言った。</p>
+<p>「もし先輩じゃない人にプログラミングを教わっていたら、きっとこんなに楽しくなかった」</p>
+<p>先輩が少し驚いたような顔をする。</p>
+<p>「優美……」</p>
+<p>「私にとって、先輩と過ごすこの時間は、まさにループなんです」</p>
+<p>「ループ？」</p>
+<p>「毎日繰り返される、大切な時間。同じようでいて、毎日新しい発見がある」</p>
+<p>私の言葉に、先輩の表情が優しくなった。</p>
+<p>「俺も同じ気持ちだよ」</p>
+<p>「本当ですか？」</p>
+<p>「ああ。優美との時間は、俺にとって最高のループだ」</p>
+<p>先輩のその言葉に、私の心が温かくなる。</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、最後に二人でループを作ってみよう」</p>
+<p>「二人で？」</p>
+<p>「そう。優美のアイデアと俺の技術を組み合わせて」</p>
+<p>私は考えた。</p>
+<p>「えーと……二人の思い出を繰り返し表示するプログラムはどうですか？」</p>
+<p>「いいアイデアだね」</p>
+<p>先輩と一緒にコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;初めてプログラミングを教わった日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;エラーに苦戦した日&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;変数について学んだ日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;条件分岐で先輩の優しさを知った日&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;今日、ループの素晴らしさを発見した日&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">memories</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;大切な思い出&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">memories</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;これからも素敵な思い出を作っていこうね&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>実行すると、私たちの思い出が順番に表示され、最後に温かいメッセージが現れた。</p>
+<p>「わあ！　私たちの思い出がプログラムになった！」</p>
+<p>「優美のアイデアのおかげだ」</p>
+<p>先輩が微笑む。</p>
+<p>「これからも、この思い出のループに新しい要素を追加していけるんですね」</p>
+<p>「そうだな。毎日新しい思い出が生まれるたびに、配列に追加していこう」</p>
+<p>私たちは微笑み合った。</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わって、自分の部屋に戻る。</p>
+<p>今日はループについて学んだけど、一番印象に残ったのは、私たちの日常もまたループだということだった。</p>
+<p>（先輩と過ごす毎日は、本当にループみたい）</p>
+<p>同じような時間の繰り返しなのに、毎日が特別で新鮮で、幸せ。</p>
+<p>窓の外を見ると、夕日が沈んでいく。明日もまた、先輩とのプログラミングレッスンがある。</p>
+<p>（この幸せなループが、ずっと続いてほしい）</p>
+<p>そして、いつかこのループの中で、私の本当の気持ちを先輩に伝えられる日が来るだろうか。</p>
+<p>机に向かって、今日のレッスンをノートにまとめる。</p>
+<p>『ループ：繰り返し処理。同じようでいて、毎回少しずつ変化していく』
+『私たちの毎日もループ。先輩との大切な時間の繰り返し』</p>
+<p>最後に、小さく書き加えた。</p>
+<p>『この幸せなループが永遠に続きますように』</p>
+<p>ベランダの向こうから、先輩がタイピングする音が聞こえてくる。きっと明日の教材を準備してくれているんだろう。</p>
+<p>（明日はどんな新しいことを学べるのかな）</p>
+<p>プログラミングの勉強も楽しいけれど、何より先輩と一緒に過ごす時間が幸せだ。</p>
+<p>この気持ちを、いつか勇気を出して伝えたい。でも今は、この幸せなループを大切にしていたい。</p>
+<p>そんな想いを胸に、私は明日への期待を膨らませた。</p>
+<p>ループ処理を学んだ今日、私は改めて確信した。</p>
+<p>先輩との日々は、私にとって最高の「繰り返し」。同じようでいて毎日新しく、決して飽きることのない、大切な時間なのだと。</p>
 
 
 
@@ -1291,6 +1444,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

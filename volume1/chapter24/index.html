@@ -22,7 +22,7 @@
     
     
       
-        <title>第24話 ぎゃふん、と言わせたい - きみと創る、世界で一番やさしい言語</title>
+        <title>第24話：デザインパターン：先人の知恵 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第24話 ぎゃふん、と言わせたい
+              第24話：デザインパターン：先人の知恵
             
           </span>
         </div>
@@ -1139,44 +1141,308 @@
   
 
 
-<h1 id="24">第24話 ぎゃふん、と言わせたい<a class="headerlink" href="#24" title="Permanent link">&para;</a></h1>
-<p>「先輩！　これで、相沢さんをぎゃふんと言わせられますよね！？」</p>
-<p>クロージャの概念を理解し、美久の目は、以前にも増して輝いていた。その言葉には、確かな自信と、そして、少しばかりの悪戯っぽい響きが混じっている。</p>
-<p>「ああ。これなら、もう『おままごと』なんて言わせない」</p>
-<p>僕も、彼女の言葉に力強く頷いた。僕たちの言語は、単なる電卓から、関数を定義し、それを記憶する「クロージャ」まで実装できるようになった。これは、高校生が独学で到達できるレベルとしては、かなり高度な部類に入るだろう。</p>
-<p>「じゃあ、いつ、見せつけに行きますか！？」</p>
-<p>美久が、今にも飛び出しそうな勢いで僕を見上げる。その熱意に、僕も背中を押された。</p>
-<p>「よし。放課後、相沢のクラスに行ってみるか」</p>
-<p>放課後。僕たちは、少しだけ緊張した面持ちで、相沢のクラスのドアを叩いた。教室には、まだ数人の生徒が残っている。相沢は、窓際の席で、イヤホンをして何かをいじっていた。</p>
-<p>「相沢」</p>
-<p>僕が声をかけると、彼はゆっくりと顔を上げた。イヤホンを外し、僕たちを見ると、ニヤリと口の端を吊り上げた。</p>
-<p>「ほう。お二人さん。何か用か？　また『宝物』とやらを磨き上げたのか？」</p>
-<p>その挑発的な言葉に、美久がぴくりと反応する。僕は、彼女の肩にそっと手を置き、落ち着かせるように軽く叩いた。</p>
-<p>「ああ。お前が言ってた『クロージャ』、実装したぞ」</p>
-<p>僕の言葉に、相沢の表情が、一瞬だけ固まった。だが、すぐにいつもの嘲るような笑みに戻る。</p>
-<p>「へえ。まさか、本当にやるとはな。で？　どんなもんだか、見せてもらえるんだろうな？」</p>
-<p>僕は、持ってきたノートパソコンを開き、美久と二人で作り上げたコードを画面に表示させた。そして、<code>make-adder</code>の例を、彼に見せた。</p>
-<p>「これは、<code>make-adder</code>という関数だ。数字<code>n</code>を受け取ると、その<code>n</code>を記憶したまま、新しい関数を返す。その新しい関数は、いつでも<code>n</code>を足してくれる」</p>
-<p>僕は、<code>add5</code>と<code>add10</code>を定義し、それぞれに数字を与えて実行する様子を見せた。</p>
-<p><code>console.log(evaluate(['add5', 3], env));</code> // -&gt; 8
-<code>console.log(evaluate(['add10', 3], env));</code> // -&gt; 13</p>
-<p>画面に表示される結果を、相沢は無言で見つめている。その表情から、いつもの余裕が消え失せ、真剣な、いや、少しだけ驚きを含んだ色に変わっていくのが見て取れた。</p>
-<p>「どうだ、相沢。これが、僕たちの『おままごと』の成果だ」</p>
-<p>美久が、僕の隣で、少しだけ得意げに、でも、凛とした声で言った。その瞳は、相沢を真っ直ぐに見据えている。</p>
-<p>相沢は、しばらく沈黙した後、ふっと息を吐いた。</p>
-<p>「……やるじゃねえか」</p>
-<p>その言葉は、僕が今まで聞いた中で、一番素直な、そして、少しだけ悔しそうな響きを含んでいた。</p>
-<p>「まさか、本当にクロージャまで実装するとはな。しかも、一年生のお嬢ちゃんまで巻き込んで、ここまでやるとは……」</p>
-<p>彼は、僕と美久を交互に見た。その視線には、僕たちの技術的な成果への驚きだけでなく、僕たちの間の、特別な関係性への、ある種の好奇心のようなものが含まれているように感じられた。</p>
-<p>「……まいったな。俺の負けだ」</p>
-<p>相沢は、そう言って、小さく笑った。その笑みは、いつもの意地の悪いものではなく、どこか清々しいものだった。</p>
-<p>「せいぜい、その『宝物』とやらを、もっと磨き上げることだな。次会う時が楽しみだぜ」</p>
-<p>そう言い残し、相沢は教室を後にした。</p>
-<p>僕と美久は、顔を見合わせ、そして、同時に、満面の笑みを浮かべた。</p>
-<p>「やった……！　先輩、ぎゃふんって言わせましたね！」</p>
-<p>美久が、僕の腕を掴んで、ぴょんぴょんと跳ねる。その喜びが、僕にも伝わってきて、僕の心も、温かいもので満たされた。</p>
-<p>僕たちの「宝物」は、確かに、相沢に認められた。そして、この勝利は、僕たちの絆を、より一層強く、確かなものにした。</p>
-<p>僕たちの物語は、まだ始まったばかりだ。</p>
+<h1 id="24">第24話：デザインパターン：先人の知恵<a class="headerlink" href="#24" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。私、柳原優美は少し緊張しながら先輩の部屋に向かった。先週金曜日のリファクタリングのレッスン。あの時先輩が見せてくれた最後のコード―――</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Lovers</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>それが頭から離れない。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、優美。今日はデザインパターンについて学ぼう」</p>
+<p>「デザインパターン？」</p>
+<p>「プログラミングの先人たちが残してくれた、問題解決の定石だ」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、よくある展開のパターンってあるよね？」</p>
+<p>「はい！　ボーイミーツガールとか、すれ違いとか、再会とか」</p>
+<p>「それと同じように、プログラミングにも『よくある問題の解決パターン』があるんだ」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Singletonパターン：世界に一つだけのインスタンス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">LoveManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">LoveManager</span><span class="p">.</span><span class="nx">instance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">LoveManager</span><span class="p">.</span><span class="nx">instance</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">LoveManager</span><span class="p">.</span><span class="nx">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">connect</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">].</span><span class="nx">sort</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;既に繋がっています&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">strength</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">connection</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">connection</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// どこから呼んでも同じインスタンス</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">manager1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">LoveManager</span><span class="p">()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">manager2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">LoveManager</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">manager1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">manager2</span><span class="p">)</span><span class="w">  </span><span class="c1">// true</span>
+</code></pre></div>
+<p>「一つしか存在しないもの……運命の相手みたい」</p>
+<p>つい口に出してしまった言葉に、先輩の顔が赤くなった。</p>
+<p>◇◇◇◇</p>
+<p>「次は、Observerパターンだ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 観察者パターン：変化を見守る</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Heart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">owner</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">owner</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">observers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">beatRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="w">  </span><span class="c1">// 通常の心拍数</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 観察者を追加</span>
+<span class="w">    </span><span class="nx">addObserver</span><span class="p">(</span><span class="nx">observer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">observers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">observer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 心拍数が変化</span>
+<span class="w">    </span><span class="nx">setBeatRate</span><span class="p">(</span><span class="nx">rate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">beatRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rate</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">notify</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 全ての観察者に通知</span>
+<span class="w">    </span><span class="nx">notify</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">observers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">observer</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">observer</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">owner</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">beatRate</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 観察者</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">HeartMonitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">update</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span><span class="w"> </span><span class="nx">beatRate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">beatRate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">owner</span><span class="si">}</span><span class="sb">の心臓がドキドキしています！`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">beatRate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">80</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">owner</span><span class="si">}</span><span class="sb">は少し緊張しているようです`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">owner</span><span class="si">}</span><span class="sb">は落ち着いています`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumiHeart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Heart</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">HeartMonitor</span><span class="p">()</span>
+
+<span class="nx">yumiHeart</span><span class="p">.</span><span class="nx">addObserver</span><span class="p">(</span><span class="nx">monitor</span><span class="p">)</span>
+<span class="nx">yumiHeart</span><span class="p">.</span><span class="nx">setBeatRate</span><span class="p">(</span><span class="mf">120</span><span class="p">)</span><span class="w">  </span><span class="c1">// &quot;優美の心臓がドキドキしています！&quot;</span>
+</code></pre></div>
+<p>「これ、今の私の状態かも」</p>
+<p>小さな声でつぶやいた。</p>
+<p>「え？」</p>
+<p>「い、いえ！　なんでもないです！」</p>
+<p>◇◇◇◇</p>
+<p>「Factoryパターンも面白いよ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ファクトリーパターン：状況に応じて適切なものを作る</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">createEmotion</span><span class="p">(</span><span class="nx">situation</span><span class="p">,</span><span class="w"> </span><span class="nx">person</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="nx">situation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;初めての告白&quot;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Nervousness</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;手を繋ぐ&quot;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Happiness</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;プログラミングを教わる&quot;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Joy</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="mf">70</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;先輩の優しさに触れる&quot;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Warmth</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Neutral</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Emotion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="nx">intensity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">person</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">intensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">intensity</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Happiness</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Emotion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">express</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">person</span><span class="si">}</span><span class="sb">は幸せで一杯です（強度: </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">intensity</span><span class="si">}</span><span class="sb">）`</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Warmth</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Emotion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">express</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">person</span><span class="si">}</span><span class="sb">の心が温かくなりました（強度: </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">intensity</span><span class="si">}</span><span class="sb">）`</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私の今の感情も、ファクトリーで作れますか？」</p>
+<p>勇気を出して聞いてみた。</p>
+<p>「どんな状況での感情だ？」</p>
+<p>「『大切な人と一緒にプログラミングを学んでいる時』の感情です」</p>
+<p>◇◇◇◇</p>
+<p>先輩が手を止めた。そして、少し考えてから、新しいコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 特別な感情のファクトリー</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">SpecialEmotionFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">createComplexEmotion</span><span class="p">(</span><span class="nx">situation</span><span class="p">,</span><span class="w"> </span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">situation</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;一緒に夢を追いかける&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">[</span><span class="nx">person1</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Happiness</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">),</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Hope</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">),</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Love</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;???&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// まだ言葉にできない</span>
+<span class="w">                </span><span class="p">),</span>
+<span class="w">                </span><span class="p">[</span><span class="nx">person2</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Happiness</span><span class="p">(</span><span class="nx">person2</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">),</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Hope</span><span class="p">(</span><span class="nx">person2</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">),</span>
+<span class="w">                    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Love</span><span class="p">(</span><span class="nx">person2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;???&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// まだ言葉にできない</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「Loveのintensityが???になってる」</p>
+<p>私が指摘すると、先輩が照れ笑いを浮かべた。</p>
+<p>「まだ……測定不能ってことで」</p>
+<p>◇◇◇◇</p>
+<p>「最後に、Strategyパターンを見てみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 戦略パターン：状況に応じて方法を変える</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ConfessionStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;サブクラスで実装してください&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">DirectConfession</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">ConfessionStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">execute</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="kr">from</span><span class="si">}</span><span class="sb">「</span><span class="si">${</span><span class="nx">to</span><span class="si">}</span><span class="sb">、好きです。付き合ってください」`</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">CodeConfession</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">ConfessionStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">execute</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">const myFeelings = {</span>
+<span class="sb">    from: &quot;</span><span class="si">${</span><span class="kr">from</span><span class="si">}</span><span class="sb">&quot;,</span>
+<span class="sb">    to: &quot;</span><span class="si">${</span><span class="nx">to</span><span class="si">}</span><span class="sb">&quot;,</span>
+<span class="sb">    message: &quot;大好きです&quot;,</span>
+<span class="sb">    promise: &quot;ずっと一緒にいたい&quot;</span>
+<span class="sb">}</span>
+<span class="sb">        `</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">PoetryConfession</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">ConfessionStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">execute</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">君と過ごす時間は</span>
+<span class="sb">まるでコンパイルの成功のよう</span>
+<span class="sb">エラーのない世界で</span>
+<span class="sb">二人だけの関数を作りたい</span>
+<span class="sb">        `</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 告白マネージャー</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ConfessionManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">strategy</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">confess</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">strategy</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これって……」</p>
+<p>「まあ、参考程度に」</p>
+<p>先輩の顔が真っ赤だ。</p>
+<p>◇◇◇◇</p>
+<p>「デザインパターンは、ただの技術じゃない」</p>
+<p>先輩が真剣な表情で続けた。</p>
+<p>「先人たちが試行錯誤して見つけた、最良の方法なんだ。恋愛にも、きっと最良のパターンがある」</p>
+<p>「どんなパターンですか？」</p>
+<p>「それは……」</p>
+<p>先輩が私の目を見つめた。</p>
+<p>「お互いを大切に思って、一緒に成長していくパターンかな」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、私は提案した。</p>
+<p>「先輩、Yume言語にもデザインパターンを取り入れましょう」</p>
+<p>「いいアイデアだ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のためのパターン</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumePatterns</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ビルダーパターン：段階的に物語を構築</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">storyBuilder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">setting</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">plot</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+
+<span class="w">            </span><span class="nx">addCharacter</span><span class="p">(</span><span class="nx">character</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">character</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">setSetting</span><span class="p">(</span><span class="nx">setting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">setting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setting</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">addEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">plot</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">build</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Story</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ourStory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">YumePatterns</span><span class="p">.</span><span class="nx">storyBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addCharacter</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addCharacter</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">setSetting</span><span class="p">(</span><span class="s2">&quot;プログラミング教室&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;出会い&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;運命&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;共に学ぶ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;幸せ&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;Yume言語を作る&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;希望&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;？？？&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;？？？&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// これから書かれる物語</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">build</span><span class="p">()</span>
+</code></pre></div>
+<p>「最後のイベントが???」</p>
+<p>「これから二人で書いていく物語だから」</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『デザインパターン：問題解決の定石』
+『Singleton：世界に一つだけ』
+『Observer：変化を見守る』
+『Factory：適切なものを作る』
+『Strategy：最良の方法を選ぶ』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『恋愛にも最良のパターンがあるなら、私たちはもうそれを歩んでいる』</p>
+<p>窓の外を見ると、月が優しく街を照らしていた。</p>
+<p>（先人の知恵を借りながら、私たちだけの物語を作っていこう）</p>
+<p>Yume言語と、二人の関係。どちらも、最良のパターンを見つけながら、少しずつ前に進んでいく。</p>
+<p>明日も、先輩と一緒に新しいパターンを見つけに行こう。私たちだけの、特別なデザインパターンを。</p>
 
 
 
@@ -1254,6 +1520,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

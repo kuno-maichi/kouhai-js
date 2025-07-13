@@ -22,7 +22,7 @@
     
     
       
-        <title>第32話 共に描く「未来」の設計図 - きみと創る、世界で一番やさしい言語</title>
+        <title>第32話：フレームワーク：巨人の肩の上に - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第32話 共に描く「未来」の設計図
+              第32話：フレームワーク：巨人の肩の上に
             
           </span>
         </div>
@@ -1139,28 +1141,461 @@
   
 
 
-<h1 id="32">第32話 共に描く「未来」の設計図<a class="headerlink" href="#32" title="Permanent link">&para;</a></h1>
-<p>僕たちの関係が「恋人」になってから、空き教室での勉強会は、以前にも増して、僕たちにとって特別な時間になった。プログラミングのコードを追う視線の先に、いつも美久の笑顔がある。</p>
-<p>「先輩、この末尾再帰の最適化、なんだか、私たちの関係みたいですね」</p>
-<p>美久が、ふと、そんなことを言った。僕が首を傾げると、彼女は、はにかんだように笑った。</p>
-<p>「だって、関数が、自分自身を呼び出すたびに、新しい環境に『繋ぎ合わせる』んでしょ？　私たちも、先輩と私が、お互いの世界を『繋ぎ合わせる』ことで、どんどん新しい関係になっていく、みたいな」</p>
-<p>美久の言葉に、僕は思わず目を見開いた。僕にとっては、ただの技術的な概念だった「末尾再帰の最適化」が、彼女の感性を通すと、こんなにもロマンチックな意味を帯びる。</p>
-<p>「……美久は、すごいな」
-「えへへ。先輩も、すごいですよ。いつも、私の知らない世界を教えてくれるから」</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「未来」の設計図だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、将来、どんなことしたいですか？」</p>
-<p>美久が、僕の顔を見上げながら尋ねる。その瞳には、僕たちの未来への期待が込められている。</p>
-<p>「そうだな……美久と、ずっと一緒に、色々なものを作っていきたい」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「未来」の設計図は、まだ漠然としているけれど、美久と一緒なら、どんな困難も乗り越えられる。そんな確信が、僕の胸に満ちていた。</p>
+<h1 id="32">第32話：フレームワーク：巨人の肩の上に<a class="headerlink" href="#32" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。文化祭も無事に終わり、優美との関係も恋人同士として安定してきた。今日から、Yume言語の開発を再開する。</p>
+<p>「先輩、久しぶりのレッスンですね」</p>
+<p>優美が嬉しそうに部屋に入ってきた。恋人同士になってから、彼女の笑顔がより一層輝いて見える。</p>
+<p>「ああ。今日は、フレームワークについて学ぼう」</p>
+<p>「フレームワーク？」</p>
+<p>「プログラミングをより効率的に行うための枠組みだ」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、完全にゼロから書く？」</p>
+<p>「いえ、ジャンルの定番の流れとか、お約束みたいなものはありますね」</p>
+<p>「それがフレームワークの考え方に近い」</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// フレームワークなしで Web アプリを作る場合</span>
+<span class="c1">// すべて自分で実装する必要がある</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">createWebServer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ルーティングを自分で実装</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="p">})</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;ホームページ&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;/about&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="p">})</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;このサイトについて&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span><span class="p">})</span>
+<span class="w">            </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;404 Not Found&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Express.js フレームワークを使った場合</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">()</span>
+
+<span class="c1">// シンプルで読みやすい</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;ホームページ&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/about&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;このサイトについて&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span>
+</code></pre></div>
+<p>「わあ、フレームワークを使うと、こんなにシンプルになるんですね」</p>
+<p>「そう。先人たちが作ってくれた仕組みの上に乗ることで、僕たちは本当に作りたいものに集中できる」</p>
+<p>◇◇◇◇</p>
+<p>「これが『巨人の肩の上に立つ』という考え方だ」</p>
+<p>「巨人の肩の上？」</p>
+<p>「ニュートンの言葉だ。『私がより遠くを見ることができたのは、巨人の肩の上に立っていたからだ』」</p>
+<p>優美の目が理解の光で輝いた。</p>
+<p>「つまり、先人の成果を活用することで、より高いところから始められるんですね」</p>
+<p>「その通り。フレームワークは、その巨人の肩なんだ」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語にも、フレームワーク的な機能を組み込もう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のフレームワーク機能</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeFramework</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">templates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">helpers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// モジュールシステム</span>
+<span class="w">    </span><span class="nx">registerModule</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">module</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">module</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`モジュール &#39;</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">&#39; を登録しました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// テンプレート機能</span>
+<span class="w">    </span><span class="nx">registerTemplate</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">template</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">structure</span><span class="o">:</span><span class="w"> </span><span class="nx">template</span><span class="p">.</span><span class="nx">structure</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">variables</span><span class="o">:</span><span class="w"> </span><span class="nx">template</span><span class="p">.</span><span class="nx">variables</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">hooks</span><span class="o">:</span><span class="w"> </span><span class="nx">template</span><span class="p">.</span><span class="nx">hooks</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ヘルパー関数</span>
+<span class="w">    </span><span class="nx">registerHelper</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">func</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">helpers</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">func</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// テンプレートから生成</span>
+<span class="w">    </span><span class="nx">generateFromTemplate</span><span class="p">(</span><span class="nx">templateName</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">templateName</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">template</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`テンプレート &#39;</span><span class="si">${</span><span class="nx">templateName</span><span class="si">}</span><span class="sb">&#39; が見つかりません`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">template</span><span class="p">.</span><span class="nx">structure</span>
+
+<span class="w">        </span><span class="c1">// 変数を置換</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">params</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="sb">`{{</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">}}`</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;g&#39;</span><span class="p">),</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// フックを実行</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">afterGenerate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">template</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">afterGenerate</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例：小説生成フレームワーク</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeFramework</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeFramework</span><span class="p">()</span>
+
+<span class="c1">// 恋愛小説テンプレートを登録</span>
+<span class="nx">yumeFramework</span><span class="p">.</span><span class="nx">registerTemplate</span><span class="p">(</span><span class="s1">&#39;恋愛小説&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">structure</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb"># {{title}}</span>
+
+<span class="sb">## 第1章：出会い</span>
+<span class="sb">{{character1}}と{{character2}}が{{place}}で出会った。</span>
+<span class="sb">{{meetingScene}}</span>
+
+<span class="sb">## 第2章：接近</span>
+<span class="sb">二人の距離が少しずつ縮まっていく。</span>
+<span class="sb">{{developmentScene}}</span>
+
+<span class="sb">## 第3章：告白</span>
+<span class="sb">ついに{{character1}}が気持ちを伝える。</span>
+<span class="sb">{{confessionScene}}</span>
+<span class="sb">    `</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">variables</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;character1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;character2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;place&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;meetingScene&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;developmentScene&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;confessionScene&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">hooks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">afterGenerate</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 感情表現を強化</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/気持ち/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;想い&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">// テンプレートから小説を生成</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myNovel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeFramework</span><span class="p">.</span><span class="nx">generateFromTemplate</span><span class="p">(</span><span class="s1">&#39;恋愛小説&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;幼馴染とプログラミング&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">character1</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;雅史&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">character2</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">place</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ベランダ越し&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">meetingScene</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;「先輩、私だけのプログラミング言語作ってください！」&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">developmentScene</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;プログラミングを通じて、二人の心も近づいていった。&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">confessionScene</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;「優美、君のことが好きだ」&#39;</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「これ、私の小説執筆にも使えそう！」</p>
+<p>優美が興奮気味に言った。</p>
+<p>「そうだな。フレームワークの考え方は、色々な分野に応用できる」</p>
+<p>◇◇◇◇</p>
+<p>「でも、フレームワークに頼りすぎるのも問題がある」</p>
+<p>「どういうことですか？」</p>
+<p>「基礎を理解せずにフレームワークだけ使っていると、問題が起きた時に対処できない」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// フレームワークの落とし穴</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">FrameworkPitfalls</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 過度な抽象化</span>
+<span class="w">    </span><span class="nx">overAbstraction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 何をしているか分からなくなる</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">processResult</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transformData</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">finalizeOutput</span><span class="p">)</span>
+<span class="w">            </span><span class="c1">// エラーが起きても、どこが原因か分からない</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 学習曲線の問題</span>
+<span class="w">    </span><span class="nx">learningCurve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// フレームワーク固有の書き方を覚える必要がある</span>
+<span class="w">        </span><span class="c1">// 基礎的な知識が身につかない可能性</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 依存性の問題</span>
+<span class="w">    </span><span class="nx">dependency</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// フレームワークが更新されなくなったら？</span>
+<span class="w">        </span><span class="c1">// セキュリティの問題が見つかったら？</span>
+<span class="w">        </span><span class="c1">// 他のフレームワークに移行したくなったら？</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// バランスの取れたアプローチ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">BalancedApproach</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">framework</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeFramework</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">customCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// フレームワークを活用しつつ、理解も深める</span>
+<span class="w">    </span><span class="nx">useFrameworkWisely</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// まず基礎を理解</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">basicImplementation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">implementBasic</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// その上でフレームワークを活用</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">frameworkImplementation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">framework</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 両方を比較して学ぶ</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">basic</span><span class="o">:</span><span class="w"> </span><span class="nx">basicImplementation</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">framework</span><span class="o">:</span><span class="w"> </span><span class="nx">frameworkImplementation</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">learning</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">compareAndLearn</span><span class="p">(</span><span class="nx">basicImplementation</span><span class="p">,</span><span class="w"> </span><span class="nx">frameworkImplementation</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">implementBasic</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 基礎的な実装</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`基礎実装: </span><span class="si">${</span><span class="nx">task</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">compareAndLearn</span><span class="p">(</span><span class="nx">basic</span><span class="p">,</span><span class="w"> </span><span class="nx">framework</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">efficiency</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;効率性の違い&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">readability</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;可読性の違い&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">maintainability</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;保守性の違い&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「バランスが大切なんですね」</p>
+<p>「そう。巨人の肩に立ちながらも、自分の足でしっかり立てるようになることが重要だ」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、フレームワークみたいですね」</p>
+<p>突然の言葉に、心臓が跳ねた。</p>
+<p>「どういう意味？」</p>
+<p>「幼馴染という『フレームワーク』の上に、恋人という新しい関係を構築した」</p>
+<p>優美の表現に、思わず笑ってしまった。</p>
+<p>「確かに。でも、僕たちの関係は、既存のフレームワークには収まらない、独自のものだ」</p>
+<p>「そうですね。私たちだけの、特別な実装」</p>
+<p>◇◇◇◇</p>
+<p>「実際に、Yume言語用のフレームワークを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の感情表現フレームワーク</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionFramework</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">expressions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">combinations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 基本感情を登録</span>
+<span class="w">    </span><span class="nx">registerEmotion</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="nx">properties</span><span class="p">.</span><span class="nx">intensity</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="nx">properties</span><span class="p">.</span><span class="nx">color</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="nx">properties</span><span class="p">.</span><span class="nx">expression</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">combinable</span><span class="o">:</span><span class="w"> </span><span class="nx">properties</span><span class="p">.</span><span class="nx">combinable</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情の組み合わせ</span>
+<span class="w">    </span><span class="nx">combineEmotions</span><span class="p">(</span><span class="nx">emotion1</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">emotion1</span><span class="si">}</span><span class="sb">+</span><span class="si">${</span><span class="nx">emotion2</span><span class="si">}</span><span class="sb">`</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">combinations</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">combinations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion1</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">e2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">e1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">e2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;未定義の感情です&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 新しい複合感情を生成</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">combined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">emotion1</span><span class="si">}</span><span class="sb">と</span><span class="si">${</span><span class="nx">emotion2</span><span class="si">}</span><span class="sb">の混合`</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">e1</span><span class="p">.</span><span class="nx">intensity</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">e2</span><span class="p">.</span><span class="nx">intensity</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">mixColors</span><span class="p">(</span><span class="nx">e1</span><span class="p">.</span><span class="nx">color</span><span class="p">,</span><span class="w"> </span><span class="nx">e2</span><span class="p">.</span><span class="nx">color</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">e1</span><span class="p">.</span><span class="nx">expression</span><span class="si">}</span><span class="sb">でありながら</span><span class="si">${</span><span class="nx">e2</span><span class="p">.</span><span class="nx">expression</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">combinations</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">combined</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">combined</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">mixColors</span><span class="p">(</span><span class="nx">color1</span><span class="p">,</span><span class="w"> </span><span class="nx">color2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡易的な色の混合</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">color1</span><span class="si">}</span><span class="sb">がかった</span><span class="si">${</span><span class="nx">color2</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情表現の生成</span>
+<span class="w">    </span><span class="nx">express</span><span class="p">(</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;未定義の感情&#39;</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">context</span><span class="si">}</span><span class="sb">は</span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">expression</span><span class="si">}</span><span class="sb">。`</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="sb">`心の色は</span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">color</span><span class="si">}</span><span class="sb">、強さは</span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">intensity</span><span class="si">}</span><span class="sb">/10。`</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// フレームワークの使用</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">emotionFW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionFramework</span><span class="p">()</span>
+
+<span class="c1">// 基本感情を定義</span>
+<span class="nx">emotionFW</span><span class="p">.</span><span class="nx">registerEmotion</span><span class="p">(</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;明るい黄色&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;顔が輝いている&#39;</span>
+<span class="p">})</span>
+
+<span class="nx">emotionFW</span><span class="p">.</span><span class="nx">registerEmotion</span><span class="p">(</span><span class="s1">&#39;恋&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ピンク&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;頬が赤らんでいる&#39;</span>
+<span class="p">})</span>
+
+<span class="nx">emotionFW</span><span class="p">.</span><span class="nx">registerEmotion</span><span class="p">(</span><span class="s1">&#39;期待&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;薄い青&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;瞳がキラキラしている&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// 複合感情</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">complexEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">emotionFW</span><span class="p">.</span><span class="nx">combineEmotions</span><span class="p">(</span><span class="s1">&#39;恋&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;期待&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">complexEmotion</span><span class="p">)</span>
+
+<span class="c1">// 表現の生成</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">emotionFW</span><span class="p">.</span><span class="nx">express</span><span class="p">(</span><span class="s1">&#39;恋&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>「感情もフレームワーク化できるんですね」</p>
+<p>「プログラミングの考え方は、人間の感情にも応用できる」</p>
+<p>◇◇◇◇</p>
+<p>「最後に、フレームワークを選ぶ時の基準を教えよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// フレームワーク選定基準</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">FrameworkSelector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">criteria</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addCriterion</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">weight</span><span class="p">,</span><span class="w"> </span><span class="nx">evaluator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">criteria</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="nx">weight</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">evaluate</span><span class="o">:</span><span class="w"> </span><span class="nx">evaluator</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">selectFramework</span><span class="p">(</span><span class="nx">frameworks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">fw</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">frameworks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">totalScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">criterion</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">criteria</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">criterion</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">fw</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">totalScore</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">score</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">criterion</span><span class="p">.</span><span class="nx">weight</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="nx">scores</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">fw</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">totalScore</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// スコアでソート</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">scores</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 選定基準を設定</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FrameworkSelector</span><span class="p">()</span>
+
+<span class="nx">selector</span><span class="p">.</span><span class="nx">addCriterion</span><span class="p">(</span><span class="s1">&#39;学習曲線&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">fw</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">fw</span><span class="p">.</span><span class="nx">difficulty</span><span class="w">  </span><span class="c1">// 簡単なほど高スコア</span>
+<span class="p">})</span>
+
+<span class="nx">selector</span><span class="p">.</span><span class="nx">addCriterion</span><span class="p">(</span><span class="s1">&#39;コミュニティ&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">fw</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fw</span><span class="p">.</span><span class="nx">communitySize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="w">  </span><span class="c1">// コミュニティが大きいほど高スコア</span>
+<span class="p">})</span>
+
+<span class="nx">selector</span><span class="p">.</span><span class="nx">addCriterion</span><span class="p">(</span><span class="s1">&#39;機能性&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">fw</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fw</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">length</span><span class="w">  </span><span class="c1">// 機能が多いほど高スコア</span>
+<span class="p">})</span>
+
+<span class="nx">selector</span><span class="p">.</span><span class="nx">addCriterion</span><span class="p">(</span><span class="s1">&#39;将来性&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">fw</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fw</span><span class="p">.</span><span class="nx">updates</span><span class="p">.</span><span class="nx">frequency</span><span class="w">  </span><span class="c1">// 更新頻度が高いほど高スコア</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>「選ぶ基準も大切なんですね」</p>
+<p>「そう。目的に合ったフレームワークを選ぶことが成功の鍵だ」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕は優美に特別なフレームワークを見せた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 二人の関係フレームワーク</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RelationshipFramework</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">foundation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;幼馴染&#39;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;恋人&#39;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedExperiences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">futureGoals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 共通の基盤</span>
+<span class="w">    </span><span class="nx">getFoundation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">foundation</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">years</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w">  </span><span class="c1">// 12年の付き合い</span>
+<span class="w">            </span><span class="nx">trust</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MAX&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">understanding</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DEEP&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 現在の構築物</span>
+<span class="w">    </span><span class="nx">getCurrentBuild</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStatus</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">challenges</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;プログラミング言語開発&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;大学受験&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">support</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MUTUAL&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 未来への拡張</span>
+<span class="w">    </span><span class="nx">extendToFuture</span><span class="p">(</span><span class="nx">goal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">futureGoals</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">goal</span><span class="o">:</span><span class="w"> </span><span class="nx">goal</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timeline</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;いつか&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;HIGH&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">together</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 私たちの関係</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourRelationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RelationshipFramework</span><span class="p">(</span><span class="s1">&#39;雅史&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">)</span>
+
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">extendToFuture</span><span class="p">(</span><span class="s1">&#39;Yume言語の完成&#39;</span><span class="p">)</span>
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">extendToFuture</span><span class="p">(</span><span class="s1">&#39;一緒に成長し続ける&#39;</span><span class="p">)</span>
+<span class="nx">ourRelationship</span><span class="p">.</span><span class="nx">extendToFuture</span><span class="p">(</span><span class="s1">&#39;???&#39;</span><span class="p">)</span><span class="w">  </span><span class="c1">// まだ言葉にできない未来</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;私たちの関係は、最高のフレームワークの上に構築されています&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>「これって……」</p>
+<p>「僕たちの関係も、幼馴染という強固なフレームワークの上に築かれている」</p>
+<p>優美の顔が赤くなった。</p>
+<p>「でも、フレームワークに頼るだけじゃなく、自分たちで新しいものも作っていく」</p>
+<p>「はい。私たちだけの、特別な実装を」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返っていた。</p>
+<p>フレームワーク。巨人の肩の上に立つこと。</p>
+<p>（優美との関係も、長い歴史の上に成り立っている）</p>
+<p>窓の外を見ると、秋の夕日が街を優しく照らしていた。</p>
+<p>先人たちの知恵を借りながら、でも自分たちの道を歩んでいく。それが、プログラミングでも、人生でも大切なことだ。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;フレームワークの活用&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">philosophical</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;巨人の肩の上に立つ&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;基盤の上に新しいものを築く&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;幼馴染 + 恋人 = 最強のフレームワーク&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日も、優美と一緒に、僕たちだけのものを作っていこう。巨人の肩の上で、でも自分たちの足でしっかり立ちながら。</p>
 
 
 
@@ -1238,6 +1673,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

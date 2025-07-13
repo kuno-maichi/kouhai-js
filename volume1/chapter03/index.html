@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-evaluator" class="md-skip">
+        <a href="#3" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -1170,75 +1172,217 @@
   
 
 
-<h1 id="3-evaluator">第3話 最初の評価器（Evaluator）<a class="headerlink" href="#3-evaluator" title="Permanent link">&para;</a></h1>
-<p>「この暗号みたいなリストを、コンピュータに計算させてあげる、ね……」</p>
-<p>週が明けた放課後。僕たちは学校の空き教室にいた。美久は目の前のノートパソコンに表示された <code>['+', 1, 2]</code> という文字列を眺めながら、うーんと唸っている。</p>
-<p>「でも、どうやって？　コンピュータに、このリストの読み方を教えてあげないといけないんですよね？」
-「その通りだ。その『読み方を教えるプログラム』のことを、専門用語で**評価器（Evaluator）**って言うんだ」
-「ひょうかき……」</p>
-<p>なんだか急に難しそうな言葉が出てきて、美久は少しだけ身構えたようだ。僕は慌てて付け加える。</p>
-<p>「大丈夫。難しく考える必要はない。美久が前に言ってた、『翻訳機』みたいなものだと思えばいい。僕たちの作った『お願い』のルールを、コンピュータがわかる形に翻訳してあげる機械だ」
-「なるほど……！　翻訳機！」</p>
-<p>その言葉で少し安心したのか、彼女の表情が和らいだ。僕はノートパソコンに向き直り、JavaScriptのファイルを開く。</p>
-<p>「じゃあ、その翻訳機を実際に作ってみよう。<code>evaluate</code>っていう名前をつけてやる」</p>
-<p>僕はそう言って、数行のコードを打ち込んだ。</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// ここに翻訳のルールを書いていく</span>
+<h1 id="3">第3話：エラーとの格闘と、距離が縮まる瞬間<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。授業が終わった僕は、急いで家に帰った。今日は優美とのプログラミングレッスン三日目だ。</p>
+<p>昨日は優美の理解の早さに驚かされた。関数やif文の説明をしたとき、彼女が小説の例に置き換えて理解してくれたのは嬉しかった。</p>
+<p>（でも、今日はちょっと難しくなるかもな）</p>
+<p>今日教える予定のループ処理は、初心者にはつまずきやすい概念だ。優美なら大丈夫だと思うけど……。</p>
+<p>チャイムが鳴って、ドアを開けると、制服姿の優美が立っていた。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、お疲れ。今日も頑張ろうな」</p>
+<p>優美は僕の隣に座る。今日は少し距離が近い気がする。</p>
+<p>（気のせい、だよな？）</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「ループ処理について教えようと思う。同じ処理を繰り返す方法だ」</p>
+<p>「繰り返し？」</p>
+<p>「そう。たとえば、優美が小説で同じ表現を何度も書く必要がある時、手動で何回も書くのは大変だろ？」</p>
+<p>「はい。『彼女は振り返った』を十回書くとか」</p>
+<p>「その通り。プログラミングでも、同じ処理を何度も実行したい時がある。それを効率的にやるのがループ処理だ」</p>
+<p>僕はキーボードに向かった。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;こんにちは！ &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;回目&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>「まず、一番簡単なルールからだ。『もし、お願いがただの数字だったら、それは計算する必要がないから、そのままその数字を返す』。これをコードにすると、こうなる」</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">exp</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">exp</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+<p>「これを実行すると……」</p>
+<div class="highlight"><pre><span></span><code>こんにちは！ 1回目
+こんにちは！ 2回目
+こんにちは！ 3回目
+こんにちは！ 4回目
+こんにちは！ 5回目
+</code></pre></div>
+<p>「わあ！　自動で5回繰り返された！」</p>
+<p>優美が興奮して身を乗り出してくる。その拍子に、僕の腕に優美の手が触れた。</p>
+<p>「あ、すみません」</p>
+<p>「い、いや、大丈夫だよ」</p>
+<p>優美の手は思ったより小さくて、温かかった。</p>
+<p>（集中、集中……）</p>
+<p>「じゃあ、優美も実際に書いてみるか？」</p>
+<p>「はい！」</p>
+<p>優美は僕の隣でキーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;優美の小説、頑張って書くぞ！&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>「<code>typeof</code>っていうのは、そのデータがどんな種類かを調べる命令だ。この場合は、『もし<code>exp</code>が数字だったら』っていう意味になる」
-「へえー。じゃあ、<code>evaluate(5)</code>ってお願いしたら、<code>5</code>がそのまま返ってくるってことですか？」
-「正解。じゃあ、次が本番だ。『もし、お願いが <code>['+', 1, 2]</code> みたいなリストだったら』どうするか」</p>
-<p>僕はコードを書き足していく。</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">exp</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">exp</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+<p>「実行してみて」</p>
+<p>優美がエンターキーを押すと……何も表示されなかった。</p>
+<p>「あれ？　なんで動かないんですか？」</p>
+<p>「ちょっと見せて」</p>
+<p>僕は優美の書いたコードを確認した。一見正しく見えるが……。</p>
+<p>「あ、ここだ。ダブルクォートが全角になってる」</p>
+<p>「ダブルクォート？」</p>
+<p>「この『"』の部分。日本語入力のままだと全角文字になって、プログラムが理解できないんだ」</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;優美の小説、頑張って書くぞ！&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「本当だ！　微妙に太さが違いますね」</p>
+<p>「そう。プログラミングでは、こういう細かいところでエラーになることが多いんだ」</p>
+<p>僕は優美のコードを修正した。</p>
+<p>「これで実行してみよう」</p>
+<div class="highlight"><pre><span></span><code>優美の小説、頑張って書くぞ！
+優美の小説、頑張って書くぞ！
+優美の小説、頑張って書くぞ！
+</code></pre></div>
+<p>「やった！　動きました！」</p>
+<p>優美が手を叩いて喜ぶ。その笑顔を見ていると、僕も嬉しくなった。</p>
+<p>「でも、エラーって結構ショックですね。何が間違ってるか分からなくて」</p>
+<p>「最初はそうだな。でも、エラーメッセージを読めば、大体どこが間違ってるか分かるようになる」</p>
+<p>「エラーメッセージ？」</p>
+<p>僕はわざと間違ったコードを書いてみた。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;エラーが出るよ&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>実行すると、画面に赤い文字でエラーメッセージが表示された。</p>
+<div class="highlight"><pre><span></span><code>SyntaxError: missing ) after for-loop condition
+</code></pre></div>
+<p>「英語ですね……」</p>
+<p>「『for文の条件の後に）が足りません』って意味だ。ほら、ここに）がないだろ？」</p>
+<p>「本当だ！　エラーメッセージが教えてくれるんですね」</p>
+<p>「そう。エラーは敵じゃなくて、味方なんだ。『ここが間違ってるよ』って教えてくれる」</p>
+<p>◇◇◇◇</p>
+<p>「今度は優美が自由にループを書いてみて」</p>
+<p>「えーと……」</p>
+<p>優美は少し考えてから、キーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">chapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">chapter</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">chapter</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chapter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;章：新たな出会い&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「小説の章立てですか？」</p>
+<p>「はい！　連載小説の目次を作るイメージで」</p>
+<p>実行すると、画面に章立てが表示された。</p>
+<div class="highlight"><pre><span></span><code>第1章：新たな出会い
+第2章：新たな出会い
+第3章：新たな出会い
+...
+</code></pre></div>
+<p>「いいアイデアだな。でも、全部同じタイトルになってる」</p>
+<p>「あ、そうですね。章ごとに違うタイトルにしたいんですけど……」</p>
+<p>「配列を使えばできるよ」</p>
+<p>僕は新しいコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">titles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;新たな出会い&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;秘密の告白&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;すれ違い&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;真実の瞬間&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;永遠の約束&quot;</span>
+<span class="p">]</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">exp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exp</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// リストの1番目（演算子）</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">operand1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exp</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// リストの2番目（数字1）</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">operand2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exp</span><span class="p">[</span><span class="mf">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// リストの3番目（数字2）</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">operator</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">operand1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">operand2</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">titles</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;第&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;章：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">titles</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>「<code>Array.isArray(exp)</code>っていうので、<code>exp</code>がリストかどうかを調べてる。そして、リストの1番目が <code>+</code> だったら、2番目と3番目の数字を足し算する、っていうルールだ」
-「あ、なるほど……。でも、先輩。最後の行、ちょっと不思議です」</p>
-<p>美久が指さしたのは、<code>return evaluate(operand1) + evaluate(operand2);</code> の部分だった。</p>
-<p>「<code>evaluate</code>の中で、また<code>evaluate</code>を呼んでますよね？　それって、アリなんですか？」
-「よく気づいたな。それが一番大事なポイントだ」</p>
-<p>僕は彼女に向き直った。</p>
-<p>「翻訳機は、リストの中身がまた計算できるものかもしれないって考えるんだ。だから、2番目の<code>operand1</code>と3番目の<code>operand2</code>を、もう一度自分自身に『これ、翻訳して』ってお願いする。そうやって、どんどん中身を解き明かしていくんだ」
-「なんだか……玉ねぎの皮をむいていくみたいですね。むいてもむいても、また自分が出てくる、みたいな」
-「はは、面白い例えだな。でも、そんな感じだ。自分の仕事を、自分自身に依頼して、問題を少しずつ簡単にしていく。プログラミングの、すごく重要な考え方の一つだよ」</p>
-<p>美久は「ふーむ」と腕を組み、何かを深く納得したような顔をしている。彼女のこういう、物事の本質を直感で掴み取るところには、時々驚かされる。</p>
-<p>「じゃあ、いよいよ、こいつを動かしてみようか」</p>
-<p>僕はプログラムの最後に、一行を追加した。</p>
-<p><code>console.log(evaluate(['+', 1, 2]));</code></p>
-<p>エンターキーを押す。一瞬の沈黙の後、画面の片隅に、ぽつんと一つの数字が表示された。</p>
-<p><code>3</code></p>
-<p>「……あ」</p>
-<p>美久が、小さな声を漏らした。</p>
-<p>「動きましたね……先輩」
-「ああ。動いたな」</p>
-<p>僕たちの最初の言語が、産声を上げた瞬間だった。たった一つの計算しかできない、世界で一番小さな言語。でも、それは紛れもなく、僕たちが「作った」ものだった。</p>
-<p>「すごい……！　たったこれだけのコードで、ちゃんと計算できるんですね！」</p>
-<p>興奮した様子で画面を覗き込む彼女の横顔を見ながら、僕は静かな達成感を噛み締めていた。</p>
-<p>「ああ。でもな、美久」
-「はい？」
-「これが、全ての始まりなんだ」</p>
-<p>僕の言葉に、彼女はきょとんとした顔で僕を見つめ、そして、次の瞬間には、満面の笑みで力強く頷いたのだった。</p>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>第1章：新たな出会い
+第2章：秘密の告白
+第3章：すれ違い
+第4章：真実の瞬間
+第5章：永遠の約束
+</code></pre></div>
+<p>「すごい！　ちゃんと違うタイトルになってる！」</p>
+<p>「配列っていうのは、複数のデータをまとめて管理する方法なんだ」</p>
+<p>「これって、私の小説の登場人物管理にも使えそうですね」</p>
+<p>優美の発想力には毎回驚かされる。</p>
+<p>「そうだな。キャラクターの名前や設定を配列に入れて管理できるし、ループで一覧表示することもできる」</p>
+<p>「面白い！　やってみます！」</p>
+<p>優美は夢中でキーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;雅樹&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;みどり&quot;</span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">]</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characters</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;さん（&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">ages</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳）&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>でも、実行してもエラーが出る。</p>
+<p>「あれ？　また動かない……」</p>
+<p>「ちょっと見せて」</p>
+<p>僕は優美の肩越しに画面を覗き込む。優美の髪からシャンプーの香りがふわりと漂ってきて、心臓が早鐘を打つ。</p>
+<p>（落ち着け、今はプログラミングだ）</p>
+<p>「あ、ここだ。『みどり』のところ、ダブルクォートが全角になってる」</p>
+<p>指摘しようと画面を指差した時、優美も同じ場所を指差した。僕たちの手が重なる。</p>
+<p>「あ……」</p>
+<p>優美が振り返る。顔が、すごく近い。</p>
+<p>「……」</p>
+<p>「……」</p>
+<p>数秒間、お互い見つめ合ってしまった。優美の瞳が大きく見える。</p>
+<p>「え、えーと……」</p>
+<p>僕は慌てて手を引っ込めた。</p>
+<p>「す、すみません！」</p>
+<p>優美も真っ赤になって謝る。</p>
+<p>「い、いや、こっちこそ……」</p>
+<p>気まずい空気が流れる。でも、不思議と嫌な感じじゃない。</p>
+<p>「と、とりあえず、エラーを直そうか」</p>
+<p>「は、はい！」</p>
+<p>僕は優美のコードを修正した。手が震えているのを気づかれないように気をつけながら。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;雅樹&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;美咲&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;健太&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;みどり&quot;</span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">]</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characters</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;さん（&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">ages</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳）&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「実行してみて」</p>
+<div class="highlight"><pre><span></span><code>雅樹さん（17歳）
+美咲さん（16歳）
+健太さん（18歳）
+みどりさん（16歳）
+</code></pre></div>
+<p>「やった！　動きました！」</p>
+<p>優美が嬉しそうに声を上げる。さっきの気まずさも吹き飛んだみたいだ。</p>
+<p>「雅樹って、先輩の名前に似てますね」</p>
+<p>「え？」</p>
+<p>優美の言葉に、僕の心臓がまた跳ねる。</p>
+<p>「いや、たまたまだよ。たまたま」</p>
+<p>「そうですか？」</p>
+<p>優美がいたずらっぽく微笑む。</p>
+<p>（もしかして、わざと……？）</p>
+<p>◇◇◇◇</p>
+<p>「今日はここまでにしようか」</p>
+<p>二時間があっという間に過ぎた。</p>
+<p>「はい。今日もありがとうございました」</p>
+<p>「優美、エラーで落ち込んだりしなかったな」</p>
+<p>「最初はちょっとショックでしたけど、先輩が『味方だ』って言ってくれたので」</p>
+<p>優美が微笑む。その笑顔を見ていると、また胸が温かくなる。</p>
+<p>「それに、エラーを一緒に直してくれるから安心できます」</p>
+<p>「そうか」</p>
+<p>「一人だったら、きっと諦めてました。でも、先輩がいるから頑張れる」</p>
+<p>優美の言葉に、僕の心がぎゅっと締め付けられる。</p>
+<p>（俺も、優美がいるから頑張れるんだけどな）</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「さっき、手が触れた時……」</p>
+<p>優美が恥ずかしそうに俯く。</p>
+<p>「あ、あれは……」</p>
+<p>僕も答えに困る。確かに、あの瞬間は特別だった。</p>
+<p>「嫌じゃなかったです」</p>
+<p>「え？」</p>
+<p>「先輩の手、温かくて……嫌じゃなかったです」</p>
+<p>優美が真っ赤になりながら言う。</p>
+<p>「俺も……嫌じゃなかった」</p>
+<p>正直に答えてしまった。優美が顔を上げる。</p>
+<p>「本当ですか？」</p>
+<p>「ああ」</p>
+<p>優美の笑顔が、今日一番輝いて見えた。</p>
+<p>「じゃあ、明日もよろしくお願いします」</p>
+<p>「こちらこそ」</p>
+<p>優美が帰った後、僕は一人でベランダに出た。隣の部屋からは、優美が鼻歌を歌う声が聞こえてくる。</p>
+<p>（今日は、なんだか特別な日だったな）</p>
+<p>手のひらには、まだ優美の温もりが残っているような気がした。</p>
+<p>エラーと格闘した今日のレッスンは、僕たちの距離を確実に縮めてくれた。プログラミングを教えているつもりが、僕の方が優美から大切なことを教わっている気がする。</p>
+<p>明日もまた、優美と一緒に過ごせる。それだけで、今夜は良い夢が見られそうだった。</p>
+<p>スマホを取り出して、今日教えたコードをメモアプリに保存する。優美が明日復習しやすいように、コメントも付け加えておこう。</p>
+<p>（こんなに誰かのことを考えてプログラミングするのは初めてだな）</p>
+<p>優美の笑顔を思い浮かべながら、僕は夜更かしして教材の準備を続けた。</p>
 
 
 
@@ -1316,6 +1460,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

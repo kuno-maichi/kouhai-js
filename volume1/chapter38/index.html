@@ -22,7 +22,7 @@
     
     
       
-        <title>第38話 恋の「リリース」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第38話：機械学習とAI：知能を作る - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#38" class="md-skip">
+        <a href="#38ai" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第38話 恋の「リリース」
+              第38話：機械学習とAI：知能を作る
             
           </span>
         </div>
@@ -1139,26 +1141,639 @@
   
 
 
-<h1 id="38">第38話 恋の「リリース」<a class="headerlink" href="#38" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のバージョンアップ」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、もう完成じゃないですか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のリリース」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを世の中に発表したいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のリリース」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="38ai">第38話：機械学習とAI：知能を作る<a class="headerlink" href="#38ai" title="Permanent link">&para;</a></h1>
+<p>火曜日の放課後。Yume言語の開発も一段落つき、僕たちは新しい挑戦に取り組むことにした。</p>
+<p>「優美、今日は機械学習とAIについて学んでみよう」</p>
+<p>僕の提案に、優美の目が輝いた。</p>
+<p>「AI！　小説を書いてくれるAIとかですか？」</p>
+<p>「そういうのも作れるかもしれない。でも、まずは基本から」</p>
+<p>僕は優美の期待に満ちた表情を見て、微笑んだ。彼女の創作活動への情熱は、いつも僕を刺激してくれる。</p>
+<p>◇◇◇◇</p>
+<p>「機械学習って、どういうものなんですか？」</p>
+<p>「簡単に言うと、データからパターンを学習して、予測や分類ができるようになる技術だ」</p>
+<p>ホワイトボードに図を描きながら説明を始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 単純な機械学習の例：線形回帰</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">SimpleLinearRegression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="w">     </span><span class="c1">// 傾き</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">intercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="c1">// 切片</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// データから学習</span>
+<span class="w">    </span><span class="nx">train</span><span class="p">(</span><span class="nx">xData</span><span class="p">,</span><span class="w"> </span><span class="nx">yData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xData</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="w">        </span><span class="c1">// 平均を計算</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">xMean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xData</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">n</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">yMean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yData</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">n</span>
+
+<span class="w">        </span><span class="c1">// 傾きを計算</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">numerator</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="nx">xData</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">xMean</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">yData</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">yMean</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">denominator</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="nx">xData</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">xMean</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">2</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">denominator</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">intercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yMean</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">slope</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">xMean</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`学習完了: y = </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">slope</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb">x + </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">intercept</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 予測</span>
+<span class="w">    </span><span class="nx">predict</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">slope</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">intercept</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例：勉強時間と成績の関係</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SimpleLinearRegression</span><span class="p">()</span>
+
+<span class="c1">// 訓練データ（勉強時間と点数）</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">studyHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">]</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">65</span><span class="p">,</span><span class="w"> </span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="mf">85</span><span class="p">]</span>
+
+<span class="nx">model</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">studyHours</span><span class="p">,</span><span class="w"> </span><span class="nx">scores</span><span class="p">)</span>
+
+<span class="c1">// 予測</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;10時間勉強した場合の予測点数:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">model</span><span class="p">.</span><span class="nx">predict</span><span class="p">(</span><span class="mf">10</span><span class="p">))</span>
+</code></pre></div>
+<p>「勉強時間と点数の関係を学習してるんですね」</p>
+<p>「そう。過去のデータからパターンを見つけて、未来を予測する」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「これって、私の小説の展開予測にも使えますか？」</p>
+<p>優美の発想に、僕は感心した。</p>
+<p>「面白い考えだ。やってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// テキスト分類器：感情分析</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">SentimentAnalyzer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 単語の感情スコアを学習</span>
+<span class="w">    </span><span class="nx">trainWord</span><span class="p">(</span><span class="nx">word</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">word</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">word</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">positive</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">negative</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sentiment</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;positive&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">scores</span><span class="p">.</span><span class="nx">positive</span><span class="o">++</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">scores</span><span class="p">.</span><span class="nx">negative</span><span class="o">++</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 文章から学習</span>
+<span class="w">    </span><span class="nx">train</span><span class="p">(</span><span class="nx">sentences</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">sentences</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(({</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">words</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">word</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">trainWord</span><span class="p">(</span><span class="nx">word</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="p">)</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;学習完了。辞書サイズ:&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">size</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 文章を単語に分割</span>
+<span class="w">    </span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡易的な日本語トークナイザー</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/[\u4e00-\u9faf\u3040-\u309f\u30a0-\u30ff]+|[a-zA-Z]+/g</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情を予測</span>
+<span class="w">    </span><span class="nx">predict</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">positiveScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">negativeScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="nx">words</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">word</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">word</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">wordScores</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">positiveScore</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">scores</span><span class="p">.</span><span class="nx">positive</span>
+<span class="w">                </span><span class="nx">negativeScore</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">scores</span><span class="p">.</span><span class="nx">negative</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">totalScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">positiveScore</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">negativeScore</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="nx">totalScore</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">threshold</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;positive&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;negative&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">totalScore</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">positiveScore</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">negativeScore</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 優美の小説データで学習</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">analyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SentimentAnalyzer</span><span class="p">()</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">trainingData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;彼の優しい言葉に心が温かくなった&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;positive&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;二人で過ごす時間が幸せすぎる&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;positive&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;別れの時が近づいて胸が痛む&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;negative&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;涙が止まらなかった&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;negative&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;新しい出会いにワクワクする&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;positive&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;孤独な夜が続いた&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;negative&#39;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="nx">analyzer</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">trainingData</span><span class="p">)</span>
+
+<span class="c1">// テスト</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">testSentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;彼と過ごす幸せな時間&#39;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">analyzer</span><span class="p">.</span><span class="nx">predict</span><span class="p">(</span><span class="nx">testSentence</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`「</span><span class="si">${</span><span class="nx">testSentence</span><span class="si">}</span><span class="sb">」の感情:`</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+</code></pre></div>
+<p>「私の文章の感情を分析できるんですね！」</p>
+<p>「これが機械学習の基本。データから特徴を抽出して、パターンを学習する」</p>
+<p>◇◇◇◇</p>
+<p>「次は、もう少し高度なAIを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ニューラルネットワークの基礎</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">SimpleNeuralNetwork</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">inputSize</span><span class="p">,</span><span class="w"> </span><span class="nx">hiddenSize</span><span class="p">,</span><span class="w"> </span><span class="nx">outputSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 重みをランダムに初期化</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">weights1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">randomMatrix</span><span class="p">(</span><span class="nx">inputSize</span><span class="p">,</span><span class="w"> </span><span class="nx">hiddenSize</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">weights2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">randomMatrix</span><span class="p">(</span><span class="nx">hiddenSize</span><span class="p">,</span><span class="w"> </span><span class="nx">outputSize</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">learningRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ランダムな行列を生成</span>
+<span class="w">    </span><span class="nx">randomMatrix</span><span class="p">(</span><span class="nx">rows</span><span class="p">,</span><span class="w"> </span><span class="nx">cols</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">rows</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">cols</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="c1">// -1 ~ 1</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">matrix</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// シグモイド関数（活性化関数）</span>
+<span class="w">    </span><span class="nx">sigmoid</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="nx">x</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 順伝播</span>
+<span class="w">    </span><span class="nx">forward</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 入力層 → 隠れ層</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">weights1</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">input</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">weights1</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="nx">hidden</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">sigmoid</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 隠れ層 → 出力層</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">weights2</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">hidden</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">hidden</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">weights2</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="nx">output</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">sigmoid</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="nx">hidden</span><span class="p">,</span><span class="w"> </span><span class="nx">output</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 学習（簡略版）</span>
+<span class="w">    </span><span class="nx">train</span><span class="p">(</span><span class="nx">inputs</span><span class="p">,</span><span class="w"> </span><span class="nx">targets</span><span class="p">,</span><span class="w"> </span><span class="nx">epochs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ニューラルネットワークの学習開始...&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">epoch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">epoch</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">epochs</span><span class="p">;</span><span class="w"> </span><span class="nx">epoch</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">totalError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">output</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">forward</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">targets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">output</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
+<span class="w">                </span><span class="nx">totalError</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// ここで本来は誤差逆伝播を実装</span>
+<span class="w">                </span><span class="c1">// 今回は簡略化</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">epoch</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Epoch </span><span class="si">${</span><span class="nx">epoch</span><span class="si">}</span><span class="sb">: 平均誤差 = </span><span class="si">${</span><span class="nx">totalError</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">inputs</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;学習完了！&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// XOR問題を解く</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SimpleNeuralNetwork</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">xorInputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">xorTargets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span>
+
+<span class="c1">// 実際の学習は複雑なので、デモンストレーション</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;XOR問題を学習中...&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>「これがAIの基本なんですね」</p>
+<p>「そう。人間の脳を模倣したニューラルネットワーク」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語にもAI機能を追加してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のAI拡張</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeAI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionAI</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">storyModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StoryAI</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">dialogueModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">DialogueAI</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情を理解するAI</span>
+<span class="w">    </span><span class="nx">analyzeEmotion</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionModel</span><span class="p">.</span><span class="nx">analyze</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 物語を生成するAI</span>
+<span class="w">    </span><span class="nx">generateStory</span><span class="p">(</span><span class="nx">prompt</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">storyModel</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">prompt</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 対話を生成するAI</span>
+<span class="w">    </span><span class="nx">generateDialogue</span><span class="p">(</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">situation</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">dialogueModel</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">situation</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 感情AI</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionAI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;悲しみ&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;怒り&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;驚き&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;恐れ&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">patterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">initializePatterns</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">initializePatterns</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 感情パターンを定義</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">patterns</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;嬉しい&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;楽しい&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;幸せ&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;笑顔&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ワクワク&#39;</span><span class="p">])</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">patterns</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;悲しみ&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;悲しい&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;涙&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;寂しい&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;辛い&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;切ない&#39;</span><span class="p">])</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">patterns</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;好き&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;愛してる&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;大切&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優しい&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ドキドキ&#39;</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">analyze</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">emotion</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">scores</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">patterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">patterns</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">            </span><span class="nx">patterns</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">pattern</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">pattern</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">scores</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">scores</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 最も高いスコアの感情を返す</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">maxEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;平常&#39;</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">maxScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="nx">scores</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">score</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">maxScore</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">maxScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">score</span>
+<span class="w">                </span><span class="nx">maxEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">emotion</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">primaryEmotion</span><span class="o">:</span><span class="w"> </span><span class="nx">maxEmotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">scores</span><span class="o">:</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">fromEntries</span><span class="p">(</span><span class="nx">scores</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="nx">maxScore</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 物語生成AI</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">StoryAI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">templates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;喜び&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;{character}は、{event}をきっかけに、新しい世界が開けた&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;長い努力の末、ついに{character}は{goal}を達成した&#39;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s1">&#39;愛&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;{character1}と{character2}の距離が、少しずつ縮まっていく&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;言葉にできない想いが、{character}の胸に溢れていた&#39;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generate</span><span class="p">(</span><span class="nx">prompt</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">templates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">templates</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;物語は続く...&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">templates</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">templates</span><span class="p">.</span><span class="nx">length</span><span class="p">)]</span>
+
+<span class="w">        </span><span class="c1">// プロンプトから要素を抽出（簡易版）</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">character</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;主人公&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">character1</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;雅史&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">character2</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="nx">prompt</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">goal</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;夢&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// テンプレートを置換</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">story</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">template</span>
+<span class="w">        </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">elements</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">story</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">story</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="sb">`\\{</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">\\}`</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;g&#39;</span><span class="p">),</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">story</span><span class="o">:</span><span class="w"> </span><span class="nx">story</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="nx">template</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeAI</span><span class="p">()</span>
+
+<span class="c1">// 優美の文章を分析</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumiText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;雅史先輩と一緒にプログラミングを学ぶのが、本当に楽しくて幸せです&#39;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">emotionResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeAI</span><span class="p">.</span><span class="nx">analyzeEmotion</span><span class="p">(</span><span class="nx">yumiText</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;感情分析結果:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">emotionResult</span><span class="p">)</span>
+
+<span class="c1">// 物語を生成</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">storyResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeAI</span><span class="p">.</span><span class="nx">generateStory</span><span class="p">(</span><span class="s1">&#39;プログラミング言語の完成&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">emotionResult</span><span class="p">.</span><span class="nx">primaryEmotion</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;生成された物語:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">storyResult</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「先輩、AIって本当にすごいですね」</p>
+<p>「でも、これはまだ始まりに過ぎない」</p>
+<p>優美が興奮気味に言った。</p>
+<p>「私の小説も、AIが書いてくれるようになるんでしょうか？」</p>
+<p>「技術的には可能だ。でも……」</p>
+<p>僕は優美の顔を見つめた。</p>
+<p>「優美の書く物語の魅力は、AIには真似できない」</p>
+<p>「どうしてですか？」</p>
+<p>「だって、優美の物語には、優美の心が込められているから」</p>
+<p>◇◇◇◇</p>
+<p>「実際に、簡単な創作支援AIを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 創作支援AI</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CreativeAssistantAI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">knowledge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">KnowledgeBase</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">creativity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CreativityEngine</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プロット提案</span>
+<span class="w">    </span><span class="nx">suggestPlot</span><span class="p">(</span><span class="nx">genre</span><span class="p">,</span><span class="w"> </span><span class="nx">theme</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">knowledge</span><span class="p">.</span><span class="nx">getStoryElements</span><span class="p">(</span><span class="nx">genre</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">structure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">creativity</span><span class="p">.</span><span class="nx">generateStructure</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">beginning</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateBeginning</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span><span class="w"> </span><span class="nx">theme</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">development</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateDevelopment</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span><span class="w"> </span><span class="nx">structure</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">climax</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateClimax</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span><span class="w"> </span><span class="nx">theme</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">ending</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateEnding</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// キャラクター提案</span>
+<span class="w">    </span><span class="nx">suggestCharacter</span><span class="p">(</span><span class="nx">role</span><span class="p">,</span><span class="w"> </span><span class="nx">personality</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateName</span><span class="p">(</span><span class="nx">role</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">traits</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateTraits</span><span class="p">(</span><span class="nx">personality</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateBackground</span><span class="p">(</span><span class="nx">role</span><span class="p">,</span><span class="w"> </span><span class="nx">personality</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">motivation</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateMotivation</span><span class="p">(</span><span class="nx">personality</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 対話生成</span>
+<span class="w">    </span><span class="nx">generateDialogue</span><span class="p">(</span><span class="nx">character1</span><span class="p">,</span><span class="w"> </span><span class="nx">character2</span><span class="p">,</span><span class="w"> </span><span class="nx">situation</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">relationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">analyzeRelationship</span><span class="p">(</span><span class="nx">character1</span><span class="p">,</span><span class="w"> </span><span class="nx">character2</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">analyzeContext</span><span class="p">(</span><span class="nx">situation</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">speaker</span><span class="o">:</span><span class="w"> </span><span class="nx">character1</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">dialogue</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">createDialogue</span><span class="p">(</span><span class="nx">character1</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">reaction</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">predictReaction</span><span class="p">(</span><span class="nx">character2</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 知識ベース</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">KnowledgeBase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">storyPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;romance&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">elements</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;出会い&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;葛藤&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;理解&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;結ばれる&#39;</span><span class="p">],</span>
+<span class="w">                </span><span class="nx">conflicts</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;すれ違い&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;誤解&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;外的障害&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;内なる恐れ&#39;</span><span class="p">]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="s1">&#39;mystery&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">elements</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;事件&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;手がかり&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;推理&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;解決&#39;</span><span class="p">],</span>
+<span class="w">                </span><span class="nx">conflicts</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;偽の手がかり&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;容疑者&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;動機&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;真相&#39;</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getStoryElements</span><span class="p">(</span><span class="nx">genre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">storyPatterns</span><span class="p">[</span><span class="nx">genre</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">storyPatterns</span><span class="p">[</span><span class="s1">&#39;romance&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 創造性エンジン</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CreativityEngine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">generateStructure</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// テーマに基づいた物語構造を生成</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">structures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s1">&#39;起承転結&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;序破急&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;三幕構成&#39;</span>
+<span class="w">        </span><span class="p">]</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nx">structures</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">structures</span><span class="p">.</span><span class="nx">length</span><span class="p">)],</span>
+<span class="w">            </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="nx">theme</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">acts</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateActs</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateActs</span><span class="p">(</span><span class="nx">theme</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="sb">`</span><span class="si">${</span><span class="nx">theme</span><span class="si">}</span><span class="sb">との出会い`</span><span class="p">,</span>
+<span class="w">            </span><span class="sb">`</span><span class="si">${</span><span class="nx">theme</span><span class="si">}</span><span class="sb">を深く知る`</span><span class="p">,</span>
+<span class="w">            </span><span class="sb">`</span><span class="si">${</span><span class="nx">theme</span><span class="si">}</span><span class="sb">との対峙`</span><span class="p">,</span>
+<span class="w">            </span><span class="sb">`</span><span class="si">${</span><span class="nx">theme</span><span class="si">}</span><span class="sb">との和解`</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語での実装例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">creativeAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CreativeAssistantAI</span><span class="p">()</span>
+
+<span class="c1">// 恋愛小説のプロット提案</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">plotSuggestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">creativeAI</span><span class="p">.</span><span class="nx">suggestPlot</span><span class="p">(</span><span class="s1">&#39;romance&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;プログラミング&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;AIが提案するプロット:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">plotSuggestion</span><span class="p">)</span>
+
+<span class="c1">// キャラクター提案</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">characterSuggestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">creativeAI</span><span class="p">.</span><span class="nx">suggestCharacter</span><span class="p">(</span><span class="s1">&#39;mentor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gentle&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;AIが提案するキャラクター:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">characterSuggestion</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>優美が真剣な表情で言った。</p>
+<p>「AIは便利だけど、人間の創造性を置き換えるものではないんですね」</p>
+<p>「その通りだ。AIは道具。使う人の創造性を拡張するもの」</p>
+<p>僕は優美の理解の速さに、改めて感心した。</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕たちは今日学んだことをYume言語に統合した。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語にAI機能を統合</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeLanguageWithAI</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">YumeLanguage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeAI</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">learning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MachineLearning</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// AI支援付きプログラミング</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">executeWithAI</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// コードの感情を分析</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ai</span><span class="p">.</span><span class="nx">analyzeEmotion</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情に基づいて実行環境を調整</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionEngine</span><span class="p">.</span><span class="nx">setMood</span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">primaryEmotion</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 通常の実行</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 実行結果から学習</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">learning</span><span class="p">.</span><span class="nx">learn</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">result</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">aiAnalysis</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">suggestions</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ai</span><span class="p">.</span><span class="nx">suggestImprovements</span><span class="p">(</span><span class="nx">code</span><span class="p">),</span>
+<span class="w">                </span><span class="nx">prediction</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">learning</span><span class="p">.</span><span class="nx">predict</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 機械学習モジュール</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MachineLearning</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">codePatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">executionResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">learn</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">codePatterns</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="nx">code</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">success</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// パターンを学習</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">updateModel</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">predict</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 類似のコードパターンを探す</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">similar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">findSimilarPatterns</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">similar</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">successRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">similar</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">success</span><span class="p">).</span><span class="nx">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">similar</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">likelySuccess</span><span class="o">:</span><span class="w"> </span><span class="nx">successRate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="nx">successRate</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">suggestions</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateSuggestions</span><span class="p">(</span><span class="nx">similar</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">likelySuccess</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">suggestions</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">findSimilarPatterns</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡易的な類似度計算</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">codePatterns</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">pattern</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">similarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">calculateSimilarity</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="nx">pattern</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">similarity</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">calculateSimilarity</span><span class="p">(</span><span class="nx">code1</span><span class="p">,</span><span class="w"> </span><span class="nx">code2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// レーベンシュタイン距離の簡易版</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">len1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">code1</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">len2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">code2</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">len1</span><span class="p">,</span><span class="w"> </span><span class="nx">len2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">maxLen</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">len1</span><span class="p">,</span><span class="w"> </span><span class="nx">len2</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">code1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">code2</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"> </span><span class="nx">matches</span><span class="o">++</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">maxLen</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「AIって、私たちの関係も予測できるんでしょうか？」</p>
+<p>優美の突然の質問に、僕は少し戸惑った。</p>
+<p>「それは……どういう意味？」</p>
+<p>「だって、私たちがこうして一緒にいるのも、ある意味パターンですよね」</p>
+<p>優美の言葉に、僕は考え込んでしまった。</p>
+<p>「確かに、データを集めれば予測できるかもしれない。でも……」</p>
+<p>「でも？」</p>
+<p>「人の心は、アルゴリズムだけでは説明できない」</p>
+<p>◇◇◇◇</p>
+<p>帰り道、優美と並んで歩きながら、今日のレッスンを振り返っていた。</p>
+<p>「AIは素晴らしい技術だ。でも、それを使って何を作るかは、人間次第」</p>
+<p>「先輩らしい考え方ですね」</p>
+<p>優美が微笑んだ。</p>
+<p>「私は、AIを使って、もっと多くの人に物語を届けたい」</p>
+<p>「きっとできるよ」</p>
+<p>夕日が、二人の影を長く伸ばしていく。</p>
+<p>機械学習とAI。知能を作る技術。でも、本当の知能とは何だろう？　データから学習することだけが知能なのか？　それとも、創造性や感情も含めて知能なのか？</p>
+<p>答えはまだ分からない。でも、優美と一緒なら、きっと見つけられる。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;機械学習とAI&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">topics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;線形回帰&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ニューラルネットワーク&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;感情分析&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">implementation</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語へのAI統合&#39;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;AIは道具、創造性は人間のもの&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">yumiInsight</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;技術と心の調和&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">future</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;AIと共に歩む未来&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日も、優美と一緒に、新しい「知能」を探求していこう。それは、コードとアルゴリズムだけでなく、心と創造性も含んだ、本当の意味での知能かもしれない。</p>
 
 
 
@@ -1236,6 +1851,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

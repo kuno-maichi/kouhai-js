@@ -22,7 +22,7 @@
     
     
       
-        <title>第35話 恋の「最適化」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第35話：言語設計完成 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第35話 恋の「最適化」
+              第35話：言語設計完成
             
           </span>
         </div>
@@ -1139,26 +1141,530 @@
   
 
 
-<h1 id="35">第35話 恋の「最適化」<a class="headerlink" href="#35" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のデバッグ」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、もっと効率的に書けませんか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋の最適化」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを共有したいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋の最適化」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="35">第35話：言語設計完成<a class="headerlink" href="#35" title="Permanent link">&para;</a></h1>
+<p>金曜日の放課後。ついに、この日がやってきた。私たちのYume言語が、完成する日だ。</p>
+<p>「優美、準備はいい？」</p>
+<p>先輩が優しく声をかけてくれる。恋人同士になってから、その優しさがより一層温かく感じられる。</p>
+<p>「はい。でも、なんだか緊張します」</p>
+<p>「大丈夫。一緒に作ってきたんだから」</p>
+<p>先輩の言葉に勇気をもらって、私はコンピュータの前に座った。</p>
+<p>◇◇◇◇</p>
+<p>「まず、これまで作ってきた機能を整理しよう」</p>
+<p>先輩がホワイトボードに、Yume言語の全体像を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語 - 完全版仕様</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeLanguage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 基本機能</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lexer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeLexer</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeParser</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">interpreter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeInterpreter</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 高度な機能</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionEngine</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">typeSystem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TypeSystem</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memoryManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MemoryManager</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">concurrencyManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ConcurrencyManager</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 開発支援</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="k">debugger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeDebugger</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">profiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeProfiler</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeFormatter</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 標準ライブラリ</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stdlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeStandardLibrary</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プログラムを実行</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">execute</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 字句解析</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lexer</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 構文解析</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 型チェック</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">typeSystem</span><span class="p">.</span><span class="nx">check</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 最適化</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimizedAst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">optimize</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 実行</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">interpreter</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">optimizedAst</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionEngine</span><span class="p">.</span><span class="nx">getCurrentState</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">debugInfo</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="k">debugger</span><span class="p">.</span><span class="nx">getStackTrace</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 最適化</span>
+<span class="w">    </span><span class="nx">optimize</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 定数畳み込み</span>
+<span class="w">        </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">constantFolding</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// デッドコード除去</span>
+<span class="w">        </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">removeDeadCode</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// インライン展開</span>
+<span class="w">        </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">inlineExpansion</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ast</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「すごい……これが私たちの言語」</p>
+<p>「そう。優美と一緒に作ってきた、世界で一つだけの言語だ」</p>
+<p>◇◇◇◇</p>
+<p>「最後の仕上げとして、Yume言語の特徴的な構文を定義しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の構文例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeProgram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">// 感情を込めた変数宣言</span>
+<span class="sb">愛を込めて 名前 = &quot;優美&quot;</span>
+<span class="sb">喜びと共に 年齢 = 16</span>
+
+<span class="sb">// 感情による条件分岐</span>
+<span class="sb">もし (名前 == &quot;優美&quot;) なら {</span>
+<span class="sb">    幸せを感じながら {</span>
+<span class="sb">        表示(&quot;大好きです&quot;)</span>
+<span class="sb">    }</span>
+<span class="sb">} さもなければ {</span>
+<span class="sb">    寂しさを覚えながら {</span>
+<span class="sb">        表示(&quot;会いたい&quot;)</span>
+<span class="sb">    }</span>
+<span class="sb">}</span>
+
+<span class="sb">// 繰り返し処理</span>
+<span class="sb">期待を持って 繰り返す (i = 0; i &lt; 10; i++) {</span>
+<span class="sb">    表示(&quot;Yume言語 &quot; + i + &quot;回目&quot;)</span>
+<span class="sb">}</span>
+
+<span class="sb">// 関数定義</span>
+<span class="sb">愛情深く 関数 フィボナッチ(n) {</span>
+<span class="sb">    もし (n &lt;= 1) なら {</span>
+<span class="sb">        返す n</span>
+<span class="sb">    }</span>
+<span class="sb">    返す フィボナッチ(n - 1) + フィボナッチ(n - 2)</span>
+<span class="sb">}</span>
+
+<span class="sb">// 並行処理</span>
+<span class="sb">同時に実行 {</span>
+<span class="sb">    タスク &quot;小説執筆&quot; {</span>
+<span class="sb">        物語を書く()</span>
+<span class="sb">    }</span>
+
+<span class="sb">    タスク &quot;感情分析&quot; {</span>
+<span class="sb">        気持ちを分析する()</span>
+<span class="sb">    }</span>
+<span class="sb">}</span>
+
+<span class="sb">// クラス定義</span>
+<span class="sb">思いを込めて クラス 恋人 {</span>
+<span class="sb">    コンストラクタ(名前, 気持ち) {</span>
+<span class="sb">        この.名前 = 名前</span>
+<span class="sb">        この.気持ち = 気持ち</span>
+<span class="sb">    }</span>
+
+<span class="sb">    告白() {</span>
+<span class="sb">        表示(この.名前 + &quot;さん、&quot; + この.気持ち)</span>
+<span class="sb">    }</span>
+<span class="sb">}</span>
+
+<span class="sb">// 使用例</span>
+<span class="sb">新しい恋人(&quot;雅史&quot;, &quot;大好きです&quot;).告白()</span>
+<span class="sb">`</span>
+
+<span class="c1">// 構文解析器</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeParser</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 感情キーワード</span>
+<span class="w">            </span><span class="s1">&#39;愛を込めて&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;with_love&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;喜びと共に&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;with_joy&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;幸せを感じながら&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;feeling_happy&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;寂しさを覚えながら&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;feeling_lonely&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;期待を持って&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;with_expectation&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;愛情深く&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;affectionately&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;思いを込めて&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;with_feelings&#39;</span><span class="p">,</span>
+
+<span class="w">            </span><span class="c1">// 制御構文</span>
+<span class="w">            </span><span class="s1">&#39;もし&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;if&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;なら&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;then&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;さもなければ&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;else&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;繰り返す&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;for&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;関数&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;function&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;クラス&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;class&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;返す&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;return&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;この&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;this&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;新しい&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;new&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;同時に実行&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parallel&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;タスク&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;task&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">parse</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// トークンを抽象構文木に変換</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">buildAST</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情情報を付加</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">attachEmotions</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ast</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">buildAST</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 実際のパース処理</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">attachEmotions</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 感情キーワードに基づいて感情情報を付加</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「日本語で書けるんですね！」</p>
+<p>「そう。優美が小説を書くように、自然な言葉でプログラミングできる」</p>
+<p>◇◇◇◇</p>
+<p>「実際に動かしてみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語インタープリタ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeInterpreter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Environment</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionContext</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">environment</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;EMOTION_DECLARATION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="c1">// 感情を込めた変数宣言</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">setEmotion</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">env</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">で</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">を定義`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">value</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IF_STATEMENT&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">condition</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotionBlock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">pushEmotion</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotionBlock</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">thenBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotionBlock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">popEmotion</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">elseBranch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">elseBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;PARALLEL_EXECUTION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="c1">// 並行処理</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">task</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">executeTask</span><span class="p">(</span><span class="nx">task</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">tasks</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;CLASS_DEFINITION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="c1">// クラス定義</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">classObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">                    </span><span class="kr">constructor</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="kr">constructor</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">methods</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">methods</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">emotionContext</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">getCurrentEmotion</span><span class="p">()</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="nx">env</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">classObj</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">でクラス</span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">を定義`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">classObj</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">executeTask</span><span class="p">(</span><span class="nx">task</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`タスク「</span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」を開始`</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evalNode</span><span class="p">(</span><span class="nx">task</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`タスク「</span><span class="si">${</span><span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">」が完了`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 感情コンテキスト</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">EmotionContext</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionStack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;平常&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">setEmotion</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">emotion</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionLog</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;set&#39;</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">pushEmotion</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">emotion</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">popEmotion</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">emotionStack</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionStack</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getCurrentEmotion</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`[</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">currentMood</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「感情が実行に影響するんですね」</p>
+<p>「プログラムも感情を持って動く。それがYume言語の特徴だ」</p>
+<p>◇◇◇◇</p>
+<p>「標準ライブラリも用意しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語標準ライブラリ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeStandardLibrary</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">initializeModules</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">initializeModules</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 入出力モジュール</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;io&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">表示</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">message</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">入力</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">prompt</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// ブラウザ環境での入力</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">prompt</span><span class="p">)</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">ファイル読み込み</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// ファイル読み込み処理</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 数学モジュール</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">平方根</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">累乗</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">円周率</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">,</span>
+
+<span class="w">            </span><span class="nx">フィボナッチ</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="p">[</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 文字列モジュール</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">長さ</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">str</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">結合</span><span class="o">:</span><span class="w"> </span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">分割</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">delimiter</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">delimiter</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">置換</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;g&#39;</span><span class="p">),</span><span class="w"> </span><span class="nx">to</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 感情モジュール</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;emotion&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">感情分析</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 簡易的な感情分析</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s1">&#39;嬉しい&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;悲しい&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;楽しい&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;寂しい&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;好き&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;愛&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">[</span><span class="s1">&#39;嬉しい&#39;</span><span class="p">]</span><span class="o">++</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;悲しい&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;辛い&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">[</span><span class="s1">&#39;悲しい&#39;</span><span class="p">]</span><span class="o">++</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;楽しい&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;面白い&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">[</span><span class="s1">&#39;楽しい&#39;</span><span class="p">]</span><span class="o">++</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;寂しい&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;孤独&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">[</span><span class="s1">&#39;寂しい&#39;</span><span class="p">]</span><span class="o">++</span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">emotions</span>
+<span class="w">            </span><span class="p">},</span>
+
+<span class="w">            </span><span class="nx">感情を色に</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">colorMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s1">&#39;喜び&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFD700&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;愛&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FF69B4&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;悲しみ&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#4169E1&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;期待&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#98FB98&#39;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">colorMap</span><span class="p">[</span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;#808080&#39;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 時間モジュール</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">現在時刻</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">待つ</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">)),</span>
+
+<span class="w">            </span><span class="nx">フォーマット</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 簡易的な日付フォーマット</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">format</span>
+<span class="w">                    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;YYYY&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">())</span>
+<span class="w">                    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;MM&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">))</span>
+<span class="w">                    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;DD&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()).</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getModule</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「そして、最後に統合テストを実行しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の統合テスト</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">testYumeLanguage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">yume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeLanguage</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// テストプログラム</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">testProgram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">    愛を込めて メッセージ = &quot;Yume言語が完成しました！&quot;</span>
+<span class="sb">    喜びと共に カウント = 0</span>
+
+<span class="sb">    表示(メッセージ)</span>
+
+<span class="sb">    期待を持って 繰り返す (i = 0; i &lt; 5; i++) {</span>
+<span class="sb">        カウント = カウント + 1</span>
+<span class="sb">        表示(&quot;テスト &quot; + カウント + &quot; 回目&quot;)</span>
+<span class="sb">    }</span>
+
+<span class="sb">    愛情深く 関数 挨拶(名前) {</span>
+<span class="sb">        返す &quot;こんにちは、&quot; + 名前 + &quot;さん！&quot;</span>
+<span class="sb">    }</span>
+
+<span class="sb">    表示(挨拶(&quot;優美&quot;))</span>
+<span class="sb">    表示(挨拶(&quot;雅史&quot;))</span>
+
+<span class="sb">    思いを込めて クラス YumeUser {</span>
+<span class="sb">        コンストラクタ(名前) {</span>
+<span class="sb">            この.名前 = 名前</span>
+<span class="sb">            この.作成日 = 現在時刻()</span>
+<span class="sb">        }</span>
+
+<span class="sb">        自己紹介() {</span>
+<span class="sb">            表示(&quot;私は&quot; + この.名前 + &quot;です。Yume言語を使っています！&quot;)</span>
+<span class="sb">        }</span>
+<span class="sb">    }</span>
+
+<span class="sb">    新しい YumeUser(&quot;花咲雅史&quot;).自己紹介()</span>
+<span class="sb">    新しい YumeUser(&quot;柳原優美&quot;).自己紹介()</span>
+<span class="sb">    `</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;=== Yume言語テスト開始 ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">yume</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">testProgram</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;=== テスト成功！ ===&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;実行結果:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">result</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;感情状態:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">emotions</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;=== テスト失敗 ===&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;エラー:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;デバッグ情報:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">debugInfo</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// テスト実行</span>
+<span class="nx">testYumeLanguage</span><span class="p">()</span>
+</code></pre></div>
+<p>「動いた！」</p>
+<p>画面に次々と表示されるメッセージを見て、私は思わず声を上げた。</p>
+<p>「やったね、優美」</p>
+<p>先輩が優しく微笑んでくれる。</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たち、本当に言語を作っちゃったんですね」</p>
+<p>「ああ。最初は無謀だと思ったけど、優美と一緒だったから完成できた」</p>
+<p>私は感動で胸がいっぱいになった。</p>
+<p>「これからどうしましょう？」</p>
+<p>「まずは、ドキュメントを書こう。それから、オープンソースとして公開して、世界中の人に使ってもらおう」</p>
+<p>◇◇◇◇</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語 - 私たちの物語</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">OurStory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">beginning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ベランダ越しの『お願い』&quot;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">journey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;変数とデータ型を学んだ日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;初めてのエラーに悩んだ日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;関数の美しさに気づいた日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;オブジェクト指向を理解した日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;非同期処理で待つことを学んだ日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;セキュリティの大切さを知った日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;ガベージコレクションで心を整理した日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;そして、告白した日&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">present</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Yume言語の完成&quot;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;これから二人で歩む道&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">tellOurStory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`全ては「</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">beginning</span><span class="si">}</span><span class="sb">」から始まった`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">journey</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">memory</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第</span><span class="si">${</span><span class="nx">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="si">}</span><span class="sb">章: </span><span class="si">${</span><span class="nx">memory</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`そして今、</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">present</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`未来は</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">future</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;私たちの物語は、まだ始まったばかり&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="kc">Infinity</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">possibilities</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;無限大&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourStory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">OurStory</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">storyResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ourStory</span><span class="p">.</span><span class="nx">tellOurStory</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;\nYume言語は、二人の愛の結晶&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storyResult</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>夕日が部屋を優しく照らしている。私たちは、完成したYume言語の画面を見つめながら、静かに手を握り合っていた。</p>
+<p>「優美」</p>
+<p>「はい」</p>
+<p>「Yume言語は完成したけど、僕たちの物語はまだ続く」</p>
+<p>「はい。これからも、ずっと一緒に」</p>
+<p>私たちは顔を見合わせて、優しく微笑んだ。</p>
+<p>Yume言語。それは、プログラミングを通じて育まれた、私たちの愛の証。これからも、この言語と共に、私たちは成長していく。</p>
+<p>技術も、愛も、永遠に進化し続ける。それが、私たちの選んだ道だから。</p>
 
 
 
@@ -1236,6 +1742,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

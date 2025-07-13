@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,45 +1172,186 @@
   
 
 
-<h1 id="12">第12話 二人で解くバグ<a class="headerlink" href="#12" title="Permanent link">&para;</a></h1>
-<p>あの夜から数日後の週末。僕の部屋には、以前と同じように美久がいた。でも、部屋を流れる空気は、以前とは全く違っていた。張り詰めたような緊張感はなく、かといって馴れ合いでもない。少しだけぎこちなくて、でも、確かな信頼に満ちた、穏やかな空気がそこにはあった。</p>
-<p>「さて、と。じゃあ、問題のヤツと向き合おうか」</p>
-<p>僕はノートパソコンを起動し、例のバグが起きるコードを画面に表示させた。<code>x</code>の値を上書きできない、という、僕たちを一度は引き裂いた、あの問題だ。</p>
-<p>以前の僕なら、すぐにコードの解説を始めていただろう。でも、今の僕は違う。</p>
-<p>「美久。このコードを見て、どう思う？　コンピュータは、これをどういう順番で解釈しようとしてると思う？」</p>
-<p>僕がそう問いかけると、美久は少し驚いたような顔をしたが、すぐに真剣な表情になり、自分のノートを開いた。彼女が、自分の言葉で、自分の頭で、問題を理解しようとしてくれているのが伝わってくる。</p>
-<p>「えっと……まず、<code>evaluate</code>関数が、<code>define</code>っていうお願いを見つけます。それで、<code>x</code>っていう名前と、<code>20</code>っていう値を、<code>env</code>、つまり『世界』に記録しようとします……よね？」
-「うん、いいぞ。その通りだ」</p>
-<p>僕は、力強く頷いた。</p>
-<p>「でも、僕たちの<code>define</code>は、その時、どこに記録しにいってたんだっけ？」</p>
-<p>僕のヒントに、美久は<code>Environment</code>クラスのコードをじっと見つめる。そして、数秒後、はっとしたように顔を上げた。</p>
-<p>「あ……！　いつでも、一番最初の<code>variables</code>に、直接書き込んじゃってました……！」
-「そうなんだ。だから、本当は、もっと身近な範囲だけで通用する名前をつけられるように、世界の仕組みを少しだけ変えてやる必要がある。この、変数が通用する範囲のことを、**スコープ**って言うんだ」</p>
-<p>僕は、<code>Environment</code>クラスに、「親」の世界を記録するための<code>parent</code>というプロパティを追加することを提案した。入れ子になった、階層構造を持つ世界だ。</p>
-<p>「そして、変数を探す<code>lookup</code>のルールを、こう変えるんだ。『まず、自分の世界で探す。もし見つからなかったら、今度は親の世界に聞きに行く』。この伝言ゲームみたいな仕組みを、コードにしてみよう」</p>
-<p>僕が方針を説明し、今度は美久が、その説明に沿ってキーボードを叩いていく。分からないところは、「先輩、ここは<code>else if</code>でいいんですか？」と、すぐに質問してくれる。僕も、「ああ、その方が分かりやすいな」と答える。完璧な、対話によるプログラミングだった。</p>
-<p>そして、二人で修正した<code>lookup</code>メソッドが完成する。</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">lookup</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Undefined variable: </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<h1 id="12">第12話：オブジェクト指向：現実世界のモデル化<a class="headerlink" href="#12" title="Permanent link">&para;</a></h1>
+<p>水曜日の放課後。雅史先輩とのプログラミングレッスンは今日で12日目。昨日は雨で停電して、先輩の部屋で小説を書かせてもらった。あの穏やかな時間を思い出すと、今でも胸が温かくなる。</p>
+<p>私、柳原優美は今日も先輩の部屋に向かった。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、優美。昨日の小説、進んだか？」</p>
+<p>先輩が昨日のことを覚えていてくれて嬉しい。</p>
+<p>「はい！　おかげさまで締め切りに間に合いそうです」</p>
+<p>「それは良かった。じゃあ、今日はプログラミングに集中できるな」</p>
+<p>先輩の笑顔を見ていると、今日も新しいことを学べるワクワク感でいっぱいになる。</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「今日はオブジェクト指向について学ぼう。プログラミングの中でも特に重要な概念だ」</p>
+<p>「オブジェクト指向？」</p>
+<p>聞き慣れない言葉に首を傾げる。</p>
+<p>「優美の小説で例えるなら、登場人物の設計や世界観の構築みたいなものだ」</p>
+<p>その言葉に、私の興味が一気に高まった。</p>
+<p>◇◇◇◇</p>
+<p>「私、登場人物の設定を考えるの、すごく好きなんです！」</p>
+<p>つい興奮して声が大きくなってしまった。</p>
+<p>「一人ひとりのキャラクターに命を吹き込むような感覚で」</p>
+<p>「その感覚、プログラミングのオブジェクト指向にとても似てるんだ」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
+<p>「例えば、優美の小説に『魔法使い』というキャラクターが出てくるとする」</p>
+<p>「はい、よく登場させます」</p>
+<p>「その『魔法使い』という概念が、プログラミングで言うところの『クラス』だ」</p>
+<p>先輩がコードを書いてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Wizard</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">magicPower</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">magicPower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">magicPower</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">castSpell</span><span class="p">(</span><span class="nx">spellName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">spellName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;を唱えた！&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mana</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">meditate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は瞑想してマナを回復した&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mana</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">20</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>「よし。これで、もう一度テストしてみよう」</p>
-<p>緊張の一瞬。僕たちは、固唾を飲んで実行結果を見守る。画面に表示されたのは、僕たちがずっと待ち望んでいた数字だった。</p>
-<p><code>20</code></p>
-<p>「……やった！」
-「やった……！」</p>
-<p>僕たちは、ほとんど同時に声を上げていた。思わず顔を見合わせ、笑い合う。その瞬間、僕たちの肩が、こつんと、自然に触れ合った。ほんの些細な接触。でも、僕も、そして多分美久も、心臓が少しだけ、大きく跳ねたのを感じていた。</p>
-<p>「……私にも、できた」</p>
-<p>画面を見つめながら、美久がぽつりと呟いた。その声は、確かな自信と、弾むような喜びに満ちていた。</p>
-<p>僕は、そんな彼女の横顔を、心からの笑顔で見つめていた。</p>
-<p>「ああ。俺たちで、やったんだ」</p>
-<p>僕たちの言語から、バグは消えた。そして、僕たちの間にあった、あの見えない壁も、もうどこにもなかった。</p>
+<p>「わあ！　まるで私がキャラクター設定シートに書いてることみたい！」</p>
+<p>私は画面を食い入るように見つめた。</p>
+<p>「名前、魔力、マナ……そして呪文を唱えたり、瞑想したり。本当にキャラクターの設計図ですね！」</p>
+<p>◇◇◇◇</p>
+<p>「そう。クラスは設計図で、そこから実際のキャラクターを生み出すんだ」</p>
+<p>先輩が続けてコードを書いた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Wizardクラスから実際の魔法使いを生成</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Wizard</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">masashi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Wizard</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span>
+
+<span class="nx">yumi</span><span class="p">.</span><span class="nx">castSpell</span><span class="p">(</span><span class="s2">&quot;ファイアボール&quot;</span><span class="p">)</span>
+<span class="nx">masashi</span><span class="p">.</span><span class="nx">meditate</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;のマナ：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">yumi</span><span class="p">.</span><span class="nx">mana</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;のマナ：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">masashi</span><span class="p">.</span><span class="nx">mana</span><span class="p">)</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>優美はファイアボールを唱えた！
+雅史は瞑想してマナを回復した
+優美のマナ：90
+雅史のマナ：120
+</code></pre></div>
+<p>「すごい！　私と先輩が魔法使いになっちゃった！」</p>
+<p>思わず手を叩いて喜んでしまった。</p>
+<p>「これって、私が小説で『同じ職業でも、キャラクターごとに個性がある』って書いてるのと同じですね！」</p>
+<p>「その通り。同じWizardクラスから生まれても、それぞれが独立した存在なんだ」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「私の小説作りにも、このオブジェクト指向の考え方を活かせそうです」</p>
+<p>「どういう風に？」</p>
+<p>私は興奮しながら説明した。</p>
+<p>「今まで、キャラクター設定は文章で書いていたんですけど、こうやってクラスとして定義すれば、もっと体系的に管理できそう！」</p>
+<p>「面白い発想だね」</p>
+<p>「それに、キャラクター同士の関係性も、プログラムで表現できるかもしれません」</p>
+<p>私の頭の中で、アイデアが次々に湧いてくる。</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、優美のアイデアを形にしてみよう」</p>
+<p>先輩が提案してくれた。</p>
+<p>「本当ですか？」</p>
+<p>「うん。優美の小説のキャラクターをクラスで表現してみよう」</p>
+<p>私たちは一緒にコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">,</span><span class="w"> </span><span class="nx">personality</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">age</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">personality</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addRelationship</span><span class="p">(</span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="nx">feeling</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">[</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">feeling</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;を「&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feeling</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;」と思っている&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">showProfile</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;のプロフィール】&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;年齢：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;性格：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">personality</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;人間関係：&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">relationships</span><span class="p">[</span><span class="nx">person</span><span class="p">])</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これで、キャラクター同士の関係性も管理できる！」</p>
+<p>私は感動していた。</p>
+<p>◇◇◇◇</p>
+<p>「実際に使ってみよう」</p>
+<p>先輩と一緒に、私たちをモデルにしたキャラクターを作った。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">yumiChar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Character</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;創作好きで好奇心旺盛&quot;</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">masashiChar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Character</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラマーで優しい&quot;</span><span class="p">)</span>
+
+<span class="nx">yumiChar</span><span class="p">.</span><span class="nx">addRelationship</span><span class="p">(</span><span class="nx">masashiChar</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;尊敬する先輩&quot;</span><span class="p">)</span>
+<span class="nx">masashiChar</span><span class="p">.</span><span class="nx">addRelationship</span><span class="p">(</span><span class="nx">yumiChar</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;大切な後輩&quot;</span><span class="p">)</span>
+
+<span class="c1">// 時間が経って関係性が変化</span>
+<span class="nx">yumiChar</span><span class="p">.</span><span class="nx">addRelationship</span><span class="p">(</span><span class="nx">masashiChar</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;特別な人&quot;</span><span class="p">)</span>
+
+<span class="nx">yumiChar</span><span class="p">.</span><span class="nx">showProfile</span><span class="p">()</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>優美は雅史を「尊敬する先輩」と思っている
+雅史は優美を「大切な後輩」と思っている
+優美は雅史を「特別な人」と思っている
+【優美のプロフィール】
+年齢：16歳
+性格：創作好きで好奇心旺盛
+人間関係：
+  雅史：特別な人
+</code></pre></div>
+<p>「あ……」</p>
+<p>最後の「特別な人」という表示を見て、顔が熱くなった。</p>
+<p>「これも小説の設定だよな？」</p>
+<p>先輩が優しく聞いてくる。</p>
+<p>「そ、そうです！　主人公の心情の変化を表現してみました！」</p>
+<p>でも、先輩の表情がなんだか嬉しそうに見えた。</p>
+<p>◇◇◇◇</p>
+<p>「オブジェクト指向の良いところは、現実世界の関係性をそのままプログラムで表現できることなんだ」</p>
+<p>「本当にそうですね。私の頭の中にある物語の世界が、コードになっていく感じがします」</p>
+<p>「優美の創造力があれば、きっと素晴らしいプログラムが書けるよ」</p>
+<p>先輩の褒め言葉に、胸が温かくなる。</p>
+<p>「先輩のおかげで、プログラミングと小説創作の共通点がどんどん見えてきます」</p>
+<p>「それは優美の才能だよ。普通の人は、なかなかその繋がりに気づけない」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「私、Yume言語を作る時も、このオブジェクト指向の考え方を活かしたいです」</p>
+<p>「どんな風に？」</p>
+<p>「小説を書くように、自然にプログラムが書ける言語。キャラクターを生み出すように、オブジェクトを作れる言語」</p>
+<p>私の夢を語ると、先輩の目が輝いた。</p>
+<p>「素晴らしいアイデアだ。それなら、創作者にとって使いやすい言語になりそうだね」</p>
+<p>「はい！　プログラミングを知らない作家さんでも、自分の世界観をコードで表現できるような」</p>
+<p>◇◇◇◇</p>
+<p>「今日学んだことで、また一歩夢に近づいた気がします」</p>
+<p>レッスンの終わりに、私は素直な気持ちを伝えた。</p>
+<p>「優美の成長速度は本当にすごいよ」</p>
+<p>「それは先輩が、私の世界に寄り添って教えてくれるからです」</p>
+<p>私の言葉に、先輩が少し照れたような顔をした。</p>
+<p>「俺も優美から学ぶことが多いよ。創作の視点でプログラミングを見ると、新しい発見がある」</p>
+<p>「本当ですか？」</p>
+<p>「ああ。優美と一緒にいると、プログラミングがもっと楽しくなる」</p>
+<p>その言葉に、私の心臓がドキドキした。</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『オブジェクト指向：現実世界をプログラムでモデル化する考え方』
+『クラス＝設計図、インスタンス＝実体』
+『私の小説の世界も、コードで表現できる』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『先輩と私の関係も、少しずつ変化している』</p>
+<p>クラスから生まれたインスタンスのように、私たちも独立した存在。でも、お互いの関係性は日々更新されていく。</p>
+<p>（いつか、私の本当の気持ちも、先輩に伝えられるかな）</p>
+<p>窓の外を見ると、昨日の雨がウソのような青空が広がっていた。</p>
+<p>オブジェクト指向を学んだ今日、私は改めて実感した。</p>
+<p>プログラミングは、ただの技術じゃない。それは、私の創造力を形にする魔法のような力。そして、先輩と共有する特別な世界への扉なのだと。</p>
+<p>明日はどんな魔法を教えてもらえるだろう。そんな期待を胸に、私は小説の続きを書き始めた。主人公の女の子が、少しずつ男の子への気持ちを自覚していく場面を。</p>
 
 
 
@@ -1286,6 +1429,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1170,56 +1172,203 @@
   
 
 
-<h1 id="6">第6話 変数という名の、特別な「名前」<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
-<p>「先輩。この僕たちの言語って、計算した答えを覚えておくことってできないんですか？」</p>
-<p>いつもの空き教室。リファクタリングを終えたコードを満足げに眺めていた美久が、ふとそんなことを呟いた。</p>
-<p>「さっき計算した答えを、また次の計算で使いたいなー、なんて」
-「……いいところに気づいたな、美久」</p>
-<p>僕は思わず彼女の方を振り向いた。それは、僕たちの言語が、単なる「高機能な電卓」から、本物の「プログラミング言語」へと進化するための、決定的な一歩に繋がる質問だったからだ。</p>
-<p>「データに『名前』をつけて、いつでも取り出せるように保存しておく。その仕組みを、**変数**って言うんだ」
-「へんすう……。数学で出てきた、あの<code>x</code>とか<code>y</code>とかですか？」
-「ああ。考え方はよく似ている。僕たちの言語にも、その変数を扱えるように、新しい『お願い』のルールを追加しよう」</p>
-<p>僕は、新しい構文をエディタに打ち込んだ。</p>
-<p><code>['define', 'x', 10]</code></p>
-<p>「<code>define</code>は、『定義する』っていう意味の英単語だ。これは、『<code>x</code>という名前の箱を用意して、その中に<code>10</code>という数字を入れる』ってコンピュータにお願いしていることになる」
-「名前をつけた箱……。なんだか、プレゼントみたいですね」</p>
-<p>美久らしい感想に、僕は少しだけ口元が緩むのを感じた。</p>
-<p>「でも、先輩。一つ問題があります」
-「ほう。なんだ？」
-「コンピュータって、忘れっぽいんですよね？　この『<code>x</code>は<code>10</code>だ』っていうのを、どこかにちゃんと記録しておいてあげないと、すぐに忘れちゃうんじゃないですか？」</p>
-<p>僕は今度こそ、感嘆の声を隠せなかった。彼女の洞察力は、時として僕の予想を遥かに超えてくる。</p>
-<p>「その通りだ。だから、僕たちは、変数とその値を記録しておくための、新しい道具箱が必要になる。専門用語で、**環境（Environment）**って言うんだ」
-「かんきょう？」
-「ああ。それは、僕たちの言語が生きる『世界』そのものだ。どんな変数が定義されていて、どんな値を持っているのか。その全てを記憶している場所だ」</p>
-<p>僕は、その「環境」を管理するための、新しいプログラムの雛形を画面に表示した。<code>class</code>という、今まで使っていなかったキーワードを含む、少しだけ複雑なコードだ。</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Environment</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"> </span><span class="c1">// 変数を記録する場所</span>
-<span class="w">  </span><span class="p">}</span>
+<h1 id="6">第6話：変数とデータ型：日常に潜むプログラミング<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<p>木曜日の放課後。雅史先輩とのプログラミングレッスンも今日で四日目だ。</p>
+<p>昨日は初めて自分でプログラムを書いて、それが動いた時の感動は忘れられない。先輩とハイタッチした時の温かさも。</p>
+<p>私、柳原優美は今日も先輩の部屋に向かった。</p>
+<p>「お疲れ様です、先輩！」</p>
+<p>「おう、お疲れ。今日も頑張ろうな」</p>
+<p>先輩の笑顔を見ると、今日も楽しい時間になりそうだ。</p>
+<p>「今日は何を教えてくれるんですか？」</p>
+<p>「今日は変数とデータ型について詳しく学ぼう。優美の日常生活にも変数はたくさん隠れてるんだ」</p>
+<p>日常生活に変数？</p>
+<p>「どういうことですか？」</p>
+<p>「たとえば、優美が小説を書く時に使う設定とか。登場人物の名前、年齢、性格……これ全部変数なんだよ」</p>
+<p>先輩が説明してくれる。</p>
+<p>「あ！　確かに！　私のキャラ設定シートそのものですね！」</p>
+<p>私は膝を打った。</p>
+<p>「そう。プログラミングでも同じように、データを入れる『箱』を用意して、その『箱』に名前をつけるんだ」</p>
+<p>先輩がキーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説の主人公設定</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">heroName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;雅樹&quot;</span><span class="w">      </span><span class="c1">// 文字列型（string）</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">heroAge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">17</span><span class="w">           </span><span class="c1">// 数値型（number）</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">heroIsStudent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">   </span><span class="c1">// 真偽値型（boolean）</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">heroHobbies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;読書&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミング&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;音楽鑑賞&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1">// 配列型（array）</span>
 
-<span class="w">  </span><span class="nx">define</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// ここに変数を定義する処理</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">lookup</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// ここに変数を探す処理</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;主人公の名前：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">heroName</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;主人公の年齢：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">heroAge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;学生かどうか：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">heroIsStudent</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;趣味：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">heroHobbies</span><span class="p">)</span>
 </code></pre></div>
-<p>「……なんだか、急に難しくなりましたね」</p>
-<p>美久が、少しだけ不安そうな声で言った。その表情に、僕ははっとする。
-　まただ。僕は、自分の世界に没頭するあまり、彼女を置き去りにしてしまっているんじゃないだろうか。僕にとっては当たり前の概念も、彼女にとっては、高く、見知らぬ壁のように感じられるのかもしれない。</p>
-<p>「……ごめん。また、僕の世界に引きずり込みすぎたか」</p>
-<p>僕がそう言って俯くと、美久は慌てたように首を横に振った。</p>
-<p>「ううん、違います！　そうじゃなくて……」</p>
-<p>彼女は一度言葉を切り、ぎゅっと自分のスカートを握りしめた。そして、絞り出すような、だけど、芯の通った声で言った。</p>
-<p>「先輩の見てる世界を、もっと知りたいって言ったのは、私なんですから。だから……大丈夫です。ちゃんと、ついていきます」</p>
-<p>その瞳は、僕が最初に彼女に問うた「最後まで付き合う」という契約を、改めて僕に誓っているように見えた。彼女の「あざとさ」の奥にある、この健気さと芯の強さに、僕はいつも心を揺さぶられる。</p>
-<p>「……そうか」</p>
-<p>僕は、彼女の覚悟に応えなければならない。独りよがりな知識の披露ではなく、彼女と共に歩むための対話を。</p>
-<p>「じゃあ、一緒に作ってみようか。僕たちの言語のための、最初の『世界』を」</p>
-<p>僕の言葉に、彼女はこくりと頷いた。その顔にはもう、不安の色はなかった。
-　僕たちはこれから、ただの機能追加じゃない、僕たちの言語に「記憶」という魂を吹き込む、創造的な作業に共に挑むのだ。教室の西日が、そんな僕たちの決意を、静かに照らしていた。</p>
+<p>「実行してみて」</p>
+<p>画面に結果が表示された。</p>
+<div class="highlight"><pre><span></span><code>主人公の名前：雅樹
+主人公の年齢：17歳
+学生かどうか：true
+趣味：読書,プログラミング,音楽鑑賞
+</code></pre></div>
+<p>「すごい！　本当にキャラ設定みたいです！」</p>
+<p>私は興奮した。</p>
+<p>「この『雅樹』って、どこかで見たような名前ですね」</p>
+<p>いたずらっぽく先輩を見ると、少し照れたような顔をした。</p>
+<p>「た、たまたまだよ」</p>
+<p>「そうですか〜？」</p>
+<p>◇◇◇◇</p>
+<p>「それぞれのデータには『型』っていうのがあるんだ」</p>
+<p>先輩が説明を続けた。</p>
+<p>「文字列型、数値型、真偽値型、配列型……それぞれに特徴があるんだよ」</p>
+<p>「どんな特徴ですか？」</p>
+<p>「実際に試してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">text1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="w">      </span><span class="c1">// 文字列の&quot;10&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">number1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="w">      </span><span class="c1">// 数値の10</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">text1</span><span class="p">)</span><span class="w">        </span><span class="c1">// 文字列の結合</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">number1</span><span class="p">)</span><span class="w">    </span><span class="c1">// 数値の計算</span>
+</code></pre></div>
+<p>「これを実行すると……」</p>
+<div class="highlight"><pre><span></span><code>1010
+20
+</code></pre></div>
+<p>「あ！　同じ10なのに結果が違う！」</p>
+<p>「そう。文字列の"10"と数値の10は、コンピューターにとって全然違うものなんだ」</p>
+<p>「面白い！　人間だったら、どっちも『十』って理解しますけど」</p>
+<p>「その通り。だからプログラマーは、データの型を意識してコードを書く必要があるんだ」</p>
+<p>先輩の説明がとてもわかりやすい。</p>
+<p>「優美の小説でも、同じ『愛』という言葉でも、恋愛の愛と家族愛では意味が違うだろ？」</p>
+<p>「そうですね！　文脈によって全然違います」</p>
+<p>「プログラミングでもそれと同じなんだ。データの『型』によって、コンピューターの解釈が変わる」</p>
+<p>◇◇◇◇</p>
+<p>「今度は、優美が実際に自分のキャラクター設定を作ってみて」</p>
+<p>「私が？」</p>
+<p>「そう。優美の小説の登場人物でもいいし、全く新しいキャラクターでもいい」</p>
+<p>私は考えながらキーボードを打ち始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 私の新しいキャラクター</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">girlName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;美咲&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">girlAge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">girlIsWriter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">girlDreams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;プログラマーになること&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;恋愛小説を書くこと&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;先輩と一緒にいること&quot;</span><span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;名前：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">girlName</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;年齢：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">girlAge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;歳&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;小説家かどうか：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">girlIsWriter</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;夢：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">girlDreams</span><span class="p">)</span>
+</code></pre></div>
+<p>入力し終えて、実行ボタンを押した。</p>
+<div class="highlight"><pre><span></span><code>名前：美咲
+年齢：16歳
+小説家かどうか：true
+夢：プログラマーになること,恋愛小説を書くこと,先輩と一緒にいること
+</code></pre></div>
+<p>「やった！　動きました！」</p>
+<p>でも、最後の夢の部分を見て、顔が真っ赤になってしまった。</p>
+<p>「先輩と一緒にいること……」</p>
+<p>思わず本音を書いてしまった。</p>
+<p>「あ、あの……これは、その……」</p>
+<p>「いや、いいじゃないか。美咲っていうキャラクターの設定でしょ？」</p>
+<p>先輩が優しく微笑んでくれた。でも、その時の表情が少し特別に見えたのは気のせいかな？</p>
+<p>「そ、そうです！　キャラクターの設定です！」</p>
+<p>慌てて誤魔化した。</p>
+<p>◇◇◇◇</p>
+<p>「変数って、途中で値を変えることもできるんだよ」</p>
+<p>先輩が新しい例を示してくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">storyProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;始まり&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;物語の状況：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">storyProgress</span><span class="p">)</span>
+
+<span class="nx">storyProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;展開&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;物語の状況：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">storyProgress</span><span class="p">)</span>
+
+<span class="nx">storyProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;クライマックス&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;物語の状況：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">storyProgress</span><span class="p">)</span>
+
+<span class="nx">storyProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;結末&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;物語の状況：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">storyProgress</span><span class="p">)</span>
+</code></pre></div>
+<p>「実行すると……」</p>
+<div class="highlight"><pre><span></span><code>物語の状況：始まり
+物語の状況：展開
+物語の状況：クライマックス
+物語の状況：結末
+</code></pre></div>
+<p>「わあ！　まるで小説の流れみたい！」</p>
+<p>「そう。変数は時間とともに変化していくものを表現するのに便利なんだ」</p>
+<p>「私の小説でも、主人公の気持ちが時間とともに変わっていきますもんね」</p>
+<p>「その通り。優美の恋愛小説でも、主人公の恋心が『興味なし』から『意識』、『好意』、『恋』って変化していくだろ？」</p>
+<p>先輩の例えに、私の心臓がドキッとした。</p>
+<p>（まさに私の気持ちそのもの……）</p>
+<p>「優美？　どうした？」</p>
+<p>「あ、いえ！　なんでもないです！」</p>
+<p>慌てて手を振った。</p>
+<p>「じゃあ、優美も何か変化していく変数を作ってみて」</p>
+<p>「はい！」</p>
+<p>私は集中してキーボードを打った。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">feelingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;友達&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;関係性：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feelingLevel</span><span class="p">)</span>
+
+<span class="nx">feelingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;気になる存在&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;関係性：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feelingLevel</span><span class="p">)</span>
+
+<span class="nx">feelingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;好きな人&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;関係性：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feelingLevel</span><span class="p">)</span>
+
+<span class="nx">feelingLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;大切な人&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;関係性：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">feelingLevel</span><span class="p">)</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>関係性：友達
+関係性：気になる存在
+関係性：好きな人
+関係性：大切な人
+</code></pre></div>
+<p>画面を見て、私は再び真っ赤になった。</p>
+<p>（また本音を書いちゃった……）</p>
+<p>「これも……キャラクターの設定ですか？」</p>
+<p>先輩が少し意味深に聞いてきた。</p>
+<p>「は、はい！　そうです！」</p>
+<p>でも、先輩の表情が何だか嬉しそうに見えた。</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「プログラミングって、本当に日常と繋がってるんですね」</p>
+<p>「そうだろ？　実は身の回りのものって、ほとんど変数で表現できるんだ」</p>
+<p>「例えば？」</p>
+<p>「天気、気温、時間、曜日……全部変数だよ」</p>
+<p>先輩が説明してくれる。</p>
+<p>「私の気持ちも……変数なんですね」</p>
+<p>つい呟いてしまった。</p>
+<p>「優美の気持ち？」</p>
+<p>「あ、いえ！　一般的な話です！」</p>
+<p>またごまかしてしまった。でも、先輩が少し近づいてきた気がする。</p>
+<p>「優美の気持ちも、きっと素敵な変数だと思うよ」</p>
+<p>先輩の優しい声に、胸がドキドキする。</p>
+<p>「ありがとうございます……」</p>
+<p>小さく返事をした。</p>
+<p>「今日教わったことで、私の小説もより詳細に設定できそうです」</p>
+<p>「そうか。それは良かった」</p>
+<p>先輩が微笑む。</p>
+<p>「明日も教えてくれますか？」</p>
+<p>「もちろんだ。次は条件分岐について学ぼう」</p>
+<p>「楽しみです！」</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わって、自分の部屋に戻る。</p>
+<p>今日は変数について学んだけど、一番印象に残ったのは、自分の気持ちが変数のように変化していることだった。</p>
+<p>（最初は『友達』だった先輩への気持ちが、今は『大切な人』になってる）</p>
+<p>プログラムで書いた通りだ。</p>
+<p>机に向かって、今日のレッスンをノートにまとめる。</p>
+<p>『変数：値を入れる箱。時間とともに変化できる』
+『データ型：文字列、数値、真偽値、配列など』
+『私の気持ちも変数？』</p>
+<p>最後の行を書いて、また顔が赤くなった。</p>
+<p>窓の外を見ると、先輩の部屋の明かりが見える。きっと明日の教材を準備してくれているんだろう。</p>
+<p>（明日はどんなことを教えてくれるのかな）</p>
+<p>プログラミングも楽しいけれど、先輩と一緒に過ごす時間がもっと楽しい。</p>
+<p>私の『先輩への気持ち』という変数は、明日もまた新しい値に変わるのかもしれない。</p>
+<p>（でも、どんな値になっても、きっと先輩はずっと大切な人）</p>
+<p>そんなことを考えながら、私は幸せな気持ちで今日を終えた。</p>
+<p>プログラミングを学ぶことで、自分の気持ちまで整理できるなんて思わなかった。</p>
+<p>変数のように変化していく私の心。その変化を先輩に気づいてもらえる日は来るのだろうか。</p>
+<p>（今はまだ恥ずかしくて言えないけど……）</p>
+<p>いつか勇気を出して、私の『本当の気持ち』という変数の値を先輩に教えてあげたい。</p>
+<p>そんな夢を抱きながら、私は明日への期待に胸を膨らませた。</p>
 
 
 
@@ -1297,6 +1446,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

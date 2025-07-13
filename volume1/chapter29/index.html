@@ -22,7 +22,7 @@
     
     
       
-        <title>第29話 繋がる「世界」と、重なる「心」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第29話：プロジェクト管理：計画的な開発 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第29話 繋がる「世界」と、重なる「心」
+              第29話：プロジェクト管理：計画的な開発
             
           </span>
         </div>
@@ -1139,29 +1141,532 @@
   
 
 
-<h1 id="29">第29話 繋がる「世界」と、重なる「心」<a class="headerlink" href="#29" title="Permanent link">&para;</a></h1>
-<p>末尾再帰の最適化について話し合ってから、僕たちの勉強会は、少しだけ、いつもと違う空気を纏うようになった。技術的な話の合間に、ふと、視線が絡み合う瞬間が増えた。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>ある日の放課後。
-　僕たちは、いつものように空き教室でノートパソコンに向かっていた。今日は、末尾再帰の最適化の具体的な実装について、議論を深めていた。</p>
-<p>「先輩、この部分なんですけど……」</p>
-<p>美久が、僕の隣に身を乗り出す。その時、彼女の髪が、僕の頬を、ふわりと撫でた。シャンプーの、甘い香りが、僕の鼻腔をくすぐる。</p>
-<p>「……っ」</p>
-<p>僕は、思わず息を呑んだ。美久も、僕の反応に気づいたのか、少しだけ身を引いた。その頬が、ほんのりと赤く染まっている。</p>
-<p>「あ、あの……ごめんなさい」
-「い、いや、大丈夫だ」</p>
-<p>僕たちの間に、気まずい沈黙が流れる。ノートパソコンの画面に映るコードが、まるで遠い世界のもののように感じられた。</p>
-<p>この沈黙を、どうにかしなければ。僕は、無理やり、プログラミングの話に戻そうとした。</p>
-<p>「えっと、その……末尾再帰の最適化は、今の環境を、新しい環境に『繋ぎ合わせる』ことで、メモリの消費を抑えるんだ」</p>
-<p>僕の言葉は、ひどく上ずっていた。美久は、僕の言葉を聞きながら、ゆっくりと、僕の顔を見上げた。その瞳は、僕の心を、まっすぐに見つめているようだった。</p>
-<p>「先輩……」</p>
-<p>美久の声が、僕の耳に、優しく響く。</p>
-<p>「私、先輩と、もっと、色々なことを『繋ぎ合わせたい』です」</p>
-<p>その言葉は、僕の心に、まるで雷が落ちたかのような衝撃を与えた。
-　「繋ぎ合わせる」。それは、プログラミングにおける、環境の連結や、関数の結合といった、技術的な概念だ。でも、美久の言葉は、それ以上の意味を含んでいた。</p>
-<p>僕たちの「世界」は、プログラミングという共通の興味を通じて、どんどん広がっていく。そして、その「世界」の中で、僕と美久の関係もまた、ゆっくりと、しかし確実に、深まっていた。</p>
-<p>僕たちの関係は、まるで、新しいプログラミング言語のようだ。まだ、全ての機能が揃っているわけじゃない。でも、一つ一つの機能が、僕たちの手で、丁寧に、そして、愛情を込めて作られていく。</p>
-<p>僕たちの「世界」は、もう、コードの中だけじゃない。僕たちの心と心が、深く、そして、温かく「繋ぎ合わされ」ようとしていた。</p>
-<p>夕暮れの空き教室。ノートパソコンの画面に映るコードと、美久の真剣な、そして、少しだけ潤んだ瞳。その全てが、僕にとって、かけがえのない「宝物」になっていた。</p>
+<h1 id="29">第29話：プロジェクト管理：計画的な開発<a class="headerlink" href="#29" title="Permanent link">&para;</a></h1>
+<p>火曜日の放課後。私、柳原優美は少し興奮気味だった。昨日のバージョン管理のレッスンで、私たちの関係が「次のバージョンではもっとはっきりした関係になるかも」と言った言葉が、まだ心に残っている。</p>
+<p>「優美、今日はどうした？　なんだか嬉しそうだな」</p>
+<p>先輩が私の様子に気づいた。</p>
+<p>「あ、えっと……昨日のレッスンが楽しかったので」</p>
+<p>「そうか。今日は、プロジェクト管理について学ぼう」</p>
+<p>「プロジェクト管理？」</p>
+<p>「大きなプログラムを効率的に開発するための計画と管理の技術だ」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、どんな風に進めてる？」</p>
+<p>「最初にプロットを考えて、章立てして、少しずつ書いていきます」</p>
+<p>「それ、実はプロジェクト管理の基本的な考え方と同じなんだ」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説執筆のプロジェクト管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">NovelProject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">title</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">author</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">phases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentPhase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">estimatedEndDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// フェーズを追加</span>
+<span class="w">    </span><span class="nx">addPhase</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">estimatedDays</span><span class="p">,</span><span class="w"> </span><span class="nx">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">estimatedDays</span><span class="o">:</span><span class="w"> </span><span class="nx">estimatedDays</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="nx">dependencies</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pending&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">startDate</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">endDate</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">progress</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">phases</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">phase</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">phase</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// マイルストーンを設定</span>
+<span class="w">    </span><span class="nx">addMilestone</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">targetDate</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">milestone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">targetDate</span><span class="o">:</span><span class="w"> </span><span class="nx">targetDate</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">achieved</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">achievedDate</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">milestone</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">milestone</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 進捗を更新</span>
+<span class="w">    </span><span class="nx">updateProgress</span><span class="p">(</span><span class="nx">phaseId</span><span class="p">,</span><span class="w"> </span><span class="nx">progress</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">phases</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">phaseId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">phase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">phase</span><span class="p">.</span><span class="nx">progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">progress</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">progress</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">phase</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;completed&#39;</span>
+<span class="w">                </span><span class="nx">phase</span><span class="p">.</span><span class="nx">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「なるほど！　小説も、段階的に進めるプロジェクトなんですね」</p>
+<p>「そう。そして、プログラミングでも同じことが大切になる」</p>
+<p>◇◇◇◇</p>
+<p>「実際に、Yume言語の開発をプロジェクトとして管理してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語開発プロジェクト</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumeProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NovelProject</span><span class="p">(</span><span class="s2">&quot;Yume言語&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;花咲雅史 &amp; 柳原優美&quot;</span><span class="p">)</span>
+
+<span class="c1">// 開発フェーズを設定</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">planningPhase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addPhase</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;企画・設計&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;言語仕様の決定と基本設計&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">7</span>
+<span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">parserPhase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addPhase</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;パーサー開発&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;文法解析機能の実装&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">14</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">planningPhase</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">interpreterPhase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addPhase</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;インタープリター開発&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;実行エンジンの実装&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">21</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">parserPhase</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">testingPhase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addPhase</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;テストと最適化&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;動作確認と性能改善&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">interpreterPhase</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1">// マイルストーンを設定</span>
+<span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;基本機能完成&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">),</span><span class="w"> </span><span class="c1">// 30日後</span>
+<span class="w">    </span><span class="s2">&quot;四則演算と変数が使える状態&quot;</span>
+<span class="p">)</span>
+
+<span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;感情表現機能完成&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">45</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">),</span><span class="w"> </span><span class="c1">// 45日後</span>
+<span class="w">    </span><span class="s2">&quot;感情を表現できる構文の実装&quot;</span>
+<span class="p">)</span>
+
+<span class="nx">yumeProject</span><span class="p">.</span><span class="nx">addMilestone</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;プロトタイプ完成&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">),</span><span class="w"> </span><span class="c1">// 60日後</span>
+<span class="w">    </span><span class="s2">&quot;簡単なプログラムが動く状態&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>「私たちの進捗も管理できるんですね」</p>
+<p>「ああ。今どこまで進んでいて、いつ頃完成しそうかが分かる」</p>
+<p>◇◇◇◇</p>
+<p>「リスク管理も重要だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// リスク管理機能</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ProjectRiskManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">project</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">risks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mitigations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// リスクを追加</span>
+<span class="w">    </span><span class="nx">addRisk</span><span class="p">(</span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">probability</span><span class="p">,</span><span class="w"> </span><span class="nx">impact</span><span class="p">,</span><span class="w"> </span><span class="nx">category</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">risk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">probability</span><span class="o">:</span><span class="w"> </span><span class="nx">probability</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1-5</span>
+<span class="w">            </span><span class="nx">impact</span><span class="o">:</span><span class="w"> </span><span class="nx">impact</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1-5</span>
+<span class="w">            </span><span class="nx">severity</span><span class="o">:</span><span class="w"> </span><span class="nx">probability</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">impact</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">category</span><span class="o">:</span><span class="w"> </span><span class="nx">category</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">mitigations</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">risks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">risk</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">risk</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 対策を追加</span>
+<span class="w">    </span><span class="nx">addMitigation</span><span class="p">(</span><span class="nx">riskId</span><span class="p">,</span><span class="w"> </span><span class="nx">action</span><span class="p">,</span><span class="w"> </span><span class="nx">responsible</span><span class="p">,</span><span class="w"> </span><span class="nx">deadline</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">mitigation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">riskId</span><span class="o">:</span><span class="w"> </span><span class="nx">riskId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="nx">action</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">responsible</span><span class="o">:</span><span class="w"> </span><span class="nx">responsible</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">deadline</span><span class="o">:</span><span class="w"> </span><span class="nx">deadline</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">risk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">risks</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">riskId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">risk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">risk</span><span class="p">.</span><span class="nx">mitigations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">mitigation</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">mitigations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">mitigation</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">mitigation</span><span class="p">.</span><span class="nx">id</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 高リスクの項目を取得</span>
+<span class="w">    </span><span class="nx">getHighRisks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">risks</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">15</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">severity</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語開発のリスク管理</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">riskManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ProjectRiskManager</span><span class="p">(</span><span class="nx">yumeProject</span><span class="p">)</span>
+
+<span class="c1">// リスクを登録</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">techRisk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">riskManager</span><span class="p">.</span><span class="nx">addRisk</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;技術的な難易度が予想以上に高い&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;技術&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">timeRisk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">riskManager</span><span class="p">.</span><span class="nx">addRisk</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;学業との両立で時間が足りない&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;時間&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">motivationRisk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">riskManager</span><span class="p">.</span><span class="nx">addRisk</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;モチベーションの維持が困難&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;人的&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">// 対策を立てる</span>
+<span class="nx">riskManager</span><span class="p">.</span><span class="nx">addMitigation</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">techRisk</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;難しい部分は先輩に相談する&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nx">riskManager</span><span class="p">.</span><span class="nx">addMitigation</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">timeRisk</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;週2回、1回2時間のペースで進める&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;両名&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>「なんだか、すごく本格的ですね」</p>
+<p>「大きなプロジェクトになるほど、計画的に進めることが大切になる」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、プロジェクト管理できるんでしょうか？」</p>
+<p>思い切って聞いてみた。</p>
+<p>「関係の……プロジェクト管理？」</p>
+<p>「はい。お互いの気持ちを確かめ合うまでの計画とか」</p>
+<p>先輩の顔が赤くなった。</p>
+<p>「それは……」</p>
+<p>「冗談です！　でも、少し気になって」</p>
+<p>◇◇◇◇</p>
+<p>「まあ、でも……」</p>
+<p>先輩が考え込むような顔をした。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 関係発展プロジェクト（仮想）</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RelationshipProject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentStage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;友達&quot;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;友達&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;気軽に話せる関係&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;親しい友達&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;プライベートな話もできる&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;特別な友達&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;お互いを意識し始める&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;???&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;まだ分からない次の段階&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedActivities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 共通の活動を記録</span>
+<span class="w">    </span><span class="nx">addSharedActivity</span><span class="p">(</span><span class="nx">activity</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">significance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">activityRecord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">activity</span><span class="o">:</span><span class="w"> </span><span class="nx">activity</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">significance</span><span class="o">:</span><span class="w"> </span><span class="nx">significance</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1-10</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedActivities</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">activityRecord</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 重要度が高い活動はマイルストーンに</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">significance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">milestones</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">activity</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">achieved</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 次の段階への準備度をチェック</span>
+<span class="w">    </span><span class="nx">getReadinessForNextStage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">recentActivities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">sharedActivities</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">avgSignificance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">recentActivities</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">significance</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">recentActivities</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">readiness</span><span class="o">:</span><span class="w"> </span><span class="nx">avgSignificance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;準備完了&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;もう少し時間が必要&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">recentHighlights</span><span class="o">:</span><span class="w"> </span><span class="nx">recentActivities</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">significance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例（仮想）</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ourRelationshipProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RelationshipProject</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+
+<span class="nx">ourRelationshipProject</span><span class="p">.</span><span class="nx">addSharedActivity</span><span class="p">(</span><span class="s2">&quot;プログラミングレッスン&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;楽しい&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">)</span>
+<span class="nx">ourRelationshipProject</span><span class="p">.</span><span class="nx">addSharedActivity</span><span class="p">(</span><span class="s2">&quot;夏祭りで手を繋ぐ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ドキドキ&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">)</span>
+<span class="nx">ourRelationshipProject</span><span class="p">.</span><span class="nx">addSharedActivity</span><span class="p">(</span><span class="s2">&quot;Yume言語を一緒に作る&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;充実感&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+<span class="nx">ourRelationshipProject</span><span class="p">.</span><span class="nx">addSharedActivity</span><span class="p">(</span><span class="s2">&quot;バージョン管理の話&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;期待&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+</code></pre></div>
+<p>「これって、私たちの関係の進捗管理……」</p>
+<p>「あくまで技術的なサンプルとして」</p>
+<p>先輩が慌てて言い訳した。</p>
+<p>◇◇◇◇</p>
+<p>「でも、面白いですね。私たちの準備度は？」</p>
+<p>好奇心が抑えられなくて聞いてしまった。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">readiness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ourRelationshipProject</span><span class="p">.</span><span class="nx">getReadinessForNextStage</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">readiness</span><span class="p">)</span>
+
+<span class="c1">// 出力例：</span>
+<span class="c1">// {</span>
+<span class="c1">//   readiness: &quot;準備完了&quot;,</span>
+<span class="c1">//   recentHighlights: [</span>
+<span class="c1">//     { activity: &quot;夏祭りで手を繋ぐ&quot;, emotion: &quot;ドキドキ&quot;, significance: 9 },</span>
+<span class="c1">//     { activity: &quot;Yume言語を一緒に作る&quot;, emotion: &quot;充実感&quot;, significance: 8 },</span>
+<span class="c1">//     { activity: &quot;バージョン管理の話&quot;, emotion: &quot;期待&quot;, significance: 8 }</span>
+<span class="c1">//   ]</span>
+<span class="c1">// }</span>
+</code></pre></div>
+<p>「準備完了って出てる……」</p>
+<p>「これは、あくまでプログラムの計算結果で……」</p>
+<p>お互いに顔を見合わせて、赤くなってしまった。</p>
+<p>◇◇◇◇</p>
+<p>「まあ、プロジェクト管理の話に戻ろう」</p>
+<p>先輩が慌てて話題を変えた。</p>
+<p>「チームワークも重要な要素だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// チーム管理機能</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">TeamManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">communication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">teamHealth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addMember</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">skills</span><span class="p">,</span><span class="w"> </span><span class="nx">availability</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">skills</span><span class="o">:</span><span class="w"> </span><span class="nx">skills</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">availability</span><span class="o">:</span><span class="w"> </span><span class="nx">availability</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">workload</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">satisfaction</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="c1">// 1-10</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">member</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">teamHealth</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">motivation</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">collaboration</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">productivity</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">assignRole</span><span class="p">(</span><span class="nx">memberName</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="p">,</span><span class="w"> </span><span class="nx">responsibilities</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">roles</span><span class="p">[</span><span class="nx">memberName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="nx">role</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">responsibilities</span><span class="o">:</span><span class="w"> </span><span class="nx">responsibilities</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">startDate</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">recordCommunication</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">topic</span><span class="p">,</span><span class="w"> </span><span class="nx">effectiveness</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">communication</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="kr">from</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">topic</span><span class="o">:</span><span class="w"> </span><span class="nx">topic</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">effectiveness</span><span class="o">:</span><span class="w"> </span><span class="nx">effectiveness</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1-10</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getTeamHealthReport</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">totalMotivation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">totalCollaboration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">totalProductivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">memberCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">member</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">members</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">teamHealth</span><span class="p">[</span><span class="nx">member</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span>
+<span class="w">            </span><span class="nx">totalMotivation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">health</span><span class="p">.</span><span class="nx">motivation</span>
+<span class="w">            </span><span class="nx">totalCollaboration</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">health</span><span class="p">.</span><span class="nx">collaboration</span>
+<span class="w">            </span><span class="nx">totalProductivity</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">health</span><span class="p">.</span><span class="nx">productivity</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">avgMotivation</span><span class="o">:</span><span class="w"> </span><span class="nx">totalMotivation</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">memberCount</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">avgCollaboration</span><span class="o">:</span><span class="w"> </span><span class="nx">totalCollaboration</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">memberCount</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">avgProductivity</span><span class="o">:</span><span class="w"> </span><span class="nx">totalProductivity</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">memberCount</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">overallHealth</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">totalMotivation</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">totalCollaboration</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">totalProductivity</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nx">memberCount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 二人チームの管理</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">teamManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TeamManager</span><span class="p">()</span>
+
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">addMember</span><span class="p">(</span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;設計&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;教える&quot;</span><span class="p">],</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span>
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">addMember</span><span class="p">(</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;創作&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;アイデア&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;学習&quot;</span><span class="p">],</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">assignRole</span><span class="p">(</span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;テックリード&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;技術指導&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;アーキテクチャ設計&quot;</span><span class="p">])</span>
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">assignRole</span><span class="p">(</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;クリエイティブディレクター&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;言語仕様提案&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ユーザー体験設計&quot;</span><span class="p">])</span>
+
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">recordCommunication</span><span class="p">(</span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;プログラミング指導&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">)</span>
+<span class="nx">teamManager</span><span class="p">.</span><span class="nx">recordCommunication</span><span class="p">(</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;花咲雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;機能アイデア提案&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">healthReport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">teamManager</span><span class="p">.</span><span class="nx">getTeamHealthReport</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;チーム健全度:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">healthReport</span><span class="p">.</span><span class="nx">overallHealth</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">))</span>
+</code></pre></div>
+<p>「私たちのチーム、結構良いスコアですね」</p>
+<p>「そうだな。お互いの強みを活かし合えてる」</p>
+<p>◇◇◇◇</p>
+<p>「最後に、プロジェクトの成功指標を設定しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 成功指標（KPI）管理</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ProjectKPI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">project</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">measurements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">defineMetric</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span><span class="w"> </span><span class="nx">unit</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">deadline</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">unit</span><span class="o">:</span><span class="w"> </span><span class="nx">unit</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">deadline</span><span class="o">:</span><span class="w"> </span><span class="nx">deadline</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">current</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">metric</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">targets</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">target</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">recordMeasurement</span><span class="p">(</span><span class="nx">metricName</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">metric</span><span class="o">:</span><span class="w"> </span><span class="nx">metricName</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="nx">note</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">measurements</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">measurement</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 現在値を更新</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">metricName</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">metric</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">metric</span><span class="p">.</span><span class="nx">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getSuccessRate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">achievedCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">metric</span><span class="p">.</span><span class="nx">current</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">metric</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">achievedCount</span><span class="o">++</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">achievedCount</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語プロジェクトのKPI</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">projectKPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ProjectKPI</span><span class="p">(</span><span class="nx">yumeProject</span><span class="p">)</span>
+
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">defineMetric</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;機能実装率&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;計画した機能の実装完了率&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">90</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">defineMetric</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;学習満足度&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;優美のプログラミング学習満足度&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;点（10点満点）&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">defineMetric</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">&quot;二人の連携度&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;チームワークの評価&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;点（10点満点）&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">9</span><span class="p">,</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">// 現在の測定値を記録</span>
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">recordMeasurement</span><span class="p">(</span><span class="s2">&quot;機能実装率&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;基本機能は完成&quot;</span><span class="p">)</span>
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">recordMeasurement</span><span class="p">(</span><span class="s2">&quot;学習満足度&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;毎回楽しく学習できている&quot;</span><span class="p">)</span>
+<span class="nx">projectKPI</span><span class="p">.</span><span class="nx">recordMeasurement</span><span class="p">(</span><span class="s2">&quot;二人の連携度&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9.5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;とても良い関係&quot;</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;プロジェクト成功率:&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">projectKPI</span><span class="p">.</span><span class="nx">getSuccessRate</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「二人の連携度、9.5点！」</p>
+<p>「優美との共同作業は、本当に楽しいからな」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、私は大胆な提案をした。</p>
+<p>「先輩、私たちの関係も、きちんとプロジェクト管理してみませんか？」</p>
+<p>「え？」</p>
+<p>「冗談じゃなくて、本気です。お互いの気持ちを確かめ合うまでの計画を立てて」</p>
+<p>先輩が困ったような、でも嬉しそうな顔をした。</p>
+<p>「それは……」</p>
+<p>「準備完了って出てましたよね、さっきのプログラム」</p>
+<p>「あれは、ただの計算で……」</p>
+<p>「でも、間違ってないと思います」</p>
+<p>◇◇◇◇</p>
+<p>自分の部屋に戻って、今日学んだことをノートにまとめる。</p>
+<p>『プロジェクト管理：計画的な開発のために』
+『リスク管理：問題を予測して対策を立てる』
+『チーム管理：お互いの強みを活かす』
+『成功指標：目標を数値で管理する』</p>
+<p>そして、ノートの端に小さく書き加えた。</p>
+<p>『私たちの関係プロジェクト：準備完了』</p>
+<p>窓の外を見ると、秋の夜空に星が瞬いていた。</p>
+<p>（プロジェクト管理の考え方は、恋愛にも応用できるのかな）</p>
+<p>計画を立てて、リスクを管理して、お互いの強みを活かし合って、目標に向かって進んでいく。</p>
+<p>私たちのYume言語プロジェクトも、関係プロジェクトも、きっと成功する。</p>
+<p>そんな確信を持ちながら、明日も先輩と一緒に、計画的に夢に向かって進んでいこう。</p>
 
 
 
@@ -1239,6 +1744,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

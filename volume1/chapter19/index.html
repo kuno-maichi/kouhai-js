@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#19" class="md-skip">
+        <a href="#19api" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -1170,35 +1172,241 @@
   
 
 
-<h1 id="19">第19話 招かれざる（？）客<a class="headerlink" href="#19" title="Permanent link">&para;</a></h1>
-<p>あの、言葉にならない想いを共有した日から、僕たちの開発作業には、以前よりもずっと穏やかで、互いを思いやるような空気が流れるようになっていた。分からないことがあれば、美久はすぐに「先輩、ここは？」と聞いてくれるし、僕も、彼女の表情を見ながら、言葉を選ぶようになった。</p>
-<p>そんな、心地よい時間が流れていた、ある日の放課後。</p>
-<p>がらり、と。その男は、ノックもなしに、空き教室のドアを開けた。</p>
-<p>「よお、嵐山。可愛い後輩と、言語作りのおままごと、楽しんでるか？」</p>
-<p>そこに立っていたのは、僕のクラスメイトの、相沢 蓮（あいざわ れん）。ニヤニヤと、人の悪い笑みを浮かべて、僕たちのことを見ている。
-　相沢は、僕と同じくらい、プログラミングという病に深く冒された男だ。ただ、そのアプローチは僕とは正反対。僕が理論や構造の美しさを求めるのに対し、彼は、いかにトリッキーで、誰も思いつかないようなハックを編み出すかに喜びを見出すタイプ。正直、あまり得意な相手ではなかった。</p>
-<p>「……相沢。何の用だ」
-「健太から聞いたぜ。お前が、一年生のかわい子ちゃんを捕まえて、マンツーマンで英才教育してるってな」</p>
-<p>その、あまりに失礼な物言いに、美久はびくりと肩を震わせ、僕の背中に隠れるようにして、相沢のことを警戒している。</p>
-<p>相沢は、そんな僕たちの様子を面白そうに眺めながら、ずかずかと近づいてくると、僕たちのノートパソコンの画面を覗き込んだ。</p>
-<p>「へえ、S式ねえ。ずいぶんと古風なことで。で？　クロージャは実装したのか？　末尾再帰の最適化は？　まさか、お前が作る言語が、ただの電卓に毛が生えたレベル、なんてことはないよなあ？」</p>
-<p>彼は、わざと、今の僕たちの言語にはまだ実装されていない、高度な専門用語を並べ立てた。その瞳は、明らかに僕たちを試している。</p>
-<p>「……今は、まだな」</p>
-<p>僕は、冷静に、短く答えた。ここでこいつと技術論で張り合っても、何の意味もない。隣に、美久がいるのだから。</p>
-<p>「今は、一歩ずつ、進めてるんだ」
-「ふーん。まあ、頑張るこったな。お姫様を退屈させないようにな」</p>
-<p>相沢が、嘲るようにそう言った、その時だった。</p>
-<p>「……おままごとじゃ、ありません！」</p>
-<p>僕の背中から、凛とした声が響いた。声の主は、美久だった。彼女は、僕の後ろからひょっこりと顔を出すと、自分よりずっと背の高い相沢を、その大きな瞳で、キッと、真っ直ぐに睨みつけていた。</p>
-<p>「この言語は……！　この言語は、私と先輩が、二人で、一生懸命作ってる、大事な……大事な、宝物なんですから！」</p>
-<p>その、予想外の、あまりに真剣な反論に、意地の悪い笑みを浮かべていた相沢の表情が、一瞬だけ、固まった。僕も、驚いて、隣にいる彼女の顔を見つめてしまった。</p>
-<p>やがて、相沢の表情から、からかいの色が、すっと消えていく。そして、何か、本当に面白いものを見つけたかのように、その口の端を、にやりと吊り上げた。</p>
-<p>「……ほう。宝物、ね」</p>
-<p>彼は、それだけ言うと、僕たちに背を向けた。</p>
-<p>「まあ、いいや。せいぜい、その『宝物』とやらを、ピカピカに磨き上げることだな。じゃあな、お二人さん」</p>
-<p>嵐のように現れ、そして、嵐のように去っていく。相沢が閉めたドアの音が、やけに大きく教室に響いた。</p>
-<p>彼の来訪は、僕たちの穏やかだった世界に、確かに波紋を広げた。でも、それは同時に、僕の隣にいる、この小さな共同開発者の心に、自分たちの作っているものへの「誇り」と、それを守りたいという「強い意志」を、はっきりと芽生えさせたようだった。</p>
-<p>僕たちは、どちらからともなく、顔を見合わせて、ふっと笑みをこぼした。なんだか、新しい目標ができたような、そんな気がした。</p>
+<h1 id="19api">第19話：API連携：外の世界とつながる<a class="headerlink" href="#19api" title="Permanent link">&para;</a></h1>
+<p>水曜日の放課後。優美とのプログラミングレッスンは19日目。昨日の非同期処理のレッスンで、僕がうっかり見せてしまったコメントアウトされたコード。あれ以来、教室の空気が少し変わった気がする。</p>
+<p>甘いような、くすぐったいような、でも心地いい緊張感。</p>
+<p>「今日はAPI連携について学ぼう」</p>
+<p>「API連携？」</p>
+<p>優美の瞳が好奇心でキラキラしている。</p>
+<p>「プログラムが外の世界とつながる方法だ。他のサービスやデータと連携できる」</p>
+<p>「外の世界……なんだかロマンチックですね」</p>
+<p>優美の感性は相変わらず独特だ。でも、その見方が好きだ。</p>
+<p>◇◇◇◇</p>
+<p>「例えば、天気予報のデータを取得してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 天気予報APIを呼び出す（実際のAPIキーは必要）</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getWeather</span><span class="p">(</span><span class="nx">city</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.weather.com/v1/weather?city=</span><span class="si">${</span><span class="nx">city</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">city</span><span class="si">}</span><span class="sb">の天気：</span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">weather</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`気温：</span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">temperature</span><span class="si">}</span><span class="sb">℃`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;天気情報の取得に失敗：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="nx">getWeather</span><span class="p">(</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>「わあ！　プログラムが天気を教えてくれるんですか？」</p>
+<p>「そう。APIを使えば、世界中の情報にアクセスできる」</p>
+<p>◇◇◇◇</p>
+<p>「優美の好きな小説投稿サイトも、きっとAPIを持ってるよ」</p>
+<p>その言葉に、優美の目がさらに輝いた。</p>
+<p>「本当ですか？」</p>
+<p>「ああ。例えばこんな感じで」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説投稿サイトのAPI（仮想）</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">NovelAPI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">searchNovels</span><span class="p">(</span><span class="nx">keyword</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 実際はfetchでAPIを呼ぶ</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`「</span><span class="si">${</span><span class="nx">keyword</span><span class="si">}</span><span class="sb">」で検索中...`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;プログラミングと恋の方程式&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;コードに込めた想い&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;非同期な恋心&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;柳原優美&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">postNovel</span><span class="p">(</span><span class="nx">novel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;小説を投稿中...&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// バリデーション</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">novel</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">novel</span><span class="p">.</span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;タイトルと本文は必須です&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 仮の投稿処理</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="sb">`https://novel-site.com/novels/</span><span class="si">${</span><span class="nx">novel</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">publishedAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「私の作品名が例に使われてる！」</p>
+<p>優美が嬉しそうに頬を赤らめた。</p>
+<p>◇◇◇◇</p>
+<p>「APIは人と人をつなぐ架け橋みたいなものだ」</p>
+<p>「架け橋？」</p>
+<p>「プログラマーが作ったサービスを、別のプログラマーが使えるようにする。そうやって、みんなで協力して大きなものを作っていく」</p>
+<p>優美が何か考え込んでいる。</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちのYume言語も、いつかAPIを提供できるようになりますか？」</p>
+<p>その質問に、胸が熱くなった。</p>
+<p>「きっとできるよ。優美が書いた小説を、Yume言語で解析したり、自動で感想を生成したり」</p>
+<p>「すごい！　夢が広がります！」</p>
+<p>◇◇◇◇</p>
+<p>「実際にAPIを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のためのAPI設計</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeLanguageAPI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ストーリーを登録</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">registerStory</span><span class="p">(</span><span class="nx">story</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stories</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">story</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">emotions</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">analyzeEmotions</span><span class="p">(</span><span class="nx">story</span><span class="p">.</span><span class="nx">content</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ストーリーが登録されました&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情分析（簡易版）</span>
+<span class="w">    </span><span class="nx">analyzeEmotions</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">joy</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sadness</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">excitement</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// キーワードで感情を判定</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;好き&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;愛&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">love</span><span class="o">++</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;嬉しい&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;楽しい&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">joy</span><span class="o">++</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;悲しい&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;寂しい&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">sadness</span><span class="o">++</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;ドキドキ&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">content</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;ワクワク&quot;</span><span class="p">))</span><span class="w"> </span><span class="nx">emotions</span><span class="p">.</span><span class="nx">excitement</span><span class="o">++</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">emotions</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ストーリー間の関連性を見つける</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">findRelatedStories</span><span class="p">(</span><span class="nx">storyId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">targetStory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stories</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">storyId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">targetStory</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;ストーリーが見つかりません&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">related</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">story</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stories</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">storyId</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span>
+
+<span class="w">            </span><span class="c1">// 感情の類似度を計算</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">similarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">calculateSimilarity</span><span class="p">(</span>
+<span class="w">                </span><span class="nx">targetStory</span><span class="p">.</span><span class="nx">emotions</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">story</span><span class="p">.</span><span class="nx">emotions</span>
+<span class="w">            </span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">similarity</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">related</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">story</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">similarity</span><span class="w"> </span><span class="p">})</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">related</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">calculateSimilarity</span><span class="p">(</span><span class="nx">emotions1</span><span class="p">,</span><span class="w"> </span><span class="nx">emotions2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 簡単な類似度計算</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">emotions1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">emotions1</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">emotions2</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">            </span><span class="nx">count</span><span class="o">++</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">count</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「感情分析！　これ、本当に小説に使えそう！」</p>
+<p>優美が興奮している。</p>
+<p>◇◇◇◇</p>
+<p>「APIを使うときは、相手への思いやりが大切なんだ」</p>
+<p>「思いやり？」</p>
+<p>「使用制限を守ったり、エラーを適切に処理したり。相手のサーバーに負担をかけないように」</p>
+<p>僕は優美の顔を見つめた。</p>
+<p>「人間関係と同じだよ」</p>
+<p>その言葉に、優美の頬がほんのり赤くなった。</p>
+<p>「確かに……相手のことを考えて、優しく接するんですね」</p>
+<p>◇◇◇◇</p>
+<p>「あの、先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、APIみたいですね」</p>
+<p>突然の言葉に、心臓がドキッとした。</p>
+<p>「どういう意味だ？」</p>
+<p>「お互いに必要な時に呼び出し合って、情報を交換して、新しいものを作っていく」</p>
+<p>優美が恥ずかしそうに続けた。</p>
+<p>「でも、APIと違うのは……」</p>
+<p>「違うのは？」</p>
+<p>「感情も一緒に送受信してるところです」</p>
+<p>その言葉に、教室の空気が一瞬止まった。</p>
+<p>◇◇◇◇</p>
+<p>「優美……」</p>
+<p>「あ、いえ！　プログラミングの話です！　感情を扱うAPIの話！」</p>
+<p>慌てる優美が愛おしい。でも、僕も勇気を出してみる。</p>
+<p>「僕も、優美とのAPIで、たくさんの感情を受け取ってるよ」</p>
+<p>「先輩？」</p>
+<p>「嬉しさとか、楽しさとか、それから……」</p>
+<p>言葉が続かない。でも、優美は優しく微笑んで待っていてくれた。</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、優美が提案した。</p>
+<p>「先輩、二人の思い出をAPIにしてみませんか？」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 二人の思い出API</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MemoryAPI</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7月1日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;プログラミングレッスン開始&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">masashiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;緊張していたけど嬉しかった&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">yumiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ドキドキしたけど楽しかった&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7月10日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Yume言語の約束&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">masashiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;優美の夢を一緒に叶えたいと思った&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">yumiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;先輩と一緒なら何でもできる気がした&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;今日&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;API連携を学ぶ&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">masashiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;優美との繋がりを感じた&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">yumiFeeling</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;???&quot;</span><span class="w">  </span><span class="c1">// まだ書けない</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">getMemory</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">date</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">date</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">addFeeling</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="nx">feeling</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getMemory</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">memory</span><span class="p">[</span><span class="sb">`</span><span class="si">${</span><span class="nx">person</span><span class="si">}</span><span class="sb">Feeling`</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">feeling</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「優美の今日の気持ち、???になってるけど」</p>
+<p>「それは……まだ言葉にできないです」</p>
+<p>優美の顔が真っ赤になった。</p>
+<p>「でも、いつか必ず、このAPIを完成させます」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は一人で今日のコードを見返していた。</p>
+<p>二人の思い出API。まだ未完成の、優美の気持ち。</p>
+<p>（いつか、お互いの気持ちが完全に同期する日が来るのかな）</p>
+<p>窓の外を見ると、夕焼けが街を赤く染めていた。</p>
+<p>APIは外の世界とつながる技術。でも、今の僕にとって一番大切なのは、目の前にいる優美との繋がりだ。</p>
+<p>明日はどんな繋がりを作れるだろう。そんな期待を胸に、僕は教材の準備を始めた。いつか、二人の気持ちが完全にconnectする日を夢見ながら。</p>
 
 
 
@@ -1276,6 +1484,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

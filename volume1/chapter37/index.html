@@ -22,7 +22,7 @@
     
     
       
-        <title>第37話 恋の「バージョンアップ」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第37話：アルゴリズムと計算量：効率の追求 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第37話 恋の「バージョンアップ」
+              第37話：アルゴリズムと計算量：効率の追求
             
           </span>
         </div>
@@ -1139,26 +1141,476 @@
   
 
 
-<h1 id="37">第37話 恋の「バージョンアップ」<a class="headerlink" href="#37" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のリファクタリング」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、もっと新しい機能を追加できませんか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のバージョンアップ」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを試したいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のバージョンアップ」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="37">第37話：アルゴリズムと計算量：効率の追求<a class="headerlink" href="#37" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。秋の旅行から戻って、私たちは再びプログラミングの世界に向き合っていた。</p>
+<p>「優美、今日はアルゴリズムと計算量について学ぼう」</p>
+<p>先輩が新しいテーマを提示してくれた。</p>
+<p>「アルゴリズム？」</p>
+<p>「問題を解決するための手順のことだ。そして、その効率を測るのが計算量」</p>
+<p>◇◇◇◇</p>
+<p>「まず、簡単な例から始めよう。配列の中から特定の値を探す問題だ」</p>
+<p>先輩がホワイトボードに書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 線形探索（単純な方法）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">linearSearch</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span><span class="w">  </span><span class="c1">// 見つかった位置を返す</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w">  </span><span class="c1">// 見つからなかった</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">linearSearch</span><span class="p">(</span><span class="nx">numbers</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">))</span><span class="w">  </span><span class="c1">// 5</span>
+
+<span class="c1">// 計算量：O(n)</span>
+<span class="c1">// 最悪の場合、配列の全要素を調べる必要がある</span>
+</code></pre></div>
+<p>「これが一番単純な方法ですね」</p>
+<p>「そう。でも、配列がソート済みなら、もっと効率的な方法がある」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 二分探索（効率的な方法）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">binarySearch</span><span class="p">(</span><span class="nx">sortedArray</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sortedArray</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sortedArray</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">mid</span><span class="w">  </span><span class="c1">// 見つかった</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sortedArray</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="w">  </span><span class="c1">// 右半分を探索</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="w">  </span><span class="c1">// 左半分を探索</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w">  </span><span class="c1">// 見つからなかった</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sortedNumbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">binarySearch</span><span class="p">(</span><span class="nx">sortedNumbers</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">))</span><span class="w">  </span><span class="c1">// 5</span>
+
+<span class="c1">// 計算量：O(log n)</span>
+<span class="c1">// 探索範囲が毎回半分になる</span>
+</code></pre></div>
+<p>「わあ、速い！」</p>
+<p>「計算量の違いを視覚化してみよう」</p>
+<p>◇◇◇◇</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 計算量の比較</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">AlgorithmComplexity</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">linear</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">binary</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 線形探索の計算量を測定</span>
+<span class="w">    </span><span class="nx">measureLinearSearch</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="nx">size</span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">linear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">linear</span><span class="o">++</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">linear</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 二分探索の計算量を測定</span>
+<span class="w">    </span><span class="nx">measureBinarySearch</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="nx">size</span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">binary</span><span class="o">++</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">binary</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 比較結果を表示</span>
+<span class="w">    </span><span class="nx">compareAlgorithms</span><span class="p">(</span><span class="nx">sizes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;配列サイズ | 線形探索 | 二分探索&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;---------|---------|----------&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">sizes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">size</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span><span class="w">  </span><span class="c1">// 後ろの方の要素を探す</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">linear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">measureLinearSearch</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">measureBinarySearch</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span>
+
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">size</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">8</span><span class="p">)</span><span class="si">}</span><span class="sb"> | </span><span class="si">${</span><span class="nx">linear</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">7</span><span class="p">)</span><span class="si">}</span><span class="sb"> | </span><span class="si">${</span><span class="nx">binary</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">padStart</span><span class="p">(</span><span class="mf">8</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 測定実行</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">complexity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AlgorithmComplexity</span><span class="p">()</span>
+<span class="nx">complexity</span><span class="p">.</span><span class="nx">compareAlgorithms</span><span class="p">([</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="mf">10000</span><span class="p">,</span><span class="w"> </span><span class="mf">100000</span><span class="p">])</span>
+</code></pre></div>
+<p>「二分探索の方が圧倒的に速いんですね！」</p>
+<p>「データが大きくなるほど、その差は顕著になる」</p>
+<p>◇◇◇◇</p>
+<p>「次は、ソートアルゴリズムを見てみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// バブルソート（単純だが遅い）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">bubbleSort</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">array</span><span class="p">]</span><span class="w">  </span><span class="c1">// コピーを作成</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">comparisons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">comparisons</span><span class="o">++</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 隣接要素を交換</span>
+<span class="w">                </span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`バブルソート - 比較回数: </span><span class="si">${</span><span class="nx">comparisons</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">arr</span>
+<span class="p">}</span>
+
+<span class="c1">// クイックソート（効率的）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span><span class="w"> </span><span class="nx">comparisons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">array</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">pivot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">array</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">)]</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">equal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">element</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">pivot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">left</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">pivot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">right</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">equal</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">...</span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">comparisons</span><span class="p">),</span>
+<span class="w">        </span><span class="p">...</span><span class="nx">equal</span><span class="p">,</span>
+<span class="w">        </span><span class="p">...</span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">right</span><span class="p">,</span><span class="w"> </span><span class="nx">comparisons</span><span class="p">)</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// 比較</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">testArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">64</span><span class="p">,</span><span class="w"> </span><span class="mf">34</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;元の配列:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">testArray</span><span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">bubbleResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bubbleSort</span><span class="p">(</span><span class="nx">testArray</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;バブルソート結果:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bubbleResult</span><span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">comparisons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">quickResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">testArray</span><span class="p">,</span><span class="w"> </span><span class="nx">comparisons</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;クイックソート結果:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">quickResult</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`クイックソート - 比較回数: </span><span class="si">${</span><span class="nx">comparisons</span><span class="p">.</span><span class="nx">count</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「先輩、アルゴリズムって、私の小説執筆にも似てますね」</p>
+<p>「どういうこと？」</p>
+<p>「プロットを考える時、色んな展開を試して、一番効率的で面白い流れを選ぶんです」</p>
+<p>私の言葉に、先輩は興味深そうに頷いた。</p>
+<p>「なるほど。それもアルゴリズムの一種だな」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語にも、効率的なアルゴリズムを実装しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語の効率的なアルゴリズム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeAlgorithms</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span><span class="w">  </span><span class="c1">// メモ化用</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// フィボナッチ数列（非効率版）</span>
+<span class="w">    </span><span class="nx">fibonacciNaive</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciNaive</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciNaive</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// フィボナッチ数列（メモ化版）</span>
+<span class="w">    </span><span class="nx">fibonacciMemo</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciMemo</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciMemo</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// フィボナッチ数列（動的計画法版）</span>
+<span class="w">    </span><span class="nx">fibonacciDP</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">prev2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">prev1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prev1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">prev2</span>
+<span class="w">            </span><span class="nx">prev2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prev1</span>
+<span class="w">            </span><span class="nx">prev1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">current</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">current</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 性能比較</span>
+<span class="w">    </span><span class="nx">comparePerformance</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`フィボナッチ数列 F(</span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">) の計算`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// ナイーブ版（nが大きいと遅い）</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">35</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;ナイーブ版&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">naive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciNaive</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;ナイーブ版&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`結果: </span><span class="si">${</span><span class="nx">naive</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ナイーブ版: nが大きすぎて計算できません&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// メモ化版</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;メモ化版&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">memo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciMemo</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;メモ化版&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`結果: </span><span class="si">${</span><span class="nx">memo</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 動的計画法版</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;動的計画法版&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">fibonacciDP</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;動的計画法版&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`結果: </span><span class="si">${</span><span class="nx">dp</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeAlgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeAlgorithms</span><span class="p">()</span>
+<span class="nx">yumeAlgo</span><span class="p">.</span><span class="nx">comparePerformance</span><span class="p">(</span><span class="mf">40</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「最後に、文字列アルゴリズムも見てみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 文字列探索アルゴリズム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">StringAlgorithms</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 単純な文字列探索</span>
+<span class="w">    </span><span class="nx">naiveSearch</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">pattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pattern</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">m</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">m</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">[</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">pattern</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">matches</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">matches</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// KMP法の実装（効率的）</span>
+<span class="w">    </span><span class="nx">kmpSearch</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">pattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pattern</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="w">        </span><span class="c1">// 部分一致表を作成</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">lps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">computeLPSArray</span><span class="p">(</span><span class="nx">pattern</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="w">  </span><span class="c1">// textのインデックス</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="w">  </span><span class="c1">// patternのインデックス</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">pattern</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">text</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">i</span><span class="o">++</span>
+<span class="w">                </span><span class="nx">j</span><span class="o">++</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">matches</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lps</span><span class="p">[</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">pattern</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">text</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lps</span><span class="p">[</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">i</span><span class="o">++</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">matches</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// LPS配列の計算</span>
+<span class="w">    </span><span class="nx">computeLPSArray</span><span class="p">(</span><span class="nx">pattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pattern</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">lps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">m</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">pattern</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">pattern</span><span class="p">[</span><span class="nx">len</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">len</span><span class="o">++</span>
+<span class="w">                </span><span class="nx">lps</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">len</span>
+<span class="w">                </span><span class="nx">i</span><span class="o">++</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lps</span><span class="p">[</span><span class="nx">len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">lps</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">                    </span><span class="nx">i</span><span class="o">++</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">lps</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 小説の中から特定のフレーズを探す</span>
+<span class="w">    </span><span class="nx">searchInNovel</span><span class="p">(</span><span class="nx">novel</span><span class="p">,</span><span class="w"> </span><span class="nx">phrase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`小説から「</span><span class="si">${</span><span class="nx">phrase</span><span class="si">}</span><span class="sb">」を探索中...`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;単純探索&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">naiveResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">naiveSearch</span><span class="p">(</span><span class="nx">novel</span><span class="p">,</span><span class="w"> </span><span class="nx">phrase</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;単純探索&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;KMP法&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">kmpResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">kmpSearch</span><span class="p">(</span><span class="nx">novel</span><span class="p">,</span><span class="w"> </span><span class="nx">phrase</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;KMP法&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`見つかった位置: </span><span class="si">${</span><span class="nx">kmpResult</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">kmpResult</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">strAlgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StringAlgorithms</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">novel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;私は先輩のことが好きです。先輩と一緒にプログラミングを学ぶのが楽しいです。先輩は優しくて、いつも私のことを考えてくれます。&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">phrase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;先輩&quot;</span>
+
+<span class="nx">strAlgo</span><span class="p">.</span><span class="nx">searchInNovel</span><span class="p">(</span><span class="nx">novel</span><span class="p">,</span><span class="w"> </span><span class="nx">phrase</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「アルゴリズムって、愛の形にも似てますね」</p>
+<p>私の突然の言葉に、先輩は驚いたような顔をした。</p>
+<p>「どういうこと？」</p>
+<p>「最短経路を探すように、私たちも一番効率的に幸せになる方法を探してる」</p>
+<p>先輩の顔が優しく微笑んだ。</p>
+<p>「確かに。でも、時には非効率でも大切なことがある」</p>
+<p>「そうですね。遠回りした分だけ、思い出が増えます」</p>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、先輩が特別なコードを見せてくれた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 私たちの関係のアルゴリズム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">LoveAlgorithm</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">couple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">happiness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 最短経路で告白（効率的）</span>
+<span class="w">    </span><span class="nx">directConfession</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">time</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1日&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;可能性あり&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">memories</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;告白&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 私たちが選んだ道（非効率だけど豊か）</span>
+<span class="w">    </span><span class="nx">ourPath</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">journey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s1">&#39;ベランダ越しの出会い&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;プログラミングレッスン&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;変数とデータ型&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;エラーとの格闘&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;関数の美しさ&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;オブジェクト指向&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;非同期処理&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;セキュリティ&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;ガベージコレクション&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;そして告白&#39;</span>
+<span class="w">        </span><span class="p">]</span>
+
+<span class="w">        </span><span class="nx">journey</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">event</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">happiness</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">time</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;30話分&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;確実&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">memories</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">happiness</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;最高の思い出と共に&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 比較</span>
+<span class="w">    </span><span class="nx">compare</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== 告白アルゴリズムの比較 ===&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;直接的アプローチ:&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">directConfession</span><span class="p">())</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;私たちの道のり:&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ourPath</span><span class="p">())</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\n結論: 効率だけが全てじゃない&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourLove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">LoveAlgorithm</span><span class="p">(</span><span class="s1">&#39;雅史&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">)</span>
+<span class="nx">ourLove</span><span class="p">.</span><span class="nx">compare</span><span class="p">()</span>
+</code></pre></div>
+<p>「これが、私たちのアルゴリズムね」</p>
+<p>「効率は悪いけど、最高の結果を得られた」</p>
+<p>◇◇◇◇</p>
+<p>窓の外では、秋の夕日が街を優しく照らしていた。</p>
+<p>アルゴリズムと計算量。効率を追求することの大切さを学んだ。でも同時に、人生には効率だけでは測れない価値があることも理解した。</p>
+<p>私たちの物語は、最も効率的ではなかったかもしれない。でも、その分だけ豊かで、かけがえのない思い出に満ちている。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">algorithms</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;探索&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ソート&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;動的計画法&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">complexity</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;O(n)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;O(log n)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;O(n²)&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">optimization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;メモ化と効率化&#39;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;効率と豊かさのバランス&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">ourJourney</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;非効率だけど美しい&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;思い出は計算量では測れない&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日も、先輩と一緒に新しいアルゴリズムを学ぼう。そして、私たちだけの非効率で美しい物語を、これからも紡いでいこう。</p>
 
 
 
@@ -1236,6 +1688,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

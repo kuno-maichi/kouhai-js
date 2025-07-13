@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#15-if" class="md-skip">
+        <a href="#15" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -1170,38 +1172,240 @@
   
 
 
-<h1 id="15-if">第15話 もしも、の先の景色（if文）<a class="headerlink" href="#15-if" title="Permanent link">&para;</a></h1>
-<p>昼間の会話を引きずったままの、ぎこちない空気。それを振り払うかのように、僕はわざと明るい声を出した。</p>
-<p>「なあ、美久。今の僕たちの言語に、まだ決定的に足りていないものがあるんだ」
-「え……？　なんですか？」
-「それは、『判断力』だ」</p>
-<p>僕の言葉に、美久はきょとんと首を傾げた。</p>
-<p>「僕たちの言語は、まだ、言われたことを、その通りに実行することしかできない。でも、本物のプログラミング言語は、もっと賢いんだ。『もし、〇〇が本当なら、こちらを実行する。もし、嘘なら、あちらを実行する』。そんな風に、状況に応じて、やることを自分で『選択』できる能力。それが、<code>if</code>文なんだ」</p>
-<p>僕は、<code>if</code>文の構文をエディタに書いてみせた。</p>
-<p><code>['if', condition, true-exp, false-exp]</code></p>
-<p>「<code>condition</code>が『条件』、<code>true-exp</code>が『条件が本当だった時にやること』、<code>false-exp</code>が『条件が嘘だった時にやること』だ」
-「でも、先輩。コンピュータに、『本当』か『嘘』かなんて、どうやって判断させるんですか？」</p>
-<p>美久の、的確な質問。僕は待ってましたとばかりに頷いた。</p>
-<p>「そこで出てくるのが、<code>true</code>（真）と<code>false</code>（偽）っていう、二つの特別な値だ。プログラミングの世界では、この二つが、全ての判断の基準になる。これを**真偽値（Boolean）**って言う」
-「とぅるー、と、ふぉるす……」
-「そして、この<code>true</code>や<code>false</code>を作り出すための新しい『お願い』が、比較演算子だ」</p>
-<p>僕は、さらに例を書き足す。</p>
-<p><code>['&gt;', 'x', 10]</code>  // xは10より大きいか？
-<code>['==', 'y', 20]</code> // yは20と等しいか？</p>
-<p>「こいつらは、計算結果として、数字じゃなくて、<code>true</code>か<code>false</code>を返すんだ」</p>
-<p>僕が熱心に説明している間、美久は、相槌を打ちながらも、どこか別のことを考えているようだった。</p>
-<p>（もし、私が、プログラミングを好きになれなかったら、先輩は、私にこんな楽しそうな顔を、見せてくれたかな……）
-（もし、私が、もっと頭が良かったら、先輩の隣で、もっとちゃんと、笑えていたかな……）</p>
-<p>プログラムの「もしも」の話が、彼女自身の、どうしようもない「もしも」の感傷と、静かに重なっていく。
-　このままじゃ、ダメだ。また、先輩の世界から、置いていかれてしまう。</p>
-<p>彼女は、その感傷的な思考を、ぶんぶんと頭を振って追い出した。そして、僕の目を真っ直ぐに見て、言った。</p>
-<p>「先輩！　その<code>==</code>のルール、私に書かせてください！」</p>
-<p>その、あまりに唐突で、でも、力強い申し出に、僕は一瞬、言葉を失った。
-　彼女は、もう、僕が手を差し伸べるのを待ってはいない。自分の足で、僕のいる世界に踏み込もうとしてくれている。</p>
-<p>嬉しさが、じわりと胸に広がった。</p>
-<p>「……ああ、もちろんだ」</p>
-<p>僕は、最高の笑顔で応えた。ぎこちない空気は、もうどこにもなかった。僕たちは、再び「共同開発者」として、一つの新しい問題に向き合い始める。</p>
-<p>二人の関係もまた、無意識のうちに、一つの道を「選択」したのだ。ただの幼馴染でも、ただの先輩後輩でもない、もっと別の、新しい関係へと続く道を。そんな確信が、僕たちの間の、心地よい集中力を生み出していた。</p>
+<h1 id="15">第15話：ポリモーフィズム：多様性の表現<a class="headerlink" href="#15" title="Permanent link">&para;</a></h1>
+<p>土曜日の午後。優美とのプログラミングレッスンも今日で15日目。2週間以上も毎日のように続けてきて、優美の成長速度には本当に驚かされる。</p>
+<p>今日は少し高度な概念、ポリモーフィズムについて教える予定だ。</p>
+<p>「今日はポリモーフィズムについて学ぼう」</p>
+<p>「ポリモーフィズム？　難しそうな名前ですね」</p>
+<p>優美が少し不安そうな顔をする。</p>
+<p>「日本語では『多態性』って言うんだけど、簡単に言えば『同じメソッド名でも、オブジェクトによって違う動作をする』ってことだ」</p>
+<p>「うーん、まだよくわからないです」</p>
+<p>「優美の小説で例えてみよう」</p>
+<p>◇◇◇◇</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<p>「例えば、小説の中で複数のキャラクターが『愛を表現する』というシーンがあるとする」</p>
+<p>「はい、よくありますね」</p>
+<p>「でも、キャラクターによって愛の表現方法は違うだろ？」</p>
+<p>「確かに！　クールなキャラは素直に言えなかったり、情熱的なキャラはストレートに伝えたり」</p>
+<p>「それがまさにポリモーフィズムだ」</p>
+<p>僕はコードを書いてみせた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 基本となるキャラクタークラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">expressLove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は愛を表現した&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// それぞれ異なる表現をするキャラクター</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ShyCharacter</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">expressLove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は顔を赤くして俯いた&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「べ、別にあなたのことなんて……」&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">PassionateCharacter</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">expressLove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は相手の手を取った&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「愛してる！　世界で一番君が好きだ！」&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">CoolCharacter</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Character</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">expressLove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は背を向けたまま言った&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「……嫌いじゃない」&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「わあ！　本当に小説のワンシーンみたい！」</p>
+<p>優美が興奮している。</p>
+<p>「実際に使ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 色々なキャラクターを作成</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">ShyCharacter</span><span class="p">(</span><span class="s2">&quot;美咲&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">PassionateCharacter</span><span class="p">(</span><span class="s2">&quot;健太&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">CoolCharacter</span><span class="p">(</span><span class="s2">&quot;涼&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1">// 全員に愛を表現してもらう</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【告白シーン】&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">characters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">character</span><span class="p">.</span><span class="nx">expressLove</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>【告白シーン】
+美咲は顔を赤くして俯いた
+「べ、別にあなたのことなんて……」
+---
+健太は相手の手を取った
+「愛してる！　世界で一番君が好きだ！」
+---
+涼は背を向けたまま言った
+「……嫌いじゃない」
+---
+</code></pre></div>
+<p>「すごい！　同じexpressLoveメソッドなのに、キャラクターごとに違う表現になってる！」</p>
+<p>◇◇◇◇</p>
+<p>「これがポリモーフィズムの良いところなんだ。同じメソッド名で統一的に扱えるけど、実際の動作はそれぞれのオブジェクトに任せることができる」</p>
+<p>「なるほど！　プログラミングでも個性が表現できるんですね」</p>
+<p>「そう。優美の言う通り、まさに『個性の表現』だ」</p>
+<p>優美の理解の仕方はいつも的確だ。</p>
+<p>「じゃあ、今度は優美がポリモーフィズムを使ってみて」</p>
+<p>「はい！」</p>
+<p>◇◇◇◇</p>
+<p>優美は考えながらコードを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 基本となる表現クラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">author</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は何かを表現した&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// プログラマーの表現</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ProgrammerExpression</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;はコードを書いた&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function love() { return &#39;大好き&#39; }&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 作家の表現</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">WriterExpression</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は物語を紡いだ&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;「彼女の瞳に映る世界が、私の全てだった」&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 画家の表現</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ArtistExpression</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;は絵を描いた&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;キャンバスに二人の笑顔が広がった&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「創作者の表現方法の違いをポリモーフィズムで表現してみました！」</p>
+<p>◇◇◇◇</p>
+<p>「素晴らしいアイデアだね」</p>
+<p>僕は感心した。</p>
+<p>「実行してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">creators</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">ProgrammerExpression</span><span class="p">(</span><span class="s2">&quot;雅史先輩&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">WriterExpression</span><span class="p">(</span><span class="s2">&quot;優美&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">ArtistExpression</span><span class="p">(</span><span class="s2">&quot;友人&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;【それぞれの愛の表現】&quot;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">creator</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">creators</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">creator</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>実行すると……</p>
+<div class="highlight"><pre><span></span><code>【それぞれの愛の表現】
+雅史先輩はコードを書いた
+function love() { return &#39;大好き&#39; }
+
+優美は物語を紡いだ
+「彼女の瞳に映る世界が、私の全てだった」
+
+友人は絵を描いた
+キャンバスに二人の笑顔が広がった
+</code></pre></div>
+<p>「わあ！　みんな違う方法で想いを表現してる！」</p>
+<p>優美が嬉しそうに手を叩く。</p>
+<p>◇◇◇◇</p>
+<p>「ところで、優美」</p>
+<p>「はい？」</p>
+<p>「さっきのコード、『雅史先輩』と『優美』って書いてたけど」</p>
+<p>「あ……」</p>
+<p>優美が顔を赤くする。</p>
+<p>「これも小説の設定ですから！」</p>
+<p>「そうか」</p>
+<p>でも、嬉しかった。優美の中で、僕たちの関係がどんどん特別なものになっていくのを感じる。</p>
+<p>◇◇◇◇</p>
+<p>「ポリモーフィズムには、もう一つ重要な側面があるんだ」</p>
+<p>「どんなことですか？」</p>
+<p>「インターフェースという考え方だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// インターフェースのような役割を果たす基本クラス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;drawメソッドは実装する必要があります&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Circle</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;○を描きました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Square</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;□を描きました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Triangle</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;△を描きました&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// どんな図形でも同じように扱える</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">drawAll</span><span class="p">(</span><span class="nx">shapes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">shape</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">shapes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">shape</span><span class="p">.</span><span class="nx">draw</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これで、どんな図形でも同じdrawメソッドで描けるようになるんだ」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「ポリモーフィズムって、人間関係にも当てはまりませんか？」</p>
+<p>「どういうことだ？」</p>
+<p>「同じ『好き』という気持ちでも、人によって表現方法が違うって」</p>
+<p>優美の洞察力にはいつも驚かされる。</p>
+<p>「確かにそうだな。俺は優美にプログラミングを教えることで……」</p>
+<p>言いかけて、慌てて言葉を止めた。</p>
+<p>「先輩？」</p>
+<p>「いや、なんでもない」</p>
+<p>でも、優美は嬉しそうに微笑んでいた。</p>
+<p>◇◇◇◇</p>
+<p>レッスンが終わりに近づいてきた。</p>
+<p>「今日も楽しかったです」</p>
+<p>「優美の理解力は本当にすごいよ」</p>
+<p>「それは先輩が私の世界に寄り添って教えてくれるからです」</p>
+<p>優美の言葉に、胸が温かくなる。</p>
+<p>「明日は日曜日だから、レッスンはお休みだな」</p>
+<p>「あ、そうですね……」</p>
+<p>優美が少し寂しそうな顔をする。</p>
+<p>「でも、月曜日にはまた会えるから」</p>
+<p>「はい！　楽しみにしてます」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返った。</p>
+<p>ポリモーフィズム。同じメソッドでも、オブジェクトによって違う動作をする。</p>
+<p>（俺と優美の『好き』も、きっと違う形で表現されているんだろうな）</p>
+<p>僕はプログラミングを教えることで。優美は一生懸命学ぶことで。</p>
+<p>お互いの想いが、それぞれの方法で表現されている。いつかその想いが、同じ形になる日が来るだろうか。</p>
+<p>窓の外を見ると、夏の夕暮れが街を優しく包んでいた。</p>
+<p>ポリモーフィズムを学んだ今日、僕は改めて思った。</p>
+<p>プログラミングは、多様性を認め、個性を活かす美しい世界だ。そして、優美との関係も、お互いの個性を認め合いながら、少しずつ深まっていく。</p>
+<p>明後日のレッスンが、今から楽しみだった。</p>
 
 
 
@@ -1279,6 +1483,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

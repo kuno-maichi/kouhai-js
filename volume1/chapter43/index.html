@@ -22,7 +22,7 @@
     
     
       
-        <title>第43話 恋の「パッチ」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第43話：ネットワークプログラミング：世界をつなぐ - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第43話 恋の「パッチ」
+              第43話：ネットワークプログラミング：世界をつなぐ
             
           </span>
         </div>
@@ -1139,26 +1141,1010 @@
   
 
 
-<h1 id="43">第43話 恋の「パッチ」<a class="headerlink" href="#43" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のバグ報告」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このバグ、どうすれば直せますか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のパッチ」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々な困難を乗り越えたいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のパッチ」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="43">第43話：ネットワークプログラミング：世界をつなぐ<a class="headerlink" href="#43" title="Permanent link">&para;</a></h1>
+<p>月曜日の放課後。今日は私たちが取り組むのは、ネットワークプログラミング。Yume言語を世界中の人に使ってもらうために必要な技術だ。</p>
+<p>「先輩、今日のテーマはネットワークプログラミングですね」</p>
+<p>私が確認すると、先輩は優しく頷いてくれた。</p>
+<p>「そう。Yume言語を一人で使うだけじゃなく、世界中の人とつながれるようにしたい」</p>
+<p>「世界中の人と……素敵ですね」</p>
+<p>◇◇◇◇</p>
+<p>「まず、ネットワークの基本から学ぼう」</p>
+<p>先輩がホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ネットワークの基本概念</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">NetworkNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">address</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">id</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">address</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 他のノードに接続</span>
+<span class="w">    </span><span class="nx">connect</span><span class="p">(</span><span class="nx">otherNode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">otherNode</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">otherNode</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">otherNode</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">が</span><span class="si">${</span><span class="nx">otherNode</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">に接続しました`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージを送信</span>
+<span class="w">    </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">targetId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">targetId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">target</span><span class="p">.</span><span class="nx">receiveMessage</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="nx">targetId</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ルーティング：間接的に送信</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">routeMessage</span><span class="p">(</span><span class="nx">targetId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージを受信</span>
+<span class="w">    </span><span class="nx">receiveMessage</span><span class="p">(</span><span class="nx">senderId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">messageQueue</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">senderId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">senderId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージの処理</span>
+<span class="w">    </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">senderId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">が</span><span class="si">${</span><span class="nx">senderId</span><span class="si">}</span><span class="sb">からメッセージを受信: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ルーティング（簡易版）</span>
+<span class="w">    </span><span class="nx">routeMessage</span><span class="p">(</span><span class="nx">targetId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">targetId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">node</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">targetId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ネットワークの作成</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tokyoNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NetworkNode</span><span class="p">(</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;192.168.1.1&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">osakaNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NetworkNode</span><span class="p">(</span><span class="s1">&#39;Osaka&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;192.168.1.2&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">kyotoNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">NetworkNode</span><span class="p">(</span><span class="s1">&#39;Kyoto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;192.168.1.3&#39;</span><span class="p">)</span>
+
+<span class="c1">// 接続</span>
+<span class="nx">tokyoNode</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">osakaNode</span><span class="p">)</span>
+<span class="nx">osakaNode</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">kyotoNode</span><span class="p">)</span>
+
+<span class="c1">// メッセージ送信</span>
+<span class="nx">tokyoNode</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;Osaka&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;こんにちは、大阪！&#39;</span><span class="p">)</span>
+<span class="nx">osakaNode</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;Kyoto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Yume言語の情報を共有します&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>「ネットワークって、ノード同士がメッセージをやり取りするんですね」</p>
+<p>「そう。私たちの小説投稿サイトと同じように、作者と読者が情報を交換している」</p>
+<p>◇◇◇◇</p>
+<p>「次は、HTTPプロトコルを実装してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// シンプルなHTTPサーバー</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">SimpleHTTPServer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">port</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">routes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">middleware</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ルートを定義</span>
+<span class="w">    </span><span class="nx">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">addRoute</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">post</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">addRoute</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">addRoute</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">method</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">routes</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ミドルウェアを追加</span>
+<span class="w">    </span><span class="nx">use</span><span class="p">(</span><span class="nx">middleware</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">middleware</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">middleware</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// サーバー開始</span>
+<span class="w">    </span><span class="nx">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`サーバーがポート</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="si">}</span><span class="sb">で開始されました`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// リクエストの待機をシミュレート</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">simulateRequests</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// リクエスト処理</span>
+<span class="w">    </span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`\\n=== 新しいリクエスト ===`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`From: </span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">remoteAddress</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// ミドルウェアの実行</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">middleware</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">middleware</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">middleware</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">finished</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">finished</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ルートハンドラーの実行</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">routes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">404</span>
+<span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Not Found&#39;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sendResponse</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// レスポンス送信</span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`レスポンス: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ボディ: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// リクエストのシミュレート</span>
+<span class="w">    </span><span class="nx">simulateRequests</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/yume&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">remoteAddress</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;192.168.1.10&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;User-Agent&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;YumeBrowser/1.0&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/yume/compile&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">remoteAddress</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;192.168.1.11&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;愛を込めて メッセージ = &quot;Hello, World!&quot;&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+
+<span class="w">        </span><span class="c1">// 1秒後にリクエストを処理</span>
+<span class="w">        </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">requests</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">req</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">))</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語サーバーの作成</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SimpleHTTPServer</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span>
+
+<span class="c1">// CORS ミドルウェア</span>
+<span class="nx">yumeServer</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;*&#39;</span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;Access-Control-Allow-Methods&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;GET, POST, PUT, DELETE&#39;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span>
+<span class="p">})</span>
+
+<span class="c1">// ログミドルウェア</span>
+<span class="nx">yumeServer</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`[</span><span class="si">${</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">()</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span>
+<span class="p">})</span>
+
+<span class="c1">// Yume言語の情報を返すAPI</span>
+<span class="nx">yumeServer</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/yume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume Programming Language&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;感情を込めてプログラミングできる言語&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">authors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;花咲雅史&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;柳原優美&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">features</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;感情型&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;日本語構文&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;リアルタイム実行&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span>
+<span class="p">})</span>
+
+<span class="c1">// Yume言語のコンパイルAPI</span>
+<span class="nx">yumeServer</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/yume/compile&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 簡易的なコンパイル処理</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">compiledCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">compileYumeCode</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">compiledCode</span><span class="o">:</span><span class="w"> </span><span class="nx">compiledCode</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;コンパイル成功！&#39;</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== Yume言語HTTPサーバー ===&#39;</span><span class="p">)</span>
+<span class="nx">yumeServer</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div>
+<p>「HTTPサーバーで、Yume言語のAPIを公開できるんですね」</p>
+<p>「そう。これで世界中の人がYume言語を使えるようになる」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「一人でプログラミングするのと、ネットワーク越しに誰かとつながるのって、なんだか違いますね」</p>
+<p>私は素直な気持ちを伝えた。</p>
+<p>「どんな風に違う？」</p>
+<p>「一人だと、自分のペースで書けるけど、ネットワークだと、相手のことを考えないといけないでしょう？」</p>
+<p>先輩が興味深そうに頷いた。</p>
+<p>「確かに。優美の小説も、読者のことを考えて書いてるよね」</p>
+<p>「はい。読者が理解しやすいように、展開のテンポとか、表現とか」</p>
+<p>◇◇◇◇</p>
+<p>「じゃあ、リアルタイム通信を実装してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// WebSocketサーバー（簡易版）</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeWebSocketServer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">messageHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// クライアント接続</span>
+<span class="w">    </span><span class="nx">onConnection</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">clientInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`新しいクライアントが接続: </span><span class="si">${</span><span class="nx">clientId</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">info</span><span class="o">:</span><span class="w"> </span><span class="nx">clientInfo</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">rooms</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">isOnline</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">lastSeen</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">client</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 接続通知</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="s1">&#39;user_connected&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">userInfo</span><span class="o">:</span><span class="w"> </span><span class="nx">clientInfo</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 歓迎メッセージ</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sendToClient</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語コミュニティへようこそ！&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">onlineUsers</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getOnlineUsers</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">availableRooms</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">keys</span><span class="p">())</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// クライアント切断</span>
+<span class="w">    </span><span class="nx">onDisconnection</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">client</span><span class="p">.</span><span class="nx">isOnline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">            </span><span class="nx">client</span><span class="p">.</span><span class="nx">lastSeen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+
+<span class="w">            </span><span class="c1">// 参加中のルームから退出</span>
+<span class="w">            </span><span class="nx">client</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">roomId</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">leaveRoom</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">})</span>
+
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`クライアントが切断: </span><span class="si">${</span><span class="nx">clientId</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="s1">&#39;user_disconnected&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージ受信</span>
+<span class="w">    </span><span class="nx">onMessage</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">client</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">client</span><span class="p">.</span><span class="nx">isOnline</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+
+<span class="w">        </span><span class="nx">client</span><span class="p">.</span><span class="nx">lastSeen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">messageType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;join_room&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;leave_room&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">leaveRoom</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;chat_message&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">handleChatMessage</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;code_share&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">handleCodeShare</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;emotion_update&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">handleEmotionUpdate</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ルーム参加</span>
+<span class="w">    </span><span class="nx">joinRoom</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">roomId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">roomId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">roomId</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(),</span>
+<span class="w">                </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">                </span><span class="nx">messageHistory</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">room</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">room</span><span class="p">.</span><span class="nx">members</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">client</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// ルームの他のメンバーに通知</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToRoom</span><span class="p">(</span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;user_joined_room&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">userInfo</span><span class="o">:</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">roomId</span><span class="o">:</span><span class="w"> </span><span class="nx">roomId</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="nx">clientId</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 参加者にルーム情報を送信</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sendToClient</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;room_joined&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">roomId</span><span class="o">:</span><span class="w"> </span><span class="nx">roomId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">room</span><span class="p">.</span><span class="nx">members</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">messageHistory</span><span class="o">:</span><span class="w"> </span><span class="nx">room</span><span class="p">.</span><span class="nx">messageHistory</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">50</span><span class="p">)</span><span class="w"> </span><span class="c1">// 最新50件</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">clientId</span><span class="si">}</span><span class="sb">がルーム</span><span class="si">${</span><span class="nx">roomId</span><span class="si">}</span><span class="sb">に参加`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// チャットメッセージの処理</span>
+<span class="w">    </span><span class="nx">handleChatMessage</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">(),</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fromInfo</span><span class="o">:</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;平常&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ルームメッセージ</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">room</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">room</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">room</span><span class="p">.</span><span class="nx">members</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">clientId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">room</span><span class="p">.</span><span class="nx">messageHistory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToRoom</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chat_message&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 全体メッセージ</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">messageHistory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="s1">&#39;chat_message&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コード共有の処理</span>
+<span class="w">    </span><span class="nx">handleCodeShare</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">codeShare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">(),</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">fromInfo</span><span class="o">:</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yume&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToRoom</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;code_shared&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">codeShare</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="s1">&#39;code_shared&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">codeShare</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">clientId</span><span class="si">}</span><span class="sb">がコードを共有: </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">description</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情状態の更新</span>
+<span class="w">    </span><span class="nx">handleEmotionUpdate</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">clientId</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">.</span><span class="nx">currentEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span>
+<span class="w">        </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">.</span><span class="nx">emotionIntensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">intensity</span>
+
+<span class="w">        </span><span class="c1">// オンラインユーザーに感情状態を通知</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="s1">&#39;emotion_updated&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">intensity</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">intensity</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 特定クライアントにメッセージ送信</span>
+<span class="w">    </span><span class="nx">sendToClient</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`→ </span><span class="si">${</span><span class="nx">clientId</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">messageType</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// 実際の実装では WebSocket.send() を使用</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ルームの全員にブロードキャスト</span>
+<span class="w">    </span><span class="nx">broadcastToRoom</span><span class="p">(</span><span class="nx">roomId</span><span class="p">,</span><span class="w"> </span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">excludeClientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">room</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">room</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+
+<span class="w">        </span><span class="nx">room</span><span class="p">.</span><span class="nx">members</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">clientId</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">clientId</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">excludeClientId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">sendToClient</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 全員にブロードキャスト</span>
+<span class="w">    </span><span class="nx">broadcastToAll</span><span class="p">(</span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">excludeClientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">clientId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">isOnline</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">clientId</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">excludeClientId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">sendToClient</span><span class="p">(</span><span class="nx">clientId</span><span class="p">,</span><span class="w"> </span><span class="nx">messageType</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// オンラインユーザー一覧</span>
+<span class="w">    </span><span class="nx">getOnlineUsers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">onlineUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">clientId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">isOnline</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">onlineUsers</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">clientId</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">info</span><span class="o">:</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">info</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">rooms</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">rooms</span><span class="p">)</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">onlineUsers</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Yume言語コミュニティサーバー</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeWSServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeWebSocketServer</span><span class="p">()</span>
+
+<span class="c1">// 接続シミュレート</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n=== Yume言語リアルタイム通信 ===&#39;</span><span class="p">)</span>
+
+<span class="c1">// ユーザー1: 優美</span>
+<span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">onConnection</span><span class="p">(</span><span class="s1">&#39;yumi&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;柳原優美&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">avatar</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;📚&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">currentEmotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;期待&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">favoriteGenre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;恋愛小説&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// ユーザー2: 雅史</span>
+<span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">onConnection</span><span class="p">(</span><span class="s1">&#39;masashi&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;花咲雅史&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">avatar</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;💻&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">currentEmotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;集中&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">favoriteLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;JavaScript&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// ユーザー3: 一般ユーザー</span>
+<span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">onConnection</span><span class="p">(</span><span class="s1">&#39;user123&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;田中太郎&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">avatar</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;🎵&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">currentEmotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;好奇心&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">interest</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;プログラミング学習&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// ルーム作成とメッセージ交換</span>
+<span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="s1">&#39;yumi&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yume-beginners&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="s1">&#39;masashi&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yume-beginners&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">handleChatMessage</span><span class="p">(</span><span class="s1">&#39;yumi&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">roomId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yume-beginners&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語の勉強を始めました！&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">    </span><span class="nx">yumeWSServer</span><span class="p">.</span><span class="nx">handleChatMessage</span><span class="p">(</span><span class="s1">&#39;masashi&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">roomId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yume-beginners&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;一緒に頑張りましょう！何か分からないことがあったら聞いてください&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;優しさ&#39;</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「リアルタイム通信だと、本当に会話してるみたいですね」</p>
+<p>「そう。でも優美、気がついた？」</p>
+<p>「何をですか？」</p>
+<p>「ネットワークプログラミングって、技術的な部分と、人と人とのコミュニケーションの部分があるんだ」</p>
+<p>先輩の言葉に、私はハッとした。</p>
+<p>「確かに。技術があっても、使う人の気持ちを考えないと、良いサービスにならないですね」</p>
+<p>「その通り。優美の小説と同じで、読者（ユーザー）のことを第一に考える必要がある」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語のコミュニティサイトを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語コミュニティプラットフォーム</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeCommunityPlatform</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">forums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tutorials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">codeExamples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ユーザー登録</span>
+<span class="w">    </span><span class="nx">registerUser</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">userInfo</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">joinDate</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">reputation</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">projects</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">contributions</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">favoriteEmotions</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">programmingLevel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;beginner&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`新しいユーザーが登録: </span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">user</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プロジェクト作成</span>
+<span class="w">    </span><span class="nx">createProject</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">projectInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">projectInfo</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">userId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">authorName</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">stars</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">forks</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">collaborators</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">userId</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">tags</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;創造&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">isPublic</span><span class="o">:</span><span class="w"> </span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">isPublic</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">project</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">user</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`新しいプロジェクト: </span><span class="si">${</span><span class="nx">project</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">project</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コード例の投稿</span>
+<span class="w">    </span><span class="nx">shareCodeExample</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">codeInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">codeExample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">codeInfo</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">userId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">authorName</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">likes</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">comments</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="nx">codeInfo</span><span class="p">.</span><span class="nx">tags</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">difficulty</span><span class="o">:</span><span class="w"> </span><span class="nx">codeInfo</span><span class="p">.</span><span class="nx">difficulty</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;beginner&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">codeExamples</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">codeExample</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">codeExample</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">user</span><span class="p">.</span><span class="nx">contributions</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;code_example&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">codeExample</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`コード例が投稿されました: </span><span class="si">${</span><span class="nx">codeExample</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">codeExample</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// チュートリアル作成</span>
+<span class="w">    </span><span class="nx">createTutorial</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">tutorialInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">tutorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateId</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">...</span><span class="nx">tutorialInfo</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">userId</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">authorName</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">createdAt</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">completions</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">rating</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">reviews</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">prerequisites</span><span class="o">:</span><span class="w"> </span><span class="nx">tutorialInfo</span><span class="p">.</span><span class="nx">prerequisites</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tutorials</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">tutorial</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">tutorial</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">user</span><span class="p">.</span><span class="nx">contributions</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">tutorial</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`チュートリアルが作成されました: </span><span class="si">${</span><span class="nx">tutorial</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">tutorial</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// プロジェクト検索</span>
+<span class="w">    </span><span class="nx">searchProjects</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">project</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">isPublic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">titleMatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">descMatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">description</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">tagMatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">tag</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()))</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">titleMatch</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">descMatch</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">tagMatch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">project</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">stars</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">stars</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// おすすめプロジェクト</span>
+<span class="w">    </span><span class="nx">getRecommendedProjects</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">projects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">isPublic</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">userId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 感情の一致度とスター数で評価</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionMatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">favoriteEmotions</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">levelMatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">isLevelAppropriate</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">programmingLevel</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">stars</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">emotionMatch</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">levelMatch</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>
+<span class="w">                       </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">stars</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">favoriteEmotions</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">                        </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isLevelAppropriate</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">programmingLevel</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span>
+<span class="w">            </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">projects</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">limit</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// レベル適正の判定</span>
+<span class="w">    </span><span class="nx">isLevelAppropriate</span><span class="p">(</span><span class="nx">project</span><span class="p">,</span><span class="w"> </span><span class="nx">userLevel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">levelOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;beginner&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;intermediate&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;advanced&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">projectLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">difficulty</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;beginner&#39;</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">userIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">levelOrder</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">userLevel</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">projectIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">levelOrder</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">projectLevel</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">userIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">projectIndex</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// コミュニティ統計</span>
+<span class="w">    </span><span class="nx">getCommunityStats</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">totalUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">size</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">totalProjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">size</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">totalCodeExamples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">codeExamples</span><span class="p">.</span><span class="nx">size</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">totalTutorials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tutorials</span><span class="p">.</span><span class="nx">size</span>
+
+<span class="w">        </span><span class="c1">// 感情分析</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionCounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">project</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">emotion</span>
+<span class="w">            </span><span class="nx">emotionCounts</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">emotionCounts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">totalUsers</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalProjects</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalCodeExamples</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalTutorials</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">popularEmotions</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">emotionCounts</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span>
+<span class="w">                </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">averageProjectsPerUser</span><span class="o">:</span><span class="w"> </span><span class="nx">totalProjects</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">totalUsers</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// コミュニティプラットフォームの初期化</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeCommunityPlatform</span><span class="p">()</span>
+
+<span class="c1">// ユーザー登録</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">registerUser</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;柳原優美&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yumi@example.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">bio</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;小説とプログラミングを愛する高校生&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">favoriteEmotions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;創造&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">programmingLevel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;intermediate&#39;</span>
+<span class="p">})</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">masashi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">registerUser</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;花咲雅史&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;masashi@example.com&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">bio</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;プログラミング言語の設計者&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">favoriteEmotions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;創造&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;集中&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;達成&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">programmingLevel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;advanced&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// プロジェクト作成</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeLanguageProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">createProject</span><span class="p">(</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume Programming Language&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;感情を込めてプログラミングができる革新的な言語&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;創造&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">difficulty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;advanced&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;言語設計&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;感情AI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;日本語プログラミング&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">repository</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://github.com/yume-lang/core&#39;</span>
+<span class="p">})</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">novelGeneratorProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">createProject</span><span class="p">(</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Emotion-Driven Novel Generator&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語で書かれた感情駆動型小説生成システム&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">difficulty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;intermediate&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;自然言語処理&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;創作支援&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;感情分析&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1">// コード例の投稿</span>
+<span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">shareCodeExample</span><span class="p">(</span><span class="nx">yumi</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Hello Worldを感情豊かに&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語での最初のプログラム例&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="sb">`愛を込めて メッセージ = &quot;Hello, World!&quot;</span>
+<span class="sb">喜びと共に 表示(メッセージ)</span>
+<span class="sb">期待を持って プログラミングを学ぼう()`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">difficulty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;beginner&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tags</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;基本&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;感情表現&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1">// チュートリアル作成</span>
+<span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">createTutorial</span><span class="p">(</span><span class="nx">masashi</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語入門：感情プログラミングの基礎&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;感情を込めたプログラミングの方法を学びます&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;第1章：感情型の理解&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;第2章：感情キーワードの使い方&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;第3章：感情に基づく条件分岐&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;第4章：実践プロジェクト&#39;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nx">difficulty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;beginner&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">estimatedTime</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2時間&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">prerequisites</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;プログラミングの基本知識&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n=== Yume言語コミュニティ統計 ===&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">getCommunityStats</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`ユーザー数: </span><span class="si">${</span><span class="nx">stats</span><span class="p">.</span><span class="nx">totalUsers</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`プロジェクト数: </span><span class="si">${</span><span class="nx">stats</span><span class="p">.</span><span class="nx">totalProjects</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`コード例数: </span><span class="si">${</span><span class="nx">stats</span><span class="p">.</span><span class="nx">totalCodeExamples</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`チュートリアル数: </span><span class="si">${</span><span class="nx">stats</span><span class="p">.</span><span class="nx">totalTutorials</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;人気の感情:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">stats</span><span class="p">.</span><span class="nx">popularEmotions</span><span class="p">)</span>
+
+<span class="c1">// プロジェクト検索</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n=== プロジェクト検索結果（&quot;感情&quot;） ===&#39;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">searchResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeCommunity</span><span class="p">.</span><span class="nx">searchProjects</span><span class="p">(</span><span class="s1">&#39;感情&#39;</span><span class="p">)</span>
+<span class="nx">searchResults</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">project</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`- </span><span class="si">${</span><span class="nx">project</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb"> by </span><span class="si">${</span><span class="nx">project</span><span class="p">.</span><span class="nx">authorName</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「すごいですね。本当にコミュニティができそうです」</p>
+<p>「そう。ネットワークプログラミングの最終目標は、人と人をつなぐこと」</p>
+<p>私は感動していた。技術って、最終的には人のためのものなんだということを実感した。</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「こうやって世界中の人とつながれるのは嬉しいけど、私にとって一番大切なつながりは……」</p>
+<p>私は先輩の目を見つめた。</p>
+<p>「一番大切なつながり？」</p>
+<p>「先輩とのつながりです」</p>
+<p>◇◇◇◇</p>
+<p>先輩が少し照れたような表情を見せた。</p>
+<p>「僕もだよ、優美。どんなにネットワークが発達しても、優美との直接のつながりが一番大切だ」</p>
+<p>「ネットワークって、物理的には離れていても心をつなげるものですけど、私たちは心も体も近くにいられて幸せです」</p>
+<p>「そうだね。でも、ネットワークプログラミングを学んだおかげで、僕たちの関係の価値がより分かった気がする」</p>
+<p>「どういうことですか？」</p>
+<p>「リアルタイムでつながることの素晴らしさ、信頼できる通信路の大切さ、そして何より、相手のことを思いやる気持ち」</p>
+<p>◇◇◇◇</p>
+<p>「最後に、Yume言語でのネットワークアプリを作ってみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語でのネットワークアプリケーション</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeNetworkApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;平常&#39;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">partner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// パートナーに接続</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">connectToPartner</span><span class="p">(</span><span class="nx">partnerInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">partnerInfo</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">に接続中...`</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 感情を込めた接続</span>
+<span class="w">        </span><span class="nx">愛を込めて</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">establishConnection</span><span class="p">(</span><span class="nx">partnerInfo</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">期待を持って</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">partner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">partnerInfo</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">isConnected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">喜びと共に</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">partnerInfo</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">との接続が確立されました！`</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">悲しみながら</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;接続に失敗しました&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージ送信</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">isConnected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">寂しさを感じながら</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;パートナーとの接続がありません&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionalMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="nx">emotion</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;me&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 感情に応じた送信方法</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">愛を込めて</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">emotionalMessage</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">喜びと共に</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">emotionalMessage</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">emotionalMessage</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`メッセージを送信: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb"> (</span><span class="si">${</span><span class="nx">emotion</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メッセージ受信</span>
+<span class="w">    </span><span class="nx">onMessageReceived</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 受信した感情に応じて反応</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">幸せを感じながら</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`❤️ </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">partner</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">currentEmotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;幸福&#39;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">emotion</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;悲しみ&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">心配しながら</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`😢 </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">partner</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;大丈夫？何かあったの？&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;心配&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`💬 </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">partner</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 接続の確立（擬似実装）</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">establishConnection</span><span class="p">(</span><span class="nx">partnerInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// WebSocket接続のシミュレート</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">resolve</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">isConnected</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">partner</span><span class="o">:</span><span class="w"> </span><span class="nx">partnerInfo</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">send</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="c1">// メッセージ送信のシミュレート</span>
+<span class="w">                        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`→ 送信完了: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情状態の同期</span>
+<span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">syncEmotions</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">isConnected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">emotionData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">currentEmotion</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">currentEmotion</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;emotion_sync&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="nx">emotionData</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例：雅史と優美のアプリ</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">masashiApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeNetworkApp</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumiApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeNetworkApp</span><span class="p">()</span>
+
+<span class="c1">// 接続とメッセージ交換のシミュレート</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">simulateConnection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\\n=== Yume言語ネットワークアプリ ===&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 雅史から優美に接続</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">connected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">masashiApp</span><span class="p">.</span><span class="nx">connectToPartner</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yumi&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">preferredEmotions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;愛&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;期待&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">connected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// メッセージ交換</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">masashiApp</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;今日のプログラミング、楽しかったね&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;喜び&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">masashiApp</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="s1">&#39;君と一緒だと、何でも特別に感じる&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 優美からの返信（シミュレート）</span>
+<span class="w">        </span><span class="nx">masashiApp</span><span class="p">.</span><span class="nx">onMessageReceived</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;私も！先輩とプログラミングできて幸せです&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;愛&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yumi&#39;</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 感情の同期</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">masashiApp</span><span class="p">.</span><span class="nx">syncEmotions</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">simulateConnection</span><span class="p">()</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、私たちは今日学んだことを振り返っていた。</p>
+<p>「ネットワークプログラミングって、技術だけじゃなくて、コミュニケーションの本質を学ぶことでもあるんですね」</p>
+<p>「そう。プロトコルも、メッセージフォーマットも、全ては人と人とのつながりを支える仕組み」</p>
+<p>窓の外では、夜が静かに更けていく。</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちも、ある意味でネットワークですね」</p>
+<p>「どういう意味？」</p>
+<p>「二つのノードが信頼できる接続で結ばれて、感情というデータを交換している」</p>
+<p>私の比喩に、先輩が優しく笑った。</p>
+<p>「それは、とても安定した接続だね」</p>
+<p>「はい。エラーも少なくて、遅延もなくて、帯域幅も十分です」</p>
+<p>私たちは顔を見合わせて笑った。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concepts</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ネットワーク通信&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HTTPプロトコル&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;WebSocket&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">implementations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;サーバー構築&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;リアルタイム通信&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;コミュニティプラットフォーム&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">applications</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;世界をつなぐ&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;リアルタイム協調&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;コミュニティ形成&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;技術は人をつなぐもの&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">connection</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;私たちも最高のネットワーク&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">future</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;世界中の人とYume言語でつながりたい&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>ネットワークプログラミング。それは、世界中の人と人とをつなぐ魔法のような技術。でも、その根底にあるのは、相手を思いやる気持ちと、つながりたいという願い。</p>
+<p>今日学んだことで、Yume言語がもっと多くの人に愛される言語になる。そして、私と先輩の絆も、世界のどこにいても切れることのない、特別な接続なのだと確信した。</p>
+<p>明日も、先輩と一緒に、世界をつなぐプログラムを書いていこう。</p>
 
 
 
@@ -1236,6 +2222,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

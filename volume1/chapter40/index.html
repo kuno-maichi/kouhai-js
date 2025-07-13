@@ -22,7 +22,7 @@
     
     
       
-        <title>第40話 恋の「アップグレード」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第40話：コンパイラ設計 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第40話 恋の「アップグレード」
+              第40話：コンパイラ設計
             
           </span>
         </div>
@@ -1139,26 +1141,602 @@
   
 
 
-<h1 id="40">第40話 恋の「アップグレード」<a class="headerlink" href="#40" title="Permanent link">&para;</a></h1>
-<p>僕たちの「恋のメンテナンス」は、毎日が、まるで新しい関数を実装するみたいに、新鮮で、発見に満ちていた。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、もっと新しい技術を取り入れられませんか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「どれどれ……」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「恋のアップグレード」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、もっと、色々なことを進化させたいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「恋のアップグレード」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="40">第40話：コンパイラ設計<a class="headerlink" href="#40" title="Permanent link">&para;</a></h1>
+<p>木曜日の放課後。Yume言語の開発も最終段階に入り、今日は最も難しい部分に挑戦することにした。</p>
+<p>「優美、今日はコンパイラを作ってみよう」</p>
+<p>「コンパイラ？」</p>
+<p>優美が興味深そうに首を傾げた。</p>
+<p>「プログラムを機械が理解できる形に変換する仕組みだ」</p>
+<p>◇◇◇◇</p>
+<p>「コンパイラの基本的な流れから説明するね」</p>
+<p>僕はホワイトボードに図を描き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// コンパイラのパイプライン</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CompilerPipeline</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s1">&#39;字句解析（Lexing）&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;構文解析（Parsing）&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;意味解析（Semantic Analysis）&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;中間表現生成（IR Generation）&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;最適化（Optimization）&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;コード生成（Code Generation）&#39;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">compile</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== Yume言語コンパイラ ===&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 1. 字句解析</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lex</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1. トークン化完了:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">tokens</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;個のトークン&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 2. 構文解析</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;2. 構文解析完了: AST生成&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 3. 意味解析</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">semanticInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">analyze</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;3. 意味解析完了: 型チェック済み&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 4. 中間表現生成</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateIR</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span><span class="w"> </span><span class="nx">semanticInfo</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;4. 中間表現生成完了&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 5. 最適化</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimizedIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">optimize</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;5. 最適化完了&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 6. コード生成</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generateCode</span><span class="p">(</span><span class="nx">optimizedIR</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;6. コード生成完了&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">code</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「段階的に変換していくんですね」</p>
+<p>「そう。各段階で、プログラムの表現が変わっていく」</p>
+<p>◇◇◇◇</p>
+<p>「まず、中間表現（IR）を設計しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 三番地コード形式の中間表現</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tempCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">labelCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 一時変数を生成</span>
+<span class="w">    </span><span class="nx">newTemp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`t</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">tempCounter</span><span class="o">++</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ラベルを生成</span>
+<span class="w">    </span><span class="nx">newLabel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`L</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">labelCounter</span><span class="o">++</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 命令を追加</span>
+<span class="w">    </span><span class="nx">emit</span><span class="p">(</span><span class="nx">op</span><span class="p">,</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">arg2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">op</span><span class="o">:</span><span class="w"> </span><span class="nx">op</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">arg1</span><span class="o">:</span><span class="w"> </span><span class="nx">arg1</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">arg2</span><span class="o">:</span><span class="w"> </span><span class="nx">arg2</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 二項演算</span>
+<span class="w">    </span><span class="nx">emitBinary</span><span class="p">(</span><span class="nx">op</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="nx">op</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 代入</span>
+<span class="w">    </span><span class="nx">emitAssign</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;ASSIGN&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">source</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 条件分岐</span>
+<span class="w">    </span><span class="nx">emitIf</span><span class="p">(</span><span class="nx">condition</span><span class="p">,</span><span class="w"> </span><span class="nx">trueLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">falseLabel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;IF&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">condition</span><span class="p">,</span><span class="w"> </span><span class="nx">trueLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">falseLabel</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ジャンプ</span>
+<span class="w">    </span><span class="nx">emitGoto</span><span class="p">(</span><span class="nx">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;GOTO&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ラベル</span>
+<span class="w">    </span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;LABEL&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 関数呼び出し</span>
+<span class="w">    </span><span class="nx">emitCall</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;CALL&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">func</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 表示</span>
+<span class="w">    </span><span class="nx">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== 中間表現 ===&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">inst</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">: `</span>
+
+<span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ASSIGN&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ADD&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IF&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`if </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> goto </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb"> else goto </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg3</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;GOTO&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`goto </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;LABEL&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">:`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;CALL&#39;</span><span class="o">:</span>
+<span class="w">                    </span><span class="nx">str</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = call </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">(</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">)`</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ir</span><span class="p">.</span><span class="nx">newTemp</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ir</span><span class="p">.</span><span class="nx">newTemp</span><span class="p">()</span>
+
+<span class="nx">ir</span><span class="p">.</span><span class="nx">emitAssign</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">t1</span><span class="p">)</span>
+<span class="nx">ir</span><span class="p">.</span><span class="nx">emitAssign</span><span class="p">(</span><span class="s1">&#39;20&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">t2</span><span class="p">)</span>
+<span class="nx">ir</span><span class="p">.</span><span class="nx">emitBinary</span><span class="p">(</span><span class="s1">&#39;ADD&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">t1</span><span class="p">,</span><span class="w"> </span><span class="nx">t2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;result&#39;</span><span class="p">)</span>
+<span class="nx">ir</span><span class="p">.</span><span class="nx">display</span><span class="p">()</span>
+</code></pre></div>
+<p>「これが機械語に近い形なんですね」</p>
+<p>「そう。人間が読めるけど、機械に近い表現」</p>
+<p>◇◇◇◇</p>
+<p>「次は、ASTから中間表現を生成する」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// AST to IR トランスレータ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">ASTToIRTranslator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">symbolTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">translate</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">visit</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;PROGRAM&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="nx">node</span><span class="p">.</span><span class="nx">statements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">stmt</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">stmt</span><span class="p">))</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ASSIGNMENT&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">expression</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">symbolTable</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">identifier</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitAssign</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">identifier</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// 感情情報も記録</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;EMOTION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">emotion</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">identifier</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IF_STATEMENT&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">condition</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">trueLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">falseLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">endLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitIf</span><span class="p">(</span><span class="nx">condition</span><span class="p">,</span><span class="w"> </span><span class="nx">trueLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">falseLabel</span><span class="p">)</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">trueLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">thenBranch</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitGoto</span><span class="p">(</span><span class="nx">endLabel</span><span class="p">)</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">falseLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">elseBranch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">elseBranch</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">endLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;WHILE_LOOP&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">startLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">bodyLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">exitLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newLabel</span><span class="p">()</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">startLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">loopCondition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">condition</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitIf</span><span class="p">(</span><span class="nx">loopCondition</span><span class="p">,</span><span class="w"> </span><span class="nx">bodyLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">exitLabel</span><span class="p">)</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">bodyLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitGoto</span><span class="p">(</span><span class="nx">startLabel</span><span class="p">)</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitLabel</span><span class="p">(</span><span class="nx">exitLabel</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FUNCTION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;FUNCTION&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">node</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">param</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;PARAM&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">param</span><span class="p">)</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;END_FUNCTION&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">expr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">expr</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;NUMBER&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">expr</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IDENTIFIER&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">symbolTable</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">expr</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">expr</span><span class="p">.</span><span class="nx">value</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;BINARY_OP&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">expr</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">expr</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newTemp</span><span class="p">()</span>
+
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">opMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s1">&#39;+&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ADD&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;-&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;*&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;/&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;&gt;&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GT&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;&lt;&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;LT&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s1">&#39;==&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;EQ&#39;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitBinary</span><span class="p">(</span><span class="nx">opMap</span><span class="p">[</span><span class="nx">expr</span><span class="p">.</span><span class="nx">operator</span><span class="p">],</span><span class="w"> </span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FUNCTION_CALL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">expr</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">arg</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">visitExpression</span><span class="p">(</span><span class="nx">arg</span><span class="p">))</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">newTemp</span><span class="p">()</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">ir</span><span class="p">.</span><span class="nx">emitCall</span><span class="p">(</span><span class="nx">expr</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「最適化も実装してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 最適化パス</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">Optimizer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">passes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">constantFolding</span><span class="p">,</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">deadCodeElimination</span><span class="p">,</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">commonSubexpressionElimination</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">optimize</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ir</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">passes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">pass</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pass</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">optimized</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">optimized</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 定数畳み込み</span>
+<span class="w">    </span><span class="nx">constantFolding</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">([</span><span class="s1">&#39;ADD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">arg2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="p">)</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">arg2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">                    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ADD&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">arg2</span><span class="p">;</span><span class="w"> </span><span class="k">break</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">arg2</span><span class="p">;</span><span class="w"> </span><span class="k">break</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">arg2</span><span class="p">;</span><span class="w"> </span><span class="k">break</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arg1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">arg2</span><span class="p">;</span><span class="w"> </span><span class="k">break</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">emitAssign</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">)</span>
+<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`最適化: </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">arg2</span><span class="si">}</span><span class="sb"> → </span><span class="si">${</span><span class="nx">result</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">optimized</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// デッドコード除去</span>
+<span class="w">    </span><span class="nx">deadCodeElimination</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">used</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 使用される変数を収集</span>
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">used</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">))</span><span class="w"> </span><span class="nx">used</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 使用されない代入を除去</span>
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;ASSIGN&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">used</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`デッドコード除去: </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">optimized</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 共通部分式除去</span>
+<span class="w">    </span><span class="nx">commonSubexpressionElimination</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">expressions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IntermediateRepresentation</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">([</span><span class="s1">&#39;ADD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">`</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">expressions</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// 既に計算済み</span>
+<span class="w">                    </span><span class="kd">const</span><span class="w"> </span><span class="nx">existing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">expressions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="w">                    </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">emitAssign</span><span class="p">(</span><span class="nx">existing</span><span class="p">,</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">)</span>
+<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`共通部分式: </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb"> → </span><span class="si">${</span><span class="nx">existing</span><span class="si">}</span><span class="sb">を再利用`</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">expressions</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">)</span>
+<span class="w">                    </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">optimized</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">optimized</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getValue</span><span class="p">(</span><span class="nx">operand</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">operand</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">operand</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">num</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「最後に、実際のJavaScriptコードを生成しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// コードジェネレータ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CodeGenerator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">indentLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generate</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;// Yume言語からコンパイルされたコード&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;(function() {&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">indent</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c1">// 変数宣言</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">collectVariables</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">variables</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`let </span><span class="si">${</span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">variables</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 命令を変換</span>
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">generateInstruction</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">dedent</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;})();&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">code</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">generateInstruction</span><span class="p">(</span><span class="nx">inst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ASSIGN&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ADD&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> + </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;SUB&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> - </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;MUL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> * </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;DIV&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> / </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">;`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;IF&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`if (</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">) {`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">indent</span><span class="p">()</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;GOTO&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="c1">// JavaScriptでは構造化制御フローを使用</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;LABEL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">dedent</span><span class="p">()</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`} // </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;CALL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">(</span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">);`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;EMOTION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`// 感情: </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb"> → </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg2</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FUNCTION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="sb">`function </span><span class="si">${</span><span class="nx">inst</span><span class="p">.</span><span class="nx">arg1</span><span class="si">}</span><span class="sb">() {`</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">indent</span><span class="p">()</span>
+<span class="w">                </span><span class="k">break</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;END_FUNCTION&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">dedent</span><span class="p">()</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">break</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">collectVariables</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">vars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nx">ir</span><span class="p">.</span><span class="nx">instructions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">inst</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">vars</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">inst</span><span class="p">.</span><span class="nx">result</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">vars</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">emit</span><span class="p">(</span><span class="nx">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">code</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">indentLevel</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">line</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">indent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">indentLevel</span><span class="o">++</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">dedent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">indentLevel</span><span class="o">--</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「全部を統合してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語コンパイラ</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeCompiler</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lexer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeLexer</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeParser</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">translator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ASTToIRTranslator</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">optimizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Optimizer</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CodeGenerator</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">compile</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=== コンパイル開始 ===&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ソースコード:&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 1. 字句解析</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">lexer</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">sourceCode</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 2. 構文解析</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 3. 中間表現生成</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">translator</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\n=== 最適化前 ===&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">ir</span><span class="p">.</span><span class="nx">display</span><span class="p">()</span>
+
+<span class="w">            </span><span class="c1">// 4. 最適化</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">optimizedIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">optimizer</span><span class="p">.</span><span class="nx">optimize</span><span class="p">(</span><span class="nx">ir</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\n=== 最適化後 ===&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">optimizedIR</span><span class="p">.</span><span class="nx">display</span><span class="p">()</span>
+
+<span class="w">            </span><span class="c1">// 5. コード生成</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">jsCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">generator</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">optimizedIR</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;\n=== 生成されたコード ===&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">jsCode</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="nx">jsCode</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">ir</span><span class="o">:</span><span class="w"> </span><span class="nx">optimizedIR</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// テスト</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">compiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeCompiler</span><span class="p">()</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">yumeCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">愛を込めて x = 10</span>
+<span class="sb">喜びと共に y = 20</span>
+<span class="sb">result = x + y</span>
+
+<span class="sb">もし result &gt; 25 なら {</span>
+<span class="sb">    表示(&quot;大きい&quot;)</span>
+<span class="sb">} さもなければ {</span>
+<span class="sb">    表示(&quot;小さい&quot;)</span>
+<span class="sb">}</span>
+<span class="sb">`</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compiler</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">yumeCode</span><span class="p">)</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>「すごい！　Yume言語が本物のプログラムになりました」</p>
+<p>優美の興奮した声に、僕も嬉しくなった。</p>
+<p>「これで、Yume言語は完全な言語になった」</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの物語も、コンパイルされて現実になりましたね」</p>
+<p>優美の言葉に、僕は少し照れてしまった。</p>
+<p>「確かに。構文解析して、最適化して、実行可能な形になった」</p>
+<p>◇◇◇◇</p>
+<p>夕暮れの教室で、僕たちは完成したコンパイラを眺めていた。</p>
+<p>コンパイラ設計。それは、言語に命を吹き込む最後のピース。ソースコードから実行可能なプログラムへの変換。それは、まるで想いを現実にする魔法のようだ。</p>
+<p>（優美と一緒に作ったYume言語）</p>
+<p>字句解析、構文解析、意味解析、最適化、コード生成。すべての段階を、優美と一緒に作り上げた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">todaysLesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;コンパイラ設計&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">stages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;字句解析&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;構文解析&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;中間表現&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;最適化&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;コード生成&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">implementation</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;完全なコンパイラパイプライン&#39;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">achievement</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語の完成&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">teamwork</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;二人で作り上げた言語&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">future</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;新しい可能性&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日から、Yume言語を使って、もっと多くのプログラムを書けるようになる。優美の小説も、僕のアイデアも、すべてYume言語で表現できる。</p>
+<p>それは、僕たちだけの特別な言語。愛と感情を理解し、実行できる、世界で唯一の言語だ。</p>
 
 
 
@@ -1236,6 +1814,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

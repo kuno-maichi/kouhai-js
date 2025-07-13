@@ -22,7 +22,7 @@
     
     
       
-        <title>第33話 永遠の「ループ」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第33話：コードリーディング：読みやすいコード - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第33話 永遠の「ループ」
+              第33話：コードリーディング：読みやすいコード
             
           </span>
         </div>
@@ -1139,26 +1141,415 @@
   
 
 
-<h1 id="33">第33話 永遠の「ループ」<a class="headerlink" href="#33" title="Permanent link">&para;</a></h1>
-<p>僕たちの「未来」の設計図を語り合ってから、僕たちの関係は、さらに深く、確かなものになった。空き教室での勉強会は、もはや、僕たちにとって、かけがえのない「愛の巣」のようだった。</p>
-<p>「先輩、このコード、これで合ってますか？」</p>
-<p>美久が、僕の隣に身を寄せ、ノートパソコンの画面を指差す。その指先が、僕の腕に、そっと触れる。そのたびに、僕の胸の奥が、きゅっと締め付けられるような、甘い痛みが走る。</p>
-<p>「ああ、完璧だ」</p>
-<p>僕は、美久の顔を見つめながら、優しく答える。彼女の瞳は、僕の言葉を、一つも聞き漏らすまいと、真剣に輝いている。</p>
-<p>僕たちの言語は、末尾再帰の最適化まで実装できた。これで、僕たちの言語は、より効率的に、そして、より複雑な処理をこなせるようになった。</p>
-<p>でも、僕たちが今、一番夢中になっているのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「永遠のループ」だ。</p>
-<p>放課後、二人で並んで帰る道。美久が、僕の腕に、そっと自分の腕を絡ませる。その温かい感触が、僕の心を、温かいもので満たしてくれる。</p>
-<p>「先輩、私、先輩と、ずっと一緒にいたいです」</p>
-<p>美久が、僕の顔を見上げながら、はっきりと告げる。その瞳には、僕たちの未来への、揺るぎない決意が込められている。</p>
-<p>「俺もだ、美久。ずっと、一緒にいよう」</p>
-<p>僕の言葉に、美久は、はにかんだように笑った。その笑顔は、僕にとって、何よりも大切な「宝物」だ。</p>
-<p>僕たちの言語は、まだ完成には程遠い。これから先も、たくさんの機能を追加し、もっと賢く、もっと使いやすいものにしていく必要があるだろう。</p>
-<p>でも、僕たちが今、一番大切にしたいのは、そんな技術的なことだけじゃない。</p>
-<p>僕たちの「本当の物語」は、まだ始まったばかりだ。</p>
-<p>それは、僕たちの言語が、どんなに進化しても、きっと、コードには書き表せない、もっと複雑で、もっと温かい、僕と美久だけの「クロージャ」になるだろう。</p>
-<p>夕日が、教室の窓から差し込み、美久の横顔をオレンジ色に染める。その光の中で、彼女の笑顔が、僕の目に、今までで一番眩しく映った。</p>
-<p>僕たちの「永遠のループ」は、これからも、ずっと続いていく。プログラミングへの情熱と、美久への愛。その二つが、僕の人生を、無限に彩り続けてくれるだろう。</p>
+<h1 id="33">第33話：コードリーディング：読みやすいコード<a class="headerlink" href="#33" title="Permanent link">&para;</a></h1>
+<p>火曜日の放課後。優美が部屋に入ってきた時、彼女は少し困ったような顔をしていた。</p>
+<p>「先輩、相談があるんです」</p>
+<p>「どうしたんだ？」</p>
+<p>「最近、自分で書いたコードを後で見返すと、何をやっているか分からなくなることがあって……」</p>
+<p>優美の悩みは、すべてのプログラマーが通る道だ。</p>
+<p>「それは、コードの可読性の問題だな。今日は、読みやすいコードの書き方を学ぼう」</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書く時、読者のことを考えるよね？」</p>
+<p>「はい。読みやすさとか、理解しやすさとか」</p>
+<p>「プログラミングも同じだ。コードの読者は、未来の自分かもしれないし、他の開発者かもしれない」</p>
+<p>僕はホワイトボードに例を書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 読みにくいコード</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">calc</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">d</span><span class="o">=</span><span class="nx">b</span><span class="o">*</span><span class="nx">b</span><span class="o">-</span><span class="mf">4</span><span class="o">*</span><span class="nx">a</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">d</span><span class="o">&lt;</span><span class="mf">0</span><span class="p">)</span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">e</span><span class="o">=</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">[(</span><span class="o">-</span><span class="nx">b</span><span class="o">+</span><span class="nx">e</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2</span><span class="o">*</span><span class="nx">a</span><span class="p">),(</span><span class="o">-</span><span class="nx">b</span><span class="o">-</span><span class="nx">e</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2</span><span class="o">*</span><span class="nx">a</span><span class="p">)];</span>
+<span class="p">}</span>
+
+<span class="c1">// 読みやすいコード</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">solveQuadraticEquation</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 判別式を計算: b² - 4ac</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">discriminant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">c</span>
+
+<span class="w">    </span><span class="c1">// 判別式が負の場合、実数解なし</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">discriminant</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 二次方程式の解の公式を使用</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sqrtDiscriminant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">discriminant</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">solution1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">sqrtDiscriminant</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">solution2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sqrtDiscriminant</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">solution1</span><span class="p">,</span><span class="w"> </span><span class="nx">solution2</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「わあ、全然違いますね！」</p>
+<p>「機能は同じだけど、理解のしやすさが全く違う」</p>
+<p>◇◇◇◇</p>
+<p>「読みやすいコードの原則を教えよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. 意味のある名前を使う</span>
+<span class="c1">// 悪い例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calcAge</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+
+<span class="c1">// 良い例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">birthDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ageInYears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculateAge</span><span class="p">(</span><span class="nx">birthDate</span><span class="p">)</span>
+
+<span class="c1">// 2. 関数は一つのことをうまくやる</span>
+<span class="c1">// 悪い例</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">processUserData</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 検証</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;Invalid user&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// データベースに保存</span>
+<span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// メール送信</span>
+<span class="w">    </span><span class="nx">sendEmail</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Welcome!&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// ログ記録</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User processed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 良い例</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;Invalid user&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">saveUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">sendWelcomeEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">sendEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Welcome!&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">logUserAction</span><span class="p">(</span><span class="nx">action</span><span class="p">,</span><span class="w"> </span><span class="nx">userName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">action</span><span class="si">}</span><span class="sb">:`</span><span class="p">,</span><span class="w"> </span><span class="nx">userName</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用時</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">processUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">saveUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sendWelcomeEmail</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">logUserAction</span><span class="p">(</span><span class="s1">&#39;User processed&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「関数を小さく分けると、それぞれが理解しやすくなるんですね」</p>
+<p>「そう。そして、テストもしやすくなる」</p>
+<p>◇◇◇◇</p>
+<p>「コメントの書き方も重要だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 悪いコメントの例</span>
+<span class="c1">// iをインクリメント</span>
+<span class="nx">i</span><span class="o">++</span>
+
+<span class="c1">// カウンターが10になったら</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">counter</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 処理を実行</span>
+<span class="w">    </span><span class="nx">process</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 良いコメントの例</span>
+<span class="c1">// ユーザーの連続ログイン失敗回数が上限に達した場合、</span>
+<span class="c1">// セキュリティのためアカウントを一時的にロック</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">failedLoginAttempts</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">MAX_LOGIN_ATTEMPTS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">lockAccount</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span><span class="w"> </span><span class="nx">LOCK_DURATION_MINUTES</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// なぜこの処理が必要かを説明</span>
+<span class="c1">// レガシーAPIとの互換性のため、日付形式を変換する必要がある</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">formattedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">convertToLegacyFormat</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span>
+</code></pre></div>
+<p>「コメントは『なぜ』を説明するんですね」</p>
+<p>「コードは『何を』しているかを示し、コメントは『なぜ』それが必要かを説明する」</p>
+<p>◇◇◇◇</p>
+<p>「Yume言語のコードも、読みやすく書き直してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// リファクタリング前</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeLang</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 変数</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 関数</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">  </span><span class="c1">// スタック</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 実行</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">t</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;n&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">v</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">t</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;v&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">v</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">n</span><span class="p">]</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">t</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;f&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">e</span><span class="p">(</span><span class="nx">x</span><span class="p">))</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">f</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">n</span><span class="p">](...</span><span class="nx">a</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// リファクタリング後</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeInterpreter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">functions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">executionStack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotionContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EmotionContext</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * 式を評価する</span>
+<span class="cm">     * @param {Expression} expression - 評価する式</span>
+<span class="cm">     * @returns {any} 評価結果</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">expression</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;NUMBER&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">expression</span><span class="p">.</span><span class="nx">value</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;VARIABLE&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getVariable</span><span class="p">(</span><span class="nx">expression</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FUNCTION_CALL&#39;</span><span class="o">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">(</span>
+<span class="w">                    </span><span class="nx">expression</span><span class="p">.</span><span class="nx">functionName</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">expression</span><span class="p">.</span><span class="nx">arguments</span>
+<span class="w">                </span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Unknown expression type: </span><span class="si">${</span><span class="nx">expression</span><span class="p">.</span><span class="nx">type</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getVariable</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Undefined variable: </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">variables</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">callFunction</span><span class="p">(</span><span class="nx">functionName</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">functions</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">functionName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Undefined function: </span><span class="si">${</span><span class="nx">functionName</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">evaluatedArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">arg</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">arg</span><span class="p">))</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">functions</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">functionName</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">evaluatedArgs</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「こんなに読みやすくなるんですね！」</p>
+<p>「変数名を省略しないだけでも、大きな違いがある」</p>
+<p>◇◇◇◇</p>
+<p>「先輩」</p>
+<p>「ん？」</p>
+<p>「私たちの関係も、読みやすくなりましたね」</p>
+<p>突然の言葉に、ドキッとした。</p>
+<p>「どういう意味？」</p>
+<p>「前は、お互いの気持ちが『暗号化』されていたけど、今は『可読性』が高くなった」</p>
+<p>優美の表現に、思わず笑ってしまった。</p>
+<p>「確かに。告白する前は、お互いの気持ちを『デバッグ』するのが大変だった」</p>
+<p>「でも今は、コメントなしでも理解できます」</p>
+<p>◇◇◇◇</p>
+<p>「コードのフォーマットも大切だ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 一貫性のあるフォーマット</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">StoryWriter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">author</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">title</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">startChapter</span><span class="p">(</span><span class="nx">chapterTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">chapterTitle</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nx">wordCount</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">writeParagraph</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;章を開始してください&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="p">.</span><span class="nx">wordCount</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">finishChapter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;開始された章がありません&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getTotalWordCount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">chapters</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+<span class="w">            </span><span class="p">(</span><span class="nx">total</span><span class="p">,</span><span class="w"> </span><span class="nx">chapter</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chapter</span><span class="p">.</span><span class="nx">wordCount</span><span class="p">,</span>
+<span class="w">            </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myStory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">StoryWriter</span><span class="p">(</span><span class="s1">&#39;優美&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;幼馴染とプログラミング&#39;</span><span class="p">)</span>
+
+<span class="nx">myStory</span><span class="p">.</span><span class="nx">startChapter</span><span class="p">(</span><span class="s1">&#39;出会い&#39;</span><span class="p">)</span>
+<span class="nx">myStory</span><span class="p">.</span><span class="nx">writeParagraph</span><span class="p">(</span><span class="s1">&#39;ベランダ越しに聞こえた声。それが全ての始まりだった。&#39;</span><span class="p">)</span>
+<span class="nx">myStory</span><span class="p">.</span><span class="nx">writeParagraph</span><span class="p">(</span><span class="s1">&#39;「先輩、私だけのプログラミング言語作ってください！」&#39;</span><span class="p">)</span>
+<span class="nx">myStory</span><span class="p">.</span><span class="nx">finishChapter</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`現在の文字数: </span><span class="si">${</span><span class="nx">myStory</span><span class="p">.</span><span class="nx">getTotalWordCount</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</code></pre></div>
+<p>「インデントとか、空白の使い方が統一されてますね」</p>
+<p>「一貫性があると、コードの構造が見やすくなる」</p>
+<p>◇◇◇◇</p>
+<p>「最後に、読みやすさのチェックリストを作ろう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// コードレビューチェックリスト</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CodeReadabilityChecker</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">checks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;命名規則&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">check</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// 変数名が意味を持っているか</span>
+<span class="w">                    </span><span class="c1">// camelCaseが使われているか</span>
+<span class="w">                    </span><span class="c1">// 省略語を避けているか</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;関数の長さ&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">check</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// 関数が20行以内か</span>
+<span class="w">                    </span><span class="c1">// 一つの責任だけを持っているか</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;コメント&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">check</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// 複雑な処理にコメントがあるか</span>
+<span class="w">                    </span><span class="c1">// コメントが最新の状態か</span>
+<span class="w">                    </span><span class="c1">// 不要なコメントがないか</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;エラー処理&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">check</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// エラーが適切に処理されているか</span>
+<span class="w">                    </span><span class="c1">// エラーメッセージが分かりやすいか</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">review</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">check</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">checks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">checkName</span><span class="o">:</span><span class="w"> </span><span class="nx">check</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">passed</span><span class="o">:</span><span class="w"> </span><span class="nx">check</span><span class="p">.</span><span class="nx">check</span><span class="p">(</span><span class="nx">code</span><span class="p">),</span>
+<span class="w">                </span><span class="nx">suggestions</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getSuggestions</span><span class="p">(</span><span class="nx">check</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">results</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getSuggestions</span><span class="p">(</span><span class="nx">checkName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">suggestions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;命名規則&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;変数名は名詞、関数名は動詞で始める&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;省略語より完全な単語を使う&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;getUserById &gt; getUsrById&#39;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s1">&#39;関数の長さ&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;複雑な関数は小さな関数に分割&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;各関数は一つの責任だけを持つ&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;テストしやすい単位に分ける&#39;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">suggestions</span><span class="p">[</span><span class="nx">checkName</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>◇◇◇◇</p>
+<p>レッスンの最後に、僕は優美に特別なコードを見せた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 私たちの物語を読みやすく</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">OurStory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;幼馴染とプログラミング言語&#39;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">protagonists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;雅史&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;優美&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">currentChapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">33</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">relationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;lovers&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 物語の始まり</span>
+<span class="w">    </span><span class="nx">beginning</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">scene</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ベランダ越しの会話&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">dialogue</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;先輩、私だけのプログラミング言語作ってください！&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">emotion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;excitement&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">foreshadowing</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;この言葉が、二人の運命を変えることになる&#39;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 現在の章</span>
+<span class="w">    </span><span class="nx">currentMoment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">learning</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;コードの可読性&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">relationship</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;恋人同士&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">sharedDream</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Yume言語の完成&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// これからの物語</span>
+<span class="w">    </span><span class="nx">future</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">challenges</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;大学受験&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Yume言語の実装&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">promises</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;一緒に乗り越える&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ずっと一緒にいる&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">ending</span><span class="o">:</span><span class="w"> </span><span class="kc">undefined</span><span class="w">  </span><span class="c1">// まだ書かれていない未来</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">ourJourney</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">OurStory</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;私たちの物語は、とても読みやすく、そして美しい&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>「これって……」</p>
+<p>「僕たちの物語も、読みやすく、理解しやすいものにしていこう」</p>
+<p>優美の頬が赤く染まった。</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のレッスンを振り返っていた。</p>
+<p>読みやすいコード。それは、他者への思いやりの表れだ。</p>
+<p>（優美との関係も、お互いに「読みやすく」なった）</p>
+<p>窓の外を見ると、秋の夜空に月が輝いていた。</p>
+<p>コードも、人間関係も、透明性と思いやりが大切。相手のことを考えて、分かりやすく表現すること。それが、良いコードと良い関係の共通点だ。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の学び</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">lesson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;コードの可読性&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">practices</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;意味のある命名&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;適切なコメント&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;一貫性&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">benefit</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;未来の自分と他者への贈り物&#39;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">personal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">realization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;透明性の大切さ&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">growth</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;相手を思いやる表現&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">love</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;readable &amp;&amp; understandable&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日も、優美と一緒に、読みやすく美しいコードを書いていこう。そして、僕たちの物語も、誰が読んでも温かい気持ちになれるような、そんな物語にしていこう。</p>
 
 
 
@@ -1236,6 +1627,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

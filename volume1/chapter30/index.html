@@ -22,7 +22,7 @@
     
     
       
-        <title>第30話 告白という名の「宣言」 - きみと創る、世界で一番やさしい言語</title>
+        <title>第30話：ガベージコレクション：メモリの自動管理 - きみと創る、世界で一番やさしい言語</title>
       
     
     
@@ -47,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第30話 告白という名の「宣言」
+              第30話：ガベージコレクション：メモリの自動管理
             
           </span>
         </div>
@@ -1139,31 +1141,417 @@
   
 
 
-<h1 id="30">第30話 告白という名の「宣言」<a class="headerlink" href="#30" title="Permanent link">&para;</a></h1>
-<p>美久の言葉が、僕の心の中で、何度も反響していた。「もっと、色々なことを『繋ぎ合わせたい』です」。その言葉の真意を、僕は、もう誤魔化すことができなかった。</p>
-<p>僕たちの間に流れる空気は、もはや、プログラミングの技術的な話では、ごまかせないほどに、甘く、そして、切ないものになっていた。</p>
-<p>夕暮れの空き教室。ノートパソコンの画面には、末尾再帰の最適化のコードが映し出されている。でも、僕の視線は、そのコードではなく、隣に座る美久の横顔に釘付けになっていた。</p>
-<p>彼女の髪が、夕日に照らされて、きらきらと輝いている。その横顔は、真剣で、少しだけ、はにかんでいるように見えた。</p>
-<p>（今だ……）</p>
-<p>僕の心臓が、激しく脈打つ。まるで、無限ループに陥ったプログラムのように、思考が堂々巡りする。でも、もう、逃げることはできない。</p>
-<p>僕は、深呼吸をして、震える声で、美久に話しかけた。</p>
-<p>「美久……」</p>
-<p>僕の声に、美久は、ゆっくりと顔を上げた。その瞳が、僕の心を、まっすぐに見つめている。</p>
-<p>「あの、その……」</p>
-<p>言葉が、喉の奥で詰まる。こんなにも、たった一言を言うのが難しいなんて。まるで、初めてバグのないコードを書き上げた時のような、いや、それ以上の、胸の高鳴りだ。</p>
-<p>僕は、意を決して、美久の目を、真っ直ぐに見つめた。</p>
-<p>「俺は……美久のことが、好きだ」</p>
-<p>その言葉は、僕の口から、まるで、プログラムの「宣言」のように、はっきりと、そして、力強く放たれた。</p>
-<p>美久は、僕の言葉を聞くと、ぱちくりと大きな瞳を瞬かせた。そして、みるみるうちに、その頬が、真っ赤に染まっていく。</p>
-<p>「せ、先輩……」</p>
-<p>彼女の声は、震えていた。その瞳には、驚きと、そして、少しだけ、潤んだ光が宿っている。</p>
-<p>「私……私も、先輩のことが、好きです……！」</p>
-<p>美久の言葉が、僕の心に、温かい光を灯した。それは、僕たちの言語が、新しい概念を理解した時のような、静かな感動だった。</p>
-<p>僕たちの「世界」は、プログラミングという共通の興味を通じて、どんどん広がっていく。そして、その「世界」の中で、僕と美久の関係もまた、ゆっくりと、しかし確実に、深まっていた。</p>
-<p>僕たちの関係は、まるで、新しいプログラミング言語のようだ。まだ、全ての機能が揃っているわけじゃない。でも、一つ一つの機能が、僕たちの手で、丁寧に、そして、愛情を込めて作られていく。</p>
-<p>僕たちの「世界」は、もう、コードの中だけじゃない。僕たちの心と心が、深く、そして、温かく「繋ぎ合わされ」ようとしていた。</p>
-<p>夕暮れの空き教室。ノートパソコンの画面に映るコードと、美久の真剣な、そして、少しだけ潤んだ瞳。その全てが、僕にとって、かけがえのない「宝物」になっていた。</p>
-<p>僕たちの「告白」は、僕たちの「本当の物語」の、始まりを告げる、力強い「宣言」だった。</p>
+<h1 id="30">第30話：ガベージコレクション：メモリの自動管理<a class="headerlink" href="#30" title="Permanent link">&para;</a></h1>
+<p>水曜日の放課後。昨日のプロジェクト管理のレッスンで、優美が「私たちの関係プロジェクト：準備完了」と言った時の表情が忘れられない。あの時の彼女の瞳には、何か決意のようなものが宿っていた。</p>
+<p>「先輩、今日は何を教えてくれるんですか？」</p>
+<p>優美がいつものように部屋に入ってきた。でも、今日は少し様子が違う。どこか、整理されたような、すっきりした印象を受ける。</p>
+<p>「今日は、ガベージコレクションについて」</p>
+<p>「ガベージコレクション？」</p>
+<p>「プログラムが使わなくなったメモリを自動的に回収する仕組みだ」</p>
+<p>僕はホワイトボードに向かいながら、優美の変化について考えていた。</p>
+<p>◇◇◇◇</p>
+<p>「優美、小説を書いてる時、書いたけど使わなかった文章ってあるよね？」</p>
+<p>「はい！　最初は必要だと思って書いたけど、物語の流れを見直したら不要になった部分とか」</p>
+<p>「それを削除して、小説をすっきりさせることがあるだろ？」</p>
+<p>「あります。そうすると、物語の本質がもっと見えやすくなります」</p>
+<p>「プログラミングでも同じことが起こる。それを自動でやってくれるのがガベージコレクションだ」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// メモリ管理の問題（悪い例）</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">createLotsOfObjects</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1000000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">1000</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">objects</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// この後、objectsを使わなくても</span>
+<span class="w">    </span><span class="c1">// メモリに残り続ける可能性がある</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;処理完了&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// ガベージコレクションによる自動管理</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">efficientMemoryUsage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ブロックスコープ内で使用</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">temporaryData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">1000000</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 何らかの処理...</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">temporaryData</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// このブロックを抜けると、temporaryDataは</span>
+<span class="w">        </span><span class="c1">// ガベージコレクションの対象になる</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// ここではtemporaryDataにアクセスできない</span>
+<span class="w">    </span><span class="c1">// メモリは自動的に解放される</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「自動でお掃除してくれるんですね」</p>
+<p>「そう。プログラマーが忘れがちなメモリの管理を、システムが代わりにやってくれる」</p>
+<p>◇◇◇◇</p>
+<p>「実際に、小説の『ガベージコレクション』をコードで表現してみよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小説のガベージコレクション</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">NovelGarbageCollector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span><span class="w"> </span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span><span class="w"> </span><span class="c1">// どの場面がどのキャラクターを参照しているか</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">unusedThreshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="c1">// 3回の確認で未使用と判定</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 場面を追加</span>
+<span class="w">    </span><span class="nx">addScene</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">referencedCharacters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">lastAccessed</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">accessCount</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">references</span><span class="o">:</span><span class="w"> </span><span class="nx">referencedCharacters</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="c1">// 参照関係を記録</span>
+<span class="w">        </span><span class="nx">referencedCharacters</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">charId</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">charId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">charId</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">())</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">charId</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// キャラクターを追加</span>
+<span class="w">    </span><span class="nx">addCharacter</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="nx">description</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">lastUsed</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">            </span><span class="nx">usageCount</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 場面にアクセス（使用）</span>
+<span class="w">    </span><span class="nx">accessScene</span><span class="p">(</span><span class="nx">sceneId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">sceneId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">scene</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">scene</span><span class="p">.</span><span class="nx">lastAccessed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">            </span><span class="nx">scene</span><span class="p">.</span><span class="nx">accessCount</span><span class="o">++</span>
+
+<span class="w">            </span><span class="c1">// 参照されているキャラクターも使用済みに</span>
+<span class="w">            </span><span class="nx">scene</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">charId</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">charId</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">character</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">character</span><span class="p">.</span><span class="nx">lastUsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">                    </span><span class="nx">character</span><span class="p">.</span><span class="nx">usageCount</span><span class="o">++</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ガベージコレクション実行</span>
+<span class="w">    </span><span class="nx">collectGarbage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">oneWeekAgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">removedScenes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">removedCharacters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="c1">// 未使用の場面を削除</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">sceneId</span><span class="p">,</span><span class="w"> </span><span class="nx">scene</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">scene</span><span class="p">.</span><span class="nx">lastAccessed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">oneWeekAgo</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">scene</span><span class="p">.</span><span class="nx">accessCount</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">unusedThreshold</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">sceneId</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">removedScenes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sceneId</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// 参照関係も削除</span>
+<span class="w">                </span><span class="nx">scene</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">charId</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">charId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">charId</span><span class="p">).</span><span class="ow">delete</span><span class="p">(</span><span class="nx">sceneId</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 未使用のキャラクターを削除</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">charId</span><span class="p">,</span><span class="w"> </span><span class="nx">character</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">hasReferences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">charId</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">charId</span><span class="p">).</span><span class="nx">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">hasReferences</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">character</span><span class="p">.</span><span class="nx">lastUsed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">oneWeekAgo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">charId</span><span class="p">)</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">charId</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">removedCharacters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">charId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">removedScenes</span><span class="o">:</span><span class="w"> </span><span class="nx">removedScenes</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">removedCharacters</span><span class="o">:</span><span class="w"> </span><span class="nx">removedCharacters</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">memoryFreed</span><span class="o">:</span><span class="w"> </span><span class="nx">removedScenes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">removedCharacters</span><span class="p">.</span><span class="nx">length</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// メモリ使用状況</span>
+<span class="w">    </span><span class="nx">getMemoryUsage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">totalScenes</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">scenes</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalCharacters</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">totalReferences</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">values</span><span class="p">()).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">refs</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">refs</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「これなら、物語に必要な要素だけが残るんですね」</p>
+<p>「そう。不要になった要素は自動的に整理される」</p>
+<p>◇◇◇◇</p>
+<p>「でも、先輩」</p>
+<p>「ん？」</p>
+<p>「私、最近、心の中の不要なものも整理したくなってきました」</p>
+<p>優美が少し真剣な表情で言った。</p>
+<p>「不要なもの？」</p>
+<p>「はい。例えば……」</p>
+<p>優美が少し躊躇してから続けた。</p>
+<p>「『幼馴染だから、この関係を壊しちゃいけない』っていう思い込みとか」</p>
+<p>僕の心臓が大きく跳ねた。</p>
+<p>「それは……」</p>
+<p>「『先輩は私を妹みたいにしか思ってない』っていう勝手な決めつけとか」</p>
+<p>優美の言葉が、僕の胸に深く響く。</p>
+<p>◇◇◇◇</p>
+<p>「実は、今朝、自分なりにガベージコレクションをやってみたんです」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 優美の心のガベージコレクション</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">HeartGarbageCollector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">owner</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">owner</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">thoughts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">fears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">hopes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 不要な感情を特定</span>
+<span class="w">    </span><span class="nx">identifyUnusedEmotions</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">toRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 建設的でない感情をマーク</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;不安&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">emotion</span><span class="p">.</span><span class="nx">basedOnFacts</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">toRemove</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;遠慮&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">emotion</span><span class="p">.</span><span class="nx">isNecessary</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">toRemove</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;諦め&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">emotion</span><span class="p">.</span><span class="nx">tryCount</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">toRemove</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">toRemove</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 心の整理</span>
+<span class="w">    </span><span class="nx">cleanUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 根拠のない不安を削除</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;先輩に嫌われるかも&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;関係が壊れるかも&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;私には無理かも&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 不要な遠慮を削除</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">thoughts</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;言わない方がいい&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">thoughts</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;期待しちゃダメ&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">thoughts</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;現状維持が安全&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// 新しい感情を追加</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;勇気&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;希望&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">strength</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">basedOnFacts</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;先輩との素敵な思い出&quot;</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">thoughts</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;素直な気持ち&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;先輩のことが好き&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">shouldExpress</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">removed</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">added</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">netResult</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;より軽やかな心&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用例</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumiHeart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">HeartGarbageCollector</span><span class="p">(</span><span class="s2">&quot;柳原優美&quot;</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">cleanupResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumiHeart</span><span class="p">.</span><span class="nx">cleanUp</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;心の整理結果:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">cleanupResult</span><span class="p">)</span>
+</code></pre></div>
+<p>「優美……」</p>
+<p>僕は優美の真剣な表情に見とれていた。</p>
+<p>「だから、今日ははっきり言います」</p>
+<p>優美が深呼吸をした。</p>
+<p>◇◇◇◇</p>
+<p>「先輩。私、いつまでも『幼馴染』という関係に甘えていちゃダメですよね」</p>
+<p>「優美……」</p>
+<p>「私の気持ち、ちゃんと整理できました。不要な遠慮も、根拠のない不安も、全部ガベージコレクションしました」</p>
+<p>優美の瞳が、今まで見たことがないほど真っ直ぐ僕を見つめている。</p>
+<p>「そして、残ったのは……」</p>
+<p>「残ったのは？」</p>
+<p>「先輩のことが好きだという、純粋な気持ちです」</p>
+<p>優美の言葉が、部屋の空気を変えた。</p>
+<p>◇◇◇◇</p>
+<p>「僕も……」</p>
+<p>僕は自分の心を探った。</p>
+<p>「僕も、心の中の不要なものを整理したい」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 雅史の心のガベージコレクション</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MasashiHeartCleanup</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">barriers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;優美を傷つけるかもしれない&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;関係が変わるのが怖い&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="s2">&quot;今のままでも幸せだからいいじゃないか&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;告白するタイミングじゃない&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">trueFeelings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;優美が大好き&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;優美といると心が軽やか&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;優美の笑顔が一番の宝物&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;優美と一緒に未来を歩みたい&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">executeGarbageCollection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 不要な障壁を削除</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">barriers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="c1">// 本当の気持ちだけを残す</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cleanup_complete&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">trueFeelings</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;もう迷わない&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">masashiCleanup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MasashiHeartCleanup</span><span class="p">()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">masashiCleanup</span><span class="p">.</span><span class="nx">executeGarbageCollection</span><span class="p">()</span>
+</code></pre></div>
+<p>「優美」</p>
+<p>「はい」</p>
+<p>「僕も、優美のことが好きだ。ずっと前から」</p>
+<p>◇◇◇◇</p>
+<p>「本当ですか？」</p>
+<p>優美の顔がぱっと明るくなった。</p>
+<p>「ああ。でも、関係が変わるのが怖くて、なかなか言えなかった」</p>
+<p>「私も同じでした。でも、ガベージコレクションのおかげで、心がすっきりしました」</p>
+<p>僕たちは、お互いに微笑み合った。</p>
+<p>「それじゃあ……」</p>
+<p>「はい」</p>
+<p>「改めて。柳原優美さん、僕と付き合ってください」</p>
+<p>「はい！　喜んで！」</p>
+<p>◇◇◇◇</p>
+<p>優美が嬉しそうに頷いた瞬間、部屋の空気が一変した。今まで重く感じていたものが、すべて軽やかになった気がする。</p>
+<p>「ガベージコレクションって、すごい技術ですね」</p>
+<p>「そうだな。不要なものを手放すことで、本当に大切なものが見えてくる」</p>
+<p>「私たちの関係も、これでやっと『最適化』されましたね」</p>
+<p>優美の言葉に、僕も心から笑った。</p>
+<p>◇◇◇◇</p>
+<p>「そういえば、Yume言語にもガベージコレクション機能を実装しよう」</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Yume言語のガベージコレクション</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">YumeGarbageCollector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">expressions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">()</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">lastCleanup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 感情の整理</span>
+<span class="w">    </span><span class="nx">cleanupEmotions</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">removed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ネガティブで建設的でない感情を削除</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">isNegative</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">isConstructive</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">removed</span><span class="o">++</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// ポジティブな感情を強化</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">emotion</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">emotions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">isPositive</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">emotion</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">emotion</span><span class="p">.</span><span class="nx">strength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">removed</span><span class="p">,</span><span class="w"> </span><span class="nx">optimized</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 記憶の整理</span>
+<span class="w">    </span><span class="nx">organizeMemories</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">importantMemories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">memory</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">memory</span><span class="p">.</span><span class="nx">importance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">importantMemories</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">memory</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 重要な記憶だけを保持</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">importantMemories</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">memory</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">memories</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="sb">`important_</span><span class="si">${</span><span class="nx">index</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">memory</span><span class="p">)</span>
+<span class="w">        </span><span class="p">})</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">totalMemories</span><span class="o">:</span><span class="w"> </span><span class="nx">importantMemories</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;大切な思い出だけを残しました&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 恋愛関係の最適化</span>
+<span class="w">    </span><span class="nx">optimizeRelationship</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span><span class="w"> </span><span class="nx">person2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;恋人&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">connection</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;最高レベル&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">memory_usage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;効率的&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">happiness_level</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">future_prospects</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;明るい&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 二人の関係を最適化</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">yumeGC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">YumeGarbageCollector</span><span class="p">()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">relationshipStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yumeGC</span><span class="p">.</span><span class="nx">optimizeRelationship</span><span class="p">(</span><span class="s2">&quot;雅史&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;優美&quot;</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;関係の最適化結果:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">relationshipStatus</span><span class="p">)</span>
+</code></pre></div>
+<p>「これで、私たちの関係も、Yume言語も、すべて最適化されましたね」</p>
+<p>「ああ。不要なものは手放して、大切なものだけを残す」</p>
+<p>◇◇◇◇</p>
+<p>優美が帰った後、僕は今日のことを振り返っていた。</p>
+<p>ガベージコレクション。不要なメモリを自動的に解放する技術。</p>
+<p>（優美との関係も、やっと不要な遠慮や不安から解放された）</p>
+<p>窓の外を見ると、夕日が街を優しく包んでいた。</p>
+<p>僕たちの心も、余計なものが取り除かれて、とても軽やかになった。これからは、お互いの本当の気持ちだけを大切に育てていける。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 今日の総括</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">technicalLearning</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ガベージコレクション&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">personalGrowth</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;不要な感情の整理&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">relationshipStatus</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;恋人&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">memoryUsage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;最適化済み&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">happiness</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>明日からは、恋人として一緒にYume言語を作っていく。その先にある未来が、今まで以上に輝いて見えた。</p>
+<p>ガベージコレクションのおかげで、僕たちは本当に大切なものを見つけることができた。優美との愛を。</p>
 
 
 
@@ -1241,6 +1629,8 @@
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>
